@@ -113,9 +113,9 @@ def render_home() -> str:
                 "@id": PERSON_ID,
                 "name": "Harjas Sandhu",
                 "url": BASE + "/",
-                "description": "Mathematics student at the University of Queensland and contact person for the preprints collected on this website.",
+                "description": "Bachelor of Mathematics student at the University of Queensland, majoring in Mathematical AI, with interests in AI for scientific discovery, autonomous research, and mathematical reasoning.",
                 "affiliation": {"@type": "CollegeOrUniversity", "name": "The University of Queensland", "url": "https://www.uq.edu.au/"},
-                "knowsAbout": ["Agentic AI workflows", "Multi-agent coordination", "AI-assisted research systems"],
+                "knowsAbout": ["AI for Scientific Discovery", "Mathematical AI", "Autonomous Research Systems", "AI for Mathematics", "Computational Science"],
             },
             {"@type": "ProfilePage", "@id": BASE + "/#profile", "url": BASE + "/", "name": "Harjas Sandhu", "mainEntity": {"@id": PERSON_ID}},
         ],
@@ -133,26 +133,27 @@ def render_home() -> str:
               <a href="{paper_path(paper)}#citation" aria-label="Citation: {e(paper['title'])}">Cite</a>
             </div>
           </li>''')
-    return head("Harjas Sandhu — Mathematics & AI Systems", "Harjas Sandhu is a mathematics student at the University of Queensland, interested in agentic AI workflows, multi-agent coordination, and AI-assisted research systems.", "/") + schema_tag(person) + '''
+    return head("Harjas Sandhu — AI for Scientific Discovery", "Harjas Sandhu is a Bachelor of Mathematics student at the University of Queensland exploring AI for scientific discovery, autonomous research systems, and mathematical reasoning.", "/") + schema_tag(person) + '''
 </head>
 <body>
 ''' + header() + '''
   <main id="main">
     <section class="intro" aria-labelledby="harjas-sandhu">
-      <p class="eyebrow">Mathematics &amp; AI systems</p>
+      <p class="eyebrow">Mathematics &amp; scientific discovery</p>
       <h1 id="harjas-sandhu">Harjas Sandhu</h1>
-      <p class="position">Mathematics student, University of Queensland</p>
+      <p class="position">Mathematics undergraduate | AI for scientific discovery &amp; autonomous research</p>
       <div class="bio">
-        <p>I am a mathematics student at the University of Queensland, with interests in agentic AI workflows, multi-agent coordination, and AI-assisted research systems.</p>
-        <p>This website collects two independent-research preprints for which I serve as the manuscript contact. Their abstracts, original PDFs, repository records, and citation information are available below.</p>
+        <p>I am a Bachelor of Mathematics student at the University of Queensland, majoring in Mathematical AI. I investigate how AI systems can become capable scientific researchers, with a focus on autonomous discovery, mathematical reasoning, and the accumulation of verifiable knowledge.</p>
+        <p>I develop and direct an independent AI-assisted research project exploring whether autonomous systems can conduct original research that builds on prior results. My work involves designing research processes, coordinating independent AI investigations, and evaluating their outputs.</p>
       </div>
     </section>
 
     <section class="section-row" id="research" aria-labelledby="research-heading">
       <h2 id="research-heading">Research interests</h2>
       <div class="section-copy">
-        <p>I am interested in the design and evaluation of agentic workflows: how AI agents divide tasks, share information, and coordinate their work across complex research processes.</p>
-        <p class="topic-line">Agentic AI workflows · Multi-agent coordination · AI-assisted research systems</p>
+        <p>My interests span AI for mathematics, theoretical machine learning, computational physics, and AI-driven discovery in the physical sciences. I am particularly interested in how mathematical reasoning, scientific computation, and accumulated knowledge can support autonomous research.</p>
+        <p>My broader aim is to develop research systems that deepen fundamental scientific understanding and help enable advances in science and technology.</p>
+        <p class="topic-line">AI for Scientific Discovery · Mathematical AI · Autonomous Research Systems · AI for Mathematics · Computational Science</p>
       </div>
     </section>
 
@@ -162,6 +163,7 @@ def render_home() -> str:
         <p class="section-note">2026 · Two companion manuscripts</p>
       </div>
       <div class="section-copy">
+        <p class="publication-context">These companion quantum-information preprints come from AI-assisted investigations for which I serve as manuscript contact. Their provenance and review status are stated on each paper page.</p>
         <ol class="publication-list">
 ''' + "\n".join(entries) + '''
         </ol>
