@@ -1,0 +1,17 @@
+TY  - GEN
+T1  - Complete information orders of quantum channels: equivalence and undecidability
+AU  - Sandhu, Harjas
+DO  - 10.5281/ZENODO.23349086
+UR  - https://zenodo.org/doi/10.5281/zenodo.23349086
+AB  - About complete information orders of finite-dimensional quantum channels. With unrestricted finite quantum references, it claims equivalence of relative-entropy, Holevo, BKM, SLD Fisher-information and measured-chi-squared comparisons, with order reversal under genuine Stinespring complementation. It further claims coRE-completeness for strictly positive rational-complex POVMs, the absence of a computable sufficient SLD-reference cutoff, and inapproximability of a bounded additive entropy defect at every fixed positive additive accuracy. 
+
+The companion manuscript is From complete channel order to capacity and one-way distillation; its capacity and distillation conclusions depend on the order results developed here.
+KW  - quantum information
+KW  - quantum channels
+KW  - information order
+KW  - undecidability
+KW  - quantum Fisher information
+PY  - 2026
+PB  - Zenodo
+LA  - en
+ER  - 

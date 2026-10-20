@@ -1,0 +1,17 @@
+TY  - GEN
+T1  - From complete channel order to capacity and one-way distillation
+AU  - Sandhu, Harjas
+DO  - 10.5281/ZENODO.23349192
+UR  - https://zenodo.org/doi/10.5281/zenodo.23349192
+AB  - A universal construction that converts failure of complete quantum-channel information order into strictly positive ordinary private and quantum capacity. It claims an exact-zero capacity undecidability classification for finite rational-complex memoryless channels and corresponding positivity and zero classifications for one-way distillable entanglement and secret key. The state reductions retain any prescribed two-way distillation lower bound. The construction explicitly charges reference transmission and activation helper uses to the constructed channel. Strict positivity is distinguished from any uniform positive capacity gap; fixed-error capacity inapproximability is not claimed.
+
+The exact order-equivalence and undecidability premises are developed in the companion manuscript Complete information orders of quantum channels: equivalence and undecidability.
+KW  - quantum information
+KW  - quantum capacity
+KW  - private capacity
+KW  - one-way distillation
+KW  - undecidability
+PY  - 2026
+PB  - Zenodo
+LA  - en
+ER  - 

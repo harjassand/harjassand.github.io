@@ -1,0 +1,67 @@
+{
+  "base_url": "https://harjassand.github.io",
+  "retrieved": "2026-10-21",
+  "papers": [
+    {
+      "slug": "complete-information-orders",
+      "record_id": 23349086,
+      "title": "Complete information orders of quantum channels: equivalence and undecidability",
+      "doi": "10.5281/zenodo.23349086",
+      "record_url": "https://zenodo.org/records/23349086",
+      "publication_date": "2026-10-14",
+      "manuscript_date": "2026-10-11",
+      "version": "1.0",
+      "abstract": "With arbitrary finite quantum references, relative entropy, Holevo information and SLD Fisher information induce the same channel order, reversed by complementation. This order is coRE-complete, even for strictly positive rational POVMs. Its bounded entropy defect is additive and uncomputable at every fixed positive additive accuracy.",
+      "provenance": "The new results and proofs were discovered and developed by AI systems. Harjas Sandhu serves solely as the contact person. Independent specialist review and priority assessment are pending.",
+      "keywords": [
+        "quantum information theory",
+        "quantum channel comparison",
+        "complete information order",
+        "quantum relative entropy",
+        "Holevo information",
+        "quantum Fisher information",
+        "symmetric logarithmic derivative",
+        "POVMs",
+        "undecidability",
+        "computability"
+      ],
+      "pdf_filename": "complete_channel_information_order.pdf",
+      "pdf_sha256": "d5b42e39abf931578c9a27f61c6274ce35a24e9e6328650332d962470de7cb90",
+      "pdf_bytes": 595904,
+      "bib_sha256": "6f5f08d59699cdfc8197ef658aa721075019ea766d0c1d654ca3f89508f78f93",
+      "ris_source_sha256": "dfecd8240b4730a37255dc59254736e091c939cd29495f18e5c1bff85376078f",
+      "ris_sha256": "dfecd8240b4730a37255dc59254736e091c939cd29495f18e5c1bff85376078f",
+      "summary": "Complete quantum-channel comparison, information measures, and undecidability."
+    },
+    {
+      "slug": "capacity-and-distillation",
+      "record_id": 23349192,
+      "title": "From complete channel order to capacity and one-way distillation",
+      "doi": "10.5281/zenodo.23349192",
+      "record_url": "https://zenodo.org/records/23349192",
+      "publication_date": "2026-10-14",
+      "manuscript_date": "2026-10-11",
+      "version": "1.0",
+      "abstract": "A flagged channel with a four-dimensional auxiliary input turns every failed complete information comparison into positive private and quantum capacity. This transfers complete-order undecidability to exact-zero capacity and one-way distillation, even under any prescribed two-way distillation lower bound. All reference transmission and activation use the constructed channel itself.",
+      "provenance": "The new results and proofs were discovered and developed by AI systems. Harjas Sandhu serves solely as the contact person. Independent specialist review and priority assessment are pending.",
+      "keywords": [
+        "quantum information theory",
+        "quantum channel capacity",
+        "quantum capacity",
+        "private capacity",
+        "one-way distillable entanglement",
+        "distillable secret key",
+        "quantum channel comparison",
+        "undecidability",
+        "quantum erasure channels"
+      ],
+      "pdf_filename": "universal_channel_capacity_distillation.pdf",
+      "pdf_sha256": "2bd714136dbcb4d3248151d7f5f02d68c731dadf4c01e937b8d58f7e03b707d5",
+      "pdf_bytes": 440282,
+      "bib_sha256": "20d4b8747778389a2ccc276ef2e03d2e95863330352ce589c0be1a18d73f5c94",
+      "ris_source_sha256": "d54824d9f3f17f74ab866d6aa663df2ce875cf5b9a270e705c79afb5d32ea380",
+      "ris_sha256": "d54824d9f3f17f74ab866d6aa663df2ce875cf5b9a270e705c79afb5d32ea380",
+      "summary": "Complete channel order, communication capacity, and one-way distillation."
+    }
+  ]
+}
