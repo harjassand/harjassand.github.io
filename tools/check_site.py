@@ -161,7 +161,9 @@ def main():
     check(len(urls) == len(DATA["papers"]) + 1, "Sitemap URL count invalid")
     for url in urls:
         check(local_target(url, ROOT / "index.html")[0] in pages, "Sitemap target invalid")
-    check(f"Sitemap: {BASE}/sitemap.xml" in (ROOT / "robots.txt").read_text(), "Robots sitemap missing")
+    check((ROOT / "sitemap.txt").read_text(encoding="utf-8").splitlines() == urls, "Text sitemap differs from canonical XML URLs")
+    for filename in ("sitemap.xml", "sitemap.txt"):
+        check(f"Sitemap: {BASE}/{filename}" in (ROOT / "robots.txt").read_text(), f"Robots reference missing: {filename}")
     check((ROOT / ".nojekyll").is_file(), "GitHub Pages .nojekyll missing")
     print(f"PASS: {len(pages)} HTML pages, {link_count} local links/anchors/assets, {len(DATA['papers'])} unchanged PDFs, exact abstracts and disclosures, citation exports, JSON-LD, canonical/scholarly metadata, sitemap and robots.txt.")
     print("LIMIT: author metadata intentionally absent because manuscripts specify contact-only role; no search-engine indexing claim.")

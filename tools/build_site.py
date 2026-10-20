@@ -311,8 +311,9 @@ def main() -> None:
 ''' + footer())
     urls = [BASE + "/"] + [BASE + paper_path(paper) for paper in PAPERS]
     (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{url}</loc></url>\n" for url in urls) + "</urlset>\n")
-    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
-    print(f"Generated home, {len(PAPERS)} publication pages, 404, robots.txt and sitemap.xml.")
+    (ROOT / "sitemap.txt").write_text("\n".join(urls) + "\n", encoding="utf-8")
+    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\nSitemap: {BASE}/sitemap.txt\n")
+    print(f"Generated home, {len(PAPERS)} publication pages, 404, robots.txt and XML/text sitemaps.")
 
 
 if __name__ == "__main__":

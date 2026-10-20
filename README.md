@@ -93,3 +93,11 @@ PDFs remain reachable through ordinary HTML links and `citation_pdf_url`;
 alternate `/index.html` addresses are not added to the sitemap. GitHub Pages
 sets the PDF HTTP headers, so an `_headers` file or HTML meta tag cannot add
 an HTTP canonical header to a PDF on this host.
+
+The generator also creates `sitemap.txt`, Google's supported plain-text format,
+from the same canonical URL list. Both formats are declared in `robots.txt`.
+The text version provides an alternative submission while the XML submission
+has an unresolved Search Console fetch report despite successful live fetching.
+The validator checks that the two formats contain identical URLs. Neither a
+valid sitemap nor a submission acknowledgement confirms Google has processed
+the sitemap or indexed its pages.
