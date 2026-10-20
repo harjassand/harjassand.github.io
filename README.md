@@ -55,23 +55,25 @@ publication date is 14 October 2026. Original PDF bytes and SHA-256 hashes
 are retained; the check script verifies them. The existing Apache-2.0
 manuscript licenses are identified without relicensing any manuscript.
 
-Harjas confirmed that his contribution was developing and coordinating the
-agentic system. The website credits this separately from the verbatim original
-manuscript disclosure. JSON-LD `contributor`, `creditText` and `DC.contributor`
-describe this role; they do not assert scientific authorship. The original
-manuscripts and citation exports remain unchanged.
+On 21 October 2026, Harjas explicitly corrected the earlier contact-only
+attribution and confirmed that he is the author. The website names him as
+author and manuscript contact and describes his development and coordination
+of the agentic system. The dated correction is separate from the verbatim
+original manuscript disclosure. Original PDFs and citation exports remain
+unchanged; their earlier contact-only wording is disclosed rather than hidden.
+AI-developed results and proofs and pending independent review remain explicit.
 
 Downloaded BibTeX files reproduce the Zenodo exports without modification.
 RIS files reproduce DOI content negotiation through the DOI citation service
 without modification. The exports identify
-the repository creator as `Sandhu, Harjas`. Each citation section explicitly
-distinguishes this from the contact-only role in the manuscripts.
+the repository creator as `Sandhu, Harjas`. Each citation section explains the
+dated author correction and the historical wording in the original PDFs.
 
 No academic qualification beyond current University of Queensland mathematics
 student status is asserted. No institutional endorsement, peer review,
 independent verification, or priority assessment is asserted.
 
-## Indexing scope and unresolved author requirement
+## Indexing scope and attribution correction
 
 Each landing page contains canonical and Open Graph tags, title, publication
 date, direct local PDF URL, DOI, abstract URL, language, Dublin Core identifiers,
@@ -79,14 +81,13 @@ and JSON-LD `ScholarlyArticle` data. The home page contains `Person` and
 `ProfilePage` structured data. A sitemap and permissive robots file support
 discovery. PDFs are searchable deposited documents.
 
-`citation_author` and structured-data `author` are deliberately omitted.
-The manuscripts explicitly identify Harjas Sandhu solely as contact person,
-and the Google Scholar inclusion guidance requires the author field to
-contain actual authors only. Repository creator metadata does not establish
-that scientific-author role. Full Google Scholar author-metadata compliance
-cannot be claimed while that discrepancy remains. Do not insert an author,
-institutional author affiliation, or ORCID to obtain indexing unless the
-underlying authorship is verified and the user approves any manuscript change.
+`citation_author`, `DC.creator` and JSON-LD `author` reflect Harjas's explicit
+authorship correction. The author is also identified visibly below each title.
+The original PDFs still contain their earlier contact-only footnote; the dated
+landing-page correction explains that historical wording and retains the full
+AI disclosure. This is an attribution update, not independent verification of
+proofs or priority, and does not establish Google Scholar inclusion. No ORCID
+or qualification is invented, and no new manuscript version is published.
 
 Reference: https://scholar.google.com/intl/en/scholar/inclusion.html
 

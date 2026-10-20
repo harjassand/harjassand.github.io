@@ -46,10 +46,10 @@ def head(title: str, description: str, path: str, paper: dict | None = None) -> 
         verification = f'\n  <meta name="google-site-verification" content="{e(DATA["google_site_verification"])}">'
     scholarly = ""
     if paper:
-        # The manuscript identifies Harjas Sandhu solely as contact person.
-        # Do not convert the repository creator field into an authorship claim.
-        # Scholar requires an actual author: citation_author is deliberately absent.
+        # Author attribution was explicitly corrected by Harjas on 21 October 2026.
+        # Preserve the original PDF and explain its earlier credit visibly below.
         scholarly = f'''\n  <meta name="citation_title" content="{e(paper['title'])}">
+  <meta name="citation_author" content="{e(DATA['author_name'])}">
   <meta name="citation_publication_date" content="{paper['publication_date'].replace('-', '/')}">
   <meta name="citation_online_date" content="{paper['publication_date'].replace('-', '/')}">
   <meta name="citation_pdf_url" content="{BASE + pdf_path(paper)}">
@@ -57,6 +57,7 @@ def head(title: str, description: str, path: str, paper: dict | None = None) -> 
   <meta name="citation_abstract_html_url" content="{canonical}">
   <meta name="citation_language" content="en">
   <meta name="DC.title" content="{e(paper['title'])}">
+  <meta name="DC.creator" content="{e(DATA['author_name'])}">
   <meta name="DC.identifier" content="https://doi.org/{e(paper['doi'])}">
   <meta name="DC.date" content="{paper['publication_date']}">
   <meta name="DC.issued" content="{paper['publication_date']}">
@@ -170,7 +171,7 @@ def render_home() -> str:
         <p class="section-note">2026 · Two companion manuscripts</p>
       </div>
       <div class="section-copy">
-        <p class="publication-context">For these companion quantum-information preprints, I developed and coordinated the agentic system used for the investigations and serve as manuscript contact. Each paper page describes my contribution and the manuscripts' provenance and review status.</p>
+        <p class="publication-context">I am the author and manuscript contact for these companion quantum-information preprints. I developed and coordinated the agentic system used for the investigations. Each paper page describes the AI provenance, review status and attribution correction.</p>
         <ol class="publication-list">
 ''' + "\n".join(entries) + '''
         </ol>
@@ -180,7 +181,7 @@ def render_home() -> str:
     <section class="section-row" aria-labelledby="provenance-heading">
       <h2 id="provenance-heading">About the manuscripts</h2>
       <div class="section-copy status-note">
-        <p>The manuscripts attribute their new results and proofs to AI systems and identify me as contact person. Independent specialist review and priority assessment are pending. Each preprint page reproduces the original disclosure in full.</p>
+        <p>The manuscripts attribute their new results and proofs to AI systems. Independent specialist review and priority assessment are pending. Author attribution was corrected on 21 October 2026; the original deposited PDFs retain their earlier contact-only credit. Each preprint page explains the correction and reproduces the original disclosure.</p>
       </div>
     </section>
   </main>
@@ -211,8 +212,9 @@ def render_paper(paper: dict, companion: dict) -> str:
         "creativeWorkStatus": "Preprint; independent specialist review and priority assessment pending",
         "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": paper["doi"]},
         "publisher": {"@type": "Organization", "name": "Zenodo", "url": "https://zenodo.org/"},
+        "author": {"@type": "Person", "@id": PERSON_ID, "name": DATA["author_name"], "url": BASE + "/"},
         "contributor": {"@type": "Person", "@id": PERSON_ID, "name": "Harjas Sandhu", "url": BASE + "/"},
-        "creditText": DATA["contributor_statement"] + " Original manuscript disclosure: " + paper["provenance"],
+        "creditText": DATA["attribution_statement"] + " Attribution corrected " + DATA["attribution_correction_date"] + ". Original PDF disclosure: " + paper["provenance"],
         "keywords": paper["keywords"],
         "isAccessibleForFree": True,
         "license": "https://www.apache.org/licenses/LICENSE-2.0",
@@ -235,7 +237,7 @@ def render_paper(paper: dict, companion: dict) -> str:
       <header class="paper-header">
         <p class="eyebrow">Preprint · Quantum information</p>
         <h1 id="paper-title">{e(title)}</h1>
-        <p class="contact-credit">Manuscript contact: <a href="/">Harjas Sandhu</a></p>
+        <p class="contact-credit">Author and manuscript contact: <a href="/">{e(DATA['author_name'])}</a></p>
       </header>
 
       <section class="paper-section paper-abstract" aria-labelledby="abstract-heading">
@@ -254,9 +256,10 @@ def render_paper(paper: dict, companion: dict) -> str:
 
       <section class="paper-section provenance" aria-labelledby="provenance-heading">
         <h2 id="provenance-heading">Contribution and provenance</h2>
-        <p class="contributor-credit">{e(DATA['contributor_statement'])}</p>
+        <p class="contributor-credit">{e(DATA['attribution_statement'])}</p>
+        <p class="abstract-label">Attribution corrected <time datetime="{DATA['attribution_correction_date']}">{pretty_date(DATA['attribution_correction_date'])}</time>. The original deposited PDFs have not been replaced.</p>
         <blockquote>{e(paper['provenance'])}</blockquote>
-        <p>The quotation reproduces the original manuscript’s title-page footnote. The contribution statement above describes system development and coordination; it does not assert scientific authorship. The repository lists “Sandhu, Harjas” as creator.</p>
+        <p>The quotation reproduces the original manuscript’s title-page footnote. Its earlier contact-only attribution is superseded by the dated author correction above. The disclosure of AI-developed results and proofs, and the pending independent review, remain in effect.</p>
       </section>
 
       <section class="paper-section" aria-labelledby="details-heading">
@@ -275,7 +278,7 @@ def render_paper(paper: dict, companion: dict) -> str:
       <section class="paper-section" id="citation" aria-labelledby="citation-heading">
         <h2 id="citation-heading">Citation</h2>
         <p class="citation-text">Sandhu, Harjas. (2026). <cite>{e(title)}</cite> (Version {e(paper['version'])}). Zenodo. <a href="https://doi.org/{e(paper['doi'])}">https://doi.org/{e(paper['doi'])}</a></p>
-        <p class="citation-note">This citation follows the repository’s creator metadata. It should be read together with the contact-only role and manuscript provenance disclosed above.</p>
+        <p class="citation-note">This citation uses the current author attribution. The original PDFs' earlier contact-only credit is addressed by the dated correction above; the AI-provenance disclosure remains in effect.</p>
         <div class="link-line">
           <a href="{path}citation.bib" download>Download BibTeX</a>
           <a href="{path}citation.ris" download>Download RIS</a>
