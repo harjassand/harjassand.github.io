@@ -7,14 +7,59 @@
   "attribution_statement": "Harjas Sandhu is the author and manuscript contact. His contribution includes developing and coordinating the agentic system used for these investigations.",
   "papers": [
     {
+      "slug": "non-sofic-hyperbolic-group",
+      "title": "An example of a non-sofic hyperbolic group",
+      "authors": [
+        "Harjas Sandhu",
+        "Andreas Thom"
+      ],
+      "arxiv_id": "2610.24836",
+      "doi": "10.48550/arXiv.2610.24836",
+      "record_url": "https://arxiv.org/abs/2610.24836",
+      "pdf_source_url": "https://arxiv.org/pdf/2610.24836v1",
+      "commentary_url": "https://andreasthom.github.io/pdf/hyperbolicnonsofic.pdf",
+      "commentary_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=aVN-YYgAAAAJ&citation_for_view=aVN-YYgAAAAJ:DGzKIA18-3YC",
+      "commentary_date": "2026-10-13",
+      "publication_date": "2026-10-17",
+      "manuscript_date": "2026-10-07",
+      "version": "1",
+      "publisher": "arXiv",
+      "publisher_url": "https://arxiv.org/",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_name": "CC BY 4.0",
+      "abstract": "We construct a torsion-free, two-dimensional, word-hyperbolic group which is not sofic. Our construction builds on OpenAI's construction of a non-residually finite hyperbolic group, see OpenAI 252.",
+      "provenance": "This paper is based on an AI-generated construction obtained by Harjas Sandhu on October 7, 2026, which was in turn based on the OpenAI breakthrough [14]. The second author worked through the proof to make it readable and to reduce unnecessary overhead.",
+      "provenance_summary": "The acknowledgments also disclose AI assistance in drafting and credit the inherited construction and mathematical sources. This page hosts an unchanged copy of the arXiv v1 preprint.",
+      "keywords": [
+        "Sofic groups",
+        "Hyperbolic groups",
+        "Negatively curved complexes",
+        "Matrix rank",
+        "Finite-field interpolation",
+        "Graphs of large girth"
+      ],
+      "pdf_filename": "non-sofic-hyperbolic-group.pdf",
+      "pdf_bytes": 488098,
+      "pdf_sha256": "819c267abca9a69af2b5eaf7343cbf59d8990fa9f268bc3bd58593306cb19bdc",
+      "bib_sha256": "2e45a1fc261732b48726c694b0312861ad27a479895bdf8a685e7af51b22acfd",
+      "ris_sha256": "93cddb59d3b23762bb9465f4c5635eee462c2602e7e6da0b1078a2888f27576f",
+      "summary": "Joint work with Andreas Thom on a torsion-free, two-dimensional non-sofic hyperbolic group."
+    },
+    {
       "slug": "complete-information-orders",
       "record_id": 23349086,
       "title": "Complete information orders of quantum channels: equivalence and undecidability",
       "doi": "10.5281/zenodo.23349086",
       "record_url": "https://zenodo.org/records/23349086",
       "discovery_records": [
-        {"name": "OpenAIRE", "url": "https://explore.openaire.eu/search/result?pid=10.5281%2Fzenodo.23349086"},
-        {"name": "OpenAlex", "url": "https://openalex.org/works/W7221769249"}
+        {
+          "name": "OpenAIRE",
+          "url": "https://explore.openaire.eu/search/result?pid=10.5281%2Fzenodo.23349086"
+        },
+        {
+          "name": "OpenAlex",
+          "url": "https://openalex.org/works/W7221769249"
+        }
       ],
       "publication_date": "2026-10-14",
       "manuscript_date": "2026-10-11",
@@ -48,8 +93,14 @@
       "doi": "10.5281/zenodo.23349192",
       "record_url": "https://zenodo.org/records/23349192",
       "discovery_records": [
-        {"name": "OpenAIRE", "url": "https://explore.openaire.eu/search/result?pid=10.5281%2Fzenodo.23349192"},
-        {"name": "OpenAlex", "url": "https://openalex.org/works/W7221749912"}
+        {
+          "name": "OpenAIRE",
+          "url": "https://explore.openaire.eu/search/result?pid=10.5281%2Fzenodo.23349192"
+        },
+        {
+          "name": "OpenAlex",
+          "url": "https://openalex.org/works/W7221749912"
+        }
       ],
       "publication_date": "2026-10-14",
       "manuscript_date": "2026-10-11",

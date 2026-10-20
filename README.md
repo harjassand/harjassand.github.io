@@ -63,11 +63,24 @@ original manuscript disclosure. Original PDFs and citation exports remain
 unchanged; their earlier contact-only wording is disclosed rather than hidden.
 AI-developed results and proofs and pending independent review remain explicit.
 
-Downloaded BibTeX files reproduce the Zenodo exports without modification.
-RIS files reproduce DOI content negotiation through the DOI citation service
+For the two quantum papers, downloaded BibTeX files reproduce the Zenodo exports without modification.
+Their RIS files reproduce DOI content negotiation through the DOI citation service
 without modification. The exports identify
 the repository creator as `Sandhu, Harjas`. Each citation section explains the
 dated author correction and the historical wording in the original PDFs.
+
+The joint Sandhu–Thom paper has a separate page at
+`/publications/non-sofic-hyperbolic-group/`. Both authors, the abstract,
+17 October 2026 arXiv posting date, version and CC BY 4.0 license follow
+https://arxiv.org/abs/2610.24836. Its unchanged eight-page PDF comes from
+https://arxiv.org/pdf/2610.24836v1; SHA-256 is recorded and checked.
+The acknowledgments excerpt and drafting-disclosure summary retain the
+AI provenance and the different contributions. Its BibTeX/RIS downloads were
+prepared from the public arXiv metadata rather than claimed as source exports.
+The hosted commentary listed on Andreas Thom's Scholar profile with the date
+13 October is linked as another version of the same work. No new arXiv
+submission, manuscript alteration, or claim of independent proof certification
+is involved in this website addition.
 
 No academic qualification beyond current University of Queensland mathematics
 student status is asserted. No institutional endorsement, peer review,
@@ -81,9 +94,9 @@ and JSON-LD `ScholarlyArticle` data. The home page contains `Person` and
 `ProfilePage` structured data. A sitemap and permissive robots file support
 discovery. PDFs are searchable deposited documents.
 
-`citation_author`, `DC.creator` and JSON-LD `author` reflect Harjas's explicit
-authorship correction. The author is also identified visibly below each title.
-The original PDFs still contain their earlier contact-only footnote; the dated
+For the two quantum papers, `citation_author`, `DC.creator` and JSON-LD `author` reflect Harjas's explicit
+authorship correction. Author names also appear visibly below every title.
+The original quantum PDFs still contain their earlier contact-only footnote; the dated
 landing-page correction explains that historical wording and retains the full
 AI disclosure. This is an attribution update, not independent verification of
 proofs or priority, and does not establish Google Scholar inclusion. No ORCID
@@ -95,7 +108,7 @@ Static checks and successful hosting confirm implementation and availability.
 They do not confirm Google Search or Google Scholar indexing; that requires
 separate observation after crawling.
 
-The sitemap deliberately lists the three canonical HTML URLs. The original
+The sitemap deliberately lists the homepage and three canonical publication HTML URLs. The original
 PDFs remain reachable through ordinary HTML links and `citation_pdf_url`;
 alternate `/index.html` addresses are not added to the sitemap. GitHub Pages
 sets the PDF HTTP headers, so an `_headers` file or HTML meta tag cannot add

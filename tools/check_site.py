@@ -26,6 +26,7 @@ class Page(HTMLParser):
         self.ids = set()
         self.duplicate_ids = []
         self.meta = {}
+        self.meta_values = {}
         self.canonical = []
         self.h1_count = 0
         self.schema = []
@@ -47,6 +48,7 @@ class Page(HTMLParser):
             self.h1_count += 1
         if tag == "meta" and "name" in attr:
             self.meta[attr["name"]] = attr.get("content", "")
+            self.meta_values.setdefault(attr["name"], []).append(attr.get("content", ""))
         if tag == "link" and attr.get("rel") == "canonical":
             self.canonical.append(attr.get("href"))
         if tag == "a" and "href" in attr:
@@ -134,22 +136,32 @@ def main():
         check(page.meta.get("citation_pdf_url") == url + paper["pdf_filename"], f"{paper['slug']}: invalid PDF URL")
         check(page.meta.get("citation_abstract_html_url") == url, f"{paper['slug']}: invalid abstract URL")
         check(page.meta.get("DC.issued") == paper["publication_date"], f"{paper['slug']}: incorrect issued date")
-        check(page.meta.get("DC.publisher") == "Zenodo", f"{paper['slug']}: incorrect publisher")
-        check(page.meta.get("citation_author") == DATA["author_name"], f"{paper['slug']}: author metadata incorrect")
-        check(page.meta.get("DC.creator") == DATA["author_name"], f"{paper['slug']}: Dublin Core author incorrect")
+        check(page.meta.get("DC.publisher") == paper.get("publisher", "Zenodo"), f"{paper['slug']}: incorrect publisher")
+        authors = paper.get("authors", [DATA["author_name"]])
+        check(page.meta_values.get("citation_author") == authors, f"{paper['slug']}: author metadata incorrect")
+        check(page.meta_values.get("DC.creator") == authors, f"{paper['slug']}: Dublin Core authors incorrect")
         visible_text = " ".join(" ".join(page.text).split())
         check(paper["abstract"] in visible_text, f"{paper['slug']}: exact abstract missing")
         check(paper["provenance"] in visible_text, f"{paper['slug']}: exact disclosure missing")
-        check(DATA["attribution_statement"] in visible_text, f"{paper['slug']}: attribution statement missing")
-        check("original deposited PDFs have not been replaced" in visible_text, f"{paper['slug']}: original PDF notice missing")
+        if paper.get("arxiv_id"):
+            check(paper["provenance_summary"] in visible_text, "Joint paper AI-provenance summary missing")
+            check("Unmodified arXiv v1 PDF" in visible_text, "Joint paper source notice missing")
+        else:
+            check(DATA["attribution_statement"] in visible_text, f"{paper['slug']}: attribution statement missing")
+            check("original deposited PDFs have not been replaced" in visible_text, f"{paper['slug']}: original PDF notice missing")
         article = page.schema[0]
         check(article["@type"] == "ScholarlyArticle", "Article schema type incorrect")
         check(article["abstract"] == paper["abstract"], "Schema abstract mismatch")
         check(article["encoding"]["contentUrl"] == page.meta["citation_pdf_url"], "Schema PDF mismatch")
         check(article["identifier"]["value"] == paper["doi"], "Schema DOI mismatch")
-        check(article["author"]["name"] == DATA["author_name"], "Schema author incorrect")
-        check(article["contributor"]["name"] == "Harjas Sandhu", "Contributor name incorrect")
-        check(DATA["attribution_statement"] in article["creditText"], "Schema attribution statement missing")
+        schema_authors = article["author"] if isinstance(article["author"], list) else [article["author"]]
+        check([a["name"] for a in schema_authors] == authors, "Schema authors incorrect")
+        check(article["license"] == paper.get("license_url", "https://www.apache.org/licenses/LICENSE-2.0"), "Schema license incorrect")
+        if paper.get("arxiv_id"):
+            check(paper["provenance"] in article["creditText"], "Joint paper provenance missing from schema")
+        else:
+            check(article["contributor"]["name"] == "Harjas Sandhu", "Contributor name incorrect")
+            check(DATA["attribution_statement"] in article["creditText"], "Schema attribution statement missing")
         bib = (directory / "citation.bib").read_bytes()
         ris = (directory / "citation.ris").read_bytes()
         check(hashlib.sha256(bib).hexdigest() == paper["bib_sha256"], "BibTeX export altered")
@@ -171,7 +183,7 @@ def main():
         check(f"Sitemap: {BASE}/{filename}" in (ROOT / "robots.txt").read_text(), f"Robots reference missing: {filename}")
     check((ROOT / ".nojekyll").is_file(), "GitHub Pages .nojekyll missing")
     print(f"PASS: {len(pages)} HTML pages, {link_count} local links/anchors/assets, {len(DATA['papers'])} unchanged PDFs, exact abstracts and disclosures, citation exports, JSON-LD, canonical/scholarly metadata, sitemap and robots.txt.")
-    print("LIMIT: original PDFs retain earlier contact-only wording; a dated correction records current author attribution. No search-engine indexing claim.")
+    print("LIMIT: the two quantum PDFs retain earlier contact-only wording; dated corrections record current author attribution. No search-engine indexing claim.")
 
 
 if __name__ == "__main__":
