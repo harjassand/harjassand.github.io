@@ -120,9 +120,9 @@ def render_home() -> str:
                 "@id": PERSON_ID,
                 "name": "Harjas Sandhu",
                 "url": BASE + "/",
-                "description": "Bachelor of Mathematics student at the University of Queensland, majoring in Mathematical AI, with interests in AI for scientific discovery, autonomous research, and mathematical reasoning.",
+                "description": "Mathematics student at the University of Queensland, majoring in Mathematical AI, with interests in machine learning and AI for scientific discovery in physics, energy, and materials science.",
                 "affiliation": {"@type": "CollegeOrUniversity", "name": "The University of Queensland", "url": "https://www.uq.edu.au/"},
-                "knowsAbout": ["AI for Scientific Discovery", "Mathematical AI", "Autonomous Research Systems", "AI for Mathematics", "Computational Science"],
+                "knowsAbout": ["Machine learning", "AI for scientific discovery", "Physics", "Energy", "Materials science"],
             },
             {"@type": "ProfilePage", "@id": BASE + "/#profile", "url": BASE + "/", "name": "Harjas Sandhu", "mainEntity": {"@id": PERSON_ID}},
         ],
@@ -140,7 +140,7 @@ def render_home() -> str:
               <a href="{paper_path(paper)}#citation" aria-label="Citation: {e(paper['title'])}">Cite</a>
             </div>
           </li>''')
-    return head("Harjas Sandhu — AI for Scientific Discovery", "Harjas Sandhu is a Bachelor of Mathematics student at the University of Queensland exploring AI for scientific discovery, autonomous research systems, and mathematical reasoning.", "/") + schema_tag(person) + '''
+    return head("Harjas Sandhu — AI for Scientific Discovery", "Harjas Sandhu studies mathematics at the University of Queensland, majoring in Mathematical AI, with interests in machine learning and AI for scientific discovery.", "/") + schema_tag(person) + '''
 </head>
 <body>
 ''' + header() + '''
@@ -148,19 +148,18 @@ def render_home() -> str:
     <section class="intro" aria-labelledby="harjas-sandhu">
       <p class="eyebrow">Mathematics &amp; scientific discovery</p>
       <h1 id="harjas-sandhu">Harjas Sandhu</h1>
-      <p class="position">Mathematics undergraduate | AI for scientific discovery &amp; autonomous research</p>
+      <p class="position">Mathematics Student | AI &amp; Scientific Discovery</p>
       <div class="bio">
-        <p>I am a Bachelor of Mathematics student at the University of Queensland, majoring in Mathematical AI. I investigate how AI systems can become capable scientific researchers, with a focus on autonomous discovery, mathematical reasoning, and the accumulation of verifiable knowledge.</p>
-        <p>I develop and direct an independent AI-assisted research project exploring whether autonomous systems can conduct original research that builds on prior results. My work involves designing research processes, coordinating independent AI investigations, and evaluating their outputs.</p>
+        <p>I'm studying mathematics at the University of Queensland, majoring in Mathematical AI. I'm interested in how AI could help us solve difficult problems in mathematics and science, particularly those that are beyond what current methods can achieve.</p>
+        <p>I also run an independent project where I use AI systems to investigate research questions across mathematics and the physical sciences. Much of my work involves choosing problems, directing investigations, and critically examining the results to understand what these systems can actually accomplish.</p>
       </div>
     </section>
 
     <section class="section-row" id="research" aria-labelledby="research-heading">
       <h2 id="research-heading">Research interests</h2>
       <div class="section-copy">
-        <p>My interests span AI for mathematics, theoretical machine learning, computational physics, and AI-driven discovery in the physical sciences. I am particularly interested in how mathematical reasoning, scientific computation, and accumulated knowledge can support autonomous research.</p>
-        <p>My broader aim is to develop research systems that deepen fundamental scientific understanding and help enable advances in science and technology.</p>
-        <p class="topic-line">AI for Scientific Discovery · Mathematical AI · Autonomous Research Systems · AI for Mathematics · Computational Science</p>
+        <p>My main interests are machine learning and AI for scientific discovery. I'm particularly interested in applying advances in AI and computation to problems in physics, energy, and materials science.</p>
+        <p>I'm also interested in what it would take for AI systems to carry out reliable scientific research: developing new ideas, testing them, recognising mistakes, and building on previous discoveries.</p>
       </div>
     </section>
 

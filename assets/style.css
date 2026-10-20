@@ -36,7 +36,6 @@ h2 { font-size: 1.75rem; line-height: 1.25; letter-spacing: -.025em; }
 .section-row { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 2.5rem; padding-block: 3rem; border-top: 1px solid var(--line); }
 .section-row h2 { font-size: 1.45rem; }
 .section-copy { max-width: 42rem; }
-.topic-line { color: var(--muted); margin-top: 1.25rem; font-size: .9375rem; line-height: 1.8; }
 .section-note { margin-top: .65rem; font-size: .8125rem; color: var(--muted); line-height: 1.6; }
 .publication-list { list-style: none; padding: 0; }
 .publication-context { margin-bottom: 2rem; color: var(--muted); font-size: .9375rem; }
