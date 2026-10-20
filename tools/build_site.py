@@ -115,7 +115,7 @@ def render_home() -> str:
                 "url": BASE + "/",
                 "description": "Mathematics student at the University of Queensland and contact person for the preprints collected on this website.",
                 "affiliation": {"@type": "CollegeOrUniversity", "name": "The University of Queensland", "url": "https://www.uq.edu.au/"},
-                "knowsAbout": ["Quantum information theory", "Quantum channels", "Quantum channel capacity", "Computability"],
+                "knowsAbout": ["Agentic AI workflows", "Multi-agent coordination", "AI-assisted research systems"],
             },
             {"@type": "ProfilePage", "@id": BASE + "/#profile", "url": BASE + "/", "name": "Harjas Sandhu", "mainEntity": {"@id": PERSON_ID}},
         ],
@@ -133,17 +133,17 @@ def render_home() -> str:
               <a href="{paper_path(paper)}#citation" aria-label="Citation: {e(paper['title'])}">Cite</a>
             </div>
           </li>''')
-    return head("Harjas Sandhu — Mathematics & Quantum Information", "Harjas Sandhu is a mathematics student at the University of Queensland. Research interests and preprints on quantum information, quantum channels, and computability.", "/") + schema_tag(person) + '''
+    return head("Harjas Sandhu — Mathematics & AI Systems", "Harjas Sandhu is a mathematics student at the University of Queensland, interested in agentic AI workflows, multi-agent coordination, and AI-assisted research systems.", "/") + schema_tag(person) + '''
 </head>
 <body>
 ''' + header() + '''
   <main id="main">
     <section class="intro" aria-labelledby="harjas-sandhu">
-      <p class="eyebrow">Mathematics &amp; quantum information</p>
+      <p class="eyebrow">Mathematics &amp; AI systems</p>
       <h1 id="harjas-sandhu">Harjas Sandhu</h1>
       <p class="position">Mathematics student, University of Queensland</p>
       <div class="bio">
-        <p>I am a mathematics student at the University of Queensland, interested in quantum information and the mathematical structure of quantum channels.</p>
+        <p>I am a mathematics student at the University of Queensland, with interests in agentic AI workflows, multi-agent coordination, and AI-assisted research systems.</p>
         <p>This website collects two independent-research preprints for which I serve as the manuscript contact. Their abstracts, original PDFs, repository records, and citation information are available below.</p>
       </div>
     </section>
@@ -151,8 +151,8 @@ def render_home() -> str:
     <section class="section-row" id="research" aria-labelledby="research-heading">
       <h2 id="research-heading">Research interests</h2>
       <div class="section-copy">
-        <p>My interests centre on how quantum channels can be compared, how information measures describe those comparisons, and how these questions connect to communication and computation.</p>
-        <p class="topic-line">Quantum-channel information orders · Quantum information measures · Quantum and private capacity · Entanglement distillation · Computability and undecidability</p>
+        <p>I am interested in the design and evaluation of agentic workflows: how AI agents divide tasks, share information, and coordinate their work across complex research processes.</p>
+        <p class="topic-line">Agentic AI workflows · Multi-agent coordination · AI-assisted research systems</p>
       </div>
     </section>
 
