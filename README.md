@@ -55,6 +55,12 @@ publication date is 14 October 2026. Original PDF bytes and SHA-256 hashes
 are retained; the check script verifies them. The existing Apache-2.0
 manuscript licenses are identified without relicensing any manuscript.
 
+Harjas confirmed that his contribution was developing and coordinating the
+agentic system. The website credits this separately from the verbatim original
+manuscript disclosure. JSON-LD `contributor`, `creditText` and `DC.contributor`
+describe this role; they do not assert scientific authorship. The original
+manuscripts and citation exports remain unchanged.
+
 Downloaded BibTeX files reproduce the Zenodo exports without modification.
 RIS files reproduce DOI content negotiation through the DOI citation service
 without modification. The exports identify

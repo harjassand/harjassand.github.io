@@ -61,6 +61,7 @@ def head(title: str, description: str, path: str, paper: dict | None = None) -> 
   <meta name="DC.date" content="{paper['publication_date']}">
   <meta name="DC.issued" content="{paper['publication_date']}">
   <meta name="DC.publisher" content="Zenodo">
+  <meta name="DC.contributor" content="Harjas Sandhu">
   <meta name="DC.rights" content="https://www.apache.org/licenses/LICENSE-2.0">
   <meta name="DC.type" content="Text">
   <meta name="DC.language" content="en">
@@ -151,7 +152,7 @@ def render_home() -> str:
       <p class="position">Mathematics Student | AI &amp; Scientific Discovery</p>
       <div class="bio">
         <p>I'm studying mathematics at the University of Queensland, majoring in Mathematical AI. I'm interested in how AI could help us solve difficult problems in mathematics and science, particularly those that are beyond what current methods can achieve.</p>
-        <p>I also run an independent project where I use AI systems to investigate research questions across mathematics and the physical sciences. Much of my work involves choosing problems, directing investigations, and critically examining the results to understand what these systems can actually accomplish.</p>
+        <p>I developed and coordinated an agentic AI system for independent investigations in mathematics and the physical sciences. I'm interested in how these systems can support reliable scientific research and build on previous discoveries.</p>
       </div>
     </section>
 
@@ -169,7 +170,7 @@ def render_home() -> str:
         <p class="section-note">2026 · Two companion manuscripts</p>
       </div>
       <div class="section-copy">
-        <p class="publication-context">These companion quantum-information preprints come from AI-assisted investigations for which I serve as manuscript contact. Their provenance and review status are stated on each paper page.</p>
+        <p class="publication-context">For these companion quantum-information preprints, I developed and coordinated the agentic system used for the investigations and serve as manuscript contact. Each paper page describes my contribution and the manuscripts' provenance and review status.</p>
         <ol class="publication-list">
 ''' + "\n".join(entries) + '''
         </ol>
@@ -179,7 +180,7 @@ def render_home() -> str:
     <section class="section-row" aria-labelledby="provenance-heading">
       <h2 id="provenance-heading">About the manuscripts</h2>
       <div class="section-copy status-note">
-        <p>The manuscripts disclose that their new results and proofs were discovered and developed by AI systems, and that I serve solely as the contact person. Independent specialist review and priority assessment are pending. Each preprint page reproduces this disclosure in full.</p>
+        <p>The manuscripts attribute their new results and proofs to AI systems and identify me as contact person. Independent specialist review and priority assessment are pending. Each preprint page reproduces the original disclosure in full.</p>
       </div>
     </section>
   </main>
@@ -210,7 +211,8 @@ def render_paper(paper: dict, companion: dict) -> str:
         "creativeWorkStatus": "Preprint; independent specialist review and priority assessment pending",
         "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": paper["doi"]},
         "publisher": {"@type": "Organization", "name": "Zenodo", "url": "https://zenodo.org/"},
-        "creditText": "Repository creator and manuscript contact: Harjas Sandhu. " + paper["provenance"],
+        "contributor": {"@type": "Person", "@id": PERSON_ID, "name": "Harjas Sandhu", "url": BASE + "/"},
+        "creditText": DATA["contributor_statement"] + " Original manuscript disclosure: " + paper["provenance"],
         "keywords": paper["keywords"],
         "isAccessibleForFree": True,
         "license": "https://www.apache.org/licenses/LICENSE-2.0",
@@ -251,9 +253,10 @@ def render_paper(paper: dict, companion: dict) -> str:
       </div>
 
       <section class="paper-section provenance" aria-labelledby="provenance-heading">
-        <h2 id="provenance-heading">Manuscript provenance</h2>
+        <h2 id="provenance-heading">Contribution and provenance</h2>
+        <p class="contributor-credit">{e(DATA['contributor_statement'])}</p>
         <blockquote>{e(paper['provenance'])}</blockquote>
-        <p>Disclosure reproduced from the manuscript’s title-page footnote. The repository lists “Sandhu, Harjas” as creator; the manuscript identifies Harjas Sandhu solely as contact person.</p>
+        <p>The quotation reproduces the original manuscript’s title-page footnote. The contribution statement above describes system development and coordination; it does not assert scientific authorship. The repository lists “Sandhu, Harjas” as creator.</p>
       </section>
 
       <section class="paper-section" aria-labelledby="details-heading">
