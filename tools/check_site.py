@@ -94,6 +94,10 @@ def local_target(url, from_file):
 
 def main():
     pages = {p.resolve(): Page(p) for p in ROOT.rglob("*.html")}
+    verification = DATA.get("google_site_verification")
+    if verification:
+        check(pages[(ROOT / "index.html").resolve()].meta.get("google-site-verification") == verification,
+              "Search Console ownership tag missing or altered")
     link_count = 0
     for path, page in pages.items():
         label = path.relative_to(ROOT)
@@ -129,6 +133,8 @@ def main():
         check(page.meta.get("citation_publication_date") == paper["publication_date"].replace("-", "/"), f"{paper['slug']}: incorrect publication date")
         check(page.meta.get("citation_pdf_url") == url + paper["pdf_filename"], f"{paper['slug']}: invalid PDF URL")
         check(page.meta.get("citation_abstract_html_url") == url, f"{paper['slug']}: invalid abstract URL")
+        check(page.meta.get("DC.issued") == paper["publication_date"], f"{paper['slug']}: incorrect issued date")
+        check(page.meta.get("DC.publisher") == "Zenodo", f"{paper['slug']}: incorrect publisher")
         check("citation_author" not in page.meta, f"{paper['slug']}: unsupported scientific-author assertion")
         visible_text = " ".join(" ".join(page.text).split())
         check(paper["abstract"] in visible_text, f"{paper['slug']}: exact abstract missing")

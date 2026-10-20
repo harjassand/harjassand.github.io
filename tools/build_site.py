@@ -41,6 +41,9 @@ def schema_tag(schema: dict) -> str:
 
 def head(title: str, description: str, path: str, paper: dict | None = None) -> str:
     canonical = BASE + path
+    verification = ""
+    if path == "/" and DATA.get("google_site_verification"):
+        verification = f'\n  <meta name="google-site-verification" content="{e(DATA["google_site_verification"])}">'
     scholarly = ""
     if paper:
         # The manuscript identifies Harjas Sandhu solely as contact person.
@@ -56,8 +59,12 @@ def head(title: str, description: str, path: str, paper: dict | None = None) -> 
   <meta name="DC.title" content="{e(paper['title'])}">
   <meta name="DC.identifier" content="https://doi.org/{e(paper['doi'])}">
   <meta name="DC.date" content="{paper['publication_date']}">
+  <meta name="DC.issued" content="{paper['publication_date']}">
+  <meta name="DC.publisher" content="Zenodo">
+  <meta name="DC.rights" content="https://www.apache.org/licenses/LICENSE-2.0">
   <meta name="DC.type" content="Text">
   <meta name="DC.language" content="en">
+  <link rel="alternate" type="application/pdf" href="{BASE + pdf_path(paper)}" title="Original deposited manuscript">
   <meta name="keywords" content="{e(', '.join(paper['keywords']))}">'''
     return f'''<!doctype html>
 <html lang="en">
@@ -67,7 +74,7 @@ def head(title: str, description: str, path: str, paper: dict | None = None) -> 
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#fbfaf7">
   <title>{e(title)}</title>
-  <meta name="description" content="{e(description)}">
+  <meta name="description" content="{e(description)}">{verification}
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <link rel="canonical" href="{canonical}">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -185,6 +192,10 @@ def render_paper(paper: dict, companion: dict) -> str:
     bib = (ROOT / path.lstrip("/") / "citation.bib").read_text()
     title = paper["title"]
     canonical = BASE + path
+    discovery_links = " · ".join(
+        f'<a href="{e(record["url"])}">{e(record["name"])}</a>'
+        for record in paper.get("discovery_records", [])
+    )
     schema = {
         "@context": "https://schema.org",
         "@type": "ScholarlyArticle",
@@ -223,21 +234,22 @@ def render_paper(paper: dict, companion: dict) -> str:
       <header class="paper-header">
         <p class="eyebrow">Preprint · Quantum information</p>
         <h1 id="paper-title">{e(title)}</h1>
-        <p class="contact-credit">Repository creator and manuscript contact: <a href="/">Harjas Sandhu</a></p>
-        <p class="paper-dates">Manuscript dated <time datetime="{paper['manuscript_date']}">{pretty_date(paper['manuscript_date'])}</time>.<br>Published on Zenodo <time datetime="{paper['publication_date']}">{pretty_date(paper['publication_date'])}</time> · Version {e(paper['version'])}</p>
-        <div class="paper-actions">
-          <a class="pdf-link" href="{pdf_path(paper)}">Read PDF <span class="file-detail">{kilobytes} kB</span></a>
-          <a href="https://doi.org/{e(paper['doi'])}">DOI</a>
-          <a href="{e(paper['record_url'])}">Zenodo record</a>
-          <a href="#citation">Cite</a>
-        </div>
+        <p class="contact-credit">Manuscript contact: <a href="/">Harjas Sandhu</a></p>
       </header>
 
-      <section class="paper-section" aria-labelledby="abstract-heading">
+      <section class="paper-section paper-abstract" aria-labelledby="abstract-heading">
         <h2 id="abstract-heading">Abstract</h2>
         <p class="abstract-text">{e(paper['abstract'])}</p>
         <p class="abstract-label">Abstract reproduced from the deposited manuscript.</p>
       </section>
+
+      <p class="paper-dates">Manuscript dated <time datetime="{paper['manuscript_date']}">{pretty_date(paper['manuscript_date'])}</time>.<br>Published on Zenodo <time datetime="{paper['publication_date']}">{pretty_date(paper['publication_date'])}</time> · Version {e(paper['version'])}</p>
+      <div class="paper-actions">
+        <a class="pdf-link" href="{pdf_path(paper)}">Read PDF <span class="file-detail">{kilobytes} kB</span></a>
+        <a href="https://doi.org/{e(paper['doi'])}">DOI</a>
+        <a href="{e(paper['record_url'])}">Zenodo record</a>
+        <a href="#citation">Cite</a>
+      </div>
 
       <section class="paper-section provenance" aria-labelledby="provenance-heading">
         <h2 id="provenance-heading">Manuscript provenance</h2>
@@ -254,6 +266,7 @@ def render_paper(paper: dict, companion: dict) -> str:
           <dt>Version</dt><dd>{e(paper['version'])}</dd>
           <dt>License</dt><dd><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> (as deposited)</dd>
           <dt>Original files</dt><dd><a href="{e(paper['record_url'])}#files">PDF and LaTeX source on Zenodo</a></dd>
+          <dt>Catalogue records</dt><dd>{discovery_links}</dd>
         </dl>
       </section>
 

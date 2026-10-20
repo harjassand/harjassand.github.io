@@ -25,6 +25,14 @@ The PDF and citation files are not rewritten by generation. Publication
 landing pages, their PDFs, and citation downloads share a directory.
 Each paper has its own stable URL and full visible abstract. Navigation,
 abstracts, PDF links, and citations work without JavaScript.
+The full abstract precedes dates and download controls so readers and crawlers
+can reach it immediately. Existing OpenAIRE and OpenAlex catalogue records
+are linked; these are discovery records rather than peer-review endorsements.
+
+The home page's Search Console ownership tag is generated from
+`google_site_verification` in `data/publications.json`. Keep that value and
+the tag when rebuilding; removing either can invalidate ownership verification.
+The public tag is specific to this website and is intended to be published.
 
 ## Deployment
 
@@ -79,3 +87,9 @@ Reference: https://scholar.google.com/intl/en/scholar/inclusion.html
 Static checks and successful hosting confirm implementation and availability.
 They do not confirm Google Search or Google Scholar indexing; that requires
 separate observation after crawling.
+
+The sitemap deliberately lists the three canonical HTML URLs. The original
+PDFs remain reachable through ordinary HTML links and `citation_pdf_url`;
+alternate `/index.html` addresses are not added to the sitemap. GitHub Pages
+sets the PDF HTTP headers, so an `_headers` file or HTML meta tag cannot add
+an HTTP canonical header to a PDF on this host.

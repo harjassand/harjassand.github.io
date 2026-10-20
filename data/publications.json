@@ -1,5 +1,6 @@
 {
   "base_url": "https://harjassand.github.io",
+  "google_site_verification": "e8qfom0AnAqY5UXrdfQ64pWm6zZE7aSRFmXKt4SrnzM",
   "retrieved": "2026-10-21",
   "papers": [
     {
@@ -8,6 +9,10 @@
       "title": "Complete information orders of quantum channels: equivalence and undecidability",
       "doi": "10.5281/zenodo.23349086",
       "record_url": "https://zenodo.org/records/23349086",
+      "discovery_records": [
+        {"name": "OpenAIRE", "url": "https://explore.openaire.eu/search/result?pid=10.5281%2Fzenodo.23349086"},
+        {"name": "OpenAlex", "url": "https://openalex.org/works/W7221769249"}
+      ],
       "publication_date": "2026-10-14",
       "manuscript_date": "2026-10-11",
       "version": "1.0",
@@ -39,6 +44,10 @@
       "title": "From complete channel order to capacity and one-way distillation",
       "doi": "10.5281/zenodo.23349192",
       "record_url": "https://zenodo.org/records/23349192",
+      "discovery_records": [
+        {"name": "OpenAIRE", "url": "https://explore.openaire.eu/search/result?pid=10.5281%2Fzenodo.23349192"},
+        {"name": "OpenAlex", "url": "https://openalex.org/works/W7221749912"}
+      ],
       "publication_date": "2026-10-14",
       "manuscript_date": "2026-10-11",
       "version": "1.0",
