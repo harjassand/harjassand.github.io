@@ -2,9 +2,7 @@
   "base_url": "https://harjassand.github.io",
   "google_site_verification": "e8qfom0AnAqY5UXrdfQ64pWm6zZE7aSRFmXKt4SrnzM",
   "retrieved": "2026-10-21",
-  "author_name": "Harjas Sandhu",
-  "attribution_correction_date": "2026-10-21",
-  "attribution_statement": "Harjas Sandhu is the author and manuscript contact. His contribution includes developing and coordinating the agentic system used for these investigations.",
+  "owner_name": "Harjas Sandhu",
   "papers": [
     {
       "slug": "non-sofic-hyperbolic-group",
@@ -13,6 +11,10 @@
         "Harjas Sandhu",
         "Andreas Thom"
       ],
+      "credit_role": "author",
+      "subject": "Group theory",
+      "abstract_source": "arXiv record",
+      "citation_source": "arxiv_metadata",
       "arxiv_id": "2610.24836",
       "doi": "10.48550/arXiv.2610.24836",
       "record_url": "https://arxiv.org/abs/2610.24836",
@@ -29,7 +31,7 @@
       "license_name": "CC BY 4.0",
       "abstract": "We construct a torsion-free, two-dimensional, word-hyperbolic group which is not sofic. Our construction builds on OpenAI's construction of a non-residually finite hyperbolic group, see OpenAI 252.",
       "provenance": "This paper is based on an AI-generated construction obtained by Harjas Sandhu on October 7, 2026, which was in turn based on the OpenAI breakthrough [14]. The second author worked through the proof to make it readable and to reduce unnecessary overhead.",
-      "provenance_summary": "The acknowledgments also disclose AI assistance in drafting and credit the inherited construction and mathematical sources. This page hosts an unchanged copy of the arXiv v1 preprint.",
+      "provenance_summary": "The construction inherits marked lines, triangular relations, an interpolation identity and comparisons of real and finite-field ranks from OpenAI 252. The acknowledgments also disclose AI assistance in drafting and explain how the paper relates these ingredients to earlier mathematics. The PDF hosted here is the unchanged arXiv v1 preprint.",
       "keywords": [
         "Sofic groups",
         "Hyperbolic groups",
@@ -43,12 +45,27 @@
       "pdf_sha256": "819c267abca9a69af2b5eaf7343cbf59d8990fa9f268bc3bd58593306cb19bdc",
       "bib_sha256": "2e45a1fc261732b48726c694b0312861ad27a479895bdf8a685e7af51b22acfd",
       "ris_sha256": "93cddb59d3b23762bb9465f4c5635eee462c2602e7e6da0b1078a2888f27576f",
-      "summary": "Joint work with Andreas Thom on a torsion-free, two-dimensional non-sofic hyperbolic group."
+      "summary": "A construction of a torsion-free, two-dimensional, word-hyperbolic group that is not sofic, building on OpenAI’s earlier construction of a non-residually finite hyperbolic group."
     },
     {
       "slug": "complete-information-orders",
       "record_id": 23349086,
       "title": "Complete information orders of quantum channels: equivalence and undecidability",
+      "authors": [],
+      "credit_role": "contact",
+      "contact_name": "Harjas Sandhu",
+      "contribution": "Harjas Sandhu developed and coordinated the agentic system used for these investigations and serves as the manuscript contact, rather than as a scientific author.",
+      "subject": "Quantum information",
+      "abstract_source": "deposited manuscript",
+      "citation_source": "repository_exports",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "license_name": "Apache License 2.0",
+      "companion": {
+        "slug": "capacity-and-distillation",
+        "description": "The companion preprint develops capacity and one-way distillation consequences that depend on the order results presented here."
+      },
       "doi": "10.5281/zenodo.23349086",
       "record_url": "https://zenodo.org/records/23349086",
       "discovery_records": [
@@ -90,6 +107,22 @@
       "slug": "capacity-and-distillation",
       "record_id": 23349192,
       "title": "From complete channel order to capacity and one-way distillation",
+      "authors": [],
+      "credit_role": "contact",
+      "contact_name": "Harjas Sandhu",
+      "contribution": "Harjas Sandhu developed and coordinated the agentic system used for these investigations and serves as the manuscript contact, rather than as a scientific author.",
+      "subject": "Quantum information",
+      "abstract_source": "deposited manuscript",
+      "citation_source": "repository_exports",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "license_name": "Apache License 2.0",
+      "companion": {
+        "slug": "complete-information-orders",
+        "description": "This manuscript develops capacity and distillation consequences using the complete-order results of the companion preprint.",
+        "cites": true
+      },
       "doi": "10.5281/zenodo.23349192",
       "record_url": "https://zenodo.org/records/23349192",
       "discovery_records": [

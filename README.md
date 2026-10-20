@@ -55,19 +55,19 @@ publication date is 14 October 2026. Original PDF bytes and SHA-256 hashes
 are retained; the check script verifies them. The existing Apache-2.0
 manuscript licenses are identified without relicensing any manuscript.
 
-On 21 October 2026, Harjas explicitly corrected the earlier contact-only
-attribution and confirmed that he is the author. The website names him as
-author and manuscript contact and describes his development and coordination
-of the agentic system. The dated correction is separate from the verbatim
-original manuscript disclosure. Original PDFs and citation exports remain
-unchanged; their earlier contact-only wording is disclosed rather than hidden.
+The two quantum manuscripts credit Harjas solely as contact. His contribution
+was developing and coordinating the agentic system. The website follows that
+role, reproduces the original AI disclosure and does not name him as a scientific
+author. Their title-page disclosures are authoritative for these roles.
 AI-developed results and proofs and pending independent review remain explicit.
 
 For the two quantum papers, downloaded BibTeX files reproduce the Zenodo exports without modification.
 Their RIS files reproduce DOI content negotiation through the DOI citation service
 without modification. The exports identify
 the repository creator as `Sandhu, Harjas`. Each citation section explains the
-dated author correction and the historical wording in the original PDFs.
+difference between repository creator metadata and the manuscript's scientific
+authorship. The visible reference is title-first, while source exports remain
+unchanged for traceability.
 
 The joint Sandhu–Thom paper has a separate page at
 `/publications/non-sofic-hyperbolic-group/`. Both authors, the abstract,
@@ -86,7 +86,27 @@ No academic qualification beyond current University of Queensland mathematics
 student status is asserted. No institutional endorsement, peer review,
 independent verification, or priority assessment is asserted.
 
-## Indexing scope and attribution correction
+## Publication data and generation
+
+`data/publications.json` lists papers in display order. Every paper explicitly
+declares its `authors`, `credit_role`, subject, publisher, license and source of
+abstract/citation data. The site owner is not used as an author fallback.
+Contact-only manuscripts have an empty author list and a separate `contact_name`
+and contribution statement. A companion relationship is optional and identifies
+the other paper by slug; `cites` distinguishes a directed citation from a
+related-work link. There are no hard-coded record IDs or required paper count.
+
+A shared renderer produces the three publication pages and their structured
+metadata. The generator validates unique slugs/DOIs, explicit roles and companion
+targets before writing pages. To add a paper, supply its metadata and checked
+PDF/citation files in its publication directory. Keep source hashes intact.
+
+`tools/check_site.py` checks links, fragments, exact abstracts and disclosures,
+PDF/citation hashes, author versus contact metadata, companion citation direction,
+canonical URLs, navigation and identical XML/text sitemaps. It intentionally
+does not rewrite manuscript or citation assets.
+
+## Indexing scope and attribution
 
 Each landing page contains canonical and Open Graph tags, title, publication
 date, direct local PDF URL, DOI, abstract URL, language, Dublin Core identifiers,
@@ -94,13 +114,19 @@ and JSON-LD `ScholarlyArticle` data. The home page contains `Person` and
 `ProfilePage` structured data. A sitemap and permissive robots file support
 discovery. PDFs are searchable deposited documents.
 
-For the two quantum papers, `citation_author`, `DC.creator` and JSON-LD `author` reflect Harjas's explicit
-authorship correction. Author names also appear visibly below every title.
-The original quantum PDFs still contain their earlier contact-only footnote; the dated
-landing-page correction explains that historical wording and retains the full
-AI disclosure. This is an attribution update, not independent verification of
-proofs or priority, and does not establish Google Scholar inclusion. No ORCID
-or qualification is invented, and no new manuscript version is published.
+The coauthored arXiv paper has a separate `citation_author` and `DC.creator` tag
+for each verified author, matching its visible credit, citation downloads and
+JSON-LD author list. Its local searchable PDF is linked from the abstract page
+in the same directory. The posting date follows arXiv, distinct from the date
+printed in the manuscript and the earlier hosted commentary.
+
+For the two contact-only quantum manuscripts, `citation_author`, `DC.creator`
+and JSON-LD `author` are omitted. `DC.contributor`, JSON-LD `contributor` and
+visible text describe Harjas's actual role. Google Scholar requires an actual
+author tag; these pages cannot honestly satisfy that requirement by relabeling
+a contact. This limits their Scholar metadata eligibility, while ordinary web
+discovery remains possible. No ORCID, qualification or independent verification
+is invented, and no new manuscript version is published.
 
 Reference: https://scholar.google.com/intl/en/scholar/inclusion.html
 

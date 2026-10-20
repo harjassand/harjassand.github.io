@@ -10,6 +10,7 @@ from datetime import date
 from html import escape
 import json
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT / "data/publications.json").read_text())
@@ -35,12 +36,31 @@ def pdf_path(paper: dict) -> str:
     return paper_path(paper) + paper["pdf_filename"]
 
 
-def paper_authors(paper: dict) -> list[str]:
-    return paper.get("authors", [DATA["author_name"]])
+def person(name: str) -> dict:
+    result = {"@type": "Person", "name": name}
+    if name == DATA["owner_name"]:
+        result.update({"@id": PERSON_ID, "url": BASE + "/"})
+    return result
+
+
+def credit_line(paper: dict, linked: bool = False) -> str:
+    names = paper["authors"] or [paper["contact_name"]]
+    formatted = [f'<a href="/">{e(name)}</a>' if linked and name == DATA["owner_name"] else e(name) for name in names]
+    return ("Manuscript contact: " if paper["credit_role"] == "contact" else "") + " and ".join(formatted)
+
+
+def publication_label(paper: dict) -> str:
+    if paper["credit_role"] == "contact":
+        return "AI-generated manuscript"
+    return "Coauthored preprint" if len(paper["authors"]) > 1 else "Preprint"
 
 
 def schema_tag(schema: dict) -> str:
     return '<script type="application/ld+json">\n' + json.dumps(schema, ensure_ascii=False, indent=2).replace("</", "<\\/") + "\n</script>"
+
+
+def write_page(path: Path, html: str) -> None:
+    path.write_text("\n".join(line.rstrip() for line in html.splitlines()) + "\n", encoding="utf-8")
 
 
 def head(title: str, description: str, path: str, paper: dict | None = None) -> str:
@@ -50,10 +70,9 @@ def head(title: str, description: str, path: str, paper: dict | None = None) -> 
         verification = f'\n  <meta name="google-site-verification" content="{e(DATA["google_site_verification"])}">'
     scholarly = ""
     if paper:
-        author_tags = "\n".join(f'  <meta name="citation_author" content="{e(name)}">' for name in paper_authors(paper))
-        creator_tags = "\n".join(f'  <meta name="DC.creator" content="{e(name)}">' for name in paper_authors(paper))
-        publisher = paper.get("publisher", "Zenodo")
-        license_url = paper.get("license_url", "https://www.apache.org/licenses/LICENSE-2.0")
+        author_tags = "\n".join(f'  <meta name="citation_author" content="{e(name)}">' for name in paper["authors"])
+        creator_tags = "\n".join(f'  <meta name="DC.creator" content="{e(name)}">' for name in paper["authors"])
+        contributor_tag = f'\n  <meta name="DC.contributor" content="{e(paper["contact_name"])}">' if paper.get("contact_name") else ""
         scholarly = f'''\n  <meta name="citation_title" content="{e(paper['title'])}">
 {author_tags}
   <meta name="citation_publication_date" content="{paper['publication_date'].replace('-', '/')}">
@@ -67,9 +86,8 @@ def head(title: str, description: str, path: str, paper: dict | None = None) -> 
   <meta name="DC.identifier" content="https://doi.org/{e(paper['doi'])}">
   <meta name="DC.date" content="{paper['publication_date']}">
   <meta name="DC.issued" content="{paper['publication_date']}">
-  <meta name="DC.publisher" content="{e(publisher)}">
-  <meta name="DC.contributor" content="Harjas Sandhu">
-  <meta name="DC.rights" content="{e(license_url)}">
+  <meta name="DC.publisher" content="{e(paper['publisher'])}">{contributor_tag}
+  <meta name="DC.rights" content="{e(paper['license_url'])}">
   <meta name="DC.type" content="Text">
   <meta name="DC.language" content="en">
   <link rel="alternate" type="application/pdf" href="{BASE + pdf_path(paper)}" title="Original deposited manuscript">
@@ -103,7 +121,7 @@ def header() -> str:
     <a class="wordmark" href="/">Harjas Sandhu</a>
     <nav aria-label="Main navigation">
       <a href="/#research">Research</a>
-      <a href="/#publications">Preprints</a>
+      <a href="/#publications">Publications</a>
     </nav>
   </header>'''
 
@@ -137,13 +155,15 @@ def render_home() -> str:
     }
     entries = []
     for paper in PAPERS:
+        repository_link = f'<a href="{e(paper["record_url"])}" aria-label="arXiv: {e(paper["title"])}">arXiv</a>' if paper.get("arxiv_id") else ""
         entries.append(f'''          <li>
             <h3><a href="{paper_path(paper)}">{e(paper['title'])}</a></h3>
-            <p class="pub-meta">{e(' and '.join(paper_authors(paper)))}<br>Preprint · {e(paper.get('publisher', 'Zenodo'))} · October 2026 · Version {e(paper['version'])}</p>
+            <p class="pub-meta">{credit_line(paper)}<br>{publication_label(paper)} · {e(paper['publisher'])} · {pretty_date(paper['publication_date'])} · Version {e(paper['version'])}</p>
             <p class="pub-summary">{e(paper['summary'])}</p>
             <div class="link-line">
               <a href="{paper_path(paper)}">Abstract &amp; details</a>
               <a href="{pdf_path(paper)}" aria-label="PDF: {e(paper['title'])}">PDF</a>
+              {repository_link}
               <a href="https://doi.org/{e(paper['doi'])}" aria-label="DOI: {e(paper['title'])}">DOI</a>
               <a href="{paper_path(paper)}#citation" aria-label="Citation: {e(paper['title'])}">Cite</a>
             </div>
@@ -173,11 +193,11 @@ def render_home() -> str:
 
     <section class="section-row" id="publications" aria-labelledby="publications-heading">
       <div>
-        <h2 id="publications-heading">Preprints</h2>
-        <p class="section-note">2026 · Three preprints</p>
+        <h2 id="publications-heading">Publications &amp; manuscripts</h2>
+        <p class="section-note">2026 · ''' + str(sum(p['credit_role'] == 'author' for p in PAPERS)) + ''' coauthored preprint · ''' + str(sum(p['credit_role'] == 'contact' for p in PAPERS)) + ''' AI-generated manuscripts</p>
       </div>
       <div class="section-copy">
-        <p class="publication-context">My preprints include joint work with Andreas Thom on non-sofic hyperbolic groups and two companion papers on quantum information. The quantum investigations used an agentic system that I developed and coordinated. Each paper page describes its contributions and AI provenance.</p>
+        <p class="publication-context">The group-theory preprint is joint work with Andreas Thom. For the two AI-generated quantum-information manuscripts, I developed and coordinated the agentic system and serve solely as contact. Each page describes the work’s contribution and provenance.</p>
         <ol class="publication-list">
 ''' + "\n".join(entries) + '''
         </ol>
@@ -187,218 +207,167 @@ def render_home() -> str:
     <section class="section-row" aria-labelledby="provenance-heading">
       <h2 id="provenance-heading">About the quantum manuscripts</h2>
       <div class="section-copy status-note">
-        <p>The two quantum-information manuscripts attribute their new results and proofs to AI systems. Independent specialist review and priority assessment are pending. Author attribution was corrected on 21 October 2026; the original deposited PDFs retain their earlier contact-only credit. Each quantum preprint page explains the correction and reproduces the original disclosure.</p>
+        <p>The two quantum-information manuscripts attribute their new results and proofs to AI systems. My contribution was developing and coordinating the agentic system, and I serve solely as the manuscript contact. Independent specialist review and priority assessment are pending. Each manuscript page reproduces the original disclosure.</p>
       </div>
     </section>
   </main>
 ''' + footer()
 
 
-def render_paper(paper: dict, companion: dict) -> str:
-    path = paper_path(paper)
-    bib = (ROOT / path.lstrip("/") / "citation.bib").read_text()
-    title = paper["title"]
-    canonical = BASE + path
-    discovery_links = " · ".join(
-        f'<a href="{e(record["url"])}">{e(record["name"])}</a>'
-        for record in paper.get("discovery_records", [])
-    )
+def article_schema(paper: dict) -> dict:
     schema = {
         "@context": "https://schema.org",
         "@type": "ScholarlyArticle",
         "@id": "https://doi.org/" + paper["doi"],
-        "url": canonical,
-        "name": title,
-        "headline": title,
+        "url": BASE + paper_path(paper),
+        "name": paper["title"],
+        "headline": paper["title"],
         "abstract": paper["abstract"],
         "datePublished": paper["publication_date"],
         "inLanguage": "en",
         "version": paper["version"],
         "genre": "Preprint",
-        "creativeWorkStatus": "Preprint; independent specialist review and priority assessment pending",
-        "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": paper["doi"]},
-        "publisher": {"@type": "Organization", "name": "Zenodo", "url": "https://zenodo.org/"},
-        "author": {"@type": "Person", "@id": PERSON_ID, "name": DATA["author_name"], "url": BASE + "/"},
-        "contributor": {"@type": "Person", "@id": PERSON_ID, "name": "Harjas Sandhu", "url": BASE + "/"},
-        "creditText": DATA["attribution_statement"] + " Attribution corrected " + DATA["attribution_correction_date"] + ". Original PDF disclosure: " + paper["provenance"],
-        "keywords": paper["keywords"],
-        "isAccessibleForFree": True,
-        "license": "https://www.apache.org/licenses/LICENSE-2.0",
-        "sameAs": paper["record_url"],
-        "encoding": {"@type": "MediaObject", "encodingFormat": "application/pdf", "contentUrl": BASE + pdf_path(paper), "contentSize": str(paper["pdf_bytes"]) + " bytes"},
-    }
-    if paper["record_id"] == 23349192:
-        schema["citation"] = {"@type": "ScholarlyArticle", "@id": "https://doi.org/" + companion["doi"], "name": companion["title"]}
-        relation_text = "This manuscript develops capacity and distillation consequences using the complete-order results of the companion preprint."
-    else:
-        relation_text = "The companion preprint develops capacity and one-way distillation consequences that depend on the order results presented here."
-    kilobytes = round(paper["pdf_bytes"] / 1000)
-    return head(title + " — Harjas Sandhu", paper["abstract"], path, paper) + schema_tag(schema) + f'''
-</head>
-<body>
-''' + header() + f'''
-  <main class="paper-main" id="main">
-    <p class="breadcrumb"><a href="/#publications">← All preprints</a></p>
-    <article aria-labelledby="paper-title">
-      <header class="paper-header">
-        <p class="eyebrow">Preprint · Quantum information</p>
-        <h1 id="paper-title">{e(title)}</h1>
-        <p class="contact-credit">Author and manuscript contact: <a href="/">{e(DATA['author_name'])}</a></p>
-      </header>
-
-      <section class="paper-section paper-abstract" aria-labelledby="abstract-heading">
-        <h2 id="abstract-heading">Abstract</h2>
-        <p class="abstract-text">{e(paper['abstract'])}</p>
-        <p class="abstract-label">Abstract reproduced from the deposited manuscript.</p>
-      </section>
-
-      <p class="paper-dates">Manuscript dated <time datetime="{paper['manuscript_date']}">{pretty_date(paper['manuscript_date'])}</time>.<br>Published on Zenodo <time datetime="{paper['publication_date']}">{pretty_date(paper['publication_date'])}</time> · Version {e(paper['version'])}</p>
-      <div class="paper-actions">
-        <a class="pdf-link" href="{pdf_path(paper)}">Read PDF <span class="file-detail">{kilobytes} kB</span></a>
-        <a href="https://doi.org/{e(paper['doi'])}">DOI</a>
-        <a href="{e(paper['record_url'])}">Zenodo record</a>
-        <a href="#citation">Cite</a>
-      </div>
-
-      <section class="paper-section provenance" aria-labelledby="provenance-heading">
-        <h2 id="provenance-heading">Contribution and provenance</h2>
-        <p class="contributor-credit">{e(DATA['attribution_statement'])}</p>
-        <p class="abstract-label">Attribution corrected <time datetime="{DATA['attribution_correction_date']}">{pretty_date(DATA['attribution_correction_date'])}</time>. The original deposited PDFs have not been replaced.</p>
-        <blockquote>{e(paper['provenance'])}</blockquote>
-        <p>The quotation reproduces the original manuscript’s title-page footnote. Its earlier contact-only attribution is superseded by the dated author correction above. The disclosure of AI-developed results and proofs, and the pending independent review, remain in effect.</p>
-      </section>
-
-      <section class="paper-section" aria-labelledby="details-heading">
-        <h2 id="details-heading">Publication details</h2>
-        <dl class="paper-details">
-          <dt>Repository</dt><dd>Zenodo</dd>
-          <dt>Type</dt><dd>Preprint</dd>
-          <dt>DOI</dt><dd><a href="https://doi.org/{e(paper['doi'])}">{e(paper['doi'])}</a></dd>
-          <dt>Version</dt><dd>{e(paper['version'])}</dd>
-          <dt>License</dt><dd><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> (as deposited)</dd>
-          <dt>Original files</dt><dd><a href="{e(paper['record_url'])}#files">PDF and LaTeX source on Zenodo</a></dd>
-          <dt>Catalogue records</dt><dd>{discovery_links}</dd>
-        </dl>
-      </section>
-
-      <section class="paper-section" id="citation" aria-labelledby="citation-heading">
-        <h2 id="citation-heading">Citation</h2>
-        <p class="citation-text">Sandhu, Harjas. (2026). <cite>{e(title)}</cite> (Version {e(paper['version'])}). Zenodo. <a href="https://doi.org/{e(paper['doi'])}">https://doi.org/{e(paper['doi'])}</a></p>
-        <p class="citation-note">This citation uses the current author attribution. The original PDFs' earlier contact-only credit is addressed by the dated correction above; the AI-provenance disclosure remains in effect.</p>
-        <div class="link-line">
-          <a href="{path}citation.bib" download>Download BibTeX</a>
-          <a href="{path}citation.ris" download>Download RIS</a>
-        </div>
-        <details>
-          <summary>View BibTeX</summary>
-          <pre><code>{e(bib)}</code></pre>
-        </details>
-        <p class="abstract-label">BibTeX from Zenodo; RIS from the DOI citation service. Both downloads preserve the source exports.</p>
-      </section>
-
-      <section class="paper-section companion" aria-labelledby="companion-heading">
-        <h2 id="companion-heading">Companion preprint</h2>
-        <p>{e(relation_text)}</p>
-        <p><a href="{paper_path(companion)}">{e(companion['title'])}</a></p>
-      </section>
-    </article>
-  </main>
-''' + footer()
-
-
-def render_joint_paper(paper: dict) -> str:
-    path = paper_path(paper)
-    title = paper["title"]
-    bib = (ROOT / path.lstrip("/") / "citation.bib").read_text()
-    authors = [{"@type": "Person", "@id": PERSON_ID, "name": "Harjas Sandhu", "url": BASE + "/"},
-               {"@type": "Person", "name": "Andreas Thom"}]
-    schema = {
-        "@context": "https://schema.org", "@type": "ScholarlyArticle",
-        "@id": "https://doi.org/" + paper["doi"], "url": BASE + path,
-        "name": title, "headline": title, "abstract": paper["abstract"],
-        "datePublished": paper["publication_date"], "inLanguage": "en",
-        "version": paper["version"], "genre": "Preprint", "creativeWorkStatus": "Preprint",
+        "creativeWorkStatus": "Preprint",
         "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": paper["doi"]},
         "publisher": {"@type": "Organization", "name": paper["publisher"], "url": paper["publisher_url"]},
-        "author": authors, "creditText": paper["provenance"] + " " + paper["provenance_summary"],
-        "keywords": paper["keywords"], "isAccessibleForFree": True,
-        "license": paper["license_url"], "sameAs": paper["record_url"],
+        "creditText": " ".join(filter(None, [paper.get("contribution"), paper["provenance"], paper.get("provenance_summary")])),
+        "keywords": paper["keywords"],
+        "isAccessibleForFree": True,
+        "license": paper["license_url"],
+        "sameAs": paper["record_url"],
         "encoding": {"@type": "MediaObject", "encodingFormat": "application/pdf",
                      "contentUrl": BASE + pdf_path(paper), "contentSize": str(paper["pdf_bytes"]) + " bytes"},
     }
-    related = "".join(f'<p><a href="{paper_path(p)}">{e(p["title"])}</a></p>' for p in PAPERS if p is not paper)
-    return head(title + " — Harjas Sandhu", paper["abstract"], path, paper) + schema_tag(schema) + f'''
+    if paper["authors"]:
+        schema["author"] = [person(name) for name in paper["authors"]]
+    if paper.get("contact_name"):
+        schema["contributor"] = person(paper["contact_name"])
+        schema["creativeWorkStatus"] = "Preprint; independent specialist review and priority assessment pending"
+    relation = paper.get("companion")
+    if relation and relation.get("cites"):
+        companion = next(p for p in PAPERS if p["slug"] == relation["slug"])
+        schema["citation"] = {"@type": "ScholarlyArticle", "@id": "https://doi.org/" + companion["doi"], "name": companion["title"]}
+    return schema
+
+
+def render_paper(paper: dict) -> str:
+    path = paper_path(paper)
+    title = paper["title"]
+    bib = (ROOT / path.lstrip("/") / "citation.bib").read_text()
+    is_arxiv = bool(paper.get("arxiv_id"))
+    if is_arxiv:
+        provenance = f'''<blockquote>{e(paper['provenance'])}</blockquote>
+        <p>{e(paper['provenance_summary'])}</p>
+        <p class="abstract-label">The quotation is an excerpt from the paper’s acknowledgments. “The second author” refers to Andreas Thom. <a href="https://arxiv.org/html/{e(paper['arxiv_id'])}v{e(paper['version'])}">Read the full paper and acknowledgments.</a></p>'''
+        source_details = f'''<dt>Identifier</dt><dd><a href="{e(paper['record_url'])}">arXiv:{e(paper['arxiv_id'])} [math.GR]</a></dd>
+          <dt>PDF source</dt><dd><a href="{e(paper['pdf_source_url'])}">Unmodified arXiv v{e(paper['version'])} PDF</a>, by {e(' and '.join(paper['authors']))}</dd>'''
+        version_note = f'''<p class="abstract-label">The <a href="{e(paper['commentary_url'])}">hosted commentary</a> is also listed on <a href="{e(paper['commentary_scholar_url'])}">Andreas Thom’s Scholar profile</a> with the date {pretty_date(paper['commentary_date'])}. These are versions of the same work.</p>'''
+        citation = f"{e(' and '.join(paper['authors']))}. ({paper['publication_date'][:4]}). <cite>{e(title)}</cite>. arXiv:{e(paper['arxiv_id'])}v{e(paper['version'])}."
+        citation_note = "Citation downloads prepared from the public arXiv record."
+        citation_caveat = ""
+    else:
+        provenance = f'''<p class="contributor-credit">{e(paper['contribution'])}</p>
+        <blockquote>{e(paper['provenance'])}</blockquote>
+        <p>The quotation reproduces the manuscript’s title-page footnote. The original deposited PDF is unchanged.</p>'''
+        discovery_links = " · ".join(f'<a href="{e(record["url"])}">{e(record["name"])}</a>' for record in paper.get("discovery_records", []))
+        source_details = f'''<dt>Original files</dt><dd><a href="{e(paper['record_url'])}#files">PDF and LaTeX source on Zenodo</a></dd>'''
+        if discovery_links:
+            source_details += f"<dt>Catalogue records</dt><dd>{discovery_links}</dd>"
+        version_note = ""
+        citation = f"<cite>{e(title)}</cite>. ({paper['publication_date'][:4]}). Version {e(paper['version'])}. {e(paper['publisher'])}."
+        citation_note = "BibTeX from Zenodo; RIS from the DOI citation service. Both downloads preserve the source exports."
+        citation_caveat = '<p class="citation-note">The title-first reference above follows the manuscript’s contact-only credit. The source citation exports below name Harjas Sandhu in the repository creator field; that repository metadata differs from the scientific authorship disclosed in the manuscript.</p>'
+    relation = paper.get("companion")
+    related_section = ""
+    if relation:
+        companion = next(p for p in PAPERS if p["slug"] == relation["slug"])
+        related_section = f'''
+      <section class="paper-section companion" aria-labelledby="companion-heading">
+        <h2 id="companion-heading">Companion manuscript</h2>
+        <p>{e(relation['description'])}</p>
+        <p><a href="{paper_path(companion)}">{e(companion['title'])}</a></p>
+      </section>'''
+    return head(title + " — Harjas Sandhu", paper["abstract"], path, paper) + schema_tag(article_schema(paper)) + f'''
 </head>
 <body>
 ''' + header() + f'''
   <main class="paper-main" id="main">
-    <p class="breadcrumb"><a href="/#publications">← All preprints</a></p>
+    <p class="breadcrumb"><a href="/#publications">← Publications and manuscripts</a></p>
     <article aria-labelledby="paper-title">
       <header class="paper-header">
-        <p class="eyebrow">Preprint · Group theory</p>
+        <p class="eyebrow">{publication_label(paper)} · {e(paper['subject'])}</p>
         <h1 id="paper-title">{e(title)}</h1>
-        <p class="contact-credit"><a href="/">Harjas Sandhu</a> and Andreas Thom</p>
+        <p class="contact-credit">{credit_line(paper, linked=True)}</p>
       </header>
       <section class="paper-section paper-abstract" aria-labelledby="abstract-heading">
         <h2 id="abstract-heading">Abstract</h2>
         <p class="abstract-text">{e(paper['abstract'])}</p>
-        <p class="abstract-label">Abstract reproduced from the arXiv record.</p>
+        <p class="abstract-label">Abstract reproduced from the {e(paper['abstract_source'])}.</p>
       </section>
-      <p class="paper-dates">Manuscript dated <time datetime="{paper['manuscript_date']}">{pretty_date(paper['manuscript_date'])}</time>.<br>Posted on arXiv <time datetime="{paper['publication_date']}">{pretty_date(paper['publication_date'])}</time> · Version {e(paper['version'])}</p>
+      <p class="paper-dates">Manuscript dated <time datetime="{paper['manuscript_date']}">{pretty_date(paper['manuscript_date'])}</time>.<br>{'Posted on' if is_arxiv else 'Published on'} {e(paper['publisher'])} <time datetime="{paper['publication_date']}">{pretty_date(paper['publication_date'])}</time> · Version {e(paper['version'])}</p>
       <div class="paper-actions">
         <a class="pdf-link" href="{pdf_path(paper)}">Read PDF <span class="file-detail">{round(paper['pdf_bytes'] / 1000)} kB</span></a>
-        <a href="{e(paper['record_url'])}">arXiv record</a>
+        <a href="{e(paper['record_url'])}">{e(paper['publisher'])} record</a>
         <a href="https://doi.org/{e(paper['doi'])}">DOI</a>
         <a href="#citation">Cite</a>
       </div>
       <section class="paper-section provenance" aria-labelledby="provenance-heading">
         <h2 id="provenance-heading">Contribution and provenance</h2>
-        <blockquote>{e(paper['provenance'])}</blockquote>
-        <p>{e(paper['provenance_summary'])}</p>
-        <p class="abstract-label">The quotation is an excerpt from the paper's acknowledgments. <a href="https://arxiv.org/html/{e(paper['arxiv_id'])}v1">Read the full paper and acknowledgments.</a></p>
+        {provenance}
       </section>
       <section class="paper-section" aria-labelledby="details-heading">
         <h2 id="details-heading">Publication details</h2>
         <dl class="paper-details">
-          <dt>Repository</dt><dd>arXiv</dd>
+          <dt>Repository</dt><dd>{e(paper['publisher'])}</dd>
           <dt>Type</dt><dd>Preprint</dd>
-          <dt>Identifier</dt><dd><a href="{e(paper['record_url'])}">arXiv:{e(paper['arxiv_id'])} [math.GR]</a></dd>
           <dt>DOI</dt><dd><a href="https://doi.org/{e(paper['doi'])}">{e(paper['doi'])}</a></dd>
           <dt>Version</dt><dd>{e(paper['version'])}</dd>
           <dt>License</dt><dd><a href="{e(paper['license_url'])}">{e(paper['license_name'])}</a> (as deposited)</dd>
-          <dt>PDF source</dt><dd><a href="{e(paper['pdf_source_url'])}">Unmodified arXiv v1 PDF</a>, by Harjas Sandhu and Andreas Thom</dd>
+          {source_details}
         </dl>
-        <p class="abstract-label">The <a href="{e(paper['commentary_url'])}">hosted commentary</a> is also listed on <a href="{e(paper['commentary_scholar_url'])}">Andreas Thom's Scholar profile</a> with the date {pretty_date(paper['commentary_date'])}. These are versions of the same work.</p>
+        {version_note}
       </section>
       <section class="paper-section" id="citation" aria-labelledby="citation-heading">
         <h2 id="citation-heading">Citation</h2>
-        <p class="citation-text">Sandhu, Harjas, and Thom, Andreas. (2026). <cite>{e(title)}</cite>. arXiv:{e(paper['arxiv_id'])}v1. <a href="https://doi.org/{e(paper['doi'])}">https://doi.org/{e(paper['doi'])}</a></p>
+        <p class="citation-text">{citation} <a href="https://doi.org/{e(paper['doi'])}">https://doi.org/{e(paper['doi'])}</a></p>
+        {citation_caveat}
         <div class="link-line">
           <a href="{path}citation.bib" download>Download BibTeX</a>
           <a href="{path}citation.ris" download>Download RIS</a>
         </div>
         <details><summary>View BibTeX</summary><pre><code>{e(bib)}</code></pre></details>
-        <p class="abstract-label">Citation downloads prepared from the public arXiv record.</p>
-      </section>
-      <section class="paper-section" aria-labelledby="other-preprints-heading">
-        <h2 id="other-preprints-heading">Other preprints</h2>
-        {related}
-      </section>
+        <p class="abstract-label">{citation_note}</p>
+      </section>{related_section}
     </article>
   </main>
 ''' + footer()
 
 
 def main() -> None:
-    (ROOT / "index.html").write_text(render_home())
-    by_record = {p["record_id"]: p for p in PAPERS if "record_id" in p}
-    companions = {23349086: 23349192, 23349192: 23349086}
+    slugs = [paper["slug"] for paper in PAPERS]
+    if len(set(slugs)) != len(slugs) or len({p["doi"] for p in PAPERS}) != len(PAPERS):
+        raise ValueError("Each publication needs a unique slug and DOI")
     for paper in PAPERS:
-        rendered = render_joint_paper(paper) if paper.get("arxiv_id") else render_paper(paper, by_record[companions[paper["record_id"]]])
-        (ROOT / paper_path(paper).lstrip("/") / "index.html").write_text(rendered)
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", paper["slug"]):
+            raise ValueError("Invalid publication slug")
+        if paper["credit_role"] not in ("author", "contact"):
+            raise ValueError("Unknown credit role")
+        if bool(paper["authors"]) != (paper["credit_role"] == "author"):
+            raise ValueError("Scientific authors must be explicit; a contact cannot be an author fallback")
+        if paper["credit_role"] == "contact" and not paper.get("contact_name"):
+            raise ValueError("Contact-only manuscripts require a named contact")
+        relation = paper.get("companion")
+        if relation and (relation["slug"] not in slugs or relation["slug"] == paper["slug"]):
+            raise ValueError("Companion must identify another publication by slug")
+        expected_source = "arxiv_metadata" if paper.get("arxiv_id") else "repository_exports"
+        if paper["citation_source"] != expected_source:
+            raise ValueError("Unsupported citation source")
+    write_page(ROOT / "index.html", render_home())
+    for paper in PAPERS:
+        write_page(ROOT / paper_path(paper).lstrip("/") / "index.html", render_paper(paper))
     not_found = head("Page not found — Harjas Sandhu", "The requested page could not be found. Return to Harjas Sandhu’s research website.", "/404.html")
     not_found = not_found.replace('content="index,follow,max-snippet:-1,max-image-preview:large"', 'content="noindex,follow"')
-    (ROOT / "404.html").write_text(not_found + '''</head>
+    write_page(ROOT / "404.html", not_found + '''</head>
 <body>
 ''' + header() + '''
   <main class="error-main" id="main">
