@@ -1,0 +1,66 @@
+{
+  "title": "Thermal balance and the amplifier entropy photon-number inequality",
+  "version": "2026-10-21",
+  "manuscript_date": "2026-10-21",
+  "landing_page": "https://harjassand.github.io/research/amplifier-entropy/",
+  "versioned_pdf_url": "https://raw.githubusercontent.com/harjassand/harjassand.github.io/e03adf118f826ad7aca523478d19d01e3ee1845e/research/amplifier-entropy/amplifier_entropy_revised.pdf",
+  "source_snapshot_commit": "e03adf118f826ad7aca523478d19d01e3ee1845e",
+  "scientific_authors": [],
+  "research_direction_and_coordination": "Harjas Sandhu",
+  "ai_provenance": "This manuscript emerged from an iterative, substantially autonomous research process involving several AI systems, with successive rounds of dialogue, mathematical investigation, criticism and rewriting coordinated through human direction. The mathematical development and writing are AI-generated; established contributions are credited in the text.",
+  "rights_notice": "The source bundle retains the Apache License 2.0 and attribution notice for incorporated OpenAI material. See LICENSE and NOTICE.txt for scope.",
+  "inherited_source": {
+    "title": "The entropy photon-number inequality",
+    "url": "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/The-entropy-photon-number-inequality-September-24-2026",
+    "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+    "license": "https://www.apache.org/licenses/LICENSE-2.0"
+  },
+  "payload_files": [
+    {
+      "filename": "LICENSE",
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    {
+      "filename": "NOTICE.txt",
+      "bytes": 761,
+      "sha256": "06caf34f5ade0bbde8707ed23dfc69a61494b0cdb0ad18333de6ce3af646fb69"
+    },
+    {
+      "filename": "README.txt",
+      "bytes": 2128,
+      "sha256": "4e4624d00a8f30102b6d85ac0859b0429035da177db736c2d01467e107bf6e1b"
+    },
+    {
+      "filename": "amplifier_entropy_revised.pdf",
+      "bytes": 350441,
+      "sha256": "f16d83d4b5bc3673200b825187f6a3a18683f81e869503280a63921ecb101d39"
+    },
+    {
+      "filename": "citation.bib",
+      "bytes": 518,
+      "sha256": "ae096c9f23c47aa9b2292d4052d25bf24adea202e109fecf83338383298f16ba"
+    },
+    {
+      "filename": "citation.ris",
+      "bytes": 475,
+      "sha256": "35356cda9ce4334624e6cc960242ba65369299459fdd74dd0eda57c6a7c9bfa3"
+    },
+    {
+      "filename": "latex_source.zip",
+      "bytes": 56133,
+      "sha256": "199cf6b86cec3837504a2044fa16f24e7964dd646fce0c549dc72487ea6a30e6"
+    },
+    {
+      "filename": "references.bib",
+      "bytes": 4444,
+      "sha256": "731b128e812f8873f68e62fec31624345472f01f974727d098c2992949ea1c0a"
+    },
+    {
+      "filename": "verification.json",
+      "bytes": 1608,
+      "sha256": "84bc1c9c10c34c107efb6e051195e5729a953b74c4c0e445958fee318286ab6f"
+    }
+  ],
+  "manifest_scope": "Hashes cover the listed payload files; this manifest and its containing ZIP do not hash themselves."
+}

@@ -12,6 +12,7 @@ from pathlib import Path
 import re
 from urllib.parse import unquote, urlsplit
 import xml.etree.ElementTree as ET
+import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT / "data/publications.json").read_text())
@@ -196,7 +197,69 @@ def main():
     sitemap = ET.parse(ROOT / "sitemap.xml")
     namespace = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     urls = [element.text for element in sitemap.findall("s:url/s:loc", namespace)]
-    expected_urls = [BASE + "/"] + [BASE + "/publications/" + p["slug"] + "/" for p in DATA["papers"]]
+    research = DATA.get("selected_research", [])
+    for work in research:
+        path = "/" + work.get("collection", "research") + "/" + work["slug"] + "/"
+        directory = ROOT / path.lstrip("/")
+        page = pages[(directory / "index.html").resolve()]
+        text = " ".join(" ".join(page.text).split())
+        article = page.schema[0]
+        check(page.canonical == [BASE + path], "Research canonical incorrect")
+        check(page.meta.get("citation_title") == work["title"], "Research title metadata incorrect")
+        check(page.meta.get("citation_pdf_url") == BASE + path + work["pdf_filename"], "Research PDF metadata incorrect")
+        check(page.meta.get("citation_abstract_html_url") == BASE + path, "Research abstract URL incorrect")
+        check(page.meta.get("citation_publication_date") == work["publication_date"].replace("-", "/"), "Research date incorrect")
+        check("noindex" not in page.meta.get("robots", ""), "Research page indexing blocked")
+        check(work["authors"] == [] and work["credit_role"] == "coordinator", "Research coordination role incorrect")
+        check(not page.meta_values.get("citation_author") and not page.meta_values.get("DC.creator"), "Coordinator misrepresented as scientific author")
+        check(page.meta.get("DC.contributor") == work["contributor_name"], "Research contributor metadata incorrect")
+        check("author" not in article, "Research article invents an author")
+        check(article["contributor"]["name"] == work["contributor_name"], "Research schema contributor incorrect")
+        check(article["encoding"]["contentUrl"] == page.meta["citation_pdf_url"], "Research schema PDF incorrect")
+        check(article["identifier"] == {"@type": "PropertyValue", "propertyID": "SHA-256", "value": work["pdf_sha256"]}, "Research integrity identifier incorrect")
+        check(work["abstract"] == article["abstract"] and work["abstract"] in text, "Research abstract altered")
+        check(work["provenance"] in text and work["contribution"] in text, "Research provenance or role missing")
+        check(work["verification_status"] in text, "Research verification scope missing")
+        check(article["isBasedOn"]["url"] == work["based_on"]["url"], "Inherited OpenAI source incorrect")
+        check("license" not in article, "Research page must not expand the inherited license scope")
+        if not work.get("doi"):
+            check("citation_doi" not in page.meta, "Research page invents an unissued DOI")
+        for asset in work["assets"]:
+            file = directory / asset["filename"]
+            body = file.read_bytes()
+            check(len(body) == asset["bytes"] and hashlib.sha256(body).hexdigest() == asset["sha256"], f"Release asset altered: {file.name}")
+        pdf = (directory / work["pdf_filename"]).read_bytes()
+        check(pdf.startswith(b"%PDF-") and hashlib.sha256(pdf).hexdigest() == work["pdf_sha256"], "Latest research PDF altered")
+        bib = (directory / "citation.bib").read_text()
+        ris = (directory / "citation.ris").read_text()
+        check(not re.search(r"^\s*(author|editor)\s*=", bib, re.M | re.I), "Research citation invents scientific authorship")
+        check(not re.search(r"^A[U1-4]  -", ris, re.M), "Research RIS invents scientific authorship")
+        check(work["version_pdf_url"] in bib and work["version_pdf_url"] in ris, "Research citations lack the fixed version URL")
+        check(work["version_pdf_url"] in page.links, "Versioned PDF link missing")
+        with zipfile.ZipFile(directory / work["source_filename"]) as archive:
+            check(archive.testzip() is None, "Source ZIP CRC failed")
+            check(len(archive.namelist()) == 22, "Delivered source archive file count changed")
+            for name in archive.namelist():
+                check(not Path(name).is_absolute() and ".." not in Path(name).parts, "Unsafe source ZIP member")
+            abstract_source = archive.read("sections/abstract.tex").decode()
+            abstract = re.search(r"\\begin\{abstract\}(.*?)\\end\{abstract\}", abstract_source, re.S).group(1)
+            check(" ".join(abstract.split()) == work["abstract"], "Landing abstract differs from delivered source")
+            for filename in ("references.bib", "LICENSE", "NOTICE.txt"):
+                check(archive.read(filename) == (directory / filename).read_bytes(), f"Preserved source notice or bibliography changed: {filename}")
+            for appendix in ("analytic", "domains", "interpolation", "stein-proof"):
+                check("sections/" + appendix + ".tex" in archive.namelist(), "Proof appendix missing")
+        with zipfile.ZipFile(directory / "release_bundle.zip") as archive:
+            check(archive.testzip() is None, "Release bundle CRC failed")
+            for name in archive.namelist():
+                check(archive.read(name) == (directory / Path(name).name).read_bytes(), "Release bundle payload differs from downloads")
+        manifest = json.loads((directory / "release-manifest.json").read_text())
+        for item in manifest["payload_files"]:
+            check(hashlib.sha256((directory / item["filename"]).read_bytes()).hexdigest() == item["sha256"], "Release manifest hash mismatch")
+        check("{{" not in (directory / "index.html").read_text(), "Unfilled research template")
+        check("explanation" in page.ids and "verification" in page.ids and "citation" in page.ids, "Research navigation destination missing")
+        check("open" in text.lower() and "non-Gaussian equality" in text, "Research scope limits missing")
+
+    expected_urls = [BASE + "/"] + [BASE + "/publications/" + p["slug"] + "/" for p in DATA["papers"]] + [BASE + "/" + p.get("collection", "research") + "/" + p["slug"] + "/" for p in research]
     check(urls == expected_urls and len(set(urls)) == len(urls), "Sitemap must contain exactly the canonical URLs without duplicates")
     for url in urls:
         check(local_target(url, ROOT / "index.html")[0] in pages, "Sitemap target invalid")
@@ -205,14 +268,18 @@ def main():
         check(f"Sitemap: {BASE}/{filename}" in (ROOT / "robots.txt").read_text(), f"Robots reference missing: {filename}")
     check((ROOT / ".nojekyll").is_file(), "GitHub Pages .nojekyll missing")
     home = pages[(ROOT / "index.html").resolve()]
+    if research:
+        check("selected-research" in home.ids, "Selected Research section missing")
+        for work in research:
+            check("/" + work.get("collection", "research") + "/" + work["slug"] + "/" in home.links, "Research not discoverable from home")
     for paper in DATA["papers"]:
         check("/publications/" + paper["slug"] + "/" in home.links, "Publication not discoverable from home")
         if paper.get("arxiv_id"):
             check(paper["record_url"] in home.links, "Home page arXiv link missing")
     first_publication = next(url for url in home.links if url.startswith("/publications/"))
     check(first_publication == "/publications/" + DATA["papers"][0]["slug"] + "/", "Featured publication order incorrect")
-    print(f"PASS: {len(pages)} HTML pages, {link_count} local links/anchors/assets, {len(DATA['papers'])} unchanged PDFs, exact abstracts and disclosures, citation exports, JSON-LD, canonical/scholarly metadata, sitemap and robots.txt.")
-    print("LIMIT: contact-only manuscripts intentionally omit author tags; they do not meet Scholar's author-metadata requirement. Availability and metadata checks do not confirm indexing.")
+    print(f"PASS: {len(pages)} HTML pages, {link_count} local links/anchors/assets, {len(DATA['papers']) + len(research)} unchanged PDFs, exact abstracts and disclosures, citations, source/release archives, JSON-LD, canonical/scholarly metadata, sitemap and robots.txt.")
+    print("LIMIT: contact-only and coordinated manuscripts intentionally omit scientific-author tags. These implementation checks do not verify the mathematics or confirm search-engine indexing.")
 
 
 if __name__ == "__main__":

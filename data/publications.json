@@ -159,5 +159,116 @@
       "ris_sha256": "d54824d9f3f17f74ab866d6aa663df2ce875cf5b9a270e705c79afb5d32ea380",
       "summary": "Complete channel order, communication capacity, and one-way distillation."
     }
+  ],
+  "selected_research": [
+    {
+      "slug": "amplifier-entropy",
+      "collection": "research",
+      "title": "Thermal balance and the amplifier entropy photon-number inequality",
+      "authors": [],
+      "credit_role": "coordinator",
+      "contributor_name": "Harjas Sandhu",
+      "contribution": "Harjas Sandhu directed, orchestrated and coordinated the AI-assisted research process. The mathematical development and writing are AI-generated; no human mathematical authorship is assigned.",
+      "subject": "Quantum information and mathematical physics",
+      "abstract_source": "manuscript",
+      "citation_source": "manuscript_metadata",
+      "publication_date": "2026-10-21",
+      "manuscript_date": "2026-10-21",
+      "version": "2026-10-21",
+      "page_count": 33,
+      "doi": null,
+      "record_url": null,
+      "publisher": null,
+      "publisher_url": null,
+      "license_url": null,
+      "rights_notice": "The source bundle retains the Apache License 2.0 and attribution notice for incorporated OpenAI material. See LICENSE and NOTICE.txt for scope.",
+      "abstract": "The entropy photon number is the occupation of a thermal state with a given entropy per mode. We give a variational argument for its sharp lower bound under amplification of two independent finite-energy inputs, allowing correlations within each input group. The proof turns on an agreement of signs: the creation port reverses a logarithmic-mean metric, and thermal relaxation obeys the corresponding signed occupation balance. At a regularized entropy minimum, these two facts cancel the energy corrections and force the thermal-balance defects to vanish. A trace-norm Stein bound, obtained from thermal-attenuator smoothing, then closes the argument. We also give a Gaussian spectral refinement, characterize Gaussian equality by a common symplectic shape, and deduce a sharp correlation bound for the two outputs. The conjecture is due to De Palma, Mari and Giovannetti; the variational framework and four-weight interpolation are adapted from OpenAI's beam-splitter argument.",
+      "provenance": "This manuscript emerged from an iterative, substantially autonomous research process involving several AI systems, with successive rounds of dialogue, mathematical investigation, criticism and rewriting coordinated through human direction. The mathematical development and writing are AI-generated; established contributions are credited in the text.",
+      "provenance_summary": "The variational framework and four-weight interpolation adapt OpenAI’s beam-splitter argument. The amplifier conjecture is credited to De Palma, Mari and Giovannetti. The inherited license and attribution notice are included with the complete source.",
+      "verification_status": "The general amplifier argument is a proof candidate. The release has passed file-integrity, source-structure, compilation and presentation checks. These checks do not establish independent specialist review, formal proof verification or priority for the refinements.",
+      "summary": "A proof candidate for a sharp amplifier entropy bound, organized around the agreement between signed interpolation and thermal relaxation.",
+      "description": "An AI-generated proof candidate for the amplifier entropy photon-number inequality, with a readable explanation, full argument, source and precise provenance.",
+      "keywords": [
+        "amplifier entropy photon-number inequality",
+        "bosonic Gaussian channels",
+        "quantum entropy inequalities",
+        "quantum amplifiers",
+        "thermal relaxation",
+        "logarithmic-mean interpolation",
+        "thermal Stein bound",
+        "Gaussian equality"
+      ],
+      "pdf_filename": "amplifier_entropy_revised.pdf",
+      "pdf_bytes": 350441,
+      "pdf_sha256": "f16d83d4b5bc3673200b825187f6a3a18683f81e869503280a63921ecb101d39",
+      "source_filename": "latex_source.zip",
+      "source_revision": "e03adf118f826ad7aca523478d19d01e3ee1845e",
+      "version_pdf_url": "https://raw.githubusercontent.com/harjassand/harjassand.github.io/e03adf118f826ad7aca523478d19d01e3ee1845e/research/amplifier-entropy/amplifier_entropy_revised.pdf",
+      "based_on": {
+        "title": "The entropy photon-number inequality",
+        "url": "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/The-entropy-photon-number-inequality-September-24-2026",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "license": "https://www.apache.org/licenses/LICENSE-2.0"
+      },
+      "assets": [
+        {
+          "filename": "LICENSE",
+          "bytes": 11358,
+          "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+        },
+        {
+          "filename": "NOTICE.txt",
+          "bytes": 761,
+          "sha256": "06caf34f5ade0bbde8707ed23dfc69a61494b0cdb0ad18333de6ce3af646fb69"
+        },
+        {
+          "filename": "README.txt",
+          "bytes": 2128,
+          "sha256": "4e4624d00a8f30102b6d85ac0859b0429035da177db736c2d01467e107bf6e1b"
+        },
+        {
+          "filename": "amplifier_entropy_revised.pdf",
+          "bytes": 350441,
+          "sha256": "f16d83d4b5bc3673200b825187f6a3a18683f81e869503280a63921ecb101d39"
+        },
+        {
+          "filename": "citation.bib",
+          "bytes": 518,
+          "sha256": "ae096c9f23c47aa9b2292d4052d25bf24adea202e109fecf83338383298f16ba"
+        },
+        {
+          "filename": "citation.ris",
+          "bytes": 475,
+          "sha256": "35356cda9ce4334624e6cc960242ba65369299459fdd74dd0eda57c6a7c9bfa3"
+        },
+        {
+          "filename": "latex_source.zip",
+          "bytes": 56133,
+          "sha256": "199cf6b86cec3837504a2044fa16f24e7964dd646fce0c549dc72487ea6a30e6"
+        },
+        {
+          "filename": "references.bib",
+          "bytes": 4444,
+          "sha256": "731b128e812f8873f68e62fec31624345472f01f974727d098c2992949ea1c0a"
+        },
+        {
+          "filename": "release-manifest.json",
+          "bytes": 2997,
+          "sha256": "d524905ffd0fcd0fe4d3ac433ccdfe0bc31c4a67eb67c3051569be0248b4cd1c"
+        },
+        {
+          "filename": "release_bundle.zip",
+          "bytes": 413306,
+          "sha256": "839cc0bdde18229d385b7f96f3cb2fe0d0fedc73d7b4fd3d76d198abd0d5d694"
+        },
+        {
+          "filename": "verification.json",
+          "bytes": 1608,
+          "sha256": "84bc1c9c10c34c107efb6e051195e5729a953b74c4c0e445958fee318286ab6f"
+        }
+      ],
+      "bib_sha256": "ae096c9f23c47aa9b2292d4052d25bf24adea202e109fecf83338383298f16ba",
+      "ris_sha256": "35356cda9ce4334624e6cc960242ba65369299459fdd74dd0eda57c6a7c9bfa3"
+    }
   ]
 }

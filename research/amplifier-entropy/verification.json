@@ -1,0 +1,38 @@
+{
+  "scope": "Release integrity, source structure, compilation and presentation; not independent mathematical verification.",
+  "manuscript_version": "2026-10-21",
+  "pdf_pages": 33,
+  "pdf_sha256": "f16d83d4b5bc3673200b825187f6a3a18683f81e869503280a63921ecb101d39",
+  "source_zip_sha256": "199cf6b86cec3837504a2044fa16f24e7964dd646fce0c549dc72487ea6a30e6",
+  "original_pdf_and_source_zip_unchanged": true,
+  "source_zip_crc_pass": true,
+  "source_files": 22,
+  "unique_latex_labels": 105,
+  "unresolved_latex_references": [],
+  "unresolved_bibliography_keys": [],
+  "fresh_source_compilation": {
+    "status": "success",
+    "compiler": "Codex desktop LaTeX editor",
+    "scope": "The extracted main.tex compiled successfully with its bundled sections and bibliography."
+  },
+  "pdf_rendering": {
+    "pages_rendered": 33,
+    "contact_sheet_reviewed": true
+  },
+  "illustration_check": "For G=2, a=1 and b=0, the thermal output occupation G*a+(G-1)*(b+1) is 3.",
+  "independent_specialist_review": "not established",
+  "formal_proof_verification": "not established",
+  "priority_assessment_for_refinements": "not established",
+  "open_questions": [
+    "General non-Gaussian equality classification",
+    "Quantitative EPnI stability from entropy deficit"
+  ],
+  "mathematical_descriptions_checked_against": [
+    "Abstract",
+    "Theorem 1.1 and equations (1.1)-(1.3)",
+    "Sections 3-7 and cancellation equation (6.5)",
+    "Thermal Stein bound, Theorem 7.1 and Appendix D",
+    "Gaussian refinement and equality, Theorem 8.1",
+    "Section 9, output correlations and independence counterexample"
+  ]
+}

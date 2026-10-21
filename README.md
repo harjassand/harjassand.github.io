@@ -101,18 +101,42 @@ metadata. The generator validates unique slugs/DOIs, explicit roles and companio
 targets before writing pages. To add a paper, supply its metadata and checked
 PDF/citation files in its publication directory. Keep source hashes intact.
 
+`selected_research` is a separate collection in the same JSON file. It adds a
+small homepage section without changing the order or attribution of formal
+publications. A research record declares `collection: "research"`, a unique
+slug, explicit roles, original asset hashes and a manuscript-specific template
+at `tools/templates/<slug>.html.in`. The shared head, navigation, structured
+metadata and sitemap renderers support both collections. DOI, repository and
+publisher fields may be null; an unpublished reserved DOI must not be linked.
+
+The amplifier manuscript lives at `/research/amplifier-entropy/`. Its 33-page
+PDF and complete 22-file source ZIP are the original 21 October 2026 files.
+The page distinguishes the proof candidate from established results, reproduces
+the acknowledgment after the abstract and credits Harjas for research direction,
+orchestration and coordination. Scientific authors remain empty. The source
+LICENSE and NOTICE retain their scope for incorporated OpenAI material; no new
+license over the complete manuscript is asserted.
+
+Its title-first BibTeX/RIS reference fixes the PDF to an immutable Git commit.
+The release manifest, verification report and ZIP package are checked assets,
+not generated scientific claims. If a repository record is eventually published,
+verify the live DOI before adding it, update the citation text and exports, and
+rebuild the manifest and release ZIP with fresh hashes. Do not amend a published
+source snapshot or silently replace an earlier cited PDF.
+
 `tools/check_site.py` checks links, fragments, exact abstracts and disclosures,
-PDF/citation hashes, author versus contact metadata, companion citation direction,
+PDF/citation hashes, author versus contact/coordinator metadata, companion citation
+direction, exact source abstract and notices, source/release ZIP integrity,
 canonical URLs, navigation and identical XML/text sitemaps. It intentionally
 does not rewrite manuscript or citation assets.
 
 ## Indexing scope and attribution
 
 Each landing page contains canonical and Open Graph tags, title, publication
-date, direct local PDF URL, DOI, abstract URL, language, Dublin Core identifiers,
+date, direct local PDF URL, abstract URL, language, Dublin Core identifiers,
 and JSON-LD `ScholarlyArticle` data. The home page contains `Person` and
 `ProfilePage` structured data. A sitemap and permissive robots file support
-discovery. PDFs are searchable deposited documents.
+discovery. PDFs have extractable text. DOI tags appear only for published records.
 
 The coauthored arXiv paper has a separate `citation_author` and `DC.creator` tag
 for each verified author, matching its visible credit, citation downloads and
@@ -128,13 +152,20 @@ a contact. This limits their Scholar metadata eligibility, while ordinary web
 discovery remains possible. No ORCID, qualification or independent verification
 is invented, and no new manuscript version is published.
 
+The amplifier manuscript follows the same attribution rule: it has contributor
+metadata, no scientific-author tags, and a SHA-256 identifier while no repository
+DOI is published. This supports ordinary web discovery but does not satisfy
+Scholar's actual-author requirement. Its source attribution is represented with
+`isBasedOn`; the inherited source license is not assigned to the entire article.
+
 Reference: https://scholar.google.com/intl/en/scholar/inclusion.html
 
 Static checks and successful hosting confirm implementation and availability.
 They do not confirm Google Search or Google Scholar indexing; that requires
 separate observation after crawling.
 
-The sitemap deliberately lists the homepage and three canonical publication HTML URLs. The original
+The sitemap deliberately lists the homepage, three canonical publication HTML URLs
+and the selected-research manuscript page. The original
 PDFs remain reachable through ordinary HTML links and `citation_pdf_url`;
 alternate `/index.html` addresses are not added to the sitemap. GitHub Pages
 sets the PDF HTTP headers, so an `_headers` file or HTML meta tag cannot add
