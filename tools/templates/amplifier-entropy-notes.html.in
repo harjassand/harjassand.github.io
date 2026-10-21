@@ -1,31 +1,7 @@
-  <main class="paper-main" id="main">
-    <p class="breadcrumb"><a href="/#selected-research">← Selected research</a></p>
-    <article aria-labelledby="paper-title">
-      <header class="paper-header">
-        <p class="eyebrow">Mathematical manuscript · Quantum information</p>
-        <h1 id="paper-title">{{TITLE}}</h1>
-        <p class="contact-credit">{{CREDIT}}</p>
-        <p class="paper-dates">{{DATE}} · {{PAGES}} pages · Proof candidate</p>
-        <div class="paper-actions">
-          <a class="pdf-link" href="{{PDF}}">Read PDF <span class="file-detail">350 kB</span></a>
-          <a href="{{PATH}}latex_source.zip">Complete LaTeX source</a>
-          {{DOI_ACTION}}
-          <a href="#explanation">Reader’s explanation</a>
-          <a href="#citation">Cite this version</a>
-        </div>
-      </header>
-
-      <section class="paper-section paper-abstract" aria-labelledby="abstract-heading">
-        <h2 id="abstract-heading">Abstract</h2>
-        <p class="abstract-text">{{ABSTRACT}}</p>
-        <div class="provenance manuscript-acknowledgment">
-          <p class="abstract-label">Acknowledgment and provenance · reproduced from the manuscript</p>
-          <blockquote>{{PROVENANCE}}</blockquote>
-        </div>
-      </section>
-
-      <section class="paper-section reader-note" id="explanation" aria-labelledby="explanation-heading">
-        <h2 id="explanation-heading">What an amplifier cannot leave behind</h2>
+      <section class="paper-section reader-explanation" id="explanation" aria-labelledby="explanation-heading">
+        <h2 id="explanation-heading">Reader’s explanation</h2>
+      <section class="paper-section reader-note" aria-labelledby="amplifier-noise-heading">
+        <h3 id="amplifier-noise-heading">What an amplifier cannot leave behind</h3>
         <p class="reader-lede">A thermal calculation is easy. The question is whether any independent quantum inputs with the same entropies can do better.</p>
         <p>Feed vacuum into both ports of an amplifier with gain <var>G</var> &gt; 1. The output you keep is thermal, with <var>G</var> − 1 photons per mode. The pump supplies the energy. The unavoidable extra contribution comes from the quantum commutation relation.</p>
         <p>Simply multiplying a mode’s annihilation operator by √<var>G</var> would multiply its commutator by <var>G</var>. A physical amplifier needs a second mode, entering through a creation operator, to restore the correct commutator. That reversal brings in the identity <var>bb</var><sup>†</sup> = <var>b</var><sup>†</sup><var>b</var> + 1. The extra unit survives even when that second input is vacuum.</p>
@@ -33,7 +9,7 @@
       </section>
 
       <section class="paper-section reader-note" aria-labelledby="sharp-bound-heading">
-        <h2 id="sharp-bound-heading">Put entropy on a thermal scale</h2>
+        <h3 id="sharp-bound-heading">Put entropy on a thermal scale</h3>
         <p>A one-mode thermal state with mean occupation <var>r</var> has entropy <var>g</var>(<var>r</var>) = (<var>r</var> + 1) log(<var>r</var> + 1) − <var>r</var> log <var>r</var>, with <var>g</var>(0) = 0. All logarithms here are natural.</p>
         <p>For an <var>n</var>-mode state, ask which thermal occupation would give the same entropy per mode. The answer is its <em>entropy photon number</em>, <span class="inline-math">𝒩<sub>n</sub>(ρ) = <var>g</var><sup>−1</sup>(<var>S</var>(ρ)/<var>n</var>)</span>. This measures uncertainty on a thermal scale; it is not the state’s actual mean energy.</p>
         <p>Write Γ<sub>G</sub>(ρ<sub>A</sub>, ρ<sub>B</sub>) for the retained amplifier output. The manuscript proposes the sharp inequality</p>
@@ -48,7 +24,7 @@
       </section>
 
       <section class="paper-section reader-note" id="two-signs" aria-labelledby="two-signs-heading">
-        <h2 id="two-signs-heading">Where the two signs meet</h2>
+        <h3 id="two-signs-heading">Where the two signs meet</h3>
         <p>The proposed proof approaches the bound from two directions. One is geometric: the curvature of entropy gives a comparison involving logarithmic means. Four-weight interpolation turns that comparison into a thermal metric. The creation port reverses the order of the metric’s two thermal rates.</p>
         <p>The other direction is dynamical. Relax each input toward a thermal reference. For the amplifier to carry these relaxations into the matching output relaxation, the reference occupations must obey the same signed balance, <var>R</var> = <var>Ga</var> + (<var>G</var> − 1)(<var>b</var> + 1). The extra unit and the reversed orientation have appeared again.</p>
         <p>The point is not merely that the formulas resemble one another. At a regularized minimum of a putative entropy deficit, the two structures are paired in the stationary equations. Their energy corrections cancel exactly. Equation (6.5) is the meeting point: interpolation bounds the remaining output defect, while strict comparison slack gives the input defects a larger opposing coefficient.</p>
@@ -57,43 +33,10 @@
       </section>
 
       <section class="paper-section" id="contribution" aria-labelledby="contribution-heading">
-        <h2 id="contribution-heading">Contribution and prior work</h2>
+        <h3 id="contribution-heading">Contribution and prior work</h3>
         <p>The inequality is the amplifier conjecture of <a href="https://doi.org/10.1038/nphoton.2014.252">De Palma, Mari and Giovannetti</a>. The manuscript’s claim is a proof for two arbitrary independent finite-energy multimode inputs, extending beyond <a href="https://doi.org/10.1103/PhysRevLett.118.160503">one-mode Gaussian-channel optimizer results</a> and restricted multimode cases.</p>
         <p>The regularized variational framework and four-weight interpolation are adapted from <a href="{{UPSTREAM}}">OpenAI’s beam-splitter proof</a>. The active-port analysis, its matching relaxation balance, stationary cancellation and finite-energy closure are the amplifier-specific parts presented here. The full adapted interpolation argument is retained in Appendix C.</p>
         <p>The Gaussian-input inequality itself is established prior work. Section 8 gives a spectral refinement and a separate equality argument using <a href="https://doi.org/10.1063/1.4935852">Bhatia–Jain’s symplectic variational principle</a>. Within the Gaussian class, equality requires flat symplectic spectra in each input group and a common normalized covariance shape after reversing the second input’s momentum quadratures. Displacements remain free.</p>
         <p>The trace-norm Stein estimate in Section 7 builds on <a href="https://doi.org/10.1016/j.jfa.2024.110336">Gao–Rouzé’s thermal beam-splitter smoothing mechanism</a>. Section 9 derives a sharp two-output correlation bound conditional on the general amplifier inequality. General non-Gaussian equality and a quantitative EPnI stability estimate remain open; the Stein estimate alone does not settle them. Priority for the refinements is not established by this release.</p>
       </section>
-
-      <section class="paper-section provenance" id="verification" aria-labelledby="verification-heading">
-        <h2 id="verification-heading">Provenance and verification</h2>
-        <p>{{CONTRIBUTION}}</p>
-        <p>{{STATUS}}</p>
-        <p>The original PDF and 22-file source ZIP are preserved byte for byte. The source includes all four mathematical appendices, the bibliography, the supplied build script and its dependencies list. The acknowledgment remains immediately after the abstract.</p>
-        <p>{{RIGHTS}} <a href="{{PATH}}LICENSE">License</a> · <a href="{{PATH}}NOTICE.txt">Attribution notice</a> · <a href="{{PATH}}verification.json">Release checks</a></p>
       </section>
-
-      <section class="paper-section" aria-labelledby="files-heading">
-        <h2 id="files-heading">Read, build, examine</h2>
-        <dl class="paper-details">
-          {{RECORD_DETAILS}}
-          <dt>Manuscript</dt><dd><a href="{{PDF}}">Complete PDF · {{PAGES}} pages</a></dd>
-          <dt>Editable source</dt><dd><a href="{{PATH}}latex_source.zip">LaTeX source ZIP</a> · <a href="{{PATH}}references.bib">Bibliography</a></dd>
-          <dt>Release package</dt><dd><a href="{{PATH}}release_bundle.zip">PDF, source, citations and license notices</a></dd>
-          <dt>Versioned copy</dt><dd><a href="{{VERSION_PDF}}">PDF fixed to this source snapshot</a></dd>
-          <dt>Integrity</dt><dd><a href="{{PATH}}release-manifest.json">File hashes and version metadata</a></dd>
-          <dt>Build notes</dt><dd><a href="{{PATH}}README.txt">Package contents, dependencies and verification scope</a></dd>
-        </dl>
-      </section>
-
-      <section class="paper-section" id="citation" aria-labelledby="citation-heading">
-        <h2 id="citation-heading">Cite this version</h2>
-        <p class="citation-text"><cite>{{TITLE}}</cite>. Manuscript, {{DATE}}. {{CITATION_RECORD}}</p>
-        <p class="citation-note">{{CITATION_NOTE}}</p>
-        <div class="link-line">
-          <a href="{{PATH}}citation.bib" download>Download BibTeX</a>
-          <a href="{{PATH}}citation.ris" download>Download RIS</a>
-        </div>
-        <details><summary>View BibTeX</summary><pre><code>{{BIBTEX}}</code></pre></details>
-      </section>
-    </article>
-  </main>

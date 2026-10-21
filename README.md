@@ -106,16 +106,19 @@ PDF/citation files in its publication directory. Keep source hashes intact.
 `selected_research` is a separate collection in the same JSON file. It adds a
 small homepage section without changing the order or attribution of formal
 publications. A research record declares `collection: "research"`, a unique
-slug, explicit roles, original asset hashes and a manuscript-specific template
-at `tools/templates/<slug>.html.in`. The shared head, navigation, structured
-metadata and sitemap renderers support both collections. DOI, repository and
-publisher fields may be null; an unpublished reserved DOI must not be linked.
+slug, explicit roles and original asset hashes. Both collections use the same
+homepage-entry and manuscript-page renderers: credit, dates and access links,
+abstract, contribution and provenance, publication details, and citation.
+An optional `reader_note_template` adds a manuscript-specific explanation after
+these shared sections; it does not replace the page shell. The shared head,
+navigation, structured metadata and sitemap support both collections. A DOI
+must resolve to a published record before it is linked.
 
 The amplifier manuscript lives at `/research/amplifier-entropy/`. Its 33-page
 PDF and complete 22-file source ZIP are the original 21 October 2026 files.
 The page distinguishes the proof candidate from established results, reproduces
-the acknowledgment after the abstract and credits Harjas for research direction,
-orchestration and coordination. Scientific authors remain empty. The source
+the acknowledgment after the abstract and credits Harjas for developing and
+coordinating the agentic research system. Scientific authors remain empty. The source
 LICENSE and NOTICE retain their scope for incorporated OpenAI material; no new
 license over the complete manuscript is asserted.
 

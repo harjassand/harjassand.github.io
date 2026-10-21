@@ -101,7 +101,7 @@
       "bib_sha256": "6f5f08d59699cdfc8197ef658aa721075019ea766d0c1d654ca3f89508f78f93",
       "ris_source_sha256": "dfecd8240b4730a37255dc59254736e091c939cd29495f18e5c1bff85376078f",
       "ris_sha256": "dfecd8240b4730a37255dc59254736e091c939cd29495f18e5c1bff85376078f",
-      "summary": "Complete quantum-channel comparison, information measures, and undecidability."
+      "summary": "A comparison of complete quantum-channel information orders, claiming equivalence of entropy and Fisher-information criteria and undecidability even for strictly positive rational POVMs."
     },
     {
       "slug": "capacity-and-distillation",
@@ -157,7 +157,7 @@
       "bib_sha256": "20d4b8747778389a2ccc276ef2e03d2e95863330352ce589c0be1a18d73f5c94",
       "ris_source_sha256": "d54824d9f3f17f74ab866d6aa663df2ce875cf5b9a270e705c79afb5d32ea380",
       "ris_sha256": "d54824d9f3f17f74ab866d6aa663df2ce875cf5b9a270e705c79afb5d32ea380",
-      "summary": "Complete channel order, communication capacity, and one-way distillation."
+      "summary": "A channel construction that claims to turn failed complete information comparisons into positive private and quantum capacity, with consequences for exact-zero capacity and one-way distillation."
     }
   ],
   "selected_research": [
@@ -168,7 +168,7 @@
       "authors": [],
       "credit_role": "coordinator",
       "contributor_name": "Harjas Sandhu",
-      "contribution": "Harjas Sandhu directed, orchestrated and coordinated the AI-assisted research process. The mathematical development and writing are AI-generated; no human mathematical authorship is assigned.",
+      "contribution": "Harjas Sandhu developed and coordinated the agentic system used for this investigation. The mathematical development and writing are AI-generated; no human mathematical authorship is assigned.",
       "subject": "Quantum information and mathematical physics",
       "abstract_source": "manuscript",
       "citation_source": "manuscript_metadata",
@@ -186,8 +186,8 @@
       "provenance": "This manuscript emerged from an iterative, substantially autonomous research process involving several AI systems, with successive rounds of dialogue, mathematical investigation, criticism and rewriting coordinated through human direction. The mathematical development and writing are AI-generated; established contributions are credited in the text.",
       "provenance_summary": "The variational framework and four-weight interpolation adapt OpenAI’s beam-splitter argument. The amplifier conjecture is credited to De Palma, Mari and Giovannetti. The inherited license and attribution notice are included with the complete source.",
       "verification_status": "The general amplifier argument is a proof candidate. The release has passed file-integrity, source-structure, compilation and presentation checks. These checks do not establish independent specialist review, formal proof verification or priority for the refinements.",
-      "summary": "A proof candidate for a sharp amplifier entropy bound, organized around the agreement between signed interpolation and thermal relaxation.",
-      "description": "An AI-generated proof candidate for the amplifier entropy photon-number inequality, with a readable explanation, full argument, source and precise provenance.",
+      "summary": "A variational proof candidate for the amplifier entropy photon-number inequality for independent finite-energy multimode inputs, pairing signed interpolation with thermal relaxation.",
+      "description": "A proof candidate for the amplifier entropy photon-number inequality for independent finite-energy multimode inputs, with full abstract, source, provenance and citation.",
       "keywords": [
         "amplifier entropy photon-number inequality",
         "bosonic Gaussian channels",
@@ -270,7 +270,8 @@
       "bib_sha256": "7ff1262128226978853ba03d112f9de64afcbd2566172600e8ab550ec26b54cd",
       "ris_sha256": "6f0093ca05f325c4f11ee16e0aff051964820c1cd6d4534e5ab86ef012e37c71",
       "repository_creator": "Harjas Sandhu",
-      "repository_metadata_source": "https://zenodo.org/api/records/23526644"
+      "repository_metadata_source": "https://zenodo.org/api/records/23526644",
+      "reader_note_template": "amplifier-entropy-notes.html.in"
     }
   ]
 }

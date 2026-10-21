@@ -127,6 +127,16 @@ def main():
                 check(fragment in pages[target].ids, f"{label}: missing fragment: {url}")
             link_count += 1
 
+    for work in DATA["papers"] + DATA.get("selected_research", []):
+        directory = ROOT / work.get("collection", "publications") / work["slug"]
+        raw = (directory / "index.html").read_text()
+        section_ids = ("abstract-heading", "provenance-heading", "details-heading", "citation-heading")
+        positions = [raw.find('id="' + section + '"') for section in section_ids]
+        check(all(position >= 0 for position in positions) and positions == sorted(positions),
+              f"{work['slug']}: common manuscript sections missing or out of order")
+        check(work["summary"] in " ".join(pages[(ROOT / "index.html").resolve()].text),
+              f"{work['slug']}: homepage research summary missing")
+
     for paper in DATA["papers"]:
         directory = ROOT / "publications" / paper["slug"]
         page = pages[(directory / "index.html").resolve()]

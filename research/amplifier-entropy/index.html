@@ -6,13 +6,13 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#fbfaf7">
   <title>Thermal balance and the amplifier entropy photon-number inequality — Harjas Sandhu</title>
-  <meta name="description" content="An AI-generated proof candidate for the amplifier entropy photon-number inequality, with a readable explanation, full argument, source and precise provenance.">
+  <meta name="description" content="A proof candidate for the amplifier entropy photon-number inequality for independent finite-energy multimode inputs, with full abstract, source, provenance and citation.">
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <link rel="canonical" href="https://harjassand.github.io/research/amplifier-entropy/">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/style.css?v=b2db3b93e354">
+  <link rel="stylesheet" href="/assets/style.css?v=562b192eb6a3">
   <meta property="og:title" content="Thermal balance and the amplifier entropy photon-number inequality — Harjas Sandhu">
-  <meta property="og:description" content="An AI-generated proof candidate for the amplifier entropy photon-number inequality, with a readable explanation, full argument, source and precise provenance.">
+  <meta property="og:description" content="A proof candidate for the amplifier entropy photon-number inequality for independent finite-energy multimode inputs, with full abstract, source, provenance and citation.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://harjassand.github.io/research/amplifier-entropy/">
   <meta property="og:site_name" content="Harjas Sandhu">
@@ -53,7 +53,7 @@
   "version": "2026-10-21",
   "genre": "Research manuscript",
   "creativeWorkStatus": "The general amplifier argument is a proof candidate. The release has passed file-integrity, source-structure, compilation and presentation checks. These checks do not establish independent specialist review, formal proof verification or priority for the refinements.",
-  "creditText": "Harjas Sandhu directed, orchestrated and coordinated the AI-assisted research process. The mathematical development and writing are AI-generated; no human mathematical authorship is assigned. This manuscript emerged from an iterative, substantially autonomous research process involving several AI systems, with successive rounds of dialogue, mathematical investigation, criticism and rewriting coordinated through human direction. The mathematical development and writing are AI-generated; established contributions are credited in the text. The variational framework and four-weight interpolation adapt OpenAI’s beam-splitter argument. The amplifier conjecture is credited to De Palma, Mari and Giovannetti. The inherited license and attribution notice are included with the complete source.",
+  "creditText": "Harjas Sandhu developed and coordinated the agentic system used for this investigation. The mathematical development and writing are AI-generated; no human mathematical authorship is assigned. This manuscript emerged from an iterative, substantially autonomous research process involving several AI systems, with successive rounds of dialogue, mathematical investigation, criticism and rewriting coordinated through human direction. The mathematical development and writing are AI-generated; established contributions are credited in the text. The variational framework and four-weight interpolation adapt OpenAI’s beam-splitter argument. The amplifier conjecture is credited to De Palma, Mari and Giovannetti. The inherited license and attribution notice are included with the complete source.",
   "keywords": [
     "amplifier entropy photon-number inequality",
     "bosonic Gaussian channels",
@@ -123,80 +123,43 @@
     <p class="breadcrumb"><a href="/#selected-research">← Selected research</a></p>
     <article aria-labelledby="paper-title">
       <header class="paper-header">
-        <p class="eyebrow">Mathematical manuscript · Quantum information</p>
+        <p class="eyebrow">AI-generated manuscript · Quantum information and mathematical physics</p>
         <h1 id="paper-title">Thermal balance and the amplifier entropy photon-number inequality</h1>
         <p class="contact-credit">Research direction and coordination: <a href="/">Harjas Sandhu</a></p>
-        <p class="paper-dates">21 October 2026 · 33 pages · Proof candidate</p>
+        <p class="paper-dates">Manuscript dated <time datetime="2026-10-21">21 October 2026</time>.<br>Published on Zenodo <time datetime="2026-10-21">21 October 2026</time> · Version 2026-10-21</p>
         <div class="paper-actions">
           <a class="pdf-link" href="/research/amplifier-entropy/amplifier_entropy_revised.pdf">Read PDF <span class="file-detail">350 kB</span></a>
-          <a href="/research/amplifier-entropy/latex_source.zip">Complete LaTeX source</a>
+          <a href="https://zenodo.org/records/23526644">Zenodo record</a>
+          <a href="/research/amplifier-entropy/latex_source.zip">LaTeX source</a>
           <a href="https://doi.org/10.5281/zenodo.23526644">DOI</a>
+          <a href="#citation">Cite</a>
           <a href="#explanation">Reader’s explanation</a>
-          <a href="#citation">Cite this version</a>
         </div>
       </header>
-
       <section class="paper-section paper-abstract" aria-labelledby="abstract-heading">
         <h2 id="abstract-heading">Abstract</h2>
         <p class="abstract-text">The entropy photon number is the occupation of a thermal state with a given entropy per mode. We give a variational argument for its sharp lower bound under amplification of two independent finite-energy inputs, allowing correlations within each input group. The proof turns on an agreement of signs: the creation port reverses a logarithmic-mean metric, and thermal relaxation obeys the corresponding signed occupation balance. At a regularized entropy minimum, these two facts cancel the energy corrections and force the thermal-balance defects to vanish. A trace-norm Stein bound, obtained from thermal-attenuator smoothing, then closes the argument. We also give a Gaussian spectral refinement, characterize Gaussian equality by a common symplectic shape, and deduce a sharp correlation bound for the two outputs. The conjecture is due to De Palma, Mari and Giovannetti; the variational framework and four-weight interpolation are adapted from OpenAI&#x27;s beam-splitter argument.</p>
+        <p class="abstract-label">Abstract reproduced from the manuscript.</p>
         <div class="provenance manuscript-acknowledgment">
           <p class="abstract-label">Acknowledgment and provenance · reproduced from the manuscript</p>
           <blockquote>This manuscript emerged from an iterative, substantially autonomous research process involving several AI systems, with successive rounds of dialogue, mathematical investigation, criticism and rewriting coordinated through human direction. The mathematical development and writing are AI-generated; established contributions are credited in the text.</blockquote>
         </div>
       </section>
-
-      <section class="paper-section reader-note" id="explanation" aria-labelledby="explanation-heading">
-        <h2 id="explanation-heading">What an amplifier cannot leave behind</h2>
-        <p class="reader-lede">A thermal calculation is easy. The question is whether any independent quantum inputs with the same entropies can do better.</p>
-        <p>Feed vacuum into both ports of an amplifier with gain <var>G</var> &gt; 1. The output you keep is thermal, with <var>G</var> − 1 photons per mode. The pump supplies the energy. The unavoidable extra contribution comes from the quantum commutation relation.</p>
-        <p>Simply multiplying a mode’s annihilation operator by √<var>G</var> would multiply its commutator by <var>G</var>. A physical amplifier needs a second mode, entering through a creation operator, to restore the correct commutator. That reversal brings in the identity <var>bb</var><sup>†</sup> = <var>b</var><sup>†</sup><var>b</var> + 1. The extra unit survives even when that second input is vacuum.</p>
-        <p>The amplifier is unitary on its two outputs together: it preserves their joint entropy. The thermal entropy appears in the retained output because the other output is discarded. The distinction between a pure joint state and a mixed marginal is essential.</p>
+      <section class="paper-section provenance" aria-labelledby="provenance-heading">
+        <h2 id="provenance-heading">Contribution and provenance</h2>
+        <p class="contributor-credit">Harjas Sandhu developed and coordinated the agentic system used for this investigation. The mathematical development and writing are AI-generated; no human mathematical authorship is assigned.</p>
+        <p>The variational framework and four-weight interpolation adapt OpenAI’s beam-splitter argument. The amplifier conjecture is credited to De Palma, Mari and Giovannetti. The inherited license and attribution notice are included with the complete source. <a href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/The-entropy-photon-number-inequality-September-24-2026">Inherited source.</a></p>
+        <p id="verification">The general amplifier argument is a proof candidate. The release has passed file-integrity, source-structure, compilation and presentation checks. These checks do not establish independent specialist review, formal proof verification or priority for the refinements.</p>
+        <p><a href="/research/amplifier-entropy/verification.json">Technical release checks</a></p>
       </section>
-
-      <section class="paper-section reader-note" aria-labelledby="sharp-bound-heading">
-        <h2 id="sharp-bound-heading">Put entropy on a thermal scale</h2>
-        <p>A one-mode thermal state with mean occupation <var>r</var> has entropy <var>g</var>(<var>r</var>) = (<var>r</var> + 1) log(<var>r</var> + 1) − <var>r</var> log <var>r</var>, with <var>g</var>(0) = 0. All logarithms here are natural.</p>
-        <p>For an <var>n</var>-mode state, ask which thermal occupation would give the same entropy per mode. The answer is its <em>entropy photon number</em>, <span class="inline-math">𝒩<sub>n</sub>(ρ) = <var>g</var><sup>−1</sup>(<var>S</var>(ρ)/<var>n</var>)</span>. This measures uncertainty on a thermal scale; it is not the state’s actual mean energy.</p>
-        <p>Write Γ<sub>G</sub>(ρ<sub>A</sub>, ρ<sub>B</sub>) for the retained amplifier output. The manuscript proposes the sharp inequality</p>
-        <div class="equation" tabindex="0" role="math" aria-label="The entropy photon number of the amplifier output is at least G times that of input A plus G minus one times the entropy photon number of input B plus one.">
-          <math display="block">
-            <mrow><msub><mi>𝒩</mi><mi>n</mi></msub><mo>(</mo><msub><mi>Γ</mi><mi>G</mi></msub><mo>(</mo><msub><mi>ρ</mi><mi>A</mi></msub><mo>,</mo><msub><mi>ρ</mi><mi>B</mi></msub><mo>)</mo><mo>)</mo><mo>≥</mo><mi>G</mi><msub><mi>𝒩</mi><mi>n</mi></msub><mo>(</mo><msub><mi>ρ</mi><mi>A</mi></msub><mo>)</mo><mo>+</mo><mo>(</mo><mi>G</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>[</mo><msub><mi>𝒩</mi><mi>n</mi></msub><mo>(</mo><msub><mi>ρ</mi><mi>B</mi></msub><mo>)</mo><mo>+</mo><mn>1</mn><mo>]</mo><mo>.</mo></mrow>
-          </math>
-        </div>
-        <p>The claim concerns every fixed finite number of modes and finite-energy inputs. The two input groups must be independent, although the modes within either group may be correlated or entangled. Thermal inputs attain equality: their occupations combine as <var>Ga</var> + (<var>G</var> − 1)(<var>b</var> + 1).</p>
-        <p>For example, at gain 2, thermal inputs with occupations 1 and 0 give output occupation 3. The proposed bound says that replacing those inputs by arbitrary independent states with the same entropies cannot lower the output’s entropy photon number below 3.</p>
-        <p>Independence cannot be weakened to separability. Section 9 gives classically correlated coherent inputs whose displacements cancel at the output and defeat the independent-input formula.</p>
-      </section>
-
-      <section class="paper-section reader-note" id="two-signs" aria-labelledby="two-signs-heading">
-        <h2 id="two-signs-heading">Where the two signs meet</h2>
-        <p>The proposed proof approaches the bound from two directions. One is geometric: the curvature of entropy gives a comparison involving logarithmic means. Four-weight interpolation turns that comparison into a thermal metric. The creation port reverses the order of the metric’s two thermal rates.</p>
-        <p>The other direction is dynamical. Relax each input toward a thermal reference. For the amplifier to carry these relaxations into the matching output relaxation, the reference occupations must obey the same signed balance, <var>R</var> = <var>Ga</var> + (<var>G</var> − 1)(<var>b</var> + 1). The extra unit and the reversed orientation have appeared again.</p>
-        <p>The point is not merely that the formulas resemble one another. At a regularized minimum of a putative entropy deficit, the two structures are paired in the stationary equations. Their energy corrections cancel exactly. Equation (6.5) is the meeting point: interpolation bounds the remaining output defect, while strict comparison slack gives the input defects a larger opposing coefficient.</p>
-        <p>The argument then forces those defects to vanish as the moment penalty is removed. A thermal Stein estimate turns small balance residuals into closeness to the thermal states in trace norm. Uniform energy bounds supply the final entropy-continuity step. The minimizing states return to the thermal calculation, contradicting the negative deficit from which the argument began.</p>
-        <p>This agreement between entropy geometry and thermal dynamics is the organizing idea of the proof candidate. <a href="/research/amplifier-entropy/amplifier_entropy_revised.pdf">Sections 3–7 and Appendices A–D give the complete argument and its domain estimates.</a></p>
-      </section>
-
-      <section class="paper-section" id="contribution" aria-labelledby="contribution-heading">
-        <h2 id="contribution-heading">Contribution and prior work</h2>
-        <p>The inequality is the amplifier conjecture of <a href="https://doi.org/10.1038/nphoton.2014.252">De Palma, Mari and Giovannetti</a>. The manuscript’s claim is a proof for two arbitrary independent finite-energy multimode inputs, extending beyond <a href="https://doi.org/10.1103/PhysRevLett.118.160503">one-mode Gaussian-channel optimizer results</a> and restricted multimode cases.</p>
-        <p>The regularized variational framework and four-weight interpolation are adapted from <a href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/The-entropy-photon-number-inequality-September-24-2026">OpenAI’s beam-splitter proof</a>. The active-port analysis, its matching relaxation balance, stationary cancellation and finite-energy closure are the amplifier-specific parts presented here. The full adapted interpolation argument is retained in Appendix C.</p>
-        <p>The Gaussian-input inequality itself is established prior work. Section 8 gives a spectral refinement and a separate equality argument using <a href="https://doi.org/10.1063/1.4935852">Bhatia–Jain’s symplectic variational principle</a>. Within the Gaussian class, equality requires flat symplectic spectra in each input group and a common normalized covariance shape after reversing the second input’s momentum quadratures. Displacements remain free.</p>
-        <p>The trace-norm Stein estimate in Section 7 builds on <a href="https://doi.org/10.1016/j.jfa.2024.110336">Gao–Rouzé’s thermal beam-splitter smoothing mechanism</a>. Section 9 derives a sharp two-output correlation bound conditional on the general amplifier inequality. General non-Gaussian equality and a quantitative EPnI stability estimate remain open; the Stein estimate alone does not settle them. Priority for the refinements is not established by this release.</p>
-      </section>
-
-      <section class="paper-section provenance" id="verification" aria-labelledby="verification-heading">
-        <h2 id="verification-heading">Provenance and verification</h2>
-        <p>Harjas Sandhu directed, orchestrated and coordinated the AI-assisted research process. The mathematical development and writing are AI-generated; no human mathematical authorship is assigned.</p>
-        <p>The general amplifier argument is a proof candidate. The release has passed file-integrity, source-structure, compilation and presentation checks. These checks do not establish independent specialist review, formal proof verification or priority for the refinements.</p>
-        <p>The original PDF and 22-file source ZIP are preserved byte for byte. The source includes all four mathematical appendices, the bibliography, the supplied build script and its dependencies list. The acknowledgment remains immediately after the abstract.</p>
-        <p>The source bundle retains the Apache License 2.0 and attribution notice for incorporated OpenAI material. See LICENSE and NOTICE.txt for scope. <a href="/research/amplifier-entropy/LICENSE">License</a> · <a href="/research/amplifier-entropy/NOTICE.txt">Attribution notice</a> · <a href="/research/amplifier-entropy/verification.json">Release checks</a></p>
-      </section>
-
-      <section class="paper-section" aria-labelledby="files-heading">
-        <h2 id="files-heading">Read, build, examine</h2>
+      <section class="paper-section" aria-labelledby="details-heading">
+        <h2 id="details-heading">Publication details</h2>
         <dl class="paper-details">
-          <dt>DOI</dt><dd><a href="https://doi.org/10.5281/zenodo.23526644">10.5281/zenodo.23526644</a> · <a href="https://zenodo.org/records/23526644">Zenodo record</a></dd>
+          <dt>Repository</dt><dd>Zenodo</dd>
+          <dt>Type</dt><dd>Preprint</dd>
+          <dt>DOI</dt><dd><a href="https://doi.org/10.5281/zenodo.23526644">10.5281/zenodo.23526644</a></dd>
+          <dt>Version</dt><dd>2026-10-21</dd>
+          <dt>License</dt><dd>The source bundle retains the Apache License 2.0 and attribution notice for incorporated OpenAI material. See LICENSE and NOTICE.txt for scope. <a href="/research/amplifier-entropy/LICENSE">License</a> · <a href="/research/amplifier-entropy/NOTICE.txt">Attribution notice</a></dd>
           <dt>Manuscript</dt><dd><a href="/research/amplifier-entropy/amplifier_entropy_revised.pdf">Complete PDF · 33 pages</a></dd>
           <dt>Editable source</dt><dd><a href="/research/amplifier-entropy/latex_source.zip">LaTeX source ZIP</a> · <a href="/research/amplifier-entropy/references.bib">Bibliography</a></dd>
           <dt>Release package</dt><dd><a href="/research/amplifier-entropy/release_bundle.zip">PDF, source, citations and license notices</a></dd>
@@ -204,11 +167,11 @@
           <dt>Integrity</dt><dd><a href="/research/amplifier-entropy/release-manifest.json">File hashes and version metadata</a></dd>
           <dt>Build notes</dt><dd><a href="/research/amplifier-entropy/README.txt">Package contents, dependencies and verification scope</a></dd>
         </dl>
-      </section>
 
+      </section>
       <section class="paper-section" id="citation" aria-labelledby="citation-heading">
-        <h2 id="citation-heading">Cite this version</h2>
-        <p class="citation-text"><cite>Thermal balance and the amplifier entropy photon-number inequality</cite>. Manuscript, 21 October 2026. Zenodo. <a href="https://doi.org/10.5281/zenodo.23526644">https://doi.org/10.5281/zenodo.23526644</a>.</p>
+        <h2 id="citation-heading">Citation</h2>
+        <p class="citation-text"><cite>Thermal balance and the amplifier entropy photon-number inequality</cite>. (2026). Version 2026-10-21. Zenodo. <a href="https://doi.org/10.5281/zenodo.23526644">https://doi.org/10.5281/zenodo.23526644</a></p>
         <p class="citation-note">This reference follows the manuscript’s title-first credit. Zenodo lists Harjas Sandhu as the record creator; the manuscript’s mathematical development and writing are AI-generated.</p>
         <div class="link-line">
           <a href="/research/amplifier-entropy/citation.bib" download>Download BibTeX</a>
@@ -227,7 +190,51 @@
   note = {Research direction and coordination: Harjas Sandhu. No human mathematical authorship assigned.}
 }
 </code></pre></details>
+        <p class="abstract-label">Citation downloads prepared from the manuscript metadata and the published version DOI.</p>
       </section>
+      <section class="paper-section reader-explanation" id="explanation" aria-labelledby="explanation-heading">
+        <h2 id="explanation-heading">Reader’s explanation</h2>
+      <section class="paper-section reader-note" aria-labelledby="amplifier-noise-heading">
+        <h3 id="amplifier-noise-heading">What an amplifier cannot leave behind</h3>
+        <p class="reader-lede">A thermal calculation is easy. The question is whether any independent quantum inputs with the same entropies can do better.</p>
+        <p>Feed vacuum into both ports of an amplifier with gain <var>G</var> &gt; 1. The output you keep is thermal, with <var>G</var> − 1 photons per mode. The pump supplies the energy. The unavoidable extra contribution comes from the quantum commutation relation.</p>
+        <p>Simply multiplying a mode’s annihilation operator by √<var>G</var> would multiply its commutator by <var>G</var>. A physical amplifier needs a second mode, entering through a creation operator, to restore the correct commutator. That reversal brings in the identity <var>bb</var><sup>†</sup> = <var>b</var><sup>†</sup><var>b</var> + 1. The extra unit survives even when that second input is vacuum.</p>
+        <p>The amplifier is unitary on its two outputs together: it preserves their joint entropy. The thermal entropy appears in the retained output because the other output is discarded. The distinction between a pure joint state and a mixed marginal is essential.</p>
+      </section>
+
+      <section class="paper-section reader-note" aria-labelledby="sharp-bound-heading">
+        <h3 id="sharp-bound-heading">Put entropy on a thermal scale</h3>
+        <p>A one-mode thermal state with mean occupation <var>r</var> has entropy <var>g</var>(<var>r</var>) = (<var>r</var> + 1) log(<var>r</var> + 1) − <var>r</var> log <var>r</var>, with <var>g</var>(0) = 0. All logarithms here are natural.</p>
+        <p>For an <var>n</var>-mode state, ask which thermal occupation would give the same entropy per mode. The answer is its <em>entropy photon number</em>, <span class="inline-math">𝒩<sub>n</sub>(ρ) = <var>g</var><sup>−1</sup>(<var>S</var>(ρ)/<var>n</var>)</span>. This measures uncertainty on a thermal scale; it is not the state’s actual mean energy.</p>
+        <p>Write Γ<sub>G</sub>(ρ<sub>A</sub>, ρ<sub>B</sub>) for the retained amplifier output. The manuscript proposes the sharp inequality</p>
+        <div class="equation" tabindex="0" role="math" aria-label="The entropy photon number of the amplifier output is at least G times that of input A plus G minus one times the entropy photon number of input B plus one.">
+          <math display="block">
+            <mrow><msub><mi>𝒩</mi><mi>n</mi></msub><mo>(</mo><msub><mi>Γ</mi><mi>G</mi></msub><mo>(</mo><msub><mi>ρ</mi><mi>A</mi></msub><mo>,</mo><msub><mi>ρ</mi><mi>B</mi></msub><mo>)</mo><mo>)</mo><mo>≥</mo><mi>G</mi><msub><mi>𝒩</mi><mi>n</mi></msub><mo>(</mo><msub><mi>ρ</mi><mi>A</mi></msub><mo>)</mo><mo>+</mo><mo>(</mo><mi>G</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>[</mo><msub><mi>𝒩</mi><mi>n</mi></msub><mo>(</mo><msub><mi>ρ</mi><mi>B</mi></msub><mo>)</mo><mo>+</mo><mn>1</mn><mo>]</mo><mo>.</mo></mrow>
+          </math>
+        </div>
+        <p>The claim concerns every fixed finite number of modes and finite-energy inputs. The two input groups must be independent, although the modes within either group may be correlated or entangled. Thermal inputs attain equality: their occupations combine as <var>Ga</var> + (<var>G</var> − 1)(<var>b</var> + 1).</p>
+        <p>For example, at gain 2, thermal inputs with occupations 1 and 0 give output occupation 3. The proposed bound says that replacing those inputs by arbitrary independent states with the same entropies cannot lower the output’s entropy photon number below 3.</p>
+        <p>Independence cannot be weakened to separability. Section 9 gives classically correlated coherent inputs whose displacements cancel at the output and defeat the independent-input formula.</p>
+      </section>
+
+      <section class="paper-section reader-note" id="two-signs" aria-labelledby="two-signs-heading">
+        <h3 id="two-signs-heading">Where the two signs meet</h3>
+        <p>The proposed proof approaches the bound from two directions. One is geometric: the curvature of entropy gives a comparison involving logarithmic means. Four-weight interpolation turns that comparison into a thermal metric. The creation port reverses the order of the metric’s two thermal rates.</p>
+        <p>The other direction is dynamical. Relax each input toward a thermal reference. For the amplifier to carry these relaxations into the matching output relaxation, the reference occupations must obey the same signed balance, <var>R</var> = <var>Ga</var> + (<var>G</var> − 1)(<var>b</var> + 1). The extra unit and the reversed orientation have appeared again.</p>
+        <p>The point is not merely that the formulas resemble one another. At a regularized minimum of a putative entropy deficit, the two structures are paired in the stationary equations. Their energy corrections cancel exactly. Equation (6.5) is the meeting point: interpolation bounds the remaining output defect, while strict comparison slack gives the input defects a larger opposing coefficient.</p>
+        <p>The argument then forces those defects to vanish as the moment penalty is removed. A thermal Stein estimate turns small balance residuals into closeness to the thermal states in trace norm. Uniform energy bounds supply the final entropy-continuity step. The minimizing states return to the thermal calculation, contradicting the negative deficit from which the argument began.</p>
+        <p>This agreement between entropy geometry and thermal dynamics is the organizing idea of the proof candidate. <a href="/research/amplifier-entropy/amplifier_entropy_revised.pdf">Sections 3–7 and Appendices A–D give the complete argument and its domain estimates.</a></p>
+      </section>
+
+      <section class="paper-section" id="contribution" aria-labelledby="contribution-heading">
+        <h3 id="contribution-heading">Contribution and prior work</h3>
+        <p>The inequality is the amplifier conjecture of <a href="https://doi.org/10.1038/nphoton.2014.252">De Palma, Mari and Giovannetti</a>. The manuscript’s claim is a proof for two arbitrary independent finite-energy multimode inputs, extending beyond <a href="https://doi.org/10.1103/PhysRevLett.118.160503">one-mode Gaussian-channel optimizer results</a> and restricted multimode cases.</p>
+        <p>The regularized variational framework and four-weight interpolation are adapted from <a href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/The-entropy-photon-number-inequality-September-24-2026">OpenAI’s beam-splitter proof</a>. The active-port analysis, its matching relaxation balance, stationary cancellation and finite-energy closure are the amplifier-specific parts presented here. The full adapted interpolation argument is retained in Appendix C.</p>
+        <p>The Gaussian-input inequality itself is established prior work. Section 8 gives a spectral refinement and a separate equality argument using <a href="https://doi.org/10.1063/1.4935852">Bhatia–Jain’s symplectic variational principle</a>. Within the Gaussian class, equality requires flat symplectic spectra in each input group and a common normalized covariance shape after reversing the second input’s momentum quadratures. Displacements remain free.</p>
+        <p>The trace-norm Stein estimate in Section 7 builds on <a href="https://doi.org/10.1016/j.jfa.2024.110336">Gao–Rouzé’s thermal beam-splitter smoothing mechanism</a>. Section 9 derives a sharp two-output correlation bound conditional on the general amplifier inequality. General non-Gaussian equality and a quantitative EPnI stability estimate remain open; the Stein estimate alone does not settle them. Priority for the refinements is not established by this release.</p>
+      </section>
+      </section>
+
     </article>
   </main>
   <footer class="site-footer">

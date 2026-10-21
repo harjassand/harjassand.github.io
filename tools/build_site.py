@@ -55,7 +55,7 @@ def credit_line(paper: dict, linked: bool = False) -> str:
 
 
 def publication_label(paper: dict) -> str:
-    if paper["credit_role"] == "contact":
+    if paper["credit_role"] in ("contact", "coordinator"):
         return "AI-generated manuscript"
     return "Coauthored preprint" if len(paper["authors"]) > 1 else "Preprint"
 
@@ -148,6 +148,29 @@ def footer() -> str:
 '''
 
 
+def render_entry(paper: dict) -> str:
+    path = paper_path(paper)
+    links = [
+        f'<a href="{path}">Abstract &amp; details</a>',
+        f'<a href="{pdf_path(paper)}" aria-label="PDF: {e(paper["title"])}">PDF</a>',
+    ]
+    if paper.get("arxiv_id"):
+        links.append(f'<a href="{e(paper["record_url"])}" aria-label="arXiv: {e(paper["title"])}">arXiv</a>')
+    if paper.get("source_filename"):
+        links.append(f'<a href="{path}{e(paper["source_filename"])}" aria-label="LaTeX source: {e(paper["title"])}">LaTeX source</a>')
+    if paper.get("doi"):
+        links.append(f'<a href="https://doi.org/{e(paper["doi"])}" aria-label="DOI: {e(paper["title"])}">DOI</a>')
+    links.append(f'<a href="{path}#citation" aria-label="Citation: {e(paper["title"])}">Cite</a>')
+    return f'''          <li>
+            <h3><a href="{path}">{e(paper['title'])}</a></h3>
+            <p class="pub-meta">{credit_line(paper)}<br>{publication_label(paper)} · {e(paper['publisher'])} · {pretty_date(paper['publication_date'])} · Version {e(paper['version'])}</p>
+            <p class="pub-summary">{e(paper['summary'])}</p>
+            <div class="link-line">
+              {chr(10).join(links)}
+            </div>
+          </li>'''
+
+
 def render_home() -> str:
     person = {
         "@context": "https://schema.org",
@@ -164,37 +187,10 @@ def render_home() -> str:
             {"@type": "ProfilePage", "@id": BASE + "/#profile", "url": BASE + "/", "name": "Harjas Sandhu", "mainEntity": {"@id": PERSON_ID}},
         ],
     }
-    entries = []
-    for paper in PAPERS:
-        repository_link = f'<a href="{e(paper["record_url"])}" aria-label="arXiv: {e(paper["title"])}">arXiv</a>' if paper.get("arxiv_id") else ""
-        entries.append(f'''          <li>
-            <h3><a href="{paper_path(paper)}">{e(paper['title'])}</a></h3>
-            <p class="pub-meta">{credit_line(paper)}<br>{publication_label(paper)} · {e(paper['publisher'])} · {pretty_date(paper['publication_date'])} · Version {e(paper['version'])}</p>
-            <p class="pub-summary">{e(paper['summary'])}</p>
-            <div class="link-line">
-              <a href="{paper_path(paper)}">Abstract &amp; details</a>
-              <a href="{pdf_path(paper)}" aria-label="PDF: {e(paper['title'])}">PDF</a>
-              {repository_link}
-              <a href="https://doi.org/{e(paper['doi'])}" aria-label="DOI: {e(paper['title'])}">DOI</a>
-              <a href="{paper_path(paper)}#citation" aria-label="Citation: {e(paper['title'])}">Cite</a>
-            </div>
-          </li>''')
+    entries = [render_entry(paper) for paper in PAPERS]
     selected = ""
     if RESEARCH:
-        features = []
-        for work in RESEARCH:
-            doi_link = f'<a href="https://doi.org/{e(work["doi"])}" aria-label="DOI: {e(work["title"])}">DOI</a>' if work.get("doi") else ""
-            features.append(f'''        <div class="publication-list research-feature">
-          <h3><a href="{paper_path(work)}">{e(work['title'])}</a></h3>
-          <p class="pub-meta">AI-generated mathematical manuscript · {pretty_date(work['manuscript_date'])} · Proof candidate</p>
-          <p class="pub-summary">{e(work['summary'])}</p>
-          <div class="link-line">
-            <a href="{paper_path(work)}">Read the explanation &amp; manuscript</a>
-            <a href="{pdf_path(work)}" aria-label="PDF: {e(work['title'])}">PDF</a>
-            <a href="{paper_path(work)}{e(work['source_filename'])}" aria-label="LaTeX source: {e(work['title'])}">LaTeX source</a>
-            {doi_link}
-          </div>
-        </div>''')
+        features = [render_entry(paper) for paper in RESEARCH]
         selected = '''
     <section class="section-row" id="selected-research" aria-labelledby="selected-research-heading">
       <div>
@@ -202,7 +198,9 @@ def render_home() -> str:
         <p class="section-note">Manuscripts and mathematical ideas</p>
       </div>
       <div class="section-copy">
+        <ol class="publication-list">
 ''' + "\n".join(features) + '''
+        </ol>
       </div>
     </section>
 '''
@@ -244,9 +242,9 @@ def render_home() -> str:
     </section>
 
     <section class="section-row" aria-labelledby="provenance-heading">
-      <h2 id="provenance-heading">About the quantum manuscripts</h2>
+      <h2 id="provenance-heading">About the AI-generated manuscripts</h2>
       <div class="section-copy status-note">
-        <p>The two quantum-information manuscripts attribute their new results and proofs to AI systems. My contribution was developing and coordinating the agentic system, and I serve solely as the manuscript contact. Independent specialist review and priority assessment are pending. Each manuscript page reproduces the original disclosure.</p>
+        <p>These manuscripts credit their mathematical development to AI systems. I developed and coordinated the agentic system used for these investigations; the two channel-information manuscripts list me solely as contact. Independent specialist review and priority assessment are pending. Each manuscript page preserves the original disclosure.</p>
       </div>
     </section>
   </main>
@@ -300,11 +298,26 @@ def article_schema(paper: dict) -> dict:
     return schema
 
 
+def render_reader_note(paper: dict) -> str:
+    template = paper.get("reader_note_template")
+    if not template:
+        return ""
+    body = (ROOT / "tools/templates" / template).read_text()
+    for key, value in {"PDF": pdf_path(paper), "UPSTREAM": e(paper["based_on"]["url"])}.items():
+        body = body.replace("{{" + key + "}}", value)
+    if re.search(r"\{\{[A-Z_]+\}\}", body):
+        raise ValueError("Unfilled reader note template field")
+    return body
+
+
 def render_paper(paper: dict) -> str:
     path = paper_path(paper)
     title = paper["title"]
     bib = (ROOT / path.lstrip("/") / "citation.bib").read_text()
     is_arxiv = bool(paper.get("arxiv_id"))
+    is_research = paper in RESEARCH
+    doi_url = "https://doi.org/" + paper["doi"] if paper.get("doi") else None
+    acknowledgment = ""
     if is_arxiv:
         provenance = f'''<blockquote>{e(paper['provenance'])}</blockquote>
         <p>{e(paper['provenance_summary'])}</p>
@@ -315,6 +328,25 @@ def render_paper(paper: dict) -> str:
         citation = f"{e(' and '.join(paper['authors']))}. ({paper['publication_date'][:4]}). <cite>{e(title)}</cite>. arXiv:{e(paper['arxiv_id'])}v{e(paper['version'])}."
         citation_note = "Citation downloads prepared from the public arXiv record."
         citation_caveat = ""
+    elif is_research:
+        acknowledgment = f'''<div class="provenance manuscript-acknowledgment">
+          <p class="abstract-label">Acknowledgment and provenance · reproduced from the manuscript</p>
+          <blockquote>{e(paper['provenance'])}</blockquote>
+        </div>'''
+        provenance = f'''<p class="contributor-credit">{e(paper['contribution'])}</p>
+        <p>{e(paper['provenance_summary'])} <a href="{e(paper['based_on']['url'])}">Inherited source.</a></p>
+        <p id="verification">{e(paper['verification_status'])}</p>
+        <p><a href="{path}verification.json">Technical release checks</a></p>'''
+        source_details = f'''<dt>Manuscript</dt><dd><a href="{pdf_path(paper)}">Complete PDF · {paper['page_count']} pages</a></dd>
+          <dt>Editable source</dt><dd><a href="{path}{e(paper['source_filename'])}">LaTeX source ZIP</a> · <a href="{path}references.bib">Bibliography</a></dd>
+          <dt>Release package</dt><dd><a href="{path}release_bundle.zip">PDF, source, citations and license notices</a></dd>
+          <dt>Versioned copy</dt><dd><a href="{e(paper['version_pdf_url'])}">PDF fixed to this source snapshot</a></dd>
+          <dt>Integrity</dt><dd><a href="{path}release-manifest.json">File hashes and version metadata</a></dd>
+          <dt>Build notes</dt><dd><a href="{path}README.txt">Package contents, dependencies and verification scope</a></dd>'''
+        version_note = ""
+        citation = f"<cite>{e(title)}</cite>. ({paper['publication_date'][:4]}). Version {e(paper['version'])}. {e(paper['publisher'])}."
+        citation_note = "Citation downloads prepared from the manuscript metadata and the published version DOI."
+        citation_caveat = f'<p class="citation-note">This reference follows the manuscript’s title-first credit. Zenodo lists {e(paper["repository_creator"])} as the record creator; the manuscript’s mathematical development and writing are AI-generated.</p>'
     else:
         provenance = f'''<p class="contributor-credit">{e(paper['contribution'])}</p>
         <blockquote>{e(paper['provenance'])}</blockquote>
@@ -330,37 +362,51 @@ def render_paper(paper: dict) -> str:
     relation = paper.get("companion")
     related_section = ""
     if relation:
-        companion = next(p for p in PAPERS if p["slug"] == relation["slug"])
+        companion = next(p for p in WORKS if p["slug"] == relation["slug"])
         related_section = f'''
       <section class="paper-section companion" aria-labelledby="companion-heading">
         <h2 id="companion-heading">Companion manuscript</h2>
         <p>{e(relation['description'])}</p>
         <p><a href="{paper_path(companion)}">{e(companion['title'])}</a></p>
       </section>'''
-    return head(title + " — Harjas Sandhu", paper["abstract"], path, paper) + schema_tag(article_schema(paper)) + f'''
+    collection_link = '/#selected-research' if is_research else '/#publications'
+    collection_name = 'Selected research' if is_research else 'Publications and manuscripts'
+    doi_action = f'<a href="{e(doi_url)}">DOI</a>' if doi_url else ""
+    doi_details = f'<dt>DOI</dt><dd><a href="{e(doi_url)}">{e(paper["doi"])}</a></dd>' if doi_url else ""
+    citation_url = f'<a href="{e(doi_url)}">{e(doi_url)}</a>' if doi_url else f'<a href="{e(paper["version_pdf_url"])}">Versioned PDF</a>'
+    source_action = f'<a href="{path}{e(paper["source_filename"])}">LaTeX source</a>' if paper.get("source_filename") else ""
+    reader_action = '<a href="#explanation">Reader’s explanation</a>' if paper.get("reader_note_template") else ""
+    if paper.get("license_url"):
+        rights = f'<a href="{e(paper["license_url"])}">{e(paper["license_name"])}</a> (as deposited)'
+    else:
+        rights = f'{e(paper["rights_notice"])} <a href="{path}LICENSE">License</a> · <a href="{path}NOTICE.txt">Attribution notice</a>'
+    return head(title + " — Harjas Sandhu", paper.get("description", paper["summary"]), path, paper) + schema_tag(article_schema(paper)) + f'''
 </head>
 <body>
 ''' + header() + f'''
   <main class="paper-main" id="main">
-    <p class="breadcrumb"><a href="/#publications">← Publications and manuscripts</a></p>
+    <p class="breadcrumb"><a href="{collection_link}">← {collection_name}</a></p>
     <article aria-labelledby="paper-title">
       <header class="paper-header">
         <p class="eyebrow">{publication_label(paper)} · {e(paper['subject'])}</p>
         <h1 id="paper-title">{e(title)}</h1>
         <p class="contact-credit">{credit_line(paper, linked=True)}</p>
+        <p class="paper-dates">Manuscript dated <time datetime="{paper['manuscript_date']}">{pretty_date(paper['manuscript_date'])}</time>.<br>{'Posted on' if is_arxiv else 'Published on'} {e(paper['publisher'])} <time datetime="{paper['publication_date']}">{pretty_date(paper['publication_date'])}</time> · Version {e(paper['version'])}</p>
+        <div class="paper-actions">
+          <a class="pdf-link" href="{pdf_path(paper)}">Read PDF <span class="file-detail">{round(paper['pdf_bytes'] / 1000)} kB</span></a>
+          <a href="{e(paper['record_url'])}">{e(paper['publisher'])} record</a>
+          {source_action}
+          {doi_action}
+          <a href="#citation">Cite</a>
+          {reader_action}
+        </div>
       </header>
       <section class="paper-section paper-abstract" aria-labelledby="abstract-heading">
         <h2 id="abstract-heading">Abstract</h2>
         <p class="abstract-text">{e(paper['abstract'])}</p>
         <p class="abstract-label">Abstract reproduced from the {e(paper['abstract_source'])}.</p>
+        {acknowledgment}
       </section>
-      <p class="paper-dates">Manuscript dated <time datetime="{paper['manuscript_date']}">{pretty_date(paper['manuscript_date'])}</time>.<br>{'Posted on' if is_arxiv else 'Published on'} {e(paper['publisher'])} <time datetime="{paper['publication_date']}">{pretty_date(paper['publication_date'])}</time> · Version {e(paper['version'])}</p>
-      <div class="paper-actions">
-        <a class="pdf-link" href="{pdf_path(paper)}">Read PDF <span class="file-detail">{round(paper['pdf_bytes'] / 1000)} kB</span></a>
-        <a href="{e(paper['record_url'])}">{e(paper['publisher'])} record</a>
-        <a href="https://doi.org/{e(paper['doi'])}">DOI</a>
-        <a href="#citation">Cite</a>
-      </div>
       <section class="paper-section provenance" aria-labelledby="provenance-heading">
         <h2 id="provenance-heading">Contribution and provenance</h2>
         {provenance}
@@ -370,16 +416,16 @@ def render_paper(paper: dict) -> str:
         <dl class="paper-details">
           <dt>Repository</dt><dd>{e(paper['publisher'])}</dd>
           <dt>Type</dt><dd>Preprint</dd>
-          <dt>DOI</dt><dd><a href="https://doi.org/{e(paper['doi'])}">{e(paper['doi'])}</a></dd>
+          {doi_details}
           <dt>Version</dt><dd>{e(paper['version'])}</dd>
-          <dt>License</dt><dd><a href="{e(paper['license_url'])}">{e(paper['license_name'])}</a> (as deposited)</dd>
+          <dt>License</dt><dd>{rights}</dd>
           {source_details}
         </dl>
         {version_note}
       </section>
       <section class="paper-section" id="citation" aria-labelledby="citation-heading">
         <h2 id="citation-heading">Citation</h2>
-        <p class="citation-text">{citation} <a href="https://doi.org/{e(paper['doi'])}">https://doi.org/{e(paper['doi'])}</a></p>
+        <p class="citation-text">{citation} {citation_url}</p>
         {citation_caveat}
         <div class="link-line">
           <a href="{path}citation.bib" download>Download BibTeX</a>
@@ -388,39 +434,10 @@ def render_paper(paper: dict) -> str:
         <details><summary>View BibTeX</summary><pre><code>{e(bib)}</code></pre></details>
         <p class="abstract-label">{citation_note}</p>
       </section>{related_section}
+{render_reader_note(paper)}
     </article>
   </main>
 ''' + footer()
-
-
-def render_research(paper: dict) -> str:
-    path = paper_path(paper)
-    body = (ROOT / "tools/templates" / (paper["slug"] + ".html.in")).read_text()
-    doi_url = "https://doi.org/" + paper["doi"] if paper.get("doi") else None
-    doi_action = f'<a href="{e(doi_url)}">DOI</a>' if doi_url else ""
-    record_details = f'<dt>DOI</dt><dd><a href="{e(doi_url)}">{e(paper["doi"])}</a> · <a href="{e(paper["record_url"])}">Zenodo record</a></dd>' if doi_url else ""
-    if doi_url:
-        citation_record = f'{e(paper["publisher"])}. <a href="{e(doi_url)}">{e(doi_url)}</a>.'
-        citation_note = f'This reference follows the manuscript’s title-first credit. Zenodo lists {e(paper["repository_creator"])} as the record creator; the manuscript’s mathematical development and writing are AI-generated.'
-    else:
-        citation_record = f'<a href="{e(paper["version_pdf_url"])}">Versioned PDF</a>.'
-        citation_note = 'This reference is title-first because no human mathematical authorship is assigned. Research direction and coordination are credited separately above. No published repository DOI is associated with this version.'
-    replacements = {
-        "TITLE": e(paper["title"]), "CREDIT": credit_line(paper, linked=True),
-        "DATE": pretty_date(paper["manuscript_date"]), "PAGES": str(paper["page_count"]),
-        "PDF": pdf_path(paper), "PATH": path, "ABSTRACT": e(paper["abstract"]),
-        "PROVENANCE": e(paper["provenance"]), "CONTRIBUTION": e(paper["contribution"]),
-        "STATUS": e(paper["verification_status"]), "RIGHTS": e(paper["rights_notice"]),
-        "UPSTREAM": e(paper["based_on"]["url"]), "VERSION_PDF": e(paper["version_pdf_url"]),
-        "DOI_ACTION": doi_action, "RECORD_DETAILS": record_details,
-        "CITATION_RECORD": citation_record, "CITATION_NOTE": citation_note,
-        "BIBTEX": e((ROOT / path.lstrip("/") / "citation.bib").read_text()),
-    }
-    for key, value in replacements.items():
-        body = body.replace("{{" + key + "}}", value)
-    if re.search(r"\{\{[A-Z_]+\}\}", body):
-        raise ValueError("Unfilled research template field")
-    return head(paper["title"] + " — Harjas Sandhu", paper["description"], path, paper) + schema_tag(article_schema(paper)) + "\n</head>\n<body>\n" + header() + "\n" + body + footer()
 
 
 def main() -> None:
@@ -446,10 +463,8 @@ def main() -> None:
         if paper["citation_source"] != expected_source:
             raise ValueError("Unsupported citation source")
     write_page(ROOT / "index.html", render_home())
-    for paper in PAPERS:
+    for paper in WORKS:
         write_page(ROOT / paper_path(paper).lstrip("/") / "index.html", render_paper(paper))
-    for paper in RESEARCH:
-        write_page(ROOT / paper_path(paper).lstrip("/") / "index.html", render_research(paper))
     not_found = head("Page not found — Harjas Sandhu", "The requested page could not be found. Return to Harjas Sandhu’s research website.", "/404.html")
     not_found = not_found.replace('content="index,follow,max-snippet:-1,max-image-preview:large"', 'content="noindex,follow"')
     write_page(ROOT / "404.html", not_found + '''</head>
