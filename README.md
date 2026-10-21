@@ -119,10 +119,14 @@ orchestration and coordination. Scientific authors remain empty. The source
 LICENSE and NOTICE retain their scope for incorporated OpenAI material; no new
 license over the complete manuscript is asserted.
 
-Its title-first BibTeX/RIS reference fixes the PDF to an immutable Git commit.
-The release manifest, verification report and ZIP package are checked assets,
-not generated scientific claims. If a repository record is eventually published,
-verify the live DOI before adding it, update the citation text and exports, and
+Its published record is https://zenodo.org/records/23526644, with version DOI
+https://doi.org/10.5281/zenodo.23526644. The title-first BibTeX/RIS downloads now
+use that permanent DOI. Zenodo credits Harjas Sandhu as the record creator;
+the manuscript's scientific authorship and AI disclosure remain distinct.
+The immutable Git copy remains available for byte-level version comparison.
+The website release package and manifest include the updated DOI citations.
+Files already archived on Zenodo retain their original pre-DOI citation snapshot.
+For a later version, verify its live DOI before updating the reference, then
 rebuild the manifest and release ZIP with fresh hashes. Do not amend a published
 source snapshot or silently replace an earlier cited PDF.
 
@@ -155,8 +159,8 @@ discovery remains possible. No ORCID, qualification or independent verification
 is invented, and no new manuscript version is published.
 
 The amplifier manuscript follows the same attribution rule: it has contributor
-metadata, no scientific-author tags, and a SHA-256 identifier while no repository
-DOI is published. This supports ordinary web discovery but does not satisfy
+metadata, no scientific-author tags, and both its published version DOI and PDF
+SHA-256 in structured data. This supports ordinary web discovery but does not satisfy
 Scholar's actual-author requirement. Its source attribution is represented with
 `isBasedOn`; the inherited source license is not assigned to the entire article.
 

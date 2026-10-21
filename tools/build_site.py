@@ -183,6 +183,7 @@ def render_home() -> str:
     if RESEARCH:
         features = []
         for work in RESEARCH:
+            doi_link = f'<a href="https://doi.org/{e(work["doi"])}" aria-label="DOI: {e(work["title"])}">DOI</a>' if work.get("doi") else ""
             features.append(f'''        <div class="publication-list research-feature">
           <h3><a href="{paper_path(work)}">{e(work['title'])}</a></h3>
           <p class="pub-meta">AI-generated mathematical manuscript · {pretty_date(work['manuscript_date'])} · Proof candidate</p>
@@ -191,6 +192,7 @@ def render_home() -> str:
             <a href="{paper_path(work)}">Read the explanation &amp; manuscript</a>
             <a href="{pdf_path(work)}" aria-label="PDF: {e(work['title'])}">PDF</a>
             <a href="{paper_path(work)}{e(work['source_filename'])}" aria-label="LaTeX source: {e(work['title'])}">LaTeX source</a>
+            {doi_link}
           </div>
         </div>''')
         selected = '''
@@ -288,7 +290,8 @@ def article_schema(paper: dict) -> dict:
         schema["contributor"] = person(paper["contributor_name"])
         schema["genre"] = "Research manuscript"
         schema["creativeWorkStatus"] = paper["verification_status"]
-        schema["identifier"] = {"@type": "PropertyValue", "propertyID": "SHA-256", "value": paper["pdf_sha256"]}
+        integrity = {"@type": "PropertyValue", "propertyID": "SHA-256", "value": paper["pdf_sha256"]}
+        schema["identifier"] = [schema["identifier"], integrity] if paper.get("doi") else integrity
         schema["isBasedOn"] = {"@type": "ScholarlyArticle", "name": paper["based_on"]["title"], "url": paper["based_on"]["url"], "license": paper["based_on"]["license"], "author": {"@type": "Organization", "name": "OpenAI"}}
     relation = paper.get("companion")
     if relation and relation.get("cites"):
@@ -393,6 +396,15 @@ def render_paper(paper: dict) -> str:
 def render_research(paper: dict) -> str:
     path = paper_path(paper)
     body = (ROOT / "tools/templates" / (paper["slug"] + ".html.in")).read_text()
+    doi_url = "https://doi.org/" + paper["doi"] if paper.get("doi") else None
+    doi_action = f'<a href="{e(doi_url)}">DOI</a>' if doi_url else ""
+    record_details = f'<dt>DOI</dt><dd><a href="{e(doi_url)}">{e(paper["doi"])}</a> · <a href="{e(paper["record_url"])}">Zenodo record</a></dd>' if doi_url else ""
+    if doi_url:
+        citation_record = f'{e(paper["publisher"])}. <a href="{e(doi_url)}">{e(doi_url)}</a>.'
+        citation_note = f'This reference follows the manuscript’s title-first credit. Zenodo lists {e(paper["repository_creator"])} as the record creator; the manuscript’s mathematical development and writing are AI-generated.'
+    else:
+        citation_record = f'<a href="{e(paper["version_pdf_url"])}">Versioned PDF</a>.'
+        citation_note = 'This reference is title-first because no human mathematical authorship is assigned. Research direction and coordination are credited separately above. No published repository DOI is associated with this version.'
     replacements = {
         "TITLE": e(paper["title"]), "CREDIT": credit_line(paper, linked=True),
         "DATE": pretty_date(paper["manuscript_date"]), "PAGES": str(paper["page_count"]),
@@ -400,6 +412,8 @@ def render_research(paper: dict) -> str:
         "PROVENANCE": e(paper["provenance"]), "CONTRIBUTION": e(paper["contribution"]),
         "STATUS": e(paper["verification_status"]), "RIGHTS": e(paper["rights_notice"]),
         "UPSTREAM": e(paper["based_on"]["url"]), "VERSION_PDF": e(paper["version_pdf_url"]),
+        "DOI_ACTION": doi_action, "RECORD_DETAILS": record_details,
+        "CITATION_RECORD": citation_record, "CITATION_NOTE": citation_note,
         "BIBTEX": e((ROOT / path.lstrip("/") / "citation.bib").read_text()),
     }
     for key, value in replacements.items():

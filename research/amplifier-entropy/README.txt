@@ -33,5 +33,12 @@ equality classification and a quantitative EPnI stability theorem remain open.
 The output-correlation consequence depends on the general amplifier inequality.
 
 Landing page: https://harjassand.github.io/research/amplifier-entropy/
-Citations should be title-first, without assigning scientific authorship to the
-research coordinator. No DOI is claimed unless a repository record is published.
+Published record: https://zenodo.org/records/23526644
+Version DOI: https://doi.org/10.5281/zenodo.23526644
+Zenodo record creator: Harjas Sandhu. The website citations are title-first,
+consistent with the manuscript. Zenodo-generated citations include its record
+creator. The mathematical development and writing remain AI-generated.
+
+The website citation files and release manifest include the DOI registered after
+the initial deposit. Files archived on Zenodo preserve that original snapshot;
+the manuscript PDF, source ZIP, bibliography and notices are unchanged.

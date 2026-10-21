@@ -176,10 +176,10 @@
       "manuscript_date": "2026-10-21",
       "version": "2026-10-21",
       "page_count": 33,
-      "doi": null,
-      "record_url": null,
-      "publisher": null,
-      "publisher_url": null,
+      "doi": "10.5281/zenodo.23526644",
+      "record_url": "https://zenodo.org/records/23526644",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
       "license_url": null,
       "rights_notice": "The source bundle retains the Apache License 2.0 and attribution notice for incorporated OpenAI material. See LICENSE and NOTICE.txt for scope.",
       "abstract": "The entropy photon number is the occupation of a thermal state with a given entropy per mode. We give a variational argument for its sharp lower bound under amplification of two independent finite-energy inputs, allowing correlations within each input group. The proof turns on an agreement of signs: the creation port reverses a logarithmic-mean metric, and thermal relaxation obeys the corresponding signed occupation balance. At a regularized entropy minimum, these two facts cancel the energy corrections and force the thermal-balance defects to vanish. A trace-norm Stein bound, obtained from thermal-attenuator smoothing, then closes the argument. We also give a Gaussian spectral refinement, characterize Gaussian equality by a common symplectic shape, and deduce a sharp correlation bound for the two outputs. The conjecture is due to De Palma, Mari and Giovannetti; the variational framework and four-weight interpolation are adapted from OpenAI's beam-splitter argument.",
@@ -223,8 +223,8 @@
         },
         {
           "filename": "README.txt",
-          "bytes": 2128,
-          "sha256": "4e4624d00a8f30102b6d85ac0859b0429035da177db736c2d01467e107bf6e1b"
+          "bytes": 2533,
+          "sha256": "c2d88e21baf868b6146d58460b7648f706adc5c22b296805828ac31a2180cb77"
         },
         {
           "filename": "amplifier_entropy_revised.pdf",
@@ -233,13 +233,13 @@
         },
         {
           "filename": "citation.bib",
-          "bytes": 518,
-          "sha256": "ae096c9f23c47aa9b2292d4052d25bf24adea202e109fecf83338383298f16ba"
+          "bytes": 453,
+          "sha256": "7ff1262128226978853ba03d112f9de64afcbd2566172600e8ab550ec26b54cd"
         },
         {
           "filename": "citation.ris",
-          "bytes": 475,
-          "sha256": "35356cda9ce4334624e6cc960242ba65369299459fdd74dd0eda57c6a7c9bfa3"
+          "bytes": 394,
+          "sha256": "6f0093ca05f325c4f11ee16e0aff051964820c1cd6d4534e5ab86ef012e37c71"
         },
         {
           "filename": "latex_source.zip",
@@ -253,13 +253,13 @@
         },
         {
           "filename": "release-manifest.json",
-          "bytes": 2997,
-          "sha256": "d524905ffd0fcd0fe4d3ac433ccdfe0bc31c4a67eb67c3051569be0248b4cd1c"
+          "bytes": 3302,
+          "sha256": "022f93cb3e8120f3f3667f44f805a8ceebe77b30f7fce22916fbbd9bb5f9c612"
         },
         {
           "filename": "release_bundle.zip",
-          "bytes": 413306,
-          "sha256": "839cc0bdde18229d385b7f96f3cb2fe0d0fedc73d7b4fd3d76d198abd0d5d694"
+          "bytes": 413507,
+          "sha256": "1e6869c48dfdb2396cf1e0e11318044395c2a58e7b43157ba2732eb789d26f33"
         },
         {
           "filename": "verification.json",
@@ -267,8 +267,10 @@
           "sha256": "84bc1c9c10c34c107efb6e051195e5729a953b74c4c0e445958fee318286ab6f"
         }
       ],
-      "bib_sha256": "ae096c9f23c47aa9b2292d4052d25bf24adea202e109fecf83338383298f16ba",
-      "ris_sha256": "35356cda9ce4334624e6cc960242ba65369299459fdd74dd0eda57c6a7c9bfa3"
+      "bib_sha256": "7ff1262128226978853ba03d112f9de64afcbd2566172600e8ab550ec26b54cd",
+      "ris_sha256": "6f0093ca05f325c4f11ee16e0aff051964820c1cd6d4534e5ab86ef012e37c71",
+      "repository_creator": "Harjas Sandhu",
+      "repository_metadata_source": "https://zenodo.org/api/records/23526644"
     }
   ]
 }

@@ -221,7 +221,20 @@ def main():
         check("author" not in article, "Research article invents an author")
         check(article["contributor"]["name"] == work["contributor_name"], "Research schema contributor incorrect")
         check(article["encoding"]["contentUrl"] == page.meta["citation_pdf_url"], "Research schema PDF incorrect")
-        check(article["identifier"] == {"@type": "PropertyValue", "propertyID": "SHA-256", "value": work["pdf_sha256"]}, "Research integrity identifier incorrect")
+        integrity = {"@type": "PropertyValue", "propertyID": "SHA-256", "value": work["pdf_sha256"]}
+        if work.get("doi"):
+            doi_url = "https://doi.org/" + work["doi"]
+            check(page.meta.get("citation_doi") == work["doi"], "Research DOI metadata incorrect")
+            check(page.meta.get("DC.identifier") == doi_url, "Research Dublin Core DOI incorrect")
+            check(page.meta.get("DC.publisher") == work["publisher"], "Research publisher metadata incorrect")
+            check(article["@id"] == doi_url, "Research schema identity does not use the version DOI")
+            check(article["identifier"] == [{"@type": "PropertyValue", "propertyID": "DOI", "value": work["doi"]}, integrity], "Research DOI or integrity identifier incorrect")
+            check(article["sameAs"] == work["record_url"], "Research repository link incorrect")
+            check(doi_url in page.links and work["record_url"] in page.links, "Published research record not linked")
+            check("No published repository DOI" not in text, "Stale unpublished DOI notice")
+            check(work["repository_creator"] in text, "Repository creator credit missing")
+        else:
+            check(article["identifier"] == integrity, "Research integrity identifier incorrect")
         check(work["abstract"] == article["abstract"] and work["abstract"] in text, "Research abstract altered")
         check(work["provenance"] in text and work["contribution"] in text, "Research provenance or role missing")
         check(work["verification_status"] in text, "Research verification scope missing")
@@ -239,7 +252,12 @@ def main():
         ris = (directory / "citation.ris").read_text()
         check(not re.search(r"^\s*(author|editor)\s*=", bib, re.M | re.I), "Research citation invents scientific authorship")
         check(not re.search(r"^A[U1-4]  -", ris, re.M), "Research RIS invents scientific authorship")
-        check(work["version_pdf_url"] in bib and work["version_pdf_url"] in ris, "Research citations lack the fixed version URL")
+        if work.get("doi"):
+            check(re.search(r"doi\s*=\s*\{" + re.escape(work["doi"]) + r"\}", bib, re.I), "Research BibTeX DOI missing")
+            check("DO  - " + work["doi"] in ris, "Research RIS DOI missing")
+            check(doi_url in bib and "UR  - " + doi_url in ris, "Research citations lack the permanent version URL")
+        else:
+            check(work["version_pdf_url"] in bib and work["version_pdf_url"] in ris, "Research citations lack the fixed version URL")
         check(work["version_pdf_url"] in page.links, "Versioned PDF link missing")
         with zipfile.ZipFile(directory / work["source_filename"]) as archive:
             check(archive.testzip() is None, "Source ZIP CRC failed")
@@ -258,6 +276,8 @@ def main():
             for name in archive.namelist():
                 check(archive.read(name) == (directory / Path(name).name).read_bytes(), "Release bundle payload differs from downloads")
         manifest = json.loads((directory / "release-manifest.json").read_text())
+        if work.get("doi"):
+            check(manifest.get("doi") == work["doi"] and manifest.get("record_url") == work["record_url"], "Release manifest lacks the published record")
         for item in manifest["payload_files"]:
             check(hashlib.sha256((directory / item["filename"]).read_bytes()).hexdigest() == item["sha256"], "Release manifest hash mismatch")
         check("{{" not in (directory / "index.html").read_text(), "Unfilled research template")
@@ -277,6 +297,8 @@ def main():
         check("selected-research" in home.ids, "Selected Research section missing")
         for work in research:
             check("/" + work.get("collection", "research") + "/" + work["slug"] + "/" in home.links, "Research not discoverable from home")
+            if work.get("doi"):
+                check("https://doi.org/" + work["doi"] in home.links, "Research DOI missing from home")
     for paper in DATA["papers"]:
         check("/publications/" + paper["slug"] + "/" in home.links, "Publication not discoverable from home")
         if paper.get("arxiv_id"):

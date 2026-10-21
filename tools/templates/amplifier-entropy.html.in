@@ -9,6 +9,7 @@
         <div class="paper-actions">
           <a class="pdf-link" href="{{PDF}}">Read PDF <span class="file-detail">350 kB</span></a>
           <a href="{{PATH}}latex_source.zip">Complete LaTeX source</a>
+          {{DOI_ACTION}}
           <a href="#explanation">Reader’s explanation</a>
           <a href="#citation">Cite this version</a>
         </div>
@@ -74,6 +75,7 @@
       <section class="paper-section" aria-labelledby="files-heading">
         <h2 id="files-heading">Read, build, examine</h2>
         <dl class="paper-details">
+          {{RECORD_DETAILS}}
           <dt>Manuscript</dt><dd><a href="{{PDF}}">Complete PDF · {{PAGES}} pages</a></dd>
           <dt>Editable source</dt><dd><a href="{{PATH}}latex_source.zip">LaTeX source ZIP</a> · <a href="{{PATH}}references.bib">Bibliography</a></dd>
           <dt>Release package</dt><dd><a href="{{PATH}}release_bundle.zip">PDF, source, citations and license notices</a></dd>
@@ -85,8 +87,8 @@
 
       <section class="paper-section" id="citation" aria-labelledby="citation-heading">
         <h2 id="citation-heading">Cite this version</h2>
-        <p class="citation-text"><cite>{{TITLE}}</cite>. Manuscript, {{DATE}}. <a href="{{VERSION_PDF}}">Versioned PDF</a>.</p>
-        <p class="citation-note">This reference is title-first because no human mathematical authorship is assigned. Research direction and coordination are credited separately above. No published repository DOI is associated with this version.</p>
+        <p class="citation-text"><cite>{{TITLE}}</cite>. Manuscript, {{DATE}}. {{CITATION_RECORD}}</p>
+        <p class="citation-note">{{CITATION_NOTE}}</p>
         <div class="link-line">
           <a href="{{PATH}}citation.bib" download>Download BibTeX</a>
           <a href="{{PATH}}citation.ris" download>Download RIS</a>

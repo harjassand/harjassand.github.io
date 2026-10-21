@@ -28,8 +28,8 @@
     },
     {
       "filename": "README.txt",
-      "bytes": 2128,
-      "sha256": "4e4624d00a8f30102b6d85ac0859b0429035da177db736c2d01467e107bf6e1b"
+      "bytes": 2533,
+      "sha256": "c2d88e21baf868b6146d58460b7648f706adc5c22b296805828ac31a2180cb77"
     },
     {
       "filename": "amplifier_entropy_revised.pdf",
@@ -38,13 +38,13 @@
     },
     {
       "filename": "citation.bib",
-      "bytes": 518,
-      "sha256": "ae096c9f23c47aa9b2292d4052d25bf24adea202e109fecf83338383298f16ba"
+      "bytes": 453,
+      "sha256": "7ff1262128226978853ba03d112f9de64afcbd2566172600e8ab550ec26b54cd"
     },
     {
       "filename": "citation.ris",
-      "bytes": 475,
-      "sha256": "35356cda9ce4334624e6cc960242ba65369299459fdd74dd0eda57c6a7c9bfa3"
+      "bytes": 394,
+      "sha256": "6f0093ca05f325c4f11ee16e0aff051964820c1cd6d4534e5ab86ef012e37c71"
     },
     {
       "filename": "latex_source.zip",
@@ -62,5 +62,9 @@
       "sha256": "84bc1c9c10c34c107efb6e051195e5729a953b74c4c0e445958fee318286ab6f"
     }
   ],
-  "manifest_scope": "Hashes cover the listed payload files; this manifest and its containing ZIP do not hash themselves."
+  "manifest_scope": "Hashes cover the listed payload files; this manifest and its containing ZIP do not hash themselves.",
+  "doi": "10.5281/zenodo.23526644",
+  "record_url": "https://zenodo.org/records/23526644",
+  "repository_creator": "Harjas Sandhu",
+  "archive_note": "The PDF, source ZIP, bibliography and notices match the published Zenodo files. Website citation files include the DOI added after the initial deposit."
 }
