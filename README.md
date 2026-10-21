@@ -25,6 +25,8 @@ The PDF and citation files are not rewritten by generation. Publication
 landing pages, their PDFs, and citation downloads share a directory.
 Each paper has its own stable URL and full visible abstract. Navigation,
 abstracts, PDF links, and citations work without JavaScript.
+The generator fingerprints the stylesheet URL so returning browsers receive
+new styles when a release changes CSS, without relying on a manual cache reset.
 The full abstract precedes dates and download controls so readers and crawlers
 can reach it immediately. Existing OpenAIRE and OpenAlex catalogue records
 are linked; these are discovery records rather than peer-review endorsements.

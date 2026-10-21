@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from datetime import date
 from html import escape
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -19,6 +20,7 @@ PAPERS = DATA["papers"]
 RESEARCH = DATA.get("selected_research", [])
 WORKS = PAPERS + RESEARCH
 PERSON_ID = BASE + "/#harjas-sandhu"
+STYLE_REVISION = hashlib.sha256((ROOT / "assets/style.css").read_bytes()).hexdigest()[:12]
 
 
 def e(value: str) -> str:
@@ -112,7 +114,7 @@ def head(title: str, description: str, path: str, paper: dict | None = None) -> 
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <link rel="canonical" href="{canonical}">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/assets/style.css?v={STYLE_REVISION}">
   <meta property="og:title" content="{e(title)}">
   <meta property="og:description" content="{e(description)}">
   <meta property="og:type" content="{'article' if paper else 'website'}">

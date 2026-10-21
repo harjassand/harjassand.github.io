@@ -29,6 +29,7 @@ class Page(HTMLParser):
         self.meta = {}
         self.meta_values = {}
         self.canonical = []
+        self.stylesheets = []
         self.h1_count = 0
         self.schema = []
         self.script_type = None
@@ -56,6 +57,8 @@ class Page(HTMLParser):
             self.links.append(attr["href"])
         if tag == "link" and attr.get("rel") in ("stylesheet", "icon"):
             self.links.append(attr["href"])
+        if tag == "link" and attr.get("rel") == "stylesheet":
+            self.stylesheets.append(attr["href"])
         if tag == "script":
             self.script_type = attr.get("type")
             self.script_text = ""
@@ -102,8 +105,10 @@ def main():
         check(pages[(ROOT / "index.html").resolve()].meta.get("google-site-verification") == verification,
               "Search Console ownership tag missing or altered")
     link_count = 0
+    style_revision = hashlib.sha256((ROOT / "assets/style.css").read_bytes()).hexdigest()[:12]
     for path, page in pages.items():
         label = path.relative_to(ROOT)
+        check(page.stylesheets == ["/assets/style.css?v=" + style_revision], f"{label}: stale stylesheet reference")
         check(page.language == "en", f"{label}: missing language")
         check(page.h1_count == 1, f"{label}: expected exactly one h1")
         check(not page.duplicate_ids, f"{label}: duplicate ids {page.duplicate_ids}")
