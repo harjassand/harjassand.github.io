@@ -1,0 +1,15 @@
+This manuscript adapts the regularized variational framework and four-weight
+interpolation argument from:
+
+OpenAI, The entropy photon-number inequality, 24 September 2026.
+https://github.com/openai/math
+Source revision: fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb.
+
+The incorporated material is distributed under the Apache License, Version 2.0.
+A copy is included as LICENSE. The adapted material has been modified in
+notation, exposition, organization and application to the amplifier.
+Appendix C retains the complete adapted interpolation argument.
+
+The manuscript explicitly distinguishes these inherited arguments from its
+active-port analysis and other deductions. This notice records attribution
+and licensing. No human mathematical authorship is assigned.
