@@ -36,6 +36,11 @@ The home page's Search Console ownership tag is generated from
 the tag when rebuilding; removing either can invalidate ownership verification.
 The public tag is specific to this website and is intended to be published.
 
+`scholar_profile_url` links the public Google Scholar profile from every page's
+footer and from the homepage's `Person.sameAs` metadata. The profile links back
+to this website. These links connect the public research pages; they do not
+establish inclusion of any manuscript in Scholar search.
+
 ## Deployment
 
 Use the public repository `harjassand/harjassand.github.io`, enable GitHub

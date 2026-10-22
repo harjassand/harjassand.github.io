@@ -138,9 +138,12 @@ def header() -> str:
 
 
 def footer() -> str:
-    return '''  <footer class="site-footer">
+    return f'''  <footer class="site-footer">
     <p>A personal research website. University affiliation describes student status and does not imply University endorsement.</p>
-    <a href="https://github.com/harjassand/harjassand.github.io">Website source</a>
+    <div class="link-line">
+      <a href="{e(DATA['scholar_profile_url'])}" rel="me">Google Scholar</a>
+      <a href="https://github.com/harjassand/harjassand.github.io">Website source</a>
+    </div>
   </footer>
 </div>
 </body>
@@ -180,6 +183,7 @@ def render_home() -> str:
                 "@id": PERSON_ID,
                 "name": "Harjas Sandhu",
                 "url": BASE + "/",
+                "sameAs": DATA["scholar_profile_url"],
                 "description": "Mathematics student at the University of Queensland, majoring in Mathematical AI, with interests in machine learning and AI for scientific discovery in physics, energy, and materials science.",
                 "affiliation": {"@type": "CollegeOrUniversity", "name": "The University of Queensland", "url": "https://www.uq.edu.au/"},
                 "knowsAbout": ["Machine learning", "AI for scientific discovery", "Physics", "Energy", "Materials science"],
