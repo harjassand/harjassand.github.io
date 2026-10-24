@@ -183,6 +183,7 @@ def render_note_entry(note: dict) -> str:
             <p class="pub-summary">{e(note["summary"])}</p>
             <div class="link-line">
               <a href="{path}">Complete manuscript &amp; proof</a>
+              <a href="{path}paper.pdf">PDF reading edition</a>
               <a href="{path}original-derivation.md">Original mathematical derivation</a>
               <a href="{path}#citation">Cite</a>
             </div>
