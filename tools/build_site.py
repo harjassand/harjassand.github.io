@@ -210,7 +210,17 @@ def render_home() -> str:
     entries = [render_entry(paper) for paper in PAPERS]
     selected = ""
     if RESEARCH or NOTES:
-        features = [render_entry(paper) for paper in RESEARCH] + [render_note_entry(note) for note in NOTES]
+        features = [render_entry(paper) for paper in RESEARCH]
+        features.insert(0, '''          <li>
+            <h3><a href="/research/catalytic-tensor-conversion/">Fixed-format undecidability of exact catalytic tensor restriction</a></h3>
+            <p class="pub-meta">Research direction and coordination: Harjas Sandhu<br>AI-generated proof candidate · 24 October 2026 · Version 0.1</p>
+            <p class="pub-summary">A rank-drop representation compiler claims fixed-affine undecidability for exact bipartite-catalytic three-tensor conversion. Complete mathematical proof narrative; independent correctness and historical-priority review pending.</p>
+            <div class="link-line">
+              <a href="/research/catalytic-tensor-conversion/">Abstract &amp; details</a>
+              <a href="https://github.com/harjassand/harjassand.github.io/blob/main/research/catalytic-tensor-conversion/manuscript.md">Full proof text</a>
+              <a href="/research/catalytic-tensor-conversion/#provenance-heading">AI attribution &amp; proof status</a>
+            </div>
+          </li>''') + [render_note_entry(note) for note in NOTES]
         selected = '''
     <section class="section-row" id="selected-research" aria-labelledby="selected-research-heading">
       <div>
@@ -485,6 +495,12 @@ def main() -> None:
     write_page(ROOT / "index.html", render_home())
     for paper in WORKS:
         write_page(ROOT / paper_path(paper).lstrip("/") / "index.html", render_paper(paper))
+    # Standalone reviewed-source candidate: editable Markdown full proof and static HTML page.
+    # This entry deliberately has no fictitious PDF/DOI metadata or human mathematical authorship.
+    catalytic_template = ROOT / "research/catalytic-tensor-conversion/page.html.in"
+    if catalytic_template.is_file():
+        write_page(ROOT / "research/catalytic-tensor-conversion/index.html",
+                   catalytic_template.read_text(encoding="utf-8").replace("{{STYLE_REVISION}}", STYLE_REVISION))
     not_found = head("Page not found — Harjas Sandhu", "The requested page could not be found. Return to Harjas Sandhu’s research website.", "/404.html")
     not_found = not_found.replace('content="index,follow,max-snippet:-1,max-image-preview:large"', 'content="noindex,follow"')
     write_page(ROOT / "404.html", not_found + '''</head>
@@ -496,7 +512,8 @@ def main() -> None:
     <p>The address may have changed. <a href="/">Return to the home page</a> or <a href="/#publications">browse the preprints</a>.</p>
   </main>
 ''' + footer())
-    urls = [BASE + "/"] + [BASE + paper_path(paper) for paper in WORKS] + [BASE + "/research/" + note["slug"] + "/" for note in NOTES]
+    urls = [BASE + "/"] + [BASE + paper_path(paper) for paper in WORKS]
+    urls.append(BASE + "/research/catalytic-tensor-conversion/") + [BASE + "/research/" + note["slug"] + "/" for note in NOTES]
     (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{url}</loc></url>\n" for url in urls) + "</urlset>\n")
     (ROOT / "sitemap.txt").write_text("\n".join(urls) + "\n", encoding="utf-8")
     (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\nSitemap: {BASE}/sitemap.txt\n")
