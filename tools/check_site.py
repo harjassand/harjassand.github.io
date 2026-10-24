@@ -138,6 +138,9 @@ def main():
         check(note["summary"] in " ".join(pages[(ROOT / "index.html").resolve()].text), "Standalone note missing from homepage")
         check("/research/" + slug + "/" in pages[(ROOT / "index.html").resolve()].links, "Standalone note not discoverable")
         check((directory / "original-derivation.md").is_file(), "Standalone original proof missing")
+        check((directory / "paper.pdf").read_bytes().startswith(b"%PDF-"), "Standalone PDF manuscript invalid")
+        check("paper.pdf" in page.links and "/research/" + slug + "/paper.pdf" in pages[(ROOT / "index.html").resolve()].links, "PDF not linked from research page and homepage")
+        check(page.meta.get("citation_pdf_url") == BASE + "/research/" + slug + "/paper.pdf", "Standalone note PDF citation incorrect")
         check((directory / "citation.bib").is_file(), "Standalone citation file missing")
 
     for work in DATA["papers"] + DATA.get("selected_research", []):
