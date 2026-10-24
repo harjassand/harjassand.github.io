@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#fbfaf7">
+  <title>Fixed-Format Undecidability of Exact Catalytic Tensor Restriction — Harjas Sandhu</title>
+  <meta name="description" content="AI-generated proof-candidate manuscript: universal algebra encodings and fixed-affine undecidability for exact bipartite-catalytic three-tensor restriction.">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+  <link rel="canonical" href="https://harjassand.github.io/research/catalytic-tensor-conversion/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css?v={{STYLE_REVISION}}">
+  <meta property="og:title" content="Fixed-Format Undecidability of Exact Catalytic Tensor Restriction">
+  <meta property="og:description" content="AI-generated proof-candidate manuscript: universal algebra encodings and fixed-affine undecidability for exact bipartite-catalytic three-tensor restriction.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://harjassand.github.io/research/catalytic-tensor-conversion/">
+  <meta property="og:site_name" content="Harjas Sandhu">
+  <meta name="citation_title" content="Fixed-Format Undecidability of Exact Catalytic Tensor Restriction">
+  <meta name="citation_publication_date" content="2026/10/24">
+  <meta name="citation_online_date" content="2026/10/24">
+  <meta name="citation_abstract_html_url" content="https://harjassand.github.io/research/catalytic-tensor-conversion/">
+  <meta name="citation_language" content="en">
+  <meta name="DC.title" content="Fixed-Format Undecidability of Exact Catalytic Tensor Restriction">
+  <meta name="DC.contributor" content="Harjas Sandhu">
+  <meta name="DC.date" content="2026-10-24">
+  <meta name="DC.type" content="Text">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "@id": "https://harjassand.github.io/research/catalytic-tensor-conversion/#manuscript",
+  "url": "https://harjassand.github.io/research/catalytic-tensor-conversion/",
+  "name": "Fixed-Format Undecidability of Exact Catalytic Tensor Restriction",
+  "headline": "Fixed-Format Undecidability of Exact Catalytic Tensor Restriction",
+  "datePublished": "2026-10-24",
+  "inLanguage": "en",
+  "version": "AI research manuscript 0.1",
+  "genre": "AI-generated research proof candidate",
+  "creativeWorkStatus": "Unreviewed manuscript; mathematical and historical-priority assessments pending",
+  "abstract": "An exact three-tensor restriction compiler is proposed which maps finite-dimensional representations of finitely presented algebras into exact stochastic bipartite-catalytic conversion. A fixed strictly positive affine family is shown, within the AI-generated proof, to have a recursively enumerable-complete conversion set. The manuscript includes a rank-drop rigidity mechanism, a finite catalytic example, and scope boundaries.",
+  "contributor": {
+    "@type": "Person",
+    "name": "Harjas Sandhu",
+    "url": "https://harjassand.github.io/",
+    "description": "Research coordination and manuscript contact; not identified as mathematical author."
+  },
+  "isAccessibleForFree": true,
+  "isBasedOn": {
+    "@type": "CreativeWork",
+    "name": "Astra N680: Rank-drop catalytic tensor restriction",
+    "url": "https://github.com/harjassand/astra-research-knowledge/blob/main/cards/N680-rank-drop-catalytic-tensor-restriction.txt"
+  },
+  "keywords": [
+    "tensor restriction",
+    "exact entanglement catalysis",
+    "recursive enumerability",
+    "representation theory",
+    "rank-drop hyperplanes",
+    "quantum resource theory",
+    "undecidability"
+  ]
+}
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="shell">
+  <header class="site-header">
+    <a class="wordmark" href="/">Harjas Sandhu</a>
+    <nav aria-label="Main navigation">
+      <a href="/#research">Interests</a>
+      <a href="/#selected-research">Selected research</a>
+      <a href="/#publications">Publications</a>
+    </nav>
+  </header>
+  <main id="main">
+    <article class="paper-main">
+      <p class="breadcrumb"><a href="/#selected-research">Selected research</a> / Mathematical foundations</p>
+      <header class="paper-header">
+        <p class="eyebrow">AI-generated research manuscript · Proof candidate</p>
+        <h1>Fixed-Format Undecidability of Exact Catalytic Tensor Restriction</h1>
+        <p class="contact-credit">Research direction and coordination: Harjas Sandhu. Mathematical development and original proof: AI-generated.</p>
+        <p class="paper-dates">24 October 2026 · Version 0.1 · No DOI or external peer review claimed</p>
+        <div class="paper-actions">
+          <a class="pdf-link" href="https://github.com/harjassand/harjassand.github.io/blob/main/research/catalytic-tensor-conversion/manuscript.md">Read complete manuscript</a>
+          <a href="manuscript.md">Full proof source (Markdown)</a>
+          <a href="https://github.com/harjassand/astra-research-knowledge/blob/main/cards/N680-rank-drop-catalytic-tensor-restriction.txt">Astra result N680</a>
+        </div>
+      </header>
+      <section class="paper-section paper-abstract" aria-labelledby="abstract-heading">
+        <h2 id="abstract-heading">Abstract</h2>
+        <p class="abstract-text">We present a complete AI-generated proof candidate for a universal representation compiler from finite-dimensional unital representations of finitely presented associative algebras to exact stochastic three-tensor conversion with an exactly returned bipartite maximally entangled catalyst. The construction uses rank-drop hyperplanes to force unrestricted first-party maps to preserve labels and a full-rank marker slice to isolate the encoded algebra. Its principal claimed consequence is an RE-complete catalytic conversion problem along one fixed rank-one affine line of strictly positive integer tensors. A two-dimensional Pauli-representation witness shows genuine exact catalysis within the construction. This is an exact mathematical claim, not a new quantum device.</p>
+        <p class="abstract-label">The original mathematical source is Astra's N680 AI-generated research record of 11 October 2026. This edition was prepared for public reading on 24 October 2026.</p>
+      </section>
+      <section class="paper-section" aria-labelledby="theorems-heading">
+        <h2 id="theorems-heading">Principal theorem claims</h2>
+        <p><strong>Representation compiler.</strong> For every finitely presented rational associative algebra A, the source constructs integer three-tensors T<sub>A</sub> and S<sub>A</sub> such that, for every positive integer d, exact conversion after adjoining a maximally entangled rank-d catalyst occurs if and only if A admits a unital d-dimensional complex matrix representation.</p>
+        <p><strong>Fixed-affine undecidability.</strong> The source constructs fixed positive integer tensors U, V and S, with tensor rank one for V, such that deciding whether U + nV can be converted to S with an exactly returned catalyst is recursively enumerable complete as n varies.</p>
+        <p><strong>Consequence.</strong> Under the same exact-conversion assumptions, no computable general bound on the necessary catalyst dimension exists. A fixed real affine family of convertible parameters is therefore not semialgebraic.</p>
+      </section>
+      <section class="paper-section" aria-labelledby="proof-heading">
+        <h2 id="proof-heading">Why the construction is significant</h2>
+        <p>The central obstruction in a universality proof is that general tensor-restriction maps are allowed to change all three tensor factors. Merely writing algebraic equations as matrix slices does not force these maps to respect the equations. The candidate proof adds families of labelled rank-deficiency hyperplanes with successively separated multiplicities. Rank monotonicity then prevents the first-party map from permuting the labels. A distinguished marker slice similarly prevents the remaining maps from hiding an invalid algebra representation inside auxiliary coordinates.</p>
+        <p>For the undecidability step, ordinary finite-dimensional representation theory encodes nonzero integers as central scalars of elementary matrix algebras. A universal Diophantine equation is inserted through a single varying relation coefficient. The tensor compiler transfers this dependence into one rank-one affine direction while retaining a fixed tensor format. An invertible basis transformation makes all coefficients positive.</p>
+        <p>The <a href="https://github.com/harjassand/harjassand.github.io/blob/main/research/catalytic-tensor-conversion/manuscript.md">complete source-derived paper</a> gives the equations, rank argument, representation reduction, integer gadget, positivity construction, finite example, and the precise limits of the claim.</p>
+      </section>
+      <section class="paper-section" aria-labelledby="scope-heading">
+        <h2 id="scope-heading">What the theorem does not say</h2>
+        <p>The catalyst is returned on a successful stochastic branch, whose probability may be arbitrarily small. The result is not about catalytic conversion at fixed nonzero error, finite precision, guaranteed success probability, deterministic LOCC, experimentally available catalyst dimensions, or the ordinary matrix-multiplication exponent. In particular, mathematical undecidability over an unbounded catalyst dimension does not establish any physically achievable hypercomputation.</p>
+      </section>
+      <section class="paper-section provenance" aria-labelledby="provenance-heading">
+        <h2 id="provenance-heading">AI attribution, proof status and priority</h2>
+        <p>The original result and mathematical argument were generated by AI systems during Astra research. Harjas Sandhu coordinated the research process and serves as the manuscript contact; this does not assign him human authorship of the AI-generated proof.</p>
+        <p>The source includes a full proof narrative, but the theorem has not undergone a new independent end-to-end reconstruction, a formal proof-assistant verification, or a comprehensive historical-priority determination. The finite scripts named by the originating AI report were not included in its preserved packet. This public manuscript is therefore labelled a <strong>proof candidate</strong>, not a peer-reviewed or formally established theorem.</p>
+        <p>Relevant prior work includes studies of multipartite entanglement catalysis by Chen and collaborators, partial degeneration and aided tensor rank by Christandl and collaborators, and Vincent Steffan's 2023 thesis on honest catalytic tensor conversion. The representation-theoretic integer encoding draws on standard sl(2) theory and the Davis–Putnam–Robinson–Matiyasevich theorem; those inputs are not claimed as new inventions.</p>
+      </section>
+      <section class="paper-section" aria-labelledby="citation-heading">
+        <h2 id="citation-heading">Citation and source</h2>
+        <p class="citation-text"><cite>Fixed-Format Undecidability of Exact Catalytic Tensor Restriction</cite>. AI-generated Astra research manuscript, editorial version 0.1 (24 October 2026). Research coordination and contact: Harjas Sandhu. <a href="manuscript.md">Complete AI-generated proof text</a>.</p>
+        <p class="citation-note">No DOI or scholarly-indexing status is asserted. A typeset PDF version of this manuscript was generated separately for this research session; the source copy here is public Markdown, and is suitable for proof scrutiny.</p>
+      </section>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <p>A personal research website. University affiliation describes student status and does not imply University endorsement.</p>
+    <div class="link-line">
+      <a href="https://scholar.google.com/citations?user=rxj_UgYAAAAJ&amp;hl=en" rel="me">Google Scholar</a>
+      <a href="https://github.com/harjassand/harjassand.github.io">Website source</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
