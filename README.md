@@ -4,6 +4,10 @@ A small, buildless academic website for `https://harjassand.github.io/`.
 The repository root is ready for GitHub Pages. There is no framework,
 dependency installation, analytics, external font, or runtime JavaScript.
 
+## Selected AI-generated research manuscript: catalytic tensor conversion
+
+The standalone page at `/research/catalytic-tensor-conversion/` features the AI-generated N680 exact catalytic tensor restriction proof candidate and links to its full public Markdown derivation. Mathematical writing and development are AI-generated; Harjas is research coordinator/contact, not attributed as a mathematical author. This page is intentionally independent of the PDF-backed `selected_research` metadata model, because no versioned public PDF asset or DOI is recorded in the website repository. Its `page.html.in` template is regenerated with the correct CSS revision by `tools/build_site.py`; the homepage entry and sitemap are also generated. Do not promote internal manuscript checks into peer review or formal certification.
+
 ## Preview and maintain
 
 From this directory, use a working Python 3 interpreter:
