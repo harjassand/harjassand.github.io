@@ -274,5 +274,22 @@
       "repository_metadata_source": "https://zenodo.org/api/records/23526644",
       "reader_note_template": "amplifier-entropy-notes.html.in"
     }
+  ],
+  "research_notes": [
+    {
+      "slug": "exact-catalytic-tensor-restriction",
+      "collection": "research",
+      "title": "Fixed-format undecidability of exact catalytic tensor restriction",
+      "subject": "Quantum information and algebraic complexity",
+      "publication_date": "2026-10-24",
+      "version": "0.1",
+      "credit_role": "coordinator",
+      "contributor_name": "Harjas Sandhu",
+      "status": "AI-generated proof candidate; independent validation and priority review pending",
+      "summary": "A rank-drop tensor compiler claims undecidability of exact bipartite-catalyst conversion even along one positive, fixed-format rank-one affine family.",
+      "abstract": "An AI-generated proof candidate encoding finite-dimensional algebra representations into exact catalytic restriction of three-tensors.",
+      "source_url": "https://github.com/harjassand/astra-research-knowledge/blob/main/cards/N680-rank-drop-catalytic-tensor-restriction.txt",
+      "pdf_filename": "paper.pdf"
+    }
   ]
 }

@@ -1,0 +1,217 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Times-Roman >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Times-Bold >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 3912 >>
+stream
+BT /F2 10 Tf 1 0 0 1 56 790.00 Tm (AI-GENERATED RESEARCH MANUSCRIPT) Tj ET
+BT /F2 17 Tf 1 0 0 1 56 763.10 Tm (Fixed-Format Undecidability) Tj ET
+BT /F2 17 Tf 1 0 0 1 56 739.47 Tm (of Exact Catalytic Tensor Restriction) Tj ET
+BT /F1 9.5 Tf 1 0 0 1 56 702.84 Tm (Astra N680 | Proof candidate | 24 October 2026 | Version 0.1) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 676.63 Tm (Selected research / Mathematical foundations) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 656.39 Tm (AI-generated mathematical proof candidate) Tj ET
+BT /F2 15 Tf 1 0 0 1 56 630.14 Tm (Fixed-format undecidability of exact catalytic tensor) Tj ET
+BT /F2 15 Tf 1 0 0 1 56 609.29 Tm (restriction) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 583.44 Tm (Research coordination and manuscript contact: Harjas Sandhu. Mathematical authorship is not) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 569.19 Tm (assigned to the coordinator.) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 548.95 Tm (24 October 2026 ? Version 0.1 ? No DOI or external peer review) Tj ET
+BT /F2 14 Tf 1 0 0 1 56 512.70 Tm (Abstract) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 486.24 Tm (An AI-generated proof candidate encoding finite-dimensional algebra representations into) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 471.99 Tm (exact catalytic restriction of three-tensors. The proposed fixed positive rank-one-affine) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 457.74 Tm (family is recursively enumerable complete. Mathematical correctness and historical priority) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 443.50 Tm (remain open to independent scrutiny. The principal construction uses labelled rank-drop) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 429.25 Tm (hyperplanes to prevent arbitrary local maps from evading a matrix-algebra representation) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 415.00 Tm (constraint. We present its proof structure, strict scope, and the exact source for detailed) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 400.75 Tm (checking.) Tj ET
+BT /F2 14 Tf 1 0 0 1 56 364.51 Tm (Verification and authorship) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 338.05 Tm (This is an AI-generated research manuscript reporting a complete candidate argument . The) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 323.80 Tm (original source contains mathematical proofs, but the universal construction has not passed) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 309.55 Tm (an independent end-to-end specialist or formal proof check, and historical novelty has not) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 295.30 Tm (been established. Source-reported small exact checks were not independently rerun. It should) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 281.06 Tm (not be cited as a verified landmark theorem.) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 260.81 Tm (Harjas Sandhu developed and coordinates the agentic research system and is the contact) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 246.56 Tm (person, not a scientific author of the AI-developed mathematics. No physical catalyst,) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 232.31 Tm (laboratory implementation or practical quantum advantage is claimed.) Tj ET
+BT /F2 14 Tf 1 0 0 1 56 196.07 Tm (1. Exact conversion contract) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 169.61 Tm (Over the complex numbers, write a three-party tensor as a matrix pencil T = SUMi ei tensor) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 155.36 Tm (Ai . Tensor restriction T >= S allows one linear map on each party, without requiring those) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 141.11 Tm (maps to be invertible. For a positive integer d define its bipartite maximally entangled) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 126.86 Tm (amplification:) Tj ET
+BT /F1 9.1 Tf 1 0 0 1 64 102.62 Tm (T[d] = ?? e? ? \(A? ? I_d\)) Tj ET
+BT /F1 9.1 Tf 1 0 0 1 64 89.97 Tm (T ?cat S   ?   there exists d ? 1 such that T[d] ? S[d].) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 69.32 Tm (The auxiliary state is shared only between parties two and three and is returned exactly,) Tj ET
+BT /F1 8 Tf 1 0 0 1 56 35.00 Tm (AI-generated mathematical proof candidate | Page 1 of 4) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 4207 >>
+stream
+BT /F1 10.25 Tf 1 0 0 1 56 790.00 Tm (uncorrelated with the target, on the successful branch. The probability of success may be) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 775.75 Tm (arbitrarily small. No approximate return, deterministic LOCC guarantee or three-party) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 761.51 Tm (auxiliary state is assumed.) Tj ET
+BT /F2 14 Tf 1 0 0 1 56 725.26 Tm (2. Main proposed theorems) Tj ET
+BT /F2 11.8 Tf 1 0 0 1 56 688.80 Tm (Representation universality) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 668.40 Tm (From any finite rational presentation ?? = Q?X1,?,X??/\(p1,?,ps\) , the construction) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 654.15 Tm (effectively produces integer tensors T\(??\) and S\(??\) for which, at every catalyst dimension) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 639.90 Tm (d ,) Tj ET
+BT /F1 9.1 Tf 1 0 0 1 64 615.65 Tm (T\(??\)[d] ? S\(??\)[d]) Tj ET
+BT /F1 9.1 Tf 1 0 0 1 64 603.00 Tm (     ?  ?? admits a unital representation in M_d\(?\).) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 582.36 Tm (The representation need not be faithful. Arithmetic-circuit relations can be converted to) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 568.11 Tm (quadratic relations without changing which finite-dimensional representations exist.) Tj ET
+BT /F2 11.8 Tf 1 0 0 1 56 537.86 Tm (Fixed positive rank-one affine undecidability) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 517.46 Tm (There exist fixed strictly positive integer tensors U, V and S, with U and V having a common) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 503.21 Tm (format and tensor rank\(V\) = 1, such that the integer set) Tj ET
+BT /F1 9.1 Tf 1 0 0 1 64 478.96 Tm ({ n ? 0 : U + nV ?cat S }) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 458.31 Tm (is recursively enumerable complete. Thus each finite-dimensional instance is algebraic and) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 444.07 Tm (decidable, but permitting an unknown, arbitrarily large catalyst makes the overall) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 429.82 Tm (exact-conversion decision undecidable.) Tj ET
+BT /F2 14 Tf 1 0 0 1 56 393.57 Tm (3. Construction and proof) Tj ET
+BT /F2 11.8 Tf 1 0 0 1 56 357.11 Tm (3.1 Matrix representations as two-sided equations) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 336.71 Tm (Quadraticise the presentation and clear rational denominators. With X0 = I, write each) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 322.46 Tm (relation as a sum of terms c??X?X?. Introduce matrix units E?? and equations P\(Mi tensor) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 308.21 Tm (I_d\)Q = biI_d, where P and Q consist of unknown d-by-d blocks. The normalization M0 = E00) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 293.97 Tm (forces P0Q0 = I. Additional E?0 - E0? relations identify the variables P0-1P? and Q?P0.) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 279.72 Tm (Every algebra relation then becomes a two-sided equation, and the construction is) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 265.47 Tm (reversible.) Tj ET
+BT /F2 11.8 Tf 1 0 0 1 56 235.22 Tm (3.2 Rank-drop markers prevent slice mixing) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 214.82 Tm (The difficult step is that arbitrary restriction maps can mix pencil slices. For every index) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 200.58 Tm (i other than a distinguished zero slice *, adjoin the linear forms x* + xi and 2x* + xi,) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 186.33 Tm (together with x* itself. Give the successive marker blocks strictly increasing sizes h? =) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 172.08 Tm (\(r+1\)j, where r is the number of core block variables.) Tj ET
+BT /F1 9.1 Tf 1 0 0 1 64 147.83 Tm (D\(x\) = direct sum over j of [??\(x\) I_\(h?\)]) Tj ET
+BT /F1 9.1 Tf 1 0 0 1 64 135.18 Tm (A\(x\) = core-source\(x\) ? D\(x\)) Tj ET
+BT /F1 9.1 Tf 1 0 0 1 64 122.53 Tm (B\(x\) = core-target\(x\) ? D\(x\).) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 101.89 Tm (The target pencil is concise in its first factor. Any first-factor map G in a restriction) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 87.64 Tm (must be invertible. On a marker hyperplane ker ??, the source rank falls by at least h? - r.) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 73.39 Tm (Rank monotonicity forces G to permute these hyperplanes. Since adjacent block sizes differ) Tj ET
+BT /F1 8 Tf 1 0 0 1 56 35.00 Tm (AI-generated mathematical proof candidate | Page 2 of 4) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 5178 >>
+stream
+BT /F1 10.25 Tf 1 0 0 1 56 790.00 Tm (by r+1, the permutation can only be the identity. The labels ? = x*, x*+xi and 2x*+xi then) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 775.75 Tm (force all dual eigenvalues to agree, so G is scalar. This is the key proposed new mechanism.) Tj ET
+BT /F2 11.8 Tf 1 0 0 1 56 745.51 Tm (3.3 Saturating the marker block prevents a false representation) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 725.10 Tm (At the distinguished slice *, the core vanishes but every marker block is invertible. Its) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 710.86 Tm (output has the full marker rank Kd, leaving no freedom for marker coordinates to contribute) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 696.61 Tm (to the target core. Compressing all other slice equations to the output core therefore) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 682.36 Tm (recovers exactly P\(Mi tensor I_d\)Q = biI_d. Conversely, any solution of these equations) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 668.11 Tm (extends to a tensor restriction by identity maps on the marker blocks. This completes the) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 653.87 Tm (representation compiler, provided the block-rigidity reasoning is correct.) Tj ET
+BT /F2 11.8 Tf 1 0 0 1 56 623.62 Tm (3.4 Integrality and the halting reduction) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 603.22 Tm (Use the ordinary finite-dimensional representation theory of sl2 and a central generator z) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 588.97 Tm (constrained by z? = \(h+1\)? + 4fe. On every simple finite-dimensional representation, z takes) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 574.72 Tm (a nonzero integer scalar value, and every such integer is attainable. Differences of two) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 560.47 Tm (such scalars encode arbitrary integer variables. The classical) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 546.23 Tm (Davis-Putnam-Robinson-Matiyasevich theorem then provides one fixed polynomial P\(n,x\)) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 531.98 Tm (encoding an recursively enumerable complete set.) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 511.73 Tm (Make n enter only through the relation t - nI = 0. After quadraticisation, the number of) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 497.48 Tm (variables and relations is fixed; a single source coefficient is affine in n. The) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 483.24 Tm (representation compiler consequently produces one fixed target and one rank-one source) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 468.99 Tm (direction V.) Tj ET
+BT /F2 11.8 Tf 1 0 0 1 56 438.74 Tm (3.5 Strictly positive coefficients) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 418.34 Tm (A fixed change of basis selects one corner contraction of both U and V equal to 1. For a) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 404.09 Tm (fixed integer tensor W with corner coefficient 1 and all coefficients bounded in magnitude) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 389.84 Tm (by M, apply to every factor the invertible map G = I + L?1?e0? with L = 8M + 1. Every) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 375.60 Tm (transformed coefficient equals L? + ? with |?| <= M\(3L?+3L+1\) < L?. Thus U, V and S may be) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 361.35 Tm (taken strictly positive without changing their conversion relation or tensor rank\(V\).) Tj ET
+BT /F2 11.8 Tf 1 0 0 1 56 331.10 Tm (3.6 A concrete witness to genuine catalysis) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 310.70 Tm (The relations X? = Y? = I and XY + YX = 0 have no scalar complex solution, but do have a) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 296.45 Tm (two-dimensional solution given by Pauli matrices. The claimed compiler gives a 7x367x367) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 282.20 Tm (source and a 7x365x365 target that are not convertible without a catalyst but are) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 267.96 Tm (convertible with d=2. This is an exact algebraic witness, not an experimental success-rate) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 253.71 Tm (claim.) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 233.46 Tm (The detailed line-by-line original derivation, including marker dimensions and coefficient) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 219.21 Tm (calculations, is preserved in the complete AI source narrative . Readers evaluating the) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 204.97 Tm (theorem should check the original equations rather than relying solely on this explanatory) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 190.72 Tm (transcription.) Tj ET
+BT /F2 14 Tf 1 0 0 1 56 154.47 Tm (4. Consequences and research frontiers) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 128.01 Tm (The proposed fixed-format undecidability excludes every computable bound on the necessary) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 113.76 Tm (catalyst dimension as a function of input size. It also excludes a sound, effectively) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 99.52 Tm (enumerable, complete certificate family for all impossible exact conversions. Restricting) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 85.27 Tm (U+nV to real parameters gives a nonsemialgebraic conversion set; otherwise membership on) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 71.02 Tm (sufficiently large integers would stabilise, contradicting the halting encoding.) Tj ET
+BT /F1 8 Tf 1 0 0 1 56 35.00 Tm (AI-generated mathematical proof candidate | Page 3 of 4) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 12 0 R >>
+endobj
+12 0 obj
+<< /Length 3431 >>
+stream
+BT /F1 10.25 Tf 1 0 0 1 56 790.00 Tm (The decisive research extension is to determine whether any such obstruction survives) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 775.75 Tm (physically meaningful approximation, bounded success probability and chargeable catalyst) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 761.51 Tm (preparation . The exact theorem by itself neither demonstrates a quantum computational) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 747.26 Tm (speedup nor implies that practical converters require unbounded resources. An approximation) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 733.01 Tm (theorem or an effective fixed-noise cutoff would be a fundamentally different result.) Tj ET
+BT /F2 14 Tf 1 0 0 1 56 696.76 Tm (5. Comparison and limitations) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 670.30 Tm (Known stochastic multipartite entanglement catalysis is not new. This proof candidate should) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 656.06 Tm (be compared with Chen et al. \(2010\) , Christandl, Gesmundo, Lysikov and Steffan , and) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 641.81 Tm (Steffan's 2023 thesis . The claimed contribution is the rank-drop representation compiler) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 627.56 Tm (and its fixed-format decidability consequences, not the existence of quantum catalysis or) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 613.31 Tm (the classical undecidability of Diophantine equations.) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 593.07 Tm (No result is claimed for approximate conversion, a dimension-independent lower bound on) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 578.82 Tm (success probability, deterministic LOCC, a full three-party catalyst, or the matrix) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 564.57 Tm (multiplication exponent. Correctness and historical originality require specialist) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 550.32 Tm (assessment.) Tj ET
+BT /F2 14 Tf 1 0 0 1 56 514.08 Tm (6. Research provenance and disclosure) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 487.62 Tm (The core construction comes from Astra result N680 \(11 October 2026\). The originating AI) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 473.37 Tm (research session supplied the representation-compiler proof narrative, fixed-affine) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 459.12 Tm (reduction, integer integrality gadget, and finite examples. This website transcription and) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 444.87 Tm (its accompanying paper were AI-generated from that mathematical source under human research) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 430.63 Tm (coordination. No independent human mathematical authorship, laboratory demonstration,) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 416.38 Tm (journal acceptance, or external specialist verification is asserted.) Tj ET
+BT /F2 14 Tf 1 0 0 1 56 380.13 Tm (Citation) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 353.67 Tm (Fixed-format undecidability of exact catalytic tensor restriction . \(2026\). AI-generated) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 339.42 Tm (Astra research manuscript, version 0.1; proof candidate.) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 325.18 Tm (https://harjassand.github.io/research/exact-catalytic-tensor-restriction/ .) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 304.93 Tm (Title-first credit is intentional. Repository coordination/contact should not be mistaken) Tj ET
+BT /F1 10.25 Tf 1 0 0 1 56 290.68 Tm (for scientific mathematical authorship. Download BibTeX .) Tj ET
+BT /F1 8 Tf 1 0 0 1 56 35.00 Tm (AI-generated mathematical proof candidate | Page 4 of 4) Tj ET
+endstream
+endobj
+13 0 obj
+<< /Title (Fixed-Format Undecidability of Exact Catalytic Tensor Restriction) /Author (AI-generated Astra research manuscript) /Subject (Unreviewed proof candidate; N680) >>
+endobj
+xref
+0 14
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000134 00000 n 
+0000000206 00000 n 
+0000000277 00000 n 
+0000000419 00000 n 
+0000004383 00000 n 
+0000004525 00000 n 
+0000008784 00000 n 
+0000008927 00000 n 
+0000014158 00000 n 
+0000014302 00000 n 
+0000017786 00000 n 
+trailer
+<< /Size 14 /Root 1 0 R /Info 13 0 R >>
+startxref
+17976
+%%EOF

@@ -192,3 +192,7 @@ has an unresolved Search Console fetch report despite successful live fetching.
 The validator checks that the two formats contain identical URLs. Neither a
 valid sitemap nor a submission acknowledgement confirms Google has processed
 the sitemap or indexed its pages.
+
+## Research proof-candidate notes (2026-10-24)
+
+The site also hosts a standalone AI-generated mathematics proof-candidate reading edition at `/research/exact-catalytic-tensor-restriction/`, concerning Astra result N680. It includes a full HTML text, a PDF reading edition, the originating AI proof narrative and title-first citation. No scientific mathematical authorship, external review, DOI, or validated historic-priority claim is asserted. The `research_notes` records in `data/publications.json` are rendered on the home page through `tools/build_site.py`; the publication/manuscript assets already present on the site remain unchanged.

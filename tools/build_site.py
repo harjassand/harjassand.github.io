@@ -18,6 +18,7 @@ DATA = json.loads((ROOT / "data/publications.json").read_text())
 BASE = DATA["base_url"].rstrip("/")
 PAPERS = DATA["papers"]
 RESEARCH = DATA.get("selected_research", [])
+NOTES = DATA.get("research_notes", [])
 WORKS = PAPERS + RESEARCH
 PERSON_ID = BASE + "/#harjas-sandhu"
 STYLE_REVISION = hashlib.sha256((ROOT / "assets/style.css").read_bytes()).hexdigest()[:12]
@@ -174,6 +175,21 @@ def render_entry(paper: dict) -> str:
           </li>'''
 
 
+def render_note_entry(note: dict) -> str:
+    path = "/research/" + note["slug"] + "/"
+    return f'''          <li>
+            <h3><a href="{path}">{e(note["title"])}</a></h3>
+            <p class="pub-meta">Research coordination: {e(note["contributor_name"])}<br>{e(note["status"])} · {pretty_date(note["publication_date"])}</p>
+            <p class="pub-summary">{e(note["summary"])}</p>
+            <div class="link-line">
+              <a href="{path}">Complete manuscript &amp; proof</a>
+              <a href="{path}paper.pdf">PDF reading edition</a>
+              <a href="{path}original-derivation.md">Original mathematical derivation</a>
+              <a href="{path}#citation">Cite</a>
+            </div>
+          </li>'''
+
+
 def render_home() -> str:
     person = {
         "@context": "https://schema.org",
@@ -193,8 +209,8 @@ def render_home() -> str:
     }
     entries = [render_entry(paper) for paper in PAPERS]
     selected = ""
-    if RESEARCH:
-        features = [render_entry(paper) for paper in RESEARCH]
+    if RESEARCH or NOTES:
+        features = [render_entry(paper) for paper in RESEARCH] + [render_note_entry(note) for note in NOTES]
         selected = '''
     <section class="section-row" id="selected-research" aria-labelledby="selected-research-heading">
       <div>
@@ -445,7 +461,7 @@ def render_paper(paper: dict) -> str:
 
 
 def main() -> None:
-    slugs = [paper["slug"] for paper in WORKS]
+    slugs = [paper["slug"] for paper in WORKS] + [note["slug"] for note in NOTES]
     dois = [paper["doi"] for paper in WORKS if paper.get("doi")]
     if len(set(slugs)) != len(slugs) or len(set(dois)) != len(dois):
         raise ValueError("Each publication needs a unique slug and DOI")
@@ -480,7 +496,7 @@ def main() -> None:
     <p>The address may have changed. <a href="/">Return to the home page</a> or <a href="/#publications">browse the preprints</a>.</p>
   </main>
 ''' + footer())
-    urls = [BASE + "/"] + [BASE + paper_path(paper) for paper in WORKS]
+    urls = [BASE + "/"] + [BASE + paper_path(paper) for paper in WORKS] + [BASE + "/research/" + note["slug"] + "/" for note in NOTES]
     (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{url}</loc></url>\n" for url in urls) + "</urlset>\n")
     (ROOT / "sitemap.txt").write_text("\n".join(urls) + "\n", encoding="utf-8")
     (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\nSitemap: {BASE}/sitemap.txt\n")

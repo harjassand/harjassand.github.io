@@ -127,6 +127,22 @@ def main():
                 check(fragment in pages[target].ids, f"{label}: missing fragment: {url}")
             link_count += 1
 
+    for note in DATA.get("research_notes", []):
+        slug = note["slug"]
+        directory = ROOT / "research" / slug
+        path = (directory / "index.html").resolve()
+        page = pages[path]
+        check(page.canonical == [BASE + "/research/" + slug + "/"], "Standalone note canonical incorrect")
+        check(page.meta.get("citation_title") == note["title"], "Standalone note scholarly title incorrect")
+        check(not page.meta_values.get("citation_author") and not page.meta_values.get("DC.creator"), "Invented author on AI note")
+        check(note["summary"] in " ".join(pages[(ROOT / "index.html").resolve()].text), "Standalone note missing from homepage")
+        check("/research/" + slug + "/" in pages[(ROOT / "index.html").resolve()].links, "Standalone note not discoverable")
+        check((directory / "original-derivation.md").is_file(), "Standalone original proof missing")
+        check((directory / "paper.pdf").read_bytes().startswith(b"%PDF-"), "Standalone PDF manuscript invalid")
+        check("paper.pdf" in page.links and "/research/" + slug + "/paper.pdf" in pages[(ROOT / "index.html").resolve()].links, "PDF not linked from research page and homepage")
+        check(page.meta.get("citation_pdf_url") == BASE + "/research/" + slug + "/paper.pdf", "Standalone note PDF citation incorrect")
+        check((directory / "citation.bib").is_file(), "Standalone citation file missing")
+
     for work in DATA["papers"] + DATA.get("selected_research", []):
         directory = ROOT / work.get("collection", "publications") / work["slug"]
         raw = (directory / "index.html").read_text()
@@ -294,7 +310,7 @@ def main():
         check("explanation" in page.ids and "verification" in page.ids and "citation" in page.ids, "Research navigation destination missing")
         check("open" in text.lower() and "non-Gaussian equality" in text, "Research scope limits missing")
 
-    expected_urls = [BASE + "/"] + [BASE + "/publications/" + p["slug"] + "/" for p in DATA["papers"]] + [BASE + "/" + p.get("collection", "research") + "/" + p["slug"] + "/" for p in research]
+    expected_urls = [BASE + "/"] + [BASE + "/publications/" + p["slug"] + "/" for p in DATA["papers"]] + [BASE + "/" + p.get("collection", "research") + "/" + p["slug"] + "/" for p in research] + [BASE + "/research/" + note["slug"] + "/" for note in DATA.get("research_notes", [])]
     check(urls == expected_urls and len(set(urls)) == len(urls), "Sitemap must contain exactly the canonical URLs without duplicates")
     for url in urls:
         check(local_target(url, ROOT / "index.html")[0] in pages, "Sitemap target invalid")
