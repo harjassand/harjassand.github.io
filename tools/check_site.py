@@ -311,6 +311,23 @@ def main():
         check("open" in text.lower() and "non-Gaussian equality" in text, "Research scope limits missing")
 
     expected_urls = [BASE + "/"] + [BASE + "/publications/" + p["slug"] + "/" for p in DATA["papers"]] + [BASE + "/" + p.get("collection", "research") + "/" + p["slug"] + "/" for p in research] + [BASE + "/research/" + note["slug"] + "/" for note in DATA.get("research_notes", [])]
+    expected_urls.append(BASE + "/research/catalytic-tensor-conversion/")
+    candidate_path = (ROOT / "research/catalytic-tensor-conversion/index.html").resolve()
+    check(candidate_path in pages, "Standalone catalytic tensor manuscript missing")
+    candidate = pages[candidate_path]
+    check(candidate.canonical == [BASE + "/research/catalytic-tensor-conversion/"],
+          "Standalone manuscript canonical incorrect")
+    check(candidate.meta.get("citation_title") == "Fixed-Format Undecidability of Exact Catalytic Tensor Restriction",
+          "Standalone manuscript title incorrect")
+    check(not candidate.meta_values.get("citation_author") and not candidate.meta_values.get("DC.creator"),
+          "AI-generated manuscript incorrectly identifies a scientific author")
+    check((ROOT / "research/catalytic-tensor-conversion/manuscript.md").is_file(),
+          "Standalone source-derived full proof not present")
+    check("manuscript.md" in candidate.links, "Standalone full proof not linked")
+    check("provenance-heading" in candidate.ids and "scope-heading" in candidate.ids,
+          "Standalone AI and theorem scope disclosures missing")
+    check("/research/catalytic-tensor-conversion/" in pages[(ROOT / "index.html").resolve()].links,
+          "Standalone research manuscript absent from homepage")
     check(urls == expected_urls and len(set(urls)) == len(urls), "Sitemap must contain exactly the canonical URLs without duplicates")
     for url in urls:
         check(local_target(url, ROOT / "index.html")[0] in pages, "Sitemap target invalid")
