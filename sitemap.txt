@@ -4,3 +4,4 @@ https://harjassand.github.io/publications/complete-information-orders/
 https://harjassand.github.io/publications/capacity-and-distillation/
 https://harjassand.github.io/research/amplifier-entropy/
 https://harjassand.github.io/research/exact-catalytic-tensor-restriction/
+https://harjassand.github.io/research/catalytic-tensor-conversion/
