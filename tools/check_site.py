@@ -127,6 +127,19 @@ def main():
                 check(fragment in pages[target].ids, f"{label}: missing fragment: {url}")
             link_count += 1
 
+    for note in DATA.get("research_notes", []):
+        slug = note["slug"]
+        directory = ROOT / "research" / slug
+        path = (directory / "index.html").resolve()
+        page = pages[path]
+        check(page.canonical == [BASE + "/research/" + slug + "/"], "Standalone note canonical incorrect")
+        check(page.meta.get("citation_title") == note["title"], "Standalone note scholarly title incorrect")
+        check(not page.meta_values.get("citation_author") and not page.meta_values.get("DC.creator"), "Invented author on AI note")
+        check(note["summary"] in " ".join(pages[(ROOT / "index.html").resolve()].text), "Standalone note missing from homepage")
+        check("/research/" + slug + "/" in pages[(ROOT / "index.html").resolve()].links, "Standalone note not discoverable")
+        check((directory / "original-derivation.md").is_file(), "Standalone original proof missing")
+        check((directory / "citation.bib").is_file(), "Standalone citation file missing")
+
     for work in DATA["papers"] + DATA.get("selected_research", []):
         directory = ROOT / work.get("collection", "publications") / work["slug"]
         raw = (directory / "index.html").read_text()
