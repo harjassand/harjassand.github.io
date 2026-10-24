@@ -288,7 +288,8 @@
       "status": "AI-generated proof candidate; independent validation and priority review pending",
       "summary": "A rank-drop tensor compiler claims undecidability of exact bipartite-catalyst conversion even along one positive, fixed-format rank-one affine family.",
       "abstract": "An AI-generated proof candidate encoding finite-dimensional algebra representations into exact catalytic restriction of three-tensors.",
-      "source_url": "https://github.com/harjassand/astra-research-knowledge/blob/main/cards/N680-rank-drop-catalytic-tensor-restriction.txt"
+      "source_url": "https://github.com/harjassand/astra-research-knowledge/blob/main/cards/N680-rank-drop-catalytic-tensor-restriction.txt",
+      "pdf_filename": "paper.pdf"
     }
   ]
 }
