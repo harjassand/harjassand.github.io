@@ -307,7 +307,7 @@ def main():
         check("explanation" in page.ids and "verification" in page.ids and "citation" in page.ids, "Research navigation destination missing")
         check("open" in text.lower() and "non-Gaussian equality" in text, "Research scope limits missing")
 
-    expected_urls = [BASE + "/"] + [BASE + "/publications/" + p["slug"] + "/" for p in DATA["papers"]] + [BASE + "/" + p.get("collection", "research") + "/" + p["slug"] + "/" for p in research]
+    expected_urls = [BASE + "/"] + [BASE + "/publications/" + p["slug"] + "/" for p in DATA["papers"]] + [BASE + "/" + p.get("collection", "research") + "/" + p["slug"] + "/" for p in research] + [BASE + "/research/" + note["slug"] + "/" for note in DATA.get("research_notes", [])]
     check(urls == expected_urls and len(set(urls)) == len(urls), "Sitemap must contain exactly the canonical URLs without duplicates")
     for url in urls:
         check(local_target(url, ROOT / "index.html")[0] in pages, "Sitemap target invalid")
