@@ -6,13 +6,13 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#fbfaf7">
   <title>Thermal balance and the amplifier entropy photon-number inequality — Harjas Sandhu</title>
-  <meta name="description" content="A proof candidate for the amplifier entropy photon-number inequality for independent finite-energy multimode inputs, with full abstract, source, provenance and citation.">
+  <meta name="description" content="An approach to the sharp entropy bound for quantum amplification pairs signed interpolation with thermal relaxation, allowing arbitrary correlations within each independent input group.">
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <link rel="canonical" href="https://harjassand.github.io/research/amplifier-entropy/">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/style.css?v=562b192eb6a3">
+  <link rel="stylesheet" href="/assets/style.css?v=49f4392e2909">
   <meta property="og:title" content="Thermal balance and the amplifier entropy photon-number inequality — Harjas Sandhu">
-  <meta property="og:description" content="A proof candidate for the amplifier entropy photon-number inequality for independent finite-energy multimode inputs, with full abstract, source, provenance and citation.">
+  <meta property="og:description" content="An approach to the sharp entropy bound for quantum amplification pairs signed interpolation with thermal relaxation, allowing arbitrary correlations within each independent input group.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://harjassand.github.io/research/amplifier-entropy/">
   <meta property="og:site_name" content="Harjas Sandhu">
@@ -37,7 +37,7 @@
   <meta name="DC.rights" content="The source bundle retains the Apache License 2.0 and attribution notice for incorporated OpenAI material. See LICENSE and NOTICE.txt for scope.">
   <meta name="DC.type" content="Text">
   <meta name="DC.language" content="en">
-  <link rel="alternate" type="application/pdf" href="https://harjassand.github.io/research/amplifier-entropy/amplifier_entropy_revised.pdf" title="Original manuscript PDF">
+  <link rel="alternate" type="application/pdf" href="https://harjassand.github.io/research/amplifier-entropy/amplifier_entropy_revised.pdf" title="Manuscript PDF">
   <meta name="keywords" content="amplifier entropy photon-number inequality, bosonic Gaussian channels, quantum entropy inequalities, quantum amplifiers, thermal relaxation, logarithmic-mean interpolation, thermal Stein bound, Gaussian equality">
 <script type="application/ld+json">
 {
@@ -52,8 +52,8 @@
   "inLanguage": "en",
   "version": "2026-10-21",
   "genre": "Research manuscript",
-  "creativeWorkStatus": "The general amplifier argument is a proof candidate. The release has passed file-integrity, source-structure, compilation and presentation checks. These checks do not establish independent specialist review, formal proof verification or priority for the refinements.",
-  "creditText": "Harjas Sandhu developed and coordinated the agentic system used for this investigation. The mathematical development and writing are AI-generated; no human mathematical authorship is assigned. This manuscript emerged from an iterative, substantially autonomous research process involving several AI systems, with successive rounds of dialogue, mathematical investigation, criticism and rewriting coordinated through human direction. The mathematical development and writing are AI-generated; established contributions are credited in the text. The variational framework and four-weight interpolation adapt OpenAI’s beam-splitter argument. The amplifier conjecture is credited to De Palma, Mari and Giovannetti. The inherited license and attribution notice are included with the complete source.",
+  "creativeWorkStatus": "Research manuscript",
+  "creditText": "The mathematical ideas, constructions, proofs, and manuscript were developed by GPT-6 Astra, with additional AI assistance for review. Human input was minimal and consisted primarily of setting the research objectives and providing occasional feedback.",
   "keywords": [
     "amplifier entropy photon-number inequality",
     "bosonic Gaussian channels",
@@ -71,39 +71,23 @@
     "contentUrl": "https://harjassand.github.io/research/amplifier-entropy/amplifier_entropy_revised.pdf",
     "contentSize": "350441 bytes"
   },
-  "identifier": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "DOI",
-      "value": "10.5281/zenodo.23526644"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "SHA-256",
-      "value": "f16d83d4b5bc3673200b825187f6a3a18683f81e869503280a63921ecb101d39"
-    }
-  ],
-  "publisher": {
-    "@type": "Organization",
-    "name": "Zenodo",
-    "url": "https://zenodo.org/"
-  },
-  "sameAs": "https://zenodo.org/records/23526644",
   "contributor": {
     "@type": "Person",
     "name": "Harjas Sandhu",
     "@id": "https://harjassand.github.io/#harjas-sandhu",
     "url": "https://harjassand.github.io/"
   },
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.5281/zenodo.23526644"
+  },
+  "sameAs": "https://zenodo.org/records/23526644",
   "isBasedOn": {
     "@type": "ScholarlyArticle",
     "name": "The entropy photon-number inequality",
     "url": "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/The-entropy-photon-number-inequality-September-24-2026",
-    "license": "https://www.apache.org/licenses/LICENSE-2.0",
-    "author": {
-      "@type": "Organization",
-      "name": "OpenAI"
-    }
+    "license": "https://www.apache.org/licenses/LICENSE-2.0"
   }
 }
 </script>
@@ -114,85 +98,25 @@
   <header class="site-header">
     <a class="wordmark" href="/">Harjas Sandhu</a>
     <nav aria-label="Main navigation">
-      <a href="/#research">Interests</a>
-      <a href="/#selected-research">Selected research</a>
-      <a href="/#publications">Publications</a>
+      <a href="/#papers">Papers</a>
+      <a href="/#about">About</a>
     </nav>
   </header>
   <main class="paper-main" id="main">
-    <p class="breadcrumb"><a href="/#selected-research">← Selected research</a></p>
+    <p class="breadcrumb"><a href="/#papers">← All papers</a></p>
     <article aria-labelledby="paper-title">
       <header class="paper-header">
-        <p class="eyebrow">AI-generated manuscript · Quantum information and mathematical physics</p>
+        <p class="eyebrow">Research manuscript · Quantum information and mathematical physics</p>
         <h1 id="paper-title">Thermal balance and the amplifier entropy photon-number inequality</h1>
         <p class="contact-credit">Research direction and coordination: <a href="/">Harjas Sandhu</a></p>
-        <p class="paper-dates">Manuscript dated <time datetime="2026-10-21">21 October 2026</time>.<br>Published on Zenodo <time datetime="2026-10-21">21 October 2026</time> · Version 2026-10-21</p>
-        <div class="paper-actions">
-          <a class="pdf-link" href="/research/amplifier-entropy/amplifier_entropy_revised.pdf">Read PDF <span class="file-detail">350 kB</span></a>
-          <a href="https://zenodo.org/records/23526644">Zenodo record</a>
-          <a href="/research/amplifier-entropy/latex_source.zip">LaTeX source</a>
-          <a href="https://doi.org/10.5281/zenodo.23526644">DOI</a>
-          <a href="#citation">Cite</a>
-          <a href="#explanation">Reader’s explanation</a>
-        </div>
+        <p class="paper-dates"><time datetime="2026-10-21">21 October 2026</time> · Version 2026-10-21</p>
+        <div class="paper-actions"><a class="pdf-link" href="/research/amplifier-entropy/amplifier_entropy_revised.pdf">Read PDF</a><a href="#resources">All downloads</a><a href="#citation">Cite</a></div>
       </header>
       <section class="paper-section paper-abstract" aria-labelledby="abstract-heading">
-        <h2 id="abstract-heading">Abstract</h2>
-        <p class="abstract-text">The entropy photon number is the occupation of a thermal state with a given entropy per mode. We give a variational argument for its sharp lower bound under amplification of two independent finite-energy inputs, allowing correlations within each input group. The proof turns on an agreement of signs: the creation port reverses a logarithmic-mean metric, and thermal relaxation obeys the corresponding signed occupation balance. At a regularized entropy minimum, these two facts cancel the energy corrections and force the thermal-balance defects to vanish. A trace-norm Stein bound, obtained from thermal-attenuator smoothing, then closes the argument. We also give a Gaussian spectral refinement, characterize Gaussian equality by a common symplectic shape, and deduce a sharp correlation bound for the two outputs. The conjecture is due to De Palma, Mari and Giovannetti; the variational framework and four-weight interpolation are adapted from OpenAI&#x27;s beam-splitter argument.</p>
-        <p class="abstract-label">Abstract reproduced from the manuscript.</p>
-        <div class="provenance manuscript-acknowledgment">
-          <p class="abstract-label">Acknowledgment and provenance · reproduced from the manuscript</p>
-          <blockquote>This manuscript emerged from an iterative, substantially autonomous research process involving several AI systems, with successive rounds of dialogue, mathematical investigation, criticism and rewriting coordinated through human direction. The mathematical development and writing are AI-generated; established contributions are credited in the text.</blockquote>
-        </div>
+        <h2 id="abstract-heading">Abstract</h2><p class="abstract-text">The entropy photon number is the occupation of a thermal state with a given entropy per mode. We give a variational argument for its sharp lower bound under amplification of two independent finite-energy inputs, allowing correlations within each input group. The proof turns on an agreement of signs: the creation port reverses a logarithmic-mean metric, and thermal relaxation obeys the corresponding signed occupation balance. At a regularized entropy minimum, these two facts cancel the energy corrections and force the thermal-balance defects to vanish. A trace-norm Stein bound, obtained from thermal-attenuator smoothing, then closes the argument. We also give a Gaussian spectral refinement, characterize Gaussian equality by a common symplectic shape, and deduce a sharp correlation bound for the two outputs. The conjecture is due to De Palma, Mari and Giovannetti; the variational framework and four-weight interpolation are adapted from OpenAI&#x27;s beam-splitter argument.</p>
       </section>
-      <section class="paper-section provenance" aria-labelledby="provenance-heading">
-        <h2 id="provenance-heading">Contribution and provenance</h2>
-        <p class="contributor-credit">Harjas Sandhu developed and coordinated the agentic system used for this investigation. The mathematical development and writing are AI-generated; no human mathematical authorship is assigned.</p>
-        <p>The variational framework and four-weight interpolation adapt OpenAI’s beam-splitter argument. The amplifier conjecture is credited to De Palma, Mari and Giovannetti. The inherited license and attribution notice are included with the complete source. <a href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/The-entropy-photon-number-inequality-September-24-2026">Inherited source.</a></p>
-        <p id="verification">The general amplifier argument is a proof candidate. The release has passed file-integrity, source-structure, compilation and presentation checks. These checks do not establish independent specialist review, formal proof verification or priority for the refinements.</p>
-        <p><a href="/research/amplifier-entropy/verification.json">Technical release checks</a></p>
-      </section>
-      <section class="paper-section" aria-labelledby="details-heading">
-        <h2 id="details-heading">Publication details</h2>
-        <dl class="paper-details">
-          <dt>Repository</dt><dd>Zenodo</dd>
-          <dt>Type</dt><dd>Preprint</dd>
-          <dt>DOI</dt><dd><a href="https://doi.org/10.5281/zenodo.23526644">10.5281/zenodo.23526644</a></dd>
-          <dt>Version</dt><dd>2026-10-21</dd>
-          <dt>License</dt><dd>The source bundle retains the Apache License 2.0 and attribution notice for incorporated OpenAI material. See LICENSE and NOTICE.txt for scope. <a href="/research/amplifier-entropy/LICENSE">License</a> · <a href="/research/amplifier-entropy/NOTICE.txt">Attribution notice</a></dd>
-          <dt>Manuscript</dt><dd><a href="/research/amplifier-entropy/amplifier_entropy_revised.pdf">Complete PDF · 33 pages</a></dd>
-          <dt>Editable source</dt><dd><a href="/research/amplifier-entropy/latex_source.zip">LaTeX source ZIP</a> · <a href="/research/amplifier-entropy/references.bib">Bibliography</a></dd>
-          <dt>Release package</dt><dd><a href="/research/amplifier-entropy/release_bundle.zip">PDF, source, citations and license notices</a></dd>
-          <dt>Versioned copy</dt><dd><a href="https://raw.githubusercontent.com/harjassand/harjassand.github.io/e03adf118f826ad7aca523478d19d01e3ee1845e/research/amplifier-entropy/amplifier_entropy_revised.pdf">PDF fixed to this source snapshot</a></dd>
-          <dt>Integrity</dt><dd><a href="/research/amplifier-entropy/release-manifest.json">File hashes and version metadata</a></dd>
-          <dt>Build notes</dt><dd><a href="/research/amplifier-entropy/README.txt">Package contents, dependencies and verification scope</a></dd>
-        </dl>
 
-      </section>
-      <section class="paper-section" id="citation" aria-labelledby="citation-heading">
-        <h2 id="citation-heading">Citation</h2>
-        <p class="citation-text"><cite>Thermal balance and the amplifier entropy photon-number inequality</cite>. (2026). Version 2026-10-21. Zenodo. <a href="https://doi.org/10.5281/zenodo.23526644">https://doi.org/10.5281/zenodo.23526644</a></p>
-        <p class="citation-note">This reference follows the manuscript’s title-first credit. Zenodo lists Harjas Sandhu as the record creator; the manuscript’s mathematical development and writing are AI-generated.</p>
-        <div class="link-line">
-          <a href="/research/amplifier-entropy/citation.bib" download>Download BibTeX</a>
-          <a href="/research/amplifier-entropy/citation.ris" download>Download RIS</a>
-        </div>
-        <details><summary>View BibTeX</summary><pre><code>@misc{thermalbalance2026,
-  title = {Thermal balance and the amplifier entropy photon-number inequality},
-  year = {2026},
-  month = oct,
-  day = {21},
-  version = {2026-10-21},
-  howpublished = {AI-generated mathematical manuscript},
-  publisher = {Zenodo},
-  doi = {10.5281/zenodo.23526644},
-  url = {https://doi.org/10.5281/zenodo.23526644},
-  note = {Research direction and coordination: Harjas Sandhu. No human mathematical authorship assigned.}
-}
-</code></pre></details>
-        <p class="abstract-label">Citation downloads prepared from the manuscript metadata and the published version DOI.</p>
-      </section>
-      <section class="paper-section reader-explanation" id="explanation" aria-labelledby="explanation-heading">
+            <section class="paper-section reader-explanation" id="explanation" aria-labelledby="explanation-heading">
         <h2 id="explanation-heading">Reader’s explanation</h2>
       <section class="paper-section reader-note" aria-labelledby="amplifier-noise-heading">
         <h3 id="amplifier-noise-heading">What an amplifier cannot leave behind</h3>
@@ -235,6 +159,28 @@
       </section>
       </section>
 
+      <section class="paper-section" id="resources" aria-labelledby="resources-heading">
+        <h2 id="resources-heading">Read and download</h2><div class="paper-actions"><a class="pdf-link" href="/research/amplifier-entropy/amplifier_entropy_revised.pdf">Read PDF</a>
+<a href="https://zenodo.org/records/23526644">Zenodo record</a>
+<a href="/research/amplifier-entropy/latex_source.zip">LaTeX source</a>
+<a href="/research/amplifier-entropy/release_bundle.zip">Release package</a>
+<a href="/research/amplifier-entropy/references.bib">Bibliography</a>
+<a href="/research/amplifier-entropy/LICENSE">License</a>
+<a href="/research/amplifier-entropy/NOTICE.txt">Attribution notice</a></div>
+      </section>
+      <section class="paper-section" aria-labelledby="details-heading">
+        <h2 id="details-heading">Publication details</h2>
+        <dl class="paper-details"><dt>Type</dt><dd>Research manuscript</dd><dt>Repository</dt><dd>Zenodo</dd><dt>DOI</dt><dd><a href="https://doi.org/10.5281/zenodo.23526644">10.5281/zenodo.23526644</a></dd><dt>Version</dt><dd>2026-10-21</dd><dt>License</dt><dd>The source bundle retains the Apache License 2.0 and attribution notice for incorporated OpenAI material. See LICENSE and NOTICE.txt for scope.</dd></dl>
+      </section>
+      <section class="paper-section" id="citation" aria-labelledby="citation-heading">
+        <h2 id="citation-heading">Citation</h2><p class="citation-text">(2026). <cite>Thermal balance and the amplifier entropy photon-number inequality</cite>. Version 2026-10-21.</p>
+        <div class="link-line"><a href="/research/amplifier-entropy/citation.bib" download>BibTeX</a><a href="/research/amplifier-entropy/citation.ris" download>RIS</a></div>
+      </section>
+
+      <section class="paper-section acknowledgement" id="acknowledgements" aria-labelledby="acknowledgements-heading">
+        <h2 id="acknowledgements-heading">Acknowledgements and AI use</h2>
+        <p>The mathematical ideas, constructions, proofs, and manuscript were developed by GPT-6 Astra, with additional AI assistance for review. Human input was minimal and consisted primarily of setting the research objectives and providing occasional feedback.</p>
+      </section>
     </article>
   </main>
   <footer class="site-footer">

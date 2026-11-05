@@ -6,162 +6,98 @@
   "owner_name": "Harjas Sandhu",
   "papers": [
     {
-      "slug": "non-sofic-hyperbolic-group",
-      "title": "An example of a non-sofic hyperbolic group",
+      "slug": "gibbs-uniqueness",
+      "collection": "publications",
+      "title": "Finite Certificates and Undecidable Gibbs Uniqueness",
       "authors": [
-        "Harjas Sandhu",
-        "Andreas Thom"
+        "Harjas Sandhu"
       ],
       "credit_role": "author",
-      "subject": "Group theory",
-      "abstract_source": "arXiv record",
-      "citation_source": "arxiv_metadata",
-      "arxiv_id": "2610.24836",
-      "doi": "10.48550/arXiv.2610.24836",
-      "record_url": "https://arxiv.org/abs/2610.24836",
-      "pdf_source_url": "https://arxiv.org/pdf/2610.24836v1",
-      "commentary_url": "https://andreasthom.github.io/pdf/hyperbolicnonsofic.pdf",
-      "commentary_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=aVN-YYgAAAAJ&citation_for_view=aVN-YYgAAAAJ:DGzKIA18-3YC",
-      "commentary_date": "2026-10-13",
-      "publication_date": "2026-10-17",
-      "manuscript_date": "2026-10-07",
-      "version": "1",
-      "publisher": "arXiv",
-      "publisher_url": "https://arxiv.org/",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "license_name": "CC BY 4.0",
-      "abstract": "We construct a torsion-free, two-dimensional, word-hyperbolic group which is not sofic. Our construction builds on OpenAI's construction of a non-residually finite hyperbolic group, see OpenAI 252.",
-      "provenance": "This paper is based on an AI-generated construction obtained by Harjas Sandhu on October 7, 2026, which was in turn based on the OpenAI breakthrough [14]. The second author worked through the proof to make it readable and to reduce unnecessary overhead.",
-      "provenance_summary": "The construction inherits marked lines, triangular relations, an interpolation identity and comparisons of real and finite-field ranks from OpenAI 252. The acknowledgments also disclose AI assistance in drafting and explain how the paper relates these ingredients to earlier mathematics. The PDF hosted here is the unchanged arXiv v1 preprint.",
-      "keywords": [
-        "Sofic groups",
-        "Hyperbolic groups",
-        "Negatively curved complexes",
-        "Matrix rank",
-        "Finite-field interpolation",
-        "Graphs of large girth"
-      ],
-      "pdf_filename": "non-sofic-hyperbolic-group.pdf",
-      "pdf_bytes": 488098,
-      "pdf_sha256": "819c267abca9a69af2b5eaf7343cbf59d8990fa9f268bc3bd58593306cb19bdc",
-      "bib_sha256": "2e45a1fc261732b48726c694b0312861ad27a479895bdf8a685e7af51b22acfd",
-      "ris_sha256": "93cddb59d3b23762bb9465f4c5635eee462c2602e7e6da0b1078a2888f27576f",
-      "summary": "A construction of a torsion-free, two-dimensional, word-hyperbolic group that is not sofic, building on OpenAI’s earlier construction of a non-residually finite hyperbolic group."
-    },
-    {
-      "slug": "complete-information-orders",
-      "record_id": 23349086,
-      "title": "Complete information orders of quantum channels: equivalence and undecidability",
-      "authors": [],
-      "credit_role": "contact",
-      "contact_name": "Harjas Sandhu",
-      "contribution": "Harjas Sandhu developed and coordinated the agentic system used for these investigations and serves as the manuscript contact, rather than as a scientific author.",
-      "subject": "Quantum information",
-      "abstract_source": "deposited manuscript",
-      "citation_source": "repository_exports",
+      "subject": "Mathematical physics",
+      "publication_date": "2026-11-06",
+      "manuscript_date": "2026-11-06",
+      "version": "1.0",
       "publisher": "Zenodo",
       "publisher_url": "https://zenodo.org/",
-      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
-      "license_name": "Apache License 2.0",
-      "companion": {
-        "slug": "capacity-and-distillation",
-        "description": "The companion preprint develops capacity and one-way distillation consequences that depend on the order results presented here."
-      },
-      "doi": "10.5281/zenodo.23349086",
-      "record_url": "https://zenodo.org/records/23349086",
-      "discovery_records": [
-        {
-          "name": "OpenAIRE",
-          "url": "https://explore.openaire.eu/search/result?pid=10.5281%2Fzenodo.23349086"
-        },
-        {
-          "name": "OpenAlex",
-          "url": "https://openalex.org/works/W7221769249"
-        }
-      ],
-      "publication_date": "2026-10-14",
-      "manuscript_date": "2026-10-11",
-      "version": "1.0",
-      "abstract": "With arbitrary finite quantum references, relative entropy, Holevo information and SLD Fisher information induce the same channel order, reversed by complementation. This order is coRE-complete, even for strictly positive rational POVMs. Its bounded entropy defect is additive and uncomputable at every fixed positive additive accuracy.",
-      "provenance": "The new results and proofs were discovered and developed by AI systems. Harjas Sandhu serves solely as the contact person. Independent specialist review and priority assessment are pending.",
+      "doi": "10.5281/zenodo.23983514",
+      "record_url": "https://zenodo.org/records/23983514",
+      "license_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "display_type": "Preprint",
+      "abstract_source": "manuscript",
+      "citation_source": "manuscript_metadata",
+      "pdf_filename": "Finite_Certificates_and_Undecidable_Gibbs_Uniqueness.pdf",
+      "source_filename": "Finite_Certificates_and_Undecidable_Gibbs_Uniqueness_LaTeX.zip",
       "keywords": [
-        "quantum information theory",
-        "quantum channel comparison",
-        "complete information order",
-        "quantum relative entropy",
-        "Holevo information",
-        "quantum Fisher information",
-        "symmetric logarithmic derivative",
-        "POVMs",
+        "Gibbs measures",
+        "uniqueness",
         "undecidability",
+        "classical statistical mechanics",
+        "finite-range interactions",
+        "exponential clustering",
         "computability"
       ],
-      "pdf_filename": "complete_channel_information_order.pdf",
-      "pdf_sha256": "d5b42e39abf931578c9a27f61c6274ce35a24e9e6328650332d962470de7cb90",
-      "pdf_bytes": 595904,
-      "bib_sha256": "6f5f08d59699cdfc8197ef658aa721075019ea766d0c1d654ca3f89508f78f93",
-      "ris_source_sha256": "dfecd8240b4730a37255dc59254736e091c939cd29495f18e5c1bff85376078f",
-      "ris_sha256": "dfecd8240b4730a37255dc59254736e091c939cd29495f18e5c1bff85376078f",
-      "summary": "A comparison of complete quantum-channel information orders, claiming equivalence of entropy and Fisher-information criteria and undecidability even for strictly positive rational POVMs."
-    },
-    {
-      "slug": "capacity-and-distillation",
-      "record_id": 23349192,
-      "title": "From complete channel order to capacity and one-way distillation",
-      "authors": [],
-      "credit_role": "contact",
-      "contact_name": "Harjas Sandhu",
-      "contribution": "Harjas Sandhu developed and coordinated the agentic system used for these investigations and serves as the manuscript contact, rather than as a scientific author.",
-      "subject": "Quantum information",
-      "abstract_source": "deposited manuscript",
-      "citation_source": "repository_exports",
-      "publisher": "Zenodo",
-      "publisher_url": "https://zenodo.org/",
-      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
-      "license_name": "Apache License 2.0",
-      "companion": {
-        "slug": "complete-information-orders",
-        "description": "This manuscript develops capacity and distillation consequences using the complete-order results of the companion preprint.",
-        "cites": true
-      },
-      "doi": "10.5281/zenodo.23349192",
-      "record_url": "https://zenodo.org/records/23349192",
-      "discovery_records": [
+      "summary": "Even at a fixed positive temperature, no algorithm can decide whether a finite-range classical spin model has a unique Gibbs state. Finite computation certificates select a phase through exact cancellation, while the unique equilibrium still has exponentially decaying correlations.",
+      "resource_links": [
         {
-          "name": "OpenAIRE",
-          "url": "https://explore.openaire.eu/search/result?pid=10.5281%2Fzenodo.23349192"
-        },
-        {
-          "name": "OpenAlex",
-          "url": "https://openalex.org/works/W7221749912"
+          "label": "LaTeX manuscript",
+          "url": "Finite_Certificates_and_Undecidable_Gibbs_Uniqueness.tex"
         }
       ],
-      "publication_date": "2026-10-14",
-      "manuscript_date": "2026-10-11",
-      "version": "1.0",
-      "abstract": "A flagged channel with a four-dimensional auxiliary input turns every failed complete information comparison into positive private and quantum capacity. This transfers complete-order undecidability to exact-zero capacity and one-way distillation, even under any prescribed two-way distillation lower bound. All reference transmission and activation use the constructed channel itself.",
-      "provenance": "The new results and proofs were discovered and developed by AI systems. Harjas Sandhu serves solely as the contact person. Independent specialist review and priority assessment are pending.",
+      "abstract": "We construct translation-invariant classical interactions on ℤ² for which deciding uniqueness among all Gibbs states is undecidable at inverse temperature one. The finite on-site alphabet depends effectively on the input; interaction supports are fixed, and local energy terms take only the integer values 0, 1, 20. Exact character orthogonality converts a strictly positive finite-energy model into a gas of finite computation histories. A halting certificate produces a uniformly positive phase-selection bias, however small. A reference Ising comparison and an independent-disagreement argument then give uniqueness and exponential clustering of every local physical observable. Without halting, the entire Gibbs simplex is affinely isomorphic to the two-dimensional zero-field Ising simplex. A distinct soft-certificate construction has the same dichotomy for one table at every finite inverse temperature at least 2/5. We prove boundary-specific exponential convergence, smooth pressure with summable cumulants on the uniqueness branch, uniform computability of the selected phase and its right pressure jet, and stability under small finite-range spin perturbations. An effective compactness argument supplies a computable valid convergence modulus for each unique computable finite-range specification; the impossibility concerns total bounds across the undecidable family. Exact microscopic symmetrization excludes a family-wide perturbation radius for arbitrary real interactions.",
+      "description": "Even at a fixed positive temperature, no algorithm can decide whether a finite-range classical spin model has a unique Gibbs state. Finite computation certificates select a phase through exact cancellation, while the unique equilibrium still has exponentially decaying correlations.",
+      "pdf_sha256": "285cd825beb1dcc30995bd9ffaf4cf66c1aa3d7ca88c767a6ea1b17a950118b0",
+      "pdf_bytes": 613083,
+      "bib_sha256": "6f489f1032b126b44aa059da85112c2625fa6c83940e8ee048fd4fc4fe95b662",
+      "ris_sha256": "25e278052201097712559638e5aea7243301407e16bfd2887318065dc2796e8a"
+    },
+    {
+      "slug": "exact-catalytic-tensor-restriction",
+      "collection": "research",
+      "title": "Fixed-format undecidability of exact catalytic tensor restriction",
+      "subject": "Quantum information and algebraic complexity",
+      "publication_date": "2026-10-24",
+      "version": "0.1",
+      "credit_role": "coordinator",
+      "contributor_name": "Harjas Sandhu",
+      "status": "AI-generated proof candidate; independent validation and priority review pending",
+      "summary": "A rank-drop construction connects exact quantum catalysis with algebra representations, giving a route to undecidability within a fixed positive tensor family.",
+      "abstract": "A proposed representation compiler links finite-dimensional representations of finitely presented rational associative algebras to exact stochastic restriction of three-tensors with an exactly returned bipartite maximally entangled catalyst. Rank-drop markers constrain otherwise unrestricted local maps. The resulting construction gives a route to recursively enumerable complete conversion along a fixed rank-one affine family of strictly positive integer tensors, together with a finite example of genuine catalysis. The model concerns exact conversion with unbounded catalyst dimension; it imposes no uniform positive success probability.",
+      "source_url": "https://github.com/harjassand/astra-research-knowledge/blob/main/cards/N680-rank-drop-catalytic-tensor-restriction.txt",
+      "pdf_filename": "paper.pdf",
+      "authors": [],
+      "publisher": "Research manuscript",
+      "publisher_url": "https://harjassand.github.io/",
+      "manuscript_date": "2026-10-24",
+      "abstract_source": "website synopsis",
+      "citation_source": "manuscript_metadata",
+      "record_url": "https://harjassand.github.io/research/exact-catalytic-tensor-restriction/",
+      "license_url": null,
+      "rights_notice": "No additional licence is granted by this website.",
       "keywords": [
-        "quantum information theory",
-        "quantum channel capacity",
-        "quantum capacity",
-        "private capacity",
-        "one-way distillable entanglement",
-        "distillable secret key",
-        "quantum channel comparison",
-        "undecidability",
-        "quantum erasure channels"
+        "tensor restriction",
+        "exact quantum catalysis",
+        "algebra representations",
+        "undecidability"
       ],
-      "pdf_filename": "universal_channel_capacity_distillation.pdf",
-      "pdf_sha256": "2bd714136dbcb4d3248151d7f5f02d68c731dadf4c01e937b8d58f7e03b707d5",
-      "pdf_bytes": 440282,
-      "bib_sha256": "20d4b8747778389a2ccc276ef2e03d2e95863330352ce589c0be1a18d73f5c94",
-      "ris_source_sha256": "d54824d9f3f17f74ab866d6aa663df2ce875cf5b9a270e705c79afb5d32ea380",
-      "ris_sha256": "d54824d9f3f17f74ab866d6aa663df2ce875cf5b9a270e705c79afb5d32ea380",
-      "summary": "A channel construction that claims to turn failed complete information comparisons into positive private and quantum capacity, with consequences for exact-zero capacity and one-way distillation."
-    }
-  ],
-  "selected_research": [
+      "reader_note_template": "catalytic-tensor-notes.html.in",
+      "resource_links": [
+        {
+          "label": "Original derivation",
+          "url": "original-derivation.md"
+        },
+        {
+          "label": "Expanded proof text",
+          "url": "/research/catalytic-tensor-conversion/manuscript.md"
+        }
+      ],
+      "description": "A rank-drop construction connects exact quantum catalysis with algebra representations, giving a route to undecidability within a fixed positive tensor family.",
+      "display_type": "Research manuscript",
+      "pdf_sha256": "ba01bc1191eb9853eba44838241b8c17d31ed3744ae9928374e79a45b8bff085",
+      "pdf_bytes": 18336,
+      "bib_sha256": "7671113ba0afa6c6d632ad48a29d9b8b243fc1d50132e967f78272d1ef0e0de1",
+      "ris_sha256": "202bb46b310e5fdae9b9e5c852e7c6658437c05feec3703d9faf0a03fb78fda4"
+    },
     {
       "slug": "amplifier-entropy",
       "collection": "research",
@@ -187,8 +123,8 @@
       "provenance": "This manuscript emerged from an iterative, substantially autonomous research process involving several AI systems, with successive rounds of dialogue, mathematical investigation, criticism and rewriting coordinated through human direction. The mathematical development and writing are AI-generated; established contributions are credited in the text.",
       "provenance_summary": "The variational framework and four-weight interpolation adapt OpenAI’s beam-splitter argument. The amplifier conjecture is credited to De Palma, Mari and Giovannetti. The inherited license and attribution notice are included with the complete source.",
       "verification_status": "The general amplifier argument is a proof candidate. The release has passed file-integrity, source-structure, compilation and presentation checks. These checks do not establish independent specialist review, formal proof verification or priority for the refinements.",
-      "summary": "A variational proof candidate for the amplifier entropy photon-number inequality for independent finite-energy multimode inputs, pairing signed interpolation with thermal relaxation.",
-      "description": "A proof candidate for the amplifier entropy photon-number inequality for independent finite-energy multimode inputs, with full abstract, source, provenance and citation.",
+      "summary": "An approach to the sharp entropy bound for quantum amplification pairs signed interpolation with thermal relaxation, allowing arbitrary correlations within each independent input group.",
+      "description": "An approach to the sharp entropy bound for quantum amplification pairs signed interpolation with thermal relaxation, allowing arbitrary correlations within each independent input group.",
       "keywords": [
         "amplifier entropy photon-number inequality",
         "bosonic Gaussian channels",
@@ -272,24 +208,196 @@
       "ris_sha256": "6f0093ca05f325c4f11ee16e0aff051964820c1cd6d4534e5ab86ef012e37c71",
       "repository_creator": "Harjas Sandhu",
       "repository_metadata_source": "https://zenodo.org/api/records/23526644",
-      "reader_note_template": "amplifier-entropy-notes.html.in"
+      "reader_note_template": "amplifier-entropy-notes.html.in",
+      "display_type": "Research manuscript",
+      "resource_links": [
+        {
+          "label": "Release package",
+          "url": "release_bundle.zip"
+        },
+        {
+          "label": "Bibliography",
+          "url": "references.bib"
+        },
+        {
+          "label": "License",
+          "url": "LICENSE"
+        },
+        {
+          "label": "Attribution notice",
+          "url": "NOTICE.txt"
+        }
+      ]
+    },
+    {
+      "slug": "non-sofic-hyperbolic-group",
+      "title": "An example of a non-sofic hyperbolic group",
+      "authors": [
+        "Harjas Sandhu",
+        "Andreas Thom"
+      ],
+      "credit_role": "author",
+      "subject": "Group theory",
+      "abstract_source": "arXiv record",
+      "citation_source": "arxiv_metadata",
+      "arxiv_id": "2610.24836",
+      "doi": "10.48550/arXiv.2610.24836",
+      "record_url": "https://arxiv.org/abs/2610.24836",
+      "pdf_source_url": "https://arxiv.org/pdf/2610.24836v1",
+      "commentary_url": "https://andreasthom.github.io/pdf/hyperbolicnonsofic.pdf",
+      "commentary_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=aVN-YYgAAAAJ&citation_for_view=aVN-YYgAAAAJ:DGzKIA18-3YC",
+      "commentary_date": "2026-10-13",
+      "publication_date": "2026-10-17",
+      "manuscript_date": "2026-10-07",
+      "version": "1",
+      "publisher": "arXiv",
+      "publisher_url": "https://arxiv.org/",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_name": "CC BY 4.0",
+      "abstract": "We construct a torsion-free, two-dimensional, word-hyperbolic group which is not sofic. Our construction builds on OpenAI's construction of a non-residually finite hyperbolic group, see OpenAI 252.",
+      "provenance": "This paper is based on an AI-generated construction obtained by Harjas Sandhu on October 7, 2026, which was in turn based on the OpenAI breakthrough [14]. The second author worked through the proof to make it readable and to reduce unnecessary overhead.",
+      "provenance_summary": "The construction inherits marked lines, triangular relations, an interpolation identity and comparisons of real and finite-field ranks from OpenAI 252. The acknowledgments also disclose AI assistance in drafting and explain how the paper relates these ingredients to earlier mathematics. The PDF hosted here is the unchanged arXiv v1 preprint.",
+      "keywords": [
+        "Sofic groups",
+        "Hyperbolic groups",
+        "Negatively curved complexes",
+        "Matrix rank",
+        "Finite-field interpolation",
+        "Graphs of large girth"
+      ],
+      "pdf_filename": "non-sofic-hyperbolic-group.pdf",
+      "pdf_bytes": 488098,
+      "pdf_sha256": "819c267abca9a69af2b5eaf7343cbf59d8990fa9f268bc3bd58593306cb19bdc",
+      "bib_sha256": "2e45a1fc261732b48726c694b0312861ad27a479895bdf8a685e7af51b22acfd",
+      "ris_sha256": "93cddb59d3b23762bb9465f4c5635eee462c2602e7e6da0b1078a2888f27576f",
+      "summary": "A torsion-free, two-dimensional hyperbolic group that is not sofic connects negative curvature with a fundamental obstruction to finite permutation approximations.",
+      "description": "A torsion-free, two-dimensional hyperbolic group that is not sofic connects negative curvature with a fundamental obstruction to finite permutation approximations.",
+      "collection": "publications",
+      "display_type": "Preprint",
+      "acknowledgement_note": "For this coauthored paper, the AI acknowledgement describes the initial construction stage. Andreas Thom subsequently worked through the proof and revised its exposition, as recorded in the published acknowledgements.",
+      "resource_links": []
+    },
+    {
+      "slug": "complete-information-orders",
+      "record_id": 23349086,
+      "title": "Complete information orders of quantum channels: equivalence and undecidability",
+      "authors": [],
+      "credit_role": "contact",
+      "contact_name": "Harjas Sandhu",
+      "contribution": "Harjas Sandhu developed and coordinated the agentic system used for these investigations and serves as the manuscript contact, rather than as a scientific author.",
+      "subject": "Quantum information",
+      "abstract_source": "deposited manuscript",
+      "citation_source": "repository_exports",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "license_name": "Apache License 2.0",
+      "companion": {
+        "slug": "capacity-and-distillation",
+        "description": "The companion preprint develops capacity and one-way distillation consequences that depend on the order results presented here."
+      },
+      "doi": "10.5281/zenodo.23349086",
+      "record_url": "https://zenodo.org/records/23349086",
+      "discovery_records": [
+        {
+          "name": "OpenAIRE",
+          "url": "https://explore.openaire.eu/search/result?pid=10.5281%2Fzenodo.23349086"
+        },
+        {
+          "name": "OpenAlex",
+          "url": "https://openalex.org/works/W7221769249"
+        }
+      ],
+      "publication_date": "2026-10-14",
+      "manuscript_date": "2026-10-11",
+      "version": "1.0",
+      "abstract": "With arbitrary finite quantum references, relative entropy, Holevo information and SLD Fisher information induce the same channel order, reversed by complementation. This order is coRE-complete, even for strictly positive rational POVMs. Its bounded entropy defect is additive and uncomputable at every fixed positive additive accuracy.",
+      "provenance": "The new results and proofs were discovered and developed by AI systems. Harjas Sandhu serves solely as the contact person. Independent specialist review and priority assessment are pending.",
+      "keywords": [
+        "quantum information theory",
+        "quantum channel comparison",
+        "complete information order",
+        "quantum relative entropy",
+        "Holevo information",
+        "quantum Fisher information",
+        "symmetric logarithmic derivative",
+        "POVMs",
+        "undecidability",
+        "computability"
+      ],
+      "pdf_filename": "complete_channel_information_order.pdf",
+      "pdf_sha256": "d5b42e39abf931578c9a27f61c6274ce35a24e9e6328650332d962470de7cb90",
+      "pdf_bytes": 595904,
+      "bib_sha256": "6f5f08d59699cdfc8197ef658aa721075019ea766d0c1d654ca3f89508f78f93",
+      "ris_source_sha256": "dfecd8240b4730a37255dc59254736e091c939cd29495f18e5c1bff85376078f",
+      "ris_sha256": "dfecd8240b4730a37255dc59254736e091c939cd29495f18e5c1bff85376078f",
+      "summary": "Relative entropy, Holevo information and Fisher information define the same complete quantum-channel order. Even strictly positive rational measurements leave that comparison undecidable.",
+      "description": "Relative entropy, Holevo information and Fisher information define the same complete quantum-channel order. Even strictly positive rational measurements leave that comparison undecidable.",
+      "collection": "publications",
+      "display_type": "Preprint",
+      "resource_links": []
+    },
+    {
+      "slug": "capacity-and-distillation",
+      "record_id": 23349192,
+      "title": "From complete channel order to capacity and one-way distillation",
+      "authors": [],
+      "credit_role": "contact",
+      "contact_name": "Harjas Sandhu",
+      "contribution": "Harjas Sandhu developed and coordinated the agentic system used for these investigations and serves as the manuscript contact, rather than as a scientific author.",
+      "subject": "Quantum information",
+      "abstract_source": "deposited manuscript",
+      "citation_source": "repository_exports",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "license_name": "Apache License 2.0",
+      "companion": {
+        "slug": "complete-information-orders",
+        "description": "This manuscript develops capacity and distillation consequences using the complete-order results of the companion preprint.",
+        "cites": true
+      },
+      "doi": "10.5281/zenodo.23349192",
+      "record_url": "https://zenodo.org/records/23349192",
+      "discovery_records": [
+        {
+          "name": "OpenAIRE",
+          "url": "https://explore.openaire.eu/search/result?pid=10.5281%2Fzenodo.23349192"
+        },
+        {
+          "name": "OpenAlex",
+          "url": "https://openalex.org/works/W7221749912"
+        }
+      ],
+      "publication_date": "2026-10-14",
+      "manuscript_date": "2026-10-11",
+      "version": "1.0",
+      "abstract": "A flagged channel with a four-dimensional auxiliary input turns every failed complete information comparison into positive private and quantum capacity. This transfers complete-order undecidability to exact-zero capacity and one-way distillation, even under any prescribed two-way distillation lower bound. All reference transmission and activation use the constructed channel itself.",
+      "provenance": "The new results and proofs were discovered and developed by AI systems. Harjas Sandhu serves solely as the contact person. Independent specialist review and priority assessment are pending.",
+      "keywords": [
+        "quantum information theory",
+        "quantum channel capacity",
+        "quantum capacity",
+        "private capacity",
+        "one-way distillable entanglement",
+        "distillable secret key",
+        "quantum channel comparison",
+        "undecidability",
+        "quantum erasure channels"
+      ],
+      "pdf_filename": "universal_channel_capacity_distillation.pdf",
+      "pdf_sha256": "2bd714136dbcb4d3248151d7f5f02d68c731dadf4c01e937b8d58f7e03b707d5",
+      "pdf_bytes": 440282,
+      "bib_sha256": "20d4b8747778389a2ccc276ef2e03d2e95863330352ce589c0be1a18d73f5c94",
+      "ris_source_sha256": "d54824d9f3f17f74ab866d6aa663df2ce875cf5b9a270e705c79afb5d32ea380",
+      "ris_sha256": "d54824d9f3f17f74ab866d6aa663df2ce875cf5b9a270e705c79afb5d32ea380",
+      "summary": "A flagged-channel construction turns a failed information comparison into positive quantum and private capacity, transferring undecidability to exact-zero capacity and one-way entanglement distillation.",
+      "description": "A flagged-channel construction turns a failed information comparison into positive quantum and private capacity, transferring undecidability to exact-zero capacity and one-way entanglement distillation.",
+      "collection": "publications",
+      "display_type": "Preprint",
+      "resource_links": []
     }
   ],
-  "research_notes": [
-    {
-      "slug": "exact-catalytic-tensor-restriction",
-      "collection": "research",
-      "title": "Fixed-format undecidability of exact catalytic tensor restriction",
-      "subject": "Quantum information and algebraic complexity",
-      "publication_date": "2026-10-24",
-      "version": "0.1",
-      "credit_role": "coordinator",
-      "contributor_name": "Harjas Sandhu",
-      "status": "AI-generated proof candidate; independent validation and priority review pending",
-      "summary": "A rank-drop tensor compiler claims undecidability of exact bipartite-catalyst conversion even along one positive, fixed-format rank-one affine family.",
-      "abstract": "An AI-generated proof candidate encoding finite-dimensional algebra representations into exact catalytic restriction of three-tensors.",
-      "source_url": "https://github.com/harjassand/astra-research-knowledge/blob/main/cards/N680-rank-drop-catalytic-tensor-restriction.txt",
-      "pdf_filename": "paper.pdf"
-    }
-  ]
+  "ai_acknowledgement": "The mathematical ideas, constructions, proofs, and manuscript were developed by GPT-6 Astra, with additional AI assistance for review. Human input was minimal and consisted primarily of setting the research objectives and providing occasional feedback.",
+  "updated": "2026-11-06"
 }
