@@ -6,6 +6,82 @@
   "owner_name": "Harjas Sandhu",
   "papers": [
     {
+      "slug": "entropy-budgets",
+      "collection": "publications",
+      "title": "Entropy Budgets and Weighted Concentration in Parallel Games",
+      "authors": [
+        "Harjas Sandhu"
+      ],
+      "credit_role": "author",
+      "subject": "Probability and quantum information",
+      "publication_date": "2026-11-06",
+      "manuscript_date": "2026-11-06",
+      "version": "1.0",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "doi": "10.5281/zenodo.23987561",
+      "record_url": "https://zenodo.org/records/23987561",
+      "license_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "display_type": "Preprint",
+      "abstract_source": "manuscript",
+      "citation_source": "manuscript_metadata",
+      "pdf_filename": "Entropy_Budgets_and_Weighted_Concentration_in_Parallel_Games.pdf",
+      "source_filename": "Entropy_Budgets_and_Weighted_Concentration_in_Parallel_Games_LaTeX.zip",
+      "keywords": [
+        "parallel repetition",
+        "weighted concentration",
+        "conditional entropy",
+        "commuting-operator games",
+        "nonlocal games",
+        "positive factorization",
+        "common information",
+        "projection games"
+      ],
+      "summary": "An explicit conditional entropy budget forces weighted concentration even when test outcomes are arbitrarily correlated. The paper also identifies barriers to positive-factor reconstruction; applications to commuting-operator games retain a separately stated reconstruction hypothesis.",
+      "description": "An explicit conditional entropy budget forces weighted concentration even when test outcomes are arbitrarily correlated. The paper also identifies barriers to positive-factor reconstruction; applications to commuting-operator games retain a separately stated reconstruction hypothesis.",
+      "resource_links": [
+        {
+          "label": "LaTeX manuscript",
+          "url": "Entropy_Budgets_and_Weighted_Concentration_in_Parallel_Games.tex"
+        }
+      ],
+      "abstract": "We prove a concentration principle for arbitrarily correlated binary success indicators satisfying an explicit conditional entropy budget, with parameters K ≥ 1 and C₀ ≥ 0. If the benchmark losses are εᵢ, the natural scale is S = ∑ᵢ εᵢ², and the probability that the weighted loss ∑ᵢ εᵢ(1 − Wᵢ) is at most (1 − r)S is bounded by exp[−r⁵S/(2²¹K⁴(1 + C₀))]. The proof uses independent sparse success tests, an exact posterior entropy identity and a differential bound, and applies at every finite length. Under a separately stated finite-tracial reconstruction hypothesis, the principle gives heterogeneous commuting-game bounds for disjoint-block predicates, including projection predicates, and a charged extension. We also identify the exact limitation of positive-factor mass bounds: outside the disjoint-block class, global tensor factorizations can require exponential mass even at success probability one. A robust common-information argument rules out uniformly low-mass accurate filters on all near-perfect tested instances. Nevertheless independent question-free nuisance registers cancel exactly from entropy increments. This separates an obstruction to positive-mass reconstruction from the unresolved problem of controlling entropy directly for general correlated strategies.",
+      "reader_overview": {
+        "result": [
+          "When many tests are performed together, dependence between their outcomes can defeat the usual concentration arguments. This paper gives a sufficient conditional entropy budget that controls how much the untested coordinates can improve after selected successes have been revealed.",
+          "Under that budget, the chance of an unusually small weighted loss decreases exponentially in the sum of the squared benchmark losses. The theorem allows different losses at different coordinates and holds at every finite length. A sharper estimate covers the event that every test succeeds."
+        ],
+        "mechanism": [
+          "The proof introduces independent sparse auxiliary tests and conditions on their success. Only these auxiliary choices are independent: the actual outcomes may be arbitrarily correlated. An exact identity tracks the entropy cost of this conditioning, and a differential bound converts that cost into concentration.",
+          "A separate part of the paper examines attempts to reconstruct strategies using positive factorizations of the acceptance rule. It identifies the exact disjoint-block class with the required mass control, proves exponential obstructions outside that class, and shows why independent question-free nuisance registers can still cancel from entropy increments even when endpoint masses grow."
+        ],
+        "scope": [
+          "The concentration theorem assumes the displayed conditional entropy budget. Its commuting-operator game applications assume Hypothesis FR(K), a finite-tracial coordinate reconstruction property that is not proved here. At its purely existential level, FR(K) is equivalent to the corresponding finite-tracial scalar budget. Projection predicates are included under this hypothesis.",
+          "The robust obstruction to uniformly low-mass accurate filters concerns all near-perfect tested instances at bounded universal charge with growing answer alphabets. It limits this reconstruction method and does not disprove general quadratic parallel repetition. Exact nuisance cancellation requires a literal product state, product measurements and a product conditioning event.",
+          "General correlated-nuisance subtraction, unconditional quadratic repetition for arbitrary predicates and optimal threshold rates remain open. Established quadratic bounds for unique games are credited separately."
+        ]
+      },
+      "acknowledgement_note": "GPT-6.1 Sol was used for independent constructions, mathematical review and literature checks.",
+      "pdf_sha256": "ad917bc48bce9b3eba2f06c5be7559937383b63250f14bf73079f14954749fb8",
+      "bib_sha256": "2bf4d99c8374a8124af0e5160c49fccd4eba0f0e4de2c818c60e8f1a81d32bec",
+      "ris_sha256": "50b5e1131a08346f1ff6cb21035fcb6dd80363af0cfb139e01cbdd4344125495",
+      "pdf_bytes": 542772,
+      "page_count": 21,
+      "assets": [
+        {
+          "filename": "Entropy_Budgets_and_Weighted_Concentration_in_Parallel_Games.tex",
+          "bytes": 73704,
+          "sha256": "650ac6d6df01e9b92c370d51e3ce9d8cd1ec22c379428275da221c9e2c820d72"
+        },
+        {
+          "filename": "Entropy_Budgets_and_Weighted_Concentration_in_Parallel_Games_LaTeX.zip",
+          "bytes": 34298,
+          "sha256": "4b1e608a0cb0d5eac7d785ddc074758d38e950453e46f70274d4c89eea2f169c"
+        }
+      ]
+    },
+    {
       "slug": "gibbs-uniqueness",
       "collection": "publications",
       "title": "Finite Certificates and Undecidable Gibbs Uniqueness",
