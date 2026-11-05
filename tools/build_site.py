@@ -16,6 +16,7 @@ DATA = json.loads((ROOT / "data/publications.json").read_text())
 BASE = DATA["base_url"].rstrip("/")
 PAPERS = DATA["papers"]
 PERSON_ID = BASE + "/#harjas-sandhu"
+ICON_REVISION = hashlib.sha256((ROOT / "assets/favicon.svg").read_bytes()).hexdigest()[:12]
 STYLE_REVISION = hashlib.sha256((ROOT / "assets/style.css").read_bytes()).hexdigest()[:12]
 
 def e(value: str) -> str:
@@ -89,12 +90,15 @@ def head(title: str, description: str, path: str, paper: dict | None = None) -> 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#fbfaf7">
+  <meta name="theme-color" content="#173e3b">
   <title>{e(title)}</title>
   <meta name="description" content="{e(description)}">{verification}
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <link rel="canonical" href="{canonical}">
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico?v={ICON_REVISION}" sizes="16x16 32x32 48x48 64x64">
+  <link rel="icon" href="/assets/favicon-32.png?v={ICON_REVISION}" type="image/png" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.svg?v={ICON_REVISION}" type="image/svg+xml" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v={ICON_REVISION}" sizes="180x180">
   <link rel="stylesheet" href="/assets/style.css?v={STYLE_REVISION}">
   <meta property="og:title" content="{e(title)}">
   <meta property="og:description" content="{e(description)}">
@@ -129,10 +133,10 @@ def render_reader_note(paper: dict) -> str:
     return body
 
 def header() -> str:
-    return '''<a class="skip-link" href="#main">Skip to content</a>
+    return f'''<a class="skip-link" href="#main">Skip to content</a>
 <div class="shell">
   <header class="site-header">
-    <a class="wordmark" href="/">Harjas Sandhu</a>
+    <a class="wordmark" href="/"><img src="/assets/favicon.svg?v={ICON_REVISION}" width="34" height="34" alt=""><span>Harjas Sandhu</span></a>
     <nav aria-label="Main navigation">
       <a href="/#papers">Papers</a>
       <a href="/#about">About</a>
@@ -241,7 +245,7 @@ def render_home() -> str:
 
     <section class="section-row papers-section" id="papers" aria-labelledby="papers-heading">
       <span class="legacy-anchor" id="selected-research"></span><span class="legacy-anchor" id="publications"></span>
-      <div><h2 id="papers-heading">Papers</h2><p class="section-note">Mathematics, physics<br>and quantum information</p></div>
+      <div><h2 id="papers-heading">Papers</h2><p class="section-note">Mathematics, physics and quantum information</p></div>
       <div class="section-copy">
         <details class="paper-folder" open>
           <summary><span class="folder-icon" aria-hidden="true"></span><span>All papers</span><span class="paper-count">{len(PAPERS)}</span></summary>
@@ -263,6 +267,24 @@ def render_home() -> str:
 ''' + footer()
 
 
+def render_overview(paper: dict) -> str:
+    sections = [('result', 'The result', 'result'),
+                ('method', 'How the argument works', 'mechanism'),
+                ('scope', 'Scope', 'scope')]
+    html = []
+    for anchor, title, key in sections:
+        paragraphs = ''.join(f'<p>{e(text)}</p>' for text in paper['reader_overview'][key])
+        html.append(f'<section class="paper-section reader-section" id="{anchor}" aria-labelledby="{anchor}-heading"><h2 id="{anchor}-heading">{title}</h2><div class="reading-copy">{paragraphs}</div></section>')
+    return '\n'.join(html)
+
+
+def render_expanded_note(paper: dict) -> str:
+    note = render_reader_note(paper)
+    if not note:
+        return ''
+    return '<details class="technical-details"><summary>Further explanation and proof details</summary><div class="technical-body">' + note + '</div></details>'
+
+
 def render_paper(paper: dict) -> str:
     path = paper_path(paper)
     directory = ROOT / path.lstrip('/')
@@ -282,12 +304,6 @@ def render_paper(paper: dict) -> str:
     if paper.get('companion'):
         other = next(p for p in PAPERS if p['slug'] == paper['companion']['slug'])
         related = f'<section class="paper-section companion"><h2>Related paper</h2><p>{e(paper["companion"]["description"])}</p><p><a href="{paper_path(other)}">{e(other["title"])}</a></p></section>'
-    technical_note = ''
-    if paper['slug'] == 'gibbs-uniqueness':
-        technical_note = '''<section class="paper-section" aria-labelledby="ideas-heading"><h2 id="ideas-heading">The central construction</h2>
-        <p>A finite computation becomes a finite accepting certificate. Exact finite-group cancellation removes invalid histories from the expansion, even though all physical Boltzmann weights remain positive. A valid certificate creates a phase-selection bias; an independent disagreement argument then controls every local physical observable.</p>
-        <p>The main construction fixes inverse temperature one and uses only local energies 0, 1 and 20. The alphabet varies effectively with the computation. A separate soft-certificate construction works with the same interaction table at every finite inverse temperature at least 2/5.</p>
-        <p>Finite-volume convergence is proved for specified boundary conventions. Exponential clustering of the infinite-volume equilibrium does not assert strong spatial mixing for arbitrary boundaries. Pressure smoothness and perturbation results retain the hypotheses stated in the paper.</p></section>'''
     return head(paper['title'] + ' — Harjas Sandhu', paper['summary'], path, paper) + schema_tag(article_schema(paper)) + f'''
 </head>
 <body>
@@ -298,15 +314,20 @@ def render_paper(paper: dict) -> str:
       <header class="paper-header">
         <p class="eyebrow">{e(paper['display_type'])} · {e(paper['subject'])}</p>
         <h1 id="paper-title">{e(paper['title'])}</h1>
+        <p class="paper-lede">{e(paper['summary'])}</p>
         <p class="contact-credit">{credit_line(paper, linked=True)}</p>
         <p class="paper-dates"><time datetime="{paper['publication_date']}">{pretty_date(paper['publication_date'])}</time> · Version {e(paper['version'])}</p>
         <div class="paper-actions"><a class="pdf-link" href="{pdf_path(paper)}">Read PDF</a><a href="#resources">All downloads</a><a href="#citation">Cite</a></div>
       </header>
-      <section class="paper-section paper-abstract" aria-labelledby="abstract-heading">
-        <h2 id="abstract-heading">Abstract</h2><p class="abstract-text">{e(paper['abstract'])}</p>
-      </section>
-      {technical_note}
-      {render_reader_note(paper)}
+      <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a></nav>
+      {render_overview(paper)}
+      <div class="technical-material">
+        <details class="technical-details" id="abstract">
+          <summary id="abstract-heading">Technical abstract</summary>
+          <div class="technical-body"><p class="abstract-text">{e(paper['abstract'])}</p></div>
+        </details>
+        {render_expanded_note(paper)}
+      </div>
       <section class="paper-section" id="resources" aria-labelledby="resources-heading">
         <h2 id="resources-heading">Read and download</h2><div class="paper-actions">{actions}</div>
       </section>

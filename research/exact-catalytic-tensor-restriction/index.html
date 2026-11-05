@@ -4,15 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#fbfaf7">
+  <meta name="theme-color" content="#173e3b">
   <title>Fixed-format undecidability of exact catalytic tensor restriction — Harjas Sandhu</title>
-  <meta name="description" content="A rank-drop construction connects exact quantum catalysis with algebra representations, giving a route to undecidability within a fixed positive tensor family.">
+  <meta name="description" content="A catalyst can enable an exact quantum-state conversion while being returned unchanged. A proposed tensor construction connects this effect to algebra representations and an undecidable conversion problem within one fixed positive tensor family.">
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <link rel="canonical" href="https://harjassand.github.io/research/exact-catalytic-tensor-restriction/">
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/style.css?v=49f4392e2909">
+  <link rel="icon" href="/favicon.ico?v=7ddbc311fc12" sizes="16x16 32x32 48x48 64x64">
+  <link rel="icon" href="/assets/favicon-32.png?v=7ddbc311fc12" type="image/png" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.svg?v=7ddbc311fc12" type="image/svg+xml" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=7ddbc311fc12" sizes="180x180">
+  <link rel="stylesheet" href="/assets/style.css?v=7351b012ec2e">
   <meta property="og:title" content="Fixed-format undecidability of exact catalytic tensor restriction — Harjas Sandhu">
-  <meta property="og:description" content="A rank-drop construction connects exact quantum catalysis with algebra representations, giving a route to undecidability within a fixed positive tensor family.">
+  <meta property="og:description" content="A catalyst can enable an exact quantum-state conversion while being returned unchanged. A proposed tensor construction connects this effect to algebra representations and an undecidable conversion problem within one fixed positive tensor family.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://harjassand.github.io/research/exact-catalytic-tensor-restriction/">
   <meta property="og:site_name" content="Harjas Sandhu">
@@ -79,7 +82,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="shell">
   <header class="site-header">
-    <a class="wordmark" href="/">Harjas Sandhu</a>
+    <a class="wordmark" href="/"><img src="/assets/favicon.svg?v=7ddbc311fc12" width="34" height="34" alt=""><span>Harjas Sandhu</span></a>
     <nav aria-label="Main navigation">
       <a href="/#papers">Papers</a>
       <a href="/#about">About</a>
@@ -91,15 +94,21 @@
       <header class="paper-header">
         <p class="eyebrow">Research manuscript · Quantum information and algebraic complexity</p>
         <h1 id="paper-title">Fixed-format undecidability of exact catalytic tensor restriction</h1>
+        <p class="paper-lede">A catalyst can enable an exact quantum-state conversion while being returned unchanged. A proposed tensor construction connects this effect to algebra representations and an undecidable conversion problem within one fixed positive tensor family.</p>
         <p class="contact-credit">Research direction and coordination: <a href="/">Harjas Sandhu</a></p>
         <p class="paper-dates"><time datetime="2026-10-24">24 October 2026</time> · Version 0.1</p>
         <div class="paper-actions"><a class="pdf-link" href="/research/exact-catalytic-tensor-restriction/paper.pdf">Read PDF</a><a href="#resources">All downloads</a><a href="#citation">Cite</a></div>
       </header>
-      <section class="paper-section paper-abstract" aria-labelledby="abstract-heading">
-        <h2 id="abstract-heading">Abstract</h2><p class="abstract-text">A proposed representation compiler links finite-dimensional representations of finitely presented rational associative algebras to exact stochastic restriction of three-tensors with an exactly returned bipartite maximally entangled catalyst. Rank-drop markers constrain otherwise unrestricted local maps. The resulting construction gives a route to recursively enumerable complete conversion along a fixed rank-one affine family of strictly positive integer tensors, together with a finite example of genuine catalysis. The model concerns exact conversion with unbounded catalyst dimension; it imposes no uniform positive success probability.</p>
-      </section>
-
-      <section class="paper-section" aria-labelledby="contract-heading">
+      <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a></nav>
+      <section class="paper-section reader-section" id="result" aria-labelledby="result-heading"><h2 id="result-heading">The result</h2><div class="reading-copy"><p>The manuscript proposes a compiler from finitely presented rational associative algebras to three-party tensors. At each positive integer d, conversion with an exactly returned rank-d bipartite catalyst is equivalent to the existence of a unital d-dimensional complex matrix representation of the algebra.</p><p>The proposed reduction places an undecidable conversion problem along a single fixed rank-one affine family of strictly positive integer tensors. A small algebra with two anticommuting involutions supplies a concrete example: a two-dimensional representation exists although no scalar representation does, giving a proposed witness of genuine catalysis.</p></div></section>
+<section class="paper-section reader-section" id="method" aria-labelledby="method-heading"><h2 id="method-heading">How the argument works</h2><div class="reading-copy"><p>The challenge is to force arbitrary local tensor maps to respect the algebraic equations encoded in their matrix slices. The construction adds labelled blocks whose ranks drop on prescribed hyperplanes. These rank patterns are intended to pin down slice mixing, while a full-rank marker prevents auxiliary coordinates from concealing an invalid representation.</p><p>A representation-theoretic integer encoding and a universal Diophantine equation then transfer a computation problem into one varying tensor coefficient. A fixed invertible change of basis makes the tensors strictly positive.</p></div></section>
+<section class="paper-section reader-section" id="scope" aria-labelledby="scope-heading"><h2 id="scope-heading">Scope</h2><div class="reading-copy"><p>The model is exact stochastic tensor restriction over the complex numbers. The catalyst is bipartite, its dimension is unbounded, and it is returned exactly and uncorrelated with the target on the successful branch. Success probability has no uniform positive lower bound.</p><p>The representation compiler and its consequences are presented as a proposed construction. Approximate return, deterministic local operations and a fixed positive success-rate guarantee require separate results.</p></div></section>
+      <div class="technical-material">
+        <details class="technical-details" id="abstract">
+          <summary id="abstract-heading">Technical abstract</summary>
+          <div class="technical-body"><p class="abstract-text">A proposed representation compiler links finite-dimensional representations of finitely presented rational associative algebras to exact stochastic restriction of three-tensors with an exactly returned bipartite maximally entangled catalyst. Rank-drop markers constrain otherwise unrestricted local maps. The resulting construction gives a route to recursively enumerable complete conversion along a fixed rank-one affine family of strictly positive integer tensors, together with a finite example of genuine catalysis. The model concerns exact conversion with unbounded catalyst dimension; it imposes no uniform positive success probability.</p></div>
+        </details>
+        <details class="technical-details"><summary>Further explanation and proof details</summary><div class="technical-body"><section class="paper-section" aria-labelledby="contract-heading">
         <h2 id="contract-heading">1. Exact conversion contract</h2>
         <p>Over the complex numbers, write a three-party tensor as a matrix pencil <span class="inline-math">T = Σᵢ eᵢ ⊗ Aᵢ</span>. Tensor restriction <span class="inline-math">T ≽ S</span> allows one linear map on each party, without requiring those maps to be invertible. For a positive integer <em>d</em> define its bipartite maximally entangled amplification:</p>
         <pre class="equation">T[d] = Σᵢ eᵢ ⊗ (Aᵢ ⊗ I_d)
@@ -149,7 +158,8 @@ B(x) = core-target(x) ⊕ D(x).</pre>
         <p>Known stochastic multipartite entanglement catalysis is not new. This proof candidate should be compared with <a href="https://arxiv.org/abs/1003.3059">Chen et al. (2010)</a>, <a href="https://arxiv.org/abs/2212.14095">Christandl, Gesmundo, Lysikov and Steffan</a>, and <a href="https://www.math.ku.dk/bibliotek/arkivet/phd-theses/phd23vs.pdf">Steffan's 2023 thesis</a>. The claimed contribution is the rank-drop representation compiler and its fixed-format decidability consequences, not the existence of quantum catalysis or the classical undecidability of Diophantine equations.</p>
         <p>No result is claimed for approximate conversion, a dimension-independent lower bound on success probability, deterministic LOCC, a full three-party catalyst, or the matrix multiplication exponent.</p>
       </section>
-
+</div></details>
+      </div>
       <section class="paper-section" id="resources" aria-labelledby="resources-heading">
         <h2 id="resources-heading">Read and download</h2><div class="paper-actions"><a class="pdf-link" href="/research/exact-catalytic-tensor-restriction/paper.pdf">Read PDF</a>
 <a href="/research/exact-catalytic-tensor-restriction/original-derivation.md">Original derivation</a>

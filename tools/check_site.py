@@ -57,6 +57,8 @@ class Page(HTMLParser):
             self.links.append(attr["href"])
         if tag == "link" and attr.get("rel") in ("stylesheet", "icon"):
             self.links.append(attr["href"])
+        if tag == "img" and "src" in attr:
+            self.links.append(attr['src'])
         if tag == "link" and attr.get("rel") == "stylesheet":
             self.stylesheets.append(attr["href"])
         if tag == "script":
@@ -149,6 +151,13 @@ def main():
         check(ack in text and text.count(ack) == 1, paper['slug'] + ': common acknowledgement missing or duplicated')
         check(paper['abstract'] in text, paper['slug'] + ': abstract changed')
         raw = (directory / 'index.html').read_text()
+        for anchor, key in [('result','result'),('method','mechanism'),('scope','scope')]:
+            check(anchor in page.ids, paper['slug'] + ': missing reader section ' + anchor)
+            check(len(paper['reader_overview'][key]) >= 1, 'Empty reader explanation')
+            for paragraph in paper['reader_overview'][key]:
+                check(paragraph in text, paper['slug'] + ': reader explanation missing')
+        check('<summary id="abstract-heading">Technical abstract</summary>' in raw, 'Technical abstract disclosure missing')
+        check(raw.index('id="result"') < raw.index('id="method"') < raw.index('id="scope"') < raw.index('id="abstract"'), 'Inconsistent reader section order')
         check(raw.index('id="abstract-heading"') < raw.index('id="resources"') < raw.index('id="acknowledgements"'), 'Acknowledgement must follow mathematical content and resources')
         check(paper['summary'] not in ack, 'Description corrupted')
         article = next(s for s in page.schema if s.get('@type') == 'ScholarlyArticle')
@@ -178,6 +187,15 @@ def main():
     check(group['authors'] == ['Harjas Sandhu', 'Andreas Thom'], 'Published coauthorship must remain intact')
     group_page = pages[(ROOT / 'publications/non-sofic-hyperbolic-group/index.html').resolve()]
     check(group['acknowledgement_note'] in ' '.join(group_page.text), 'Coauthor contribution clarification missing')
+    icon = (ROOT / 'assets/favicon.svg').read_text()
+    ET.fromstring(icon)
+    check('<text' not in icon, 'Favicon should use the geometric site mark')
+    check((ROOT / 'favicon.ico').read_bytes().startswith(b'\x00\x00\x01\x00'), 'ICO fallback invalid')
+    for filename in ('favicon-32.png', 'apple-touch-icon.png'):
+        check((ROOT / 'assets' / filename).read_bytes().startswith(b'\x89PNG'), 'PNG icon fallback invalid')
+    icon_revision = hashlib.sha256((ROOT / 'assets/favicon.svg').read_bytes()).hexdigest()[:12]
+    for page_path in pages:
+        check('/assets/favicon.svg?v=' + icon_revision in page_path.read_text(), 'Stale favicon URL')
     urls = [node.text for node in ET.parse(ROOT / 'sitemap.xml').getroot().findall('{*}url/{*}loc')]
     expected = [BASE + '/'] + [BASE + '/' + p['collection'] + '/' + p['slug'] + '/' for p in papers] + [BASE + '/acknowledgements/']
     check(urls == expected and len(set(urls)) == len(urls), 'Sitemap missing canonical pages or includes duplicates')

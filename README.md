@@ -55,3 +55,18 @@ scope boundaries are retained in its explanation.
 
 Deploy by publishing the generated tree to the repository's configured GitHub
 Pages branch. No analytics, third-party fonts or client-side trackers are used.
+
+## Reading format and site mark
+
+Each paper uses a short result-focused summary followed by the same three sections:
+The result, How the argument works, and Scope. Their text lives in each record's
+`reader_overview`. Original technical abstracts and longer existing explanations
+are retained in native expandable sections. Changes to this editorial text do not
+rewrite any deposited manuscript.
+
+The geometric linked-diamond mark is defined in `assets/favicon.svg` and is used
+in the header and browser tab. Its URL is revisioned to refresh cached icons.
+The ICO, 32-pixel PNG and Apple touch icon cover browser fallbacks. To regenerate
+the raster icons after changing the matching vector geometry, run
+`python3 tools/build_favicons.py` with Pillow installed. Ordinary site builds need
+only Python's standard library.

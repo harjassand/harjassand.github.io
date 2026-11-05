@@ -37,7 +37,7 @@
         "exponential clustering",
         "computability"
       ],
-      "summary": "Even at a fixed positive temperature, no algorithm can decide whether a finite-range classical spin model has a unique Gibbs state. Finite computation certificates select a phase through exact cancellation, while the unique equilibrium still has exponentially decaying correlations.",
+      "summary": "At one fixed positive temperature, a family of classical spin models encodes whether a computation ever halts. Uniqueness is undecidable within this family, yet each model on its unique-equilibrium branch has exponentially decaying correlations.",
       "resource_links": [
         {
           "label": "LaTeX manuscript",
@@ -45,11 +45,26 @@
         }
       ],
       "abstract": "We construct translation-invariant classical interactions on ℤ² for which deciding uniqueness among all Gibbs states is undecidable at inverse temperature one. The finite on-site alphabet depends effectively on the input; interaction supports are fixed, and local energy terms take only the integer values 0, 1, 20. Exact character orthogonality converts a strictly positive finite-energy model into a gas of finite computation histories. A halting certificate produces a uniformly positive phase-selection bias, however small. A reference Ising comparison and an independent-disagreement argument then give uniqueness and exponential clustering of every local physical observable. Without halting, the entire Gibbs simplex is affinely isomorphic to the two-dimensional zero-field Ising simplex. A distinct soft-certificate construction has the same dichotomy for one table at every finite inverse temperature at least 2/5. We prove boundary-specific exponential convergence, smooth pressure with summable cumulants on the uniqueness branch, uniform computability of the selected phase and its right pressure jet, and stability under small finite-range spin perturbations. An effective compactness argument supplies a computable valid convergence modulus for each unique computable finite-range specification; the impossibility concerns total bounds across the undecidable family. Exact microscopic symmetrization excludes a family-wide perturbation radius for arbitrary real interactions.",
-      "description": "Even at a fixed positive temperature, no algorithm can decide whether a finite-range classical spin model has a unique Gibbs state. Finite computation certificates select a phase through exact cancellation, while the unique equilibrium still has exponentially decaying correlations.",
+      "description": "At one fixed positive temperature, a family of classical spin models encodes whether a computation ever halts. Uniqueness is undecidable within this family, yet each model on its unique-equilibrium branch has exponentially decaying correlations.",
       "pdf_sha256": "285cd825beb1dcc30995bd9ffaf4cf66c1aa3d7ca88c767a6ea1b17a950118b0",
       "pdf_bytes": 613083,
       "bib_sha256": "6f489f1032b126b44aa059da85112c2625fa6c83940e8ee048fd4fc4fe95b662",
-      "ris_sha256": "25e278052201097712559638e5aea7243301407e16bfd2887318065dc2796e8a"
+      "ris_sha256": "25e278052201097712559638e5aea7243301407e16bfd2887318065dc2796e8a",
+      "reader_overview": {
+        "result": [
+          "The paper constructs finite-range classical models on the square lattice whose equilibrium phases encode whether a computation halts. If it halts, there is exactly one Gibbs state, and correlations of all bounded local physical observables decay exponentially. If it never halts, the full set of Gibbs states is an affine copy of the low-temperature, zero-field two-dimensional Ising simplex.",
+          "This separates two questions that can look similar: how correlations behave inside an equilibrium state, and whether an algorithm can decide that the state is the only equilibrium. The undecidability concerns uniqueness among all Gibbs states, including states that are not translation invariant."
+        ],
+        "mechanism": [
+          "A halting computation has a finite accepting history. Finite-group character identities make invalid histories cancel exactly in an expansion of the partition function, even though every physical Boltzmann weight is strictly positive. A valid history produces a positive phase-selection bias, however small.",
+          "An Ising comparison and independent disagreement coverings then control the remaining fluctuations. Replica swaps transfer the resulting decay estimate to every local physical observable, including the auxiliary variables used to encode the computation."
+        ],
+        "scope": [
+          "The main construction fixes inverse temperature β = 1, uses fixed interaction supports and local energy values 0, 1 and 20, and allows the finite on-site alphabet to vary effectively with the computation. A separate soft-certificate construction uses one interaction table at every finite β ≥ 2/5.",
+          "Finite-volume rates apply to the boundary conventions specified in the paper. Infinite-volume clustering does not supply arbitrary-boundary strong spatial mixing. Pressure smoothness and perturbation stability retain their stated hypotheses.",
+          "Each unique computable finite-range specification has a computable valid convergence modulus. The obstruction concerns total bounds across the undecidable family."
+        ]
+      }
     },
     {
       "slug": "exact-catalytic-tensor-restriction",
@@ -61,7 +76,7 @@
       "credit_role": "coordinator",
       "contributor_name": "Harjas Sandhu",
       "status": "AI-generated proof candidate; independent validation and priority review pending",
-      "summary": "A rank-drop construction connects exact quantum catalysis with algebra representations, giving a route to undecidability within a fixed positive tensor family.",
+      "summary": "A catalyst can enable an exact quantum-state conversion while being returned unchanged. A proposed tensor construction connects this effect to algebra representations and an undecidable conversion problem within one fixed positive tensor family.",
       "abstract": "A proposed representation compiler links finite-dimensional representations of finitely presented rational associative algebras to exact stochastic restriction of three-tensors with an exactly returned bipartite maximally entangled catalyst. Rank-drop markers constrain otherwise unrestricted local maps. The resulting construction gives a route to recursively enumerable complete conversion along a fixed rank-one affine family of strictly positive integer tensors, together with a finite example of genuine catalysis. The model concerns exact conversion with unbounded catalyst dimension; it imposes no uniform positive success probability.",
       "source_url": "https://github.com/harjassand/astra-research-knowledge/blob/main/cards/N680-rank-drop-catalytic-tensor-restriction.txt",
       "pdf_filename": "paper.pdf",
@@ -91,12 +106,26 @@
           "url": "/research/catalytic-tensor-conversion/manuscript.md"
         }
       ],
-      "description": "A rank-drop construction connects exact quantum catalysis with algebra representations, giving a route to undecidability within a fixed positive tensor family.",
+      "description": "A catalyst can enable an exact quantum-state conversion while being returned unchanged. A proposed tensor construction connects this effect to algebra representations and an undecidable conversion problem within one fixed positive tensor family.",
       "display_type": "Research manuscript",
       "pdf_sha256": "ba01bc1191eb9853eba44838241b8c17d31ed3744ae9928374e79a45b8bff085",
       "pdf_bytes": 18336,
       "bib_sha256": "7671113ba0afa6c6d632ad48a29d9b8b243fc1d50132e967f78272d1ef0e0de1",
-      "ris_sha256": "202bb46b310e5fdae9b9e5c852e7c6658437c05feec3703d9faf0a03fb78fda4"
+      "ris_sha256": "202bb46b310e5fdae9b9e5c852e7c6658437c05feec3703d9faf0a03fb78fda4",
+      "reader_overview": {
+        "result": [
+          "The manuscript proposes a compiler from finitely presented rational associative algebras to three-party tensors. At each positive integer d, conversion with an exactly returned rank-d bipartite catalyst is equivalent to the existence of a unital d-dimensional complex matrix representation of the algebra.",
+          "The proposed reduction places an undecidable conversion problem along a single fixed rank-one affine family of strictly positive integer tensors. A small algebra with two anticommuting involutions supplies a concrete example: a two-dimensional representation exists although no scalar representation does, giving a proposed witness of genuine catalysis."
+        ],
+        "mechanism": [
+          "The challenge is to force arbitrary local tensor maps to respect the algebraic equations encoded in their matrix slices. The construction adds labelled blocks whose ranks drop on prescribed hyperplanes. These rank patterns are intended to pin down slice mixing, while a full-rank marker prevents auxiliary coordinates from concealing an invalid representation.",
+          "A representation-theoretic integer encoding and a universal Diophantine equation then transfer a computation problem into one varying tensor coefficient. A fixed invertible change of basis makes the tensors strictly positive."
+        ],
+        "scope": [
+          "The model is exact stochastic tensor restriction over the complex numbers. The catalyst is bipartite, its dimension is unbounded, and it is returned exactly and uncorrelated with the target on the successful branch. Success probability has no uniform positive lower bound.",
+          "The representation compiler and its consequences are presented as a proposed construction. Approximate return, deterministic local operations and a fixed positive success-rate guarantee require separate results."
+        ]
+      }
     },
     {
       "slug": "amplifier-entropy",
@@ -123,8 +152,8 @@
       "provenance": "This manuscript emerged from an iterative, substantially autonomous research process involving several AI systems, with successive rounds of dialogue, mathematical investigation, criticism and rewriting coordinated through human direction. The mathematical development and writing are AI-generated; established contributions are credited in the text.",
       "provenance_summary": "The variational framework and four-weight interpolation adapt OpenAI’s beam-splitter argument. The amplifier conjecture is credited to De Palma, Mari and Giovannetti. The inherited license and attribution notice are included with the complete source.",
       "verification_status": "The general amplifier argument is a proof candidate. The release has passed file-integrity, source-structure, compilation and presentation checks. These checks do not establish independent specialist review, formal proof verification or priority for the refinements.",
-      "summary": "An approach to the sharp entropy bound for quantum amplification pairs signed interpolation with thermal relaxation, allowing arbitrary correlations within each independent input group.",
-      "description": "An approach to the sharp entropy bound for quantum amplification pairs signed interpolation with thermal relaxation, allowing arbitrary correlations within each independent input group.",
+      "summary": "Quantum amplification adds unavoidable noise. A variational argument seeks the sharp lower bound on output entropy for two independent inputs, even when the modes within either input are correlated.",
+      "description": "Quantum amplification adds unavoidable noise. A variational argument seeks the sharp lower bound on output entropy for two independent inputs, even when the modes within either input are correlated.",
       "keywords": [
         "amplifier entropy photon-number inequality",
         "bosonic Gaussian channels",
@@ -227,7 +256,21 @@
           "label": "Attribution notice",
           "url": "NOTICE.txt"
         }
-      ]
+      ],
+      "reader_overview": {
+        "result": [
+          "The entropy photon number expresses a state’s entropy as the occupation of a thermal state with the same entropy per mode. The manuscript presents a variational argument for its sharp amplifier lower bound: at gain G, the output entropy photon number is at least G times the first input’s value plus (G − 1) times the sum of the second input’s value and one.",
+          "Thermal inputs attain the bound. For example, gain 2 and thermal occupations 1 and 0 give output occupation 3. The proposed inequality says that independent inputs with those same entropies cannot produce a smaller output entropy photon number."
+        ],
+        "mechanism": [
+          "The amplifier’s second input enters through a creation operator. That reversal changes the sign structure of a logarithmic-mean comparison and introduces the extra quantum-noise term. Thermal relaxation obeys a matching signed balance.",
+          "At a regularized entropy minimum, the two structures cancel the energy corrections. A thermal Stein estimate is then used to turn small balance defects into trace-norm closeness to thermal states, with finite-energy estimates closing the proposed argument. The variational framework and four-weight interpolation build on the earlier beam-splitter argument."
+        ],
+        "scope": [
+          "The general argument concerns two independent finite-energy input groups with any fixed finite number of modes. Correlations and entanglement within either group are allowed. Correlations between the two groups can violate the independent-input formula.",
+          "The manuscript also studies Gaussian spectral refinements and Gaussian equality. General non-Gaussian equality and a quantitative stability theorem remain open. The proposed general amplifier argument and its Gaussian special cases should be read at their respective scopes."
+        ]
+      }
     },
     {
       "slug": "non-sofic-hyperbolic-group",
@@ -270,12 +313,26 @@
       "pdf_sha256": "819c267abca9a69af2b5eaf7343cbf59d8990fa9f268bc3bd58593306cb19bdc",
       "bib_sha256": "2e45a1fc261732b48726c694b0312861ad27a479895bdf8a685e7af51b22acfd",
       "ris_sha256": "93cddb59d3b23762bb9465f4c5635eee462c2602e7e6da0b1078a2888f27576f",
-      "summary": "A torsion-free, two-dimensional hyperbolic group that is not sofic connects negative curvature with a fundamental obstruction to finite permutation approximations.",
-      "description": "A torsion-free, two-dimensional hyperbolic group that is not sofic connects negative curvature with a fundamental obstruction to finite permutation approximations.",
+      "summary": "A negatively curved group can resist approximation by finite permutations. The paper constructs a torsion-free, two-dimensional hyperbolic group that is not sofic, linking geometric group theory with the limits of finite models.",
+      "description": "A negatively curved group can resist approximation by finite permutations. The paper constructs a torsion-free, two-dimensional hyperbolic group that is not sofic, linking geometric group theory with the limits of finite models.",
       "collection": "publications",
       "display_type": "Preprint",
       "acknowledgement_note": "For this coauthored paper, the AI acknowledgement describes the initial construction stage. Andreas Thom subsequently worked through the proof and revised its exposition, as recorded in the published acknowledgements.",
-      "resource_links": []
+      "resource_links": [],
+      "reader_overview": {
+        "result": [
+          "A group is sofic when every finite part of its multiplication law can be modelled, to arbitrarily small error, by permutations of a finite set. The paper constructs a torsion-free word-hyperbolic group for which such approximations fail.",
+          "The group is the fundamental group of a finite two-dimensional triangle complex with a locally CAT(−1) metric. Its geometric description and obstruction to finite permutation models hold simultaneously, providing an explicit connection between negative curvature and failure of sofic approximation."
+        ],
+        "mechanism": [
+          "The construction uses marked lines in a finite incidence geometry to prescribe triangular relations. Polynomial interpolation and matrix-rank estimates force a uniform obstruction: any permutation assignment either violates a triangle relation on a positive fraction of points or makes a designated four-edge word fix too many points.",
+          "A large-girth incidence graph supports the negative-curvature metric and ensures that the designated words are nontrivial. These two alternatives are incompatible with arbitrarily accurate sofic approximations. The construction builds on the earlier non-residually finite hyperbolic-group construction credited in the paper."
+        ],
+        "scope": [
+          "The approximation notion is soficity: approximate multiplication and separation in finite symmetric groups, measured by normalized Hamming distance. Ruling out exact finite quotients alone would not establish this obstruction.",
+          "The theorem produces a specific finite presentation and a finite connected triangle complex. The geometric conclusion is torsion-free word hyperbolicity; the construction does not aim to minimize the presentation size."
+        ]
+      }
     },
     {
       "slug": "complete-information-orders",
@@ -331,11 +388,25 @@
       "bib_sha256": "6f5f08d59699cdfc8197ef658aa721075019ea766d0c1d654ca3f89508f78f93",
       "ris_source_sha256": "dfecd8240b4730a37255dc59254736e091c939cd29495f18e5c1bff85376078f",
       "ris_sha256": "dfecd8240b4730a37255dc59254736e091c939cd29495f18e5c1bff85376078f",
-      "summary": "Relative entropy, Holevo information and Fisher information define the same complete quantum-channel order. Even strictly positive rational measurements leave that comparison undecidable.",
-      "description": "Relative entropy, Holevo information and Fisher information define the same complete quantum-channel order. Even strictly positive rational measurements leave that comparison undecidable.",
+      "summary": "Several ways to ask whether one quantum channel preserves more information turn out to give the same answer when every finite quantum reference is allowed. That complete comparison remains undecidable, even for strictly positive rational measurements.",
+      "description": "Several ways to ask whether one quantum channel preserves more information turn out to give the same answer when every finite quantum reference is allowed. That complete comparison remains undecidable, even for strictly positive rational measurements.",
       "collection": "publications",
       "display_type": "Preprint",
-      "resource_links": []
+      "resource_links": [],
+      "reader_overview": {
+        "result": [
+          "Quantum channels can be compared by their preservation of relative entropy, Holevo information or symmetric logarithmic derivative Fisher information. Allowing an arbitrary finite untouched quantum reference makes these three comparisons equivalent. Passing to complementary channels reverses the order.",
+          "The resulting comparison problem is coRE-complete, already for measurements with strictly positive rational-complex effects. The paper also gives an additive bounded entropy defect whose value cannot be computed to any fixed positive rational additive accuracy."
+        ],
+        "mechanism": [
+          "An untouched reference is an auxiliary quantum system that may be correlated with the input. Its freedom connects local Fisher-information tests to global entropy comparisons through coherent blocks and resolvent identities. A purification identity relates information retained by the receiver to information lost to the environment.",
+          "For the undecidability reduction, finite nonlocal games are encoded into inverse Sylvester kernels and then into strictly positive measurement effects. Finite witnesses detect failed comparisons, but their required reference dimensions have no computable uniform bound."
+        ],
+        "scope": [
+          "Each individual channel, measurement and test is finite dimensional. Completeness quantifies over every finite reference dimension, with no common bound. The equivalence is a statistical information order; it does not by itself assert that one channel can be obtained by physically processing the other.",
+          "The fixed-accuracy obstruction concerns the bounded entropy defect defined in the paper. Its conclusion depends on the complete comparison and the specified exact input representation."
+        ]
+      }
     },
     {
       "slug": "capacity-and-distillation",
@@ -391,11 +462,25 @@
       "bib_sha256": "20d4b8747778389a2ccc276ef2e03d2e95863330352ce589c0be1a18d73f5c94",
       "ris_source_sha256": "d54824d9f3f17f74ab866d6aa663df2ce875cf5b9a270e705c79afb5d32ea380",
       "ris_sha256": "d54824d9f3f17f74ab866d6aa663df2ce875cf5b9a270e705c79afb5d32ea380",
-      "summary": "A flagged-channel construction turns a failed information comparison into positive quantum and private capacity, transferring undecidability to exact-zero capacity and one-way entanglement distillation.",
-      "description": "A flagged-channel construction turns a failed information comparison into positive quantum and private capacity, transferring undecidability to exact-zero capacity and one-way entanglement distillation.",
+      "summary": "An information advantage can be converted into a positive communication rate using the constructed channel itself. The reduction makes exact-zero quantum and private capacity, and related one-way distillation questions, undecidable.",
+      "description": "An information advantage can be converted into a positive communication rate using the constructed channel itself. The reduction makes exact-zero quantum and private capacity, and related one-way distillation questions, undecidable.",
       "collection": "publications",
       "display_type": "Preprint",
-      "resource_links": []
+      "resource_links": [],
+      "reader_overview": {
+        "result": [
+          "The paper turns a pair of quantum channels into one flagged channel with a four-dimensional auxiliary input. Complete information dominance holds exactly when the constructed channel has zero private capacity, and exactly when it has zero quantum capacity.",
+          "A failed comparison therefore produces a positive communication rate. The construction transfers the companion paper’s undecidability to exact-zero capacity and to one-way entanglement and key distillation, even with a prescribed positive lower bound on two-way distillation."
+        ],
+        "mechanism": [
+          "The comparison witness may involve a large quantum reference, which communication does not supply for free. Repeated uses of the flagged channel distribute that reference in quantum shares together with a classical key. The routing and key structure make unsuccessful patterns harmless and retain a finite positive private-information witness.",
+          "Further uses of the same channel realize the helper needed to convert this private advantage into positive coherent information. All transmission and activation resources are provided by the constructed channel; no separate reference channel is assumed."
+        ],
+        "scope": [
+          "The capacities are the ordinary unassisted quantum and private classical capacities of a finite-dimensional memoryless channel. The witnessing reference dimension, blocklength and positive rate may depend on the input channel pair.",
+          "The undecidability distinguishes exactly zero from strictly positive capacity. It supplies no uniform positive rate gap and does not by itself obstruct additive approximation of capacity. The distillation consequences use the constructions and hypotheses stated in the paper."
+        ]
+      }
     }
   ],
   "ai_acknowledgement": "The mathematical ideas, constructions, proofs, and manuscript were developed by GPT-6 Astra, with additional AI assistance for review. Human input was minimal and consisted primarily of setting the research objectives and providing occasional feedback.",

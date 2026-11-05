@@ -4,15 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#fbfaf7">
+  <meta name="theme-color" content="#173e3b">
   <title>Finite Certificates and Undecidable Gibbs Uniqueness — Harjas Sandhu</title>
-  <meta name="description" content="Even at a fixed positive temperature, no algorithm can decide whether a finite-range classical spin model has a unique Gibbs state. Finite computation certificates select a phase through exact cancellation, while the unique equilibrium still has exponentially decaying correlations.">
+  <meta name="description" content="At one fixed positive temperature, a family of classical spin models encodes whether a computation ever halts. Uniqueness is undecidable within this family, yet each model on its unique-equilibrium branch has exponentially decaying correlations.">
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <link rel="canonical" href="https://harjassand.github.io/publications/gibbs-uniqueness/">
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/style.css?v=49f4392e2909">
+  <link rel="icon" href="/favicon.ico?v=7ddbc311fc12" sizes="16x16 32x32 48x48 64x64">
+  <link rel="icon" href="/assets/favicon-32.png?v=7ddbc311fc12" type="image/png" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.svg?v=7ddbc311fc12" type="image/svg+xml" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=7ddbc311fc12" sizes="180x180">
+  <link rel="stylesheet" href="/assets/style.css?v=7351b012ec2e">
   <meta property="og:title" content="Finite Certificates and Undecidable Gibbs Uniqueness — Harjas Sandhu">
-  <meta property="og:description" content="Even at a fixed positive temperature, no algorithm can decide whether a finite-range classical spin model has a unique Gibbs state. Finite computation certificates select a phase through exact cancellation, while the unique equilibrium still has exponentially decaying correlations.">
+  <meta property="og:description" content="At one fixed positive temperature, a family of classical spin models encodes whether a computation ever halts. Uniqueness is undecidable within this family, yet each model on its unique-equilibrium branch has exponentially decaying correlations.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://harjassand.github.io/publications/gibbs-uniqueness/">
   <meta property="og:site_name" content="Harjas Sandhu">
@@ -91,7 +94,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="shell">
   <header class="site-header">
-    <a class="wordmark" href="/">Harjas Sandhu</a>
+    <a class="wordmark" href="/"><img src="/assets/favicon.svg?v=7ddbc311fc12" width="34" height="34" alt=""><span>Harjas Sandhu</span></a>
     <nav aria-label="Main navigation">
       <a href="/#papers">Papers</a>
       <a href="/#about">About</a>
@@ -103,18 +106,22 @@
       <header class="paper-header">
         <p class="eyebrow">Preprint · Mathematical physics</p>
         <h1 id="paper-title">Finite Certificates and Undecidable Gibbs Uniqueness</h1>
+        <p class="paper-lede">At one fixed positive temperature, a family of classical spin models encodes whether a computation ever halts. Uniqueness is undecidable within this family, yet each model on its unique-equilibrium branch has exponentially decaying correlations.</p>
         <p class="contact-credit"><a href="/">Harjas Sandhu</a></p>
         <p class="paper-dates"><time datetime="2026-11-06">6 November 2026</time> · Version 1.0</p>
         <div class="paper-actions"><a class="pdf-link" href="/publications/gibbs-uniqueness/Finite_Certificates_and_Undecidable_Gibbs_Uniqueness.pdf">Read PDF</a><a href="#resources">All downloads</a><a href="#citation">Cite</a></div>
       </header>
-      <section class="paper-section paper-abstract" aria-labelledby="abstract-heading">
-        <h2 id="abstract-heading">Abstract</h2><p class="abstract-text">We construct translation-invariant classical interactions on ℤ² for which deciding uniqueness among all Gibbs states is undecidable at inverse temperature one. The finite on-site alphabet depends effectively on the input; interaction supports are fixed, and local energy terms take only the integer values 0, 1, 20. Exact character orthogonality converts a strictly positive finite-energy model into a gas of finite computation histories. A halting certificate produces a uniformly positive phase-selection bias, however small. A reference Ising comparison and an independent-disagreement argument then give uniqueness and exponential clustering of every local physical observable. Without halting, the entire Gibbs simplex is affinely isomorphic to the two-dimensional zero-field Ising simplex. A distinct soft-certificate construction has the same dichotomy for one table at every finite inverse temperature at least 2/5. We prove boundary-specific exponential convergence, smooth pressure with summable cumulants on the uniqueness branch, uniform computability of the selected phase and its right pressure jet, and stability under small finite-range spin perturbations. An effective compactness argument supplies a computable valid convergence modulus for each unique computable finite-range specification; the impossibility concerns total bounds across the undecidable family. Exact microscopic symmetrization excludes a family-wide perturbation radius for arbitrary real interactions.</p>
-      </section>
-      <section class="paper-section" aria-labelledby="ideas-heading"><h2 id="ideas-heading">The central construction</h2>
-        <p>A finite computation becomes a finite accepting certificate. Exact finite-group cancellation removes invalid histories from the expansion, even though all physical Boltzmann weights remain positive. A valid certificate creates a phase-selection bias; an independent disagreement argument then controls every local physical observable.</p>
-        <p>The main construction fixes inverse temperature one and uses only local energies 0, 1 and 20. The alphabet varies effectively with the computation. A separate soft-certificate construction works with the same interaction table at every finite inverse temperature at least 2/5.</p>
-        <p>Finite-volume convergence is proved for specified boundary conventions. Exponential clustering of the infinite-volume equilibrium does not assert strong spatial mixing for arbitrary boundaries. Pressure smoothness and perturbation results retain the hypotheses stated in the paper.</p></section>
+      <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a></nav>
+      <section class="paper-section reader-section" id="result" aria-labelledby="result-heading"><h2 id="result-heading">The result</h2><div class="reading-copy"><p>The paper constructs finite-range classical models on the square lattice whose equilibrium phases encode whether a computation halts. If it halts, there is exactly one Gibbs state, and correlations of all bounded local physical observables decay exponentially. If it never halts, the full set of Gibbs states is an affine copy of the low-temperature, zero-field two-dimensional Ising simplex.</p><p>This separates two questions that can look similar: how correlations behave inside an equilibrium state, and whether an algorithm can decide that the state is the only equilibrium. The undecidability concerns uniqueness among all Gibbs states, including states that are not translation invariant.</p></div></section>
+<section class="paper-section reader-section" id="method" aria-labelledby="method-heading"><h2 id="method-heading">How the argument works</h2><div class="reading-copy"><p>A halting computation has a finite accepting history. Finite-group character identities make invalid histories cancel exactly in an expansion of the partition function, even though every physical Boltzmann weight is strictly positive. A valid history produces a positive phase-selection bias, however small.</p><p>An Ising comparison and independent disagreement coverings then control the remaining fluctuations. Replica swaps transfer the resulting decay estimate to every local physical observable, including the auxiliary variables used to encode the computation.</p></div></section>
+<section class="paper-section reader-section" id="scope" aria-labelledby="scope-heading"><h2 id="scope-heading">Scope</h2><div class="reading-copy"><p>The main construction fixes inverse temperature β = 1, uses fixed interaction supports and local energy values 0, 1 and 20, and allows the finite on-site alphabet to vary effectively with the computation. A separate soft-certificate construction uses one interaction table at every finite β ≥ 2/5.</p><p>Finite-volume rates apply to the boundary conventions specified in the paper. Infinite-volume clustering does not supply arbitrary-boundary strong spatial mixing. Pressure smoothness and perturbation stability retain their stated hypotheses.</p><p>Each unique computable finite-range specification has a computable valid convergence modulus. The obstruction concerns total bounds across the undecidable family.</p></div></section>
+      <div class="technical-material">
+        <details class="technical-details" id="abstract">
+          <summary id="abstract-heading">Technical abstract</summary>
+          <div class="technical-body"><p class="abstract-text">We construct translation-invariant classical interactions on ℤ² for which deciding uniqueness among all Gibbs states is undecidable at inverse temperature one. The finite on-site alphabet depends effectively on the input; interaction supports are fixed, and local energy terms take only the integer values 0, 1, 20. Exact character orthogonality converts a strictly positive finite-energy model into a gas of finite computation histories. A halting certificate produces a uniformly positive phase-selection bias, however small. A reference Ising comparison and an independent-disagreement argument then give uniqueness and exponential clustering of every local physical observable. Without halting, the entire Gibbs simplex is affinely isomorphic to the two-dimensional zero-field Ising simplex. A distinct soft-certificate construction has the same dichotomy for one table at every finite inverse temperature at least 2/5. We prove boundary-specific exponential convergence, smooth pressure with summable cumulants on the uniqueness branch, uniform computability of the selected phase and its right pressure jet, and stability under small finite-range spin perturbations. An effective compactness argument supplies a computable valid convergence modulus for each unique computable finite-range specification; the impossibility concerns total bounds across the undecidable family. Exact microscopic symmetrization excludes a family-wide perturbation radius for arbitrary real interactions.</p></div>
+        </details>
 
+      </div>
       <section class="paper-section" id="resources" aria-labelledby="resources-heading">
         <h2 id="resources-heading">Read and download</h2><div class="paper-actions"><a class="pdf-link" href="/publications/gibbs-uniqueness/Finite_Certificates_and_Undecidable_Gibbs_Uniqueness.pdf">Read PDF</a>
 <a href="https://zenodo.org/records/23983514">Zenodo record</a>
