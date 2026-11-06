@@ -322,7 +322,7 @@ def render_paper(paper: dict) -> str:
       <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a></nav>
       {render_overview(paper)}
       <div class="technical-material">
-        <details class="technical-details" id="abstract">
+        <details class="technical-details" id="abstract" open>
           <summary id="abstract-heading">Technical abstract</summary>
           <div class="technical-body"><p class="abstract-text">{e(paper['abstract'])}</p></div>
         </details>
