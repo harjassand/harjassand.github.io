@@ -1,4 +1,5 @@
 https://harjassand.github.io/
+https://harjassand.github.io/publications/rare-thermal-boundaries/
 https://harjassand.github.io/publications/maximal-information-profiles/
 https://harjassand.github.io/publications/entropy-budgets/
 https://harjassand.github.io/publications/gibbs-uniqueness/

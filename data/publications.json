@@ -6,6 +6,79 @@
   "owner_name": "Harjas Sandhu",
   "papers": [
     {
+      "slug": "rare-thermal-boundaries",
+      "collection": "publications",
+      "title": "Quantum Memory from Rare Thermal Boundaries",
+      "authors": [
+        "Harjas Sandhu"
+      ],
+      "credit_role": "author",
+      "subject": "Quantum information and mathematical physics",
+      "publication_date": "2026-11-06",
+      "manuscript_date": "2026-11-06",
+      "version": "1.0",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "doi": "10.5281/zenodo.24002031",
+      "concept_doi": "10.5281/zenodo.24002030",
+      "record_url": "https://zenodo.org/records/24002031",
+      "license_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "display_type": "Preprint",
+      "abstract_source": "manuscript",
+      "citation_source": "manuscript_metadata",
+      "pdf_filename": "Quantum_Memory_from_Rare_Thermal_Boundaries.pdf",
+      "source_filename": "Quantum_Memory_from_Rare_Thermal_Boundaries_LaTeX.zip",
+      "keywords": [
+        "quantum memory",
+        "exact Hamiltonian dynamics",
+        "Gibbs states",
+        "relative entropy",
+        "quantum channels",
+        "noiseless subsystems"
+      ],
+      "summary": "A thermally rare error boundary can protect an unknown quantum state under exact system–bath dynamics. The paper proves storage bounds proportional to the boundary probability and holding time, and identifies the preparation and access assumptions needed to turn equilibrium estimates into a memory guarantee.",
+      "description": "A thermally rare error boundary can protect an unknown quantum state under exact system–bath dynamics. The paper proves storage bounds proportional to the boundary probability and holding time, and identifies the preparation and access assumptions needed to turn equilibrium estimates into a memory guarantee.",
+      "abstract": "A logical observable can change slowly because its commutator with the Hamiltonian is supported on a thermally rare subspace. Turning this observation into a memory theorem requires control of the state after an unknown input has been written. We give two complete criteria for that step under the exact joint system–bath dynamics. If all three logical Pauli commutators are supported on a common projection of Gibbs probability p, with summed norm bound a, ideal subsystem replacement gives deterministic half-diamond error at most ap|t|F(βa/4), where F(K) = inf over λ > 0 of (K + exp(λ) − 1)/λ. A Pauli-randomized protocol instead has error at most ap(2|t| + β)/4. The proofs use rare-event relative entropy and a Bell-projection identity, respectively. The latter identity also gives a dimension-independent correlation criterion for arbitrary correlated resources and arbitrary joint quantum channels, including an algebraic infinite-bath formulation. We identify precise sufficient conditions for imperfect writing and prove that global domination by a thermal encoder can fail exponentially even for harmless independent gauge faults. All storage statements assume a specified accessible logical algebra and a fixed joint resource; preparation cost and a generic noisy-writing threshold are not supplied. The results are abstract criteria, rather than a new three-dimensional memory construction.",
+      "reader_overview": {
+        "result": [
+          "A quantum memory must preserve an unknown state, including its entanglement with another system. Thermal equilibrium can help when the configurations that allow a logical error are extremely rare. This paper gives precise conditions under which that equilibrium rarity protects a newly written input under the actual joint dynamics of the memory and its environment.",
+          "If the logical observables change only on a boundary of equilibrium probability p, the storage error is bounded by an explicit constant times p times the holding time. An exponentially rare boundary therefore gives a correspondingly long conditional storage interval. A two-qubit example shows the mechanism and explains why the bound is sufficient rather than an optimal lifetime for every model."
+        ],
+        "mechanism": [
+          "Writing swaps the external input into an accessible logical subsystem while retaining the original joint marginal of all remaining variables and the bath. The relative-entropy cost of this replacement is proportional to the rare-boundary probability. Measuring only that boundary event, rather than estimating the entire state in trace distance, keeps the full rarity factor through the proof.",
+          "A second argument uses a Bell-state test to convert a complete set of logical correlations into a bound on the memory channel. Randomizing the input Pauli and undoing it after reading gives a guarantee valid even for entangled inputs. This protocol requires two reliably retained classical frame bits. The general channel criterion also works for arbitrary correlated resources and joint quantum channels."
+        ],
+        "scope": [
+          "The thermal theorem assumes an exact accessible logical qubit algebra on the whole physical Hilbert space, two-sided support of all three logical commutators on a common projection, and the actual interacting Gibbs resource. The equilibrium rare-event estimate must be established separately for the model. Neither locality nor an efficient implementation of the logical swap follows from the abstract theorem.",
+          "The paper does not construct a new three-dimensional code, prepare an interacting Gibbs state efficiently, or prove a threshold for realistic noisy writing. Its imperfect-writing theorems are sufficient interfaces; counterexamples show why an accurate logical marginal at release is not enough. The infinite-bath extension applies to the general channel criterion and its stated invariant-state consequence, and the collective-symmetry application retains its separate exact symmetry and energy-scale assumptions."
+        ]
+      },
+      "resource_links": [
+        {
+          "label": "Standalone LaTeX manuscript",
+          "url": "Quantum_Memory_from_Rare_Thermal_Boundaries.tex"
+        }
+      ],
+      "pdf_sha256": "3ec14670ab92d592a83c8ac962273af77f2d69057f426c851c8c7cc318218d2b",
+      "pdf_bytes": 500998,
+      "page_count": 22,
+      "bib_sha256": "99a982bdf601da2327d317758c17c5ddcaf244a5cbf5c89012f3930bdf25b5d3",
+      "ris_sha256": "0a13e8114d19208ae996ff757494433bd26358737688232ca8e569720c6b4feb",
+      "assets": [
+        {
+          "filename": "Quantum_Memory_from_Rare_Thermal_Boundaries.tex",
+          "bytes": 78354,
+          "sha256": "d149a72d35f2fb4a77432048933ec2551e358a3c6325e2a2cc8b29dee661e446"
+        },
+        {
+          "filename": "Quantum_Memory_from_Rare_Thermal_Boundaries_LaTeX.zip",
+          "bytes": 38862,
+          "sha256": "7fd44a955c8abce4daf8cb30fcef8fd789e8d748d3014689682abef158a47c2e"
+        }
+      ]
+    },
+    {
       "slug": "maximal-information-profiles",
       "collection": "publications",
       "title": "Greatest Quantum Channels with Prescribed Maximal Information",
