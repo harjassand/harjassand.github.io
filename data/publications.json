@@ -6,6 +6,88 @@
   "owner_name": "Harjas Sandhu",
   "papers": [
     {
+      "slug": "maximal-information-profiles",
+      "collection": "publications",
+      "title": "Greatest Quantum Channels with Prescribed Maximal Information",
+      "authors": [
+        "Harjas Sandhu"
+      ],
+      "credit_role": "author",
+      "subject": "Quantum information and operator algebras",
+      "publication_date": "2026-11-06",
+      "manuscript_date": "2026-11-06",
+      "version": "1.0",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "doi": "10.5281/zenodo.23996960",
+      "concept_doi": "10.5281/zenodo.23996959",
+      "record_url": "https://zenodo.org/records/23996960",
+      "license_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "display_type": "Preprint",
+      "abstract_source": "manuscript",
+      "citation_source": "manuscript_metadata",
+      "pdf_filename": "Greatest_Quantum_Channels_with_Prescribed_Maximal_Information.pdf",
+      "source_filename": "Greatest_Quantum_Channels_with_Prescribed_Maximal_Information_LaTeX.zip",
+      "keywords": [
+        "quantum channels",
+        "RLD Fisher information",
+        "maximal f-divergences",
+        "channel comparison",
+        "von Neumann algebras",
+        "injectivity",
+        "statistical deficiency",
+        "quantum capacity",
+        "quantum information"
+      ],
+      "summary": "Quantum channels can share every complete maximal-information test while differing in what they can physically simulate. The paper constructs their greatest finite realizations and shows how atomicity and injectivity govern exact and approximate realizations for infinite outputs with a tracial invariant.",
+      "description": "Quantum channels can share every complete maximal-information test while differing in what they can physically simulate. The paper constructs their greatest finite realizations and shows how atomicity and injectivity govern exact and approximate realizations for infinite outputs with a tracial invariant.",
+      "abstract": "Equality of quantum information measures need not imply recoverability. We study the class of all channels having the same right logarithmic derivative Fisher information for every faithful input, tangent, and finite reference system. These data determine a generated von Neumann algebra, its labelled normalized channel, and a faithful normal state. For finite outputs this invariant yields a greatest channel under deterministic postprocessing, of minimum possible output dimension. For separable trace-class outputs and a tracial invariant state, a greatest member exists exactly when the invariant is a countable product of finite matrix algebras. Arbitrarily accurate greatest members inside the same exact profile class exist exactly when the invariant is injective. In the latter statement a common sequence approximating each fixed target already implies the existence of a uniformly approximating sequence. The proofs combine physical resolvent tests, spectral pinching, finite-dimensional averaging, and established operator-algebraic approximation theory. We give an explicit free-group obstruction, polynomial-bit separating tests for rational finite channels, and a fixed full-support family for which the optimized capacity of the profile class is discontinuous although every physical channel is antidegradable. The atomic/injective distinction and the underlying sufficiency and amenability machinery are established; the formulation here fixes the complete information profile and requires its optimizing sources to remain in that class.",
+      "reader_overview": {
+        "result": [
+          "Two quantum channels can agree on a large family of information measures without having the same physical capabilities. This paper fixes their complete right logarithmic derivative (RLD) information profile: it requires equality for every faithful input state, every infinitesimal change of that state and every finite quantum reference system left untouched by the channel.",
+          "A greatest realization is one channel from which every other channel with that exact profile can be produced by ordinary deterministic postprocessing. For a finite-dimensional invariant algebra, the paper constructs such a realization using the smallest possible effective output dimension. Among separable density-operator outputs with a faithful tracial invariant state, exact greatestness is equivalent to a countable product of finite matrix blocks. Uniformly accurate greatest realizations within the same exact class exist precisely when the invariant algebra is injective.",
+          "A simple example explains why this question is different from ordinary recoverability. Orthogonal classical records and certain nonorthogonal pure-state records have identical complete RLD profiles. The orthogonal records can prepare the nonorthogonal ones, but no channel can turn the latter back into perfectly distinguishable records."
+        ],
+        "mechanism": [
+          "The first step normalizes each output by the channel’s output on the identity. The normalized operators generate an algebra, and the output density gives it a weighted state. A finite reference arranged as a path turns an ordered product of normalized operators into a coefficient of a resolvent. Four elementary reference projectors read its real and imaginary parts. All complete physical tests therefore determine the labelled algebra and state.",
+          "Finite matrix blocks can be represented once each, with explicit trace-preserving preparation maps to every other realization. In the infinite tracial setting, spectral pinching constructs fixed targets that attain the largest possible binary testing norm. Simulating those targets forces source densities toward centrality. Conversely, averaging a density over finite-dimensional unitary groups preserves its entire exact profile and yields uniform approximation. The operator-algebraic classification and amenability machinery used at this step are established results and are credited in the paper."
+        ],
+        "scope": [
+          "The input dimension is finite. Infinite outputs are ordinary trace-class density operators on separable Hilbert spaces, and physical postprocessings have normal adjoints. The infinite exact and approximate classification requires a faithful normal tracial invariant state; the finite-dimensional greatest-representative theorem does not. The infinite nontracial problem remains open.",
+          "The approximation theorem requires a single source sequence that works for every fixed target in the class. It proves that existence of such a sequence is equivalent to existence of a sequence with uniform diamond-norm error over all targets. The sources themselves retain the exact original profile, but their outputs may remain infinite dimensional. No computable general filtration or convergence rate is supplied.",
+          "For explicit rational finite channels, exact profile equality and faithful separating witnesses have polynomial description cost; the information gap may nevertheless be exponentially small. A fixed full-support family shows that capacity optimized over an exact profile class can jump even though every physical channel in the family has zero quantum capacity. This is consistent with continuity of ordinary channel capacity. Complete RLD-profile equality is a different problem from complete SLD, Umegaki and Holevo information order."
+        ]
+      },
+      "resource_links": [
+        {
+          "label": "Standalone LaTeX manuscript",
+          "url": "Greatest_Quantum_Channels_with_Prescribed_Maximal_Information.tex"
+        },
+        {
+          "label": "Related SLD information-order paper",
+          "url": "/publications/complete-information-orders/"
+        }
+      ],
+      "pdf_sha256": "5aa5276d0247725d8662d916d6aaaaebd1f8e32583e6dcf5a9bbbb32bac6f930",
+      "pdf_bytes": 601320,
+      "page_count": 28,
+      "bib_sha256": "a2445d1d02b357a26b0af0d0fc6b01a28f4680c08064187e6b717ccec1904ee5",
+      "ris_sha256": "dcd0cfa822bbc66edc38f978b2b22b4d4a6d3f73cccf0b4f5e96db2689064692",
+      "assets": [
+        {
+          "filename": "Greatest_Quantum_Channels_with_Prescribed_Maximal_Information.tex",
+          "bytes": 105298,
+          "sha256": "49503f53d94540c017fa1f94f22ee74a40b8f0175633f0b92a4b2cc2e9467bdc"
+        },
+        {
+          "filename": "Greatest_Quantum_Channels_with_Prescribed_Maximal_Information_LaTeX.zip",
+          "bytes": 54326,
+          "sha256": "f81a7198236b2c823f8394710984ec68e21de0361847bf6ab8aae75c6f5dc551"
+        }
+      ]
+    },
+    {
       "slug": "entropy-budgets",
       "collection": "publications",
       "title": "Entropy Budgets and Weighted Concentration in Parallel Games",
