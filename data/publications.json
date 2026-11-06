@@ -6,6 +6,83 @@
   "owner_name": "Harjas Sandhu",
   "papers": [
     {
+      "slug": "quadratic-commuting-repetition",
+      "collection": "publications",
+      "title": "Quadratic Repetition for Commuting Projection Games and Noisy Quantum Communication",
+      "authors": [
+        "Harjas Sandhu"
+      ],
+      "credit_role": "author",
+      "subject": "Quantum information, complexity and operator algebras",
+      "publication_date": "2026-11-07",
+      "manuscript_date": "2026-11-07",
+      "version": "1.0",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "doi": "10.5281/zenodo.24019089",
+      "concept_doi": "10.5281/zenodo.24019088",
+      "record_url": "https://zenodo.org/records/24019089",
+      "license_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "display_type": "Preprint",
+      "abstract_source": "manuscript",
+      "citation_source": "manuscript_metadata",
+      "pdf_filename": "Quadratic_Repetition_for_Commuting_Projection_Games.pdf",
+      "source_filename": "Quadratic_Repetition_for_Commuting_Projection_Games_LaTeX.zip",
+      "keywords": [
+        "parallel repetition",
+        "commuting operator strategies",
+        "projection games",
+        "conditional relative entropy",
+        "quantum information",
+        "noisy quantum communication"
+      ],
+      "summary": "Repeating a projection game suppresses joint commuting strategies at a quadratic rate in the single-game gap. The paper proves this bound through exact local reconstruction and shows how amplified soundness can survive a precisely charged budget of interactive noisy quantum communication.",
+      "description": "Repeating a projection game suppresses joint commuting strategies at a quadratic rate in the single-game gap. The paper proves this bound through exact local reconstruction and shows how amplified soundness can survive a precisely charged budget of interactive noisy quantum communication.",
+      "abstract": "We prove that a finite two-player Boolean game whose supported winning masks are unions of vertex-disjoint complete bipartite blocks satisfies ω_co(Gⁿ) ≤ exp[−2⁻⁷⁵(1 − ω_co(G))²n]. This includes noninjective and partial projection predicates, allows arbitrary within-round question distributions, and holds against arbitrary joint commuting strategies. A separate finite-matrix argument gives the corresponding tensor theorem with its own gap. The quadratic gap power is optimal within the full block class by the known binary line-game lower bound. The main construction gives one exact square-root-weighted conditioned target and two independently normalized one-sided conditional comparisons. Retained-label cancellation, finite-tracial local reconstruction and scalar finite-table closure yield a charged extension and heterogeneous weighted-threshold bounds. We also apply sandwiched-Rényi channel amortization to interactive finite-dimensional protocols: exponential zero-communication soundness survives prescribed memoryless channels below a strict aggregate entanglement-assisted capacity budget. An erasure example has an explicit polynomial-time randomized coding comparator. General quadratic repetition and uniform efficient locality-preserving compilation remain open; no finite-dimensional resource bound is asserted for arbitrary commuting strategies. ",
+      "reader_overview": {
+        "result": [
+          "A nonlocal game asks two separated players to answer correlated questions without communicating. Repeating the game makes the test harder, but the players may coordinate all their answers through one joint quantum strategy. The paper proves that winning every repetition becomes exponentially unlikely for a broad class of projection and block predicates, even for arbitrary commuting-operator strategies.",
+          "If the single-game value is 1 − ε, the all-wins probability after n independent rounds is at most exp(−2⁻⁷⁵ε²n). The quadratic power of the gap is optimal within the full block class by known line-game examples. A separate theorem covers finite-dimensional tensor strategies with their own gap."
+        ],
+        "mechanism": [
+          "Conditioning on checked wins produces an answer table that need not itself be physically achievable in one round. The proof resolves the winning relation into positive rectangles, records a common label with square-root weights, and compares one exact target to two different one-sided positive states. A private label copy makes an information term cancel exactly.",
+          "Conditional relative entropy measures how much information each untested coordinate needs. Local polar corrections and an operational correlated sampler turn small deficits into legal strategies on every input pair. This closes the reconstruction premise left conditional in the earlier entropy-budget paper. Only scalar probability inequalities pass from finite-tracial models to arbitrary commuting correlations."
+        ],
+        "scope": [
+          "The quadratic theorem requires each supported winning answer graph to be a union of vertex-disjoint complete bipartite blocks; partial and noninjective projections are included. Question pairs may have any within-round joint distribution, but rounds are independent. General predicates retain a presentation charge, so arbitrary-predicate quadratic repetition remains open.",
+          "The noisy-channel extension concerns ordinary finite-dimensional protocols with a question-independent initial resource, or an explicit source-correlation cost. Channel slots are prescribed and memoryless, and every cross-player signal is charged. No uniform finite-dimensional realization of arbitrary commuting strategies, efficient Hamiltonian or cryptographic compiler, historical priority, or implemented physical advantage is claimed."
+        ]
+      },
+      "resource_links": [
+        {
+          "label": "Standalone LaTeX manuscript",
+          "url": "Quadratic_Repetition_for_Commuting_Projection_Games.tex"
+        },
+        {
+          "label": "Earlier entropy-budget paper",
+          "url": "https://doi.org/10.5281/zenodo.23987561"
+        }
+      ],
+      "pdf_sha256": "568bf480cd2f57cfdfecefff44a84807369de52165023e2475784e007d6c14bb",
+      "pdf_bytes": 510454,
+      "page_count": 20,
+      "bib_sha256": "bed135ab8671a51175667523928e10b6fd06bed003ba0589b2b9a734926a8cab",
+      "ris_sha256": "eeef573b0003e6fbfe42cd14a1cd779aedeab8cccaa0467af94edf45ed5fecee",
+      "assets": [
+        {
+          "filename": "Quadratic_Repetition_for_Commuting_Projection_Games.tex",
+          "bytes": 76126,
+          "sha256": "ca1620f7932287d9ff1e17236f052ffc754ee83ba67c23afc021d2754251966b"
+        },
+        {
+          "filename": "Quadratic_Repetition_for_Commuting_Projection_Games_LaTeX.zip",
+          "bytes": 94581,
+          "sha256": "93d9a2ec766463b52d5f46344f3c7f0283103e2e5b6ab7ff2d79551b957c4939"
+        }
+      ]
+    },
+    {
       "slug": "rare-thermal-boundaries",
       "collection": "publications",
       "title": "Quantum Memory from Rare Thermal Boundaries",
