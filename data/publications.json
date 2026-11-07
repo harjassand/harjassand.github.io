@@ -6,6 +6,81 @@
   "owner_name": "Harjas Sandhu",
   "papers": [
     {
+      "slug": "global-noisy-quantum-readouts",
+      "collection": "publications",
+      "title": "Global Readouts of Noisy Quantum Dynamics",
+      "authors": [
+        "Harjas Sandhu"
+      ],
+      "credit_role": "author",
+      "subject": "Open quantum systems, classical simulation and complexity",
+      "publication_date": "2026-11-08",
+      "manuscript_date": "2026-11-08",
+      "version": "1.0",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "doi": "10.5281/zenodo.24042741",
+      "concept_doi": "10.5281/zenodo.24042740",
+      "record_url": "https://zenodo.org/records/24042741",
+      "license_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "display_type": "Preprint",
+      "abstract_source": "manuscript",
+      "citation_source": "manuscript_metadata",
+      "pdf_filename": "Global_Readouts_of_Noisy_Quantum_Dynamics.pdf",
+      "source_filename": "Global_Readouts_of_Noisy_Quantum_Dynamics_LaTeX.zip",
+      "keywords": [
+        "open quantum systems",
+        "classical simulation",
+        "quantum dynamics",
+        "depolarizing noise",
+        "hypercontractivity",
+        "tensor networks",
+        "system identification",
+        "quantum information"
+      ],
+      "summary": "Independent local noise permits classical prediction of global product readouts in a driven two-dimensional quantum system. The algorithm has polynomial bit complexity at every fixed positive noise ratio, including full-rank biased resets when the Hamiltonian preserves their product reference.",
+      "description": "Independent local noise permits classical prediction of global product readouts in a driven two-dimensional quantum system. The algorithm has polynomial bit complexity at every fixed positive noise ratio, including full-rank biased resets when the Hamiltonian preserves their product reference.",
+      "abstract": "We give a randomized polynomial-time classical algorithm for additive prediction of arbitrary products of one-qubit Hermitian contractions in a driven two-dimensional quantum system. Every qubit undergoes replacement at a fixed positive rate. The replacement state may be biased and full rank, provided that the Hamiltonian preserves its product reference; maximally mixed replacement imposes no conservation restriction. The input is a specified product state, the controls have an explicit finite rational description, and the complexity is polynomial in the complete binary input, inverse error and confidence digits, at each fixed positive noise ratio and faithfulness bound. The proof combines coefficient sparsification with a constructible short-time functional: two localized strip states, including retained reset registers, have polynomial Schmidt nuclear norm and admit bounded overlap estimation. Moving coefficient weights and weighted hypercontractivity extend local prediction to readouts of unrestricted support. We also prove a full-output sampler under a supplied bounded-cut certificate, give an acquired-model prediction theorem with explicit uncertainty and preparation costs, and identify two boundaries: rare-probability evaluation remains conditionally hard, and exponentially accurate product means need not determine a distribution in total variation. General intermediate-time two-dimensional output sampling remains open.",
+      "reader_overview": {
+        "result": [
+          "A product readout combines one local observable from each chosen spin. It can ask about a few spins or about a quantity involving the entire system, such as the parity of all measured bits. Predicting its mean need not require reconstructing the exponentially large quantum state.",
+          "This paper gives a randomized classical algorithm for those means in a driven two-dimensional system with independent replacement noise at every site. For a specified product preparation, it achieves any requested additive accuracy in polynomial bit work at each fixed positive noise-to-interaction ratio. Full-rank biased resets are included when the Hamiltonian preserves their product reference; unbiased resets impose no conservation condition."
+        ],
+        "mechanism": [
+          "Noise first removes the need to evaluate very late times. For the remaining interval, a moving weight suppresses complicated observable components. Sparse propagation retains a manageable coefficient list, and hypercontractivity describes how the actual early evolution smooths its error enough to control the chosen input.",
+          "The early interval must still be computed. The proof expresses its mean as the overlap of two states built on narrow strips. Factorial locality and accumulated interaction strength across a cut keep their tensor dimensions polynomial. A biased reset is represented by swapping in a sampled local state and retaining the discarded register; a concentration bound pays for these extra numerical coordinates. No observation of physical bath records is assumed."
+        ],
+        "scope": [
+          "The main theorem requires an explicit finite rational control schedule, bounded interaction range and incidence, and a specified product source. The noise ratio and a positive lower bound on the reset-state eigenvalues are fixed class parameters: the polynomial degree may become very large as noise weakens or the reset state approaches purity. The invariant product reference is generally not the Gibbs state of the interacting Hamiltonian.",
+          "A full-output sampler is proved with an additional supplied bounded-cut architecture; generic intermediate-time two-dimensional sampling remains open. The acquired-model application assumes calibrated local preparation and measurement, a known dictionary and noise rate, and pays preparation, precision and model-error budgets. Additive prediction does not provide relative accuracy for rare events, and no implemented general predictor, hardware demonstration or practical advantage is claimed."
+        ]
+      },
+      "resource_links": [
+        {
+          "label": "Standalone LaTeX manuscript",
+          "url": "Global_Readouts_of_Noisy_Quantum_Dynamics.tex"
+        }
+      ],
+      "pdf_sha256": "2d6218622f03b069c7cbfb044a0359c008987035ecf8238159e5dbfffb3ffe20",
+      "pdf_bytes": 593328,
+      "page_count": 29,
+      "bib_sha256": "e231bd223cc5b52145451402a6d27513391d20a1cea03a7f76c0bdf293fb339a",
+      "ris_sha256": "ad8faa547d4b7b73c8da334abaa09ca5ff59161272a4cf410ecb14d80ce7a84a",
+      "assets": [
+        {
+          "filename": "Global_Readouts_of_Noisy_Quantum_Dynamics.tex",
+          "bytes": 116143,
+          "sha256": "d7ffc9b637706836e3825e6f4c1e9fff561cb04c5811005172868472f49eae2b"
+        },
+        {
+          "filename": "Global_Readouts_of_Noisy_Quantum_Dynamics_LaTeX.zip",
+          "bytes": 54788,
+          "sha256": "c78cccd31a3d3af9449cb2c2940d9e0d09273d5fb5637728145caf0a42d8f614"
+        }
+      ]
+    },
+    {
       "slug": "quadratic-commuting-repetition",
       "collection": "publications",
       "title": "Quadratic Repetition for Commuting Projection Games and Noisy Quantum Communication",
