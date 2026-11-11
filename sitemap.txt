@@ -1,4 +1,6 @@
 https://harjassand.github.io/
+https://harjassand.github.io/publications/twelve-mode-ensemble-control/
+https://harjassand.github.io/publications/magnetic-seed-amplification/
 https://harjassand.github.io/publications/global-noisy-quantum-readouts/
 https://harjassand.github.io/publications/quadratic-commuting-repetition/
 https://harjassand.github.io/publications/rare-thermal-boundaries/
