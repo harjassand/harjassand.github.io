@@ -6,6 +6,84 @@
   "owner_name": "Harjas Sandhu",
   "papers": [
     {
+      "slug": "nonlinear-magnetic-response",
+      "collection": "publications",
+      "title": "Programming Nonlinear Magnetic Response with Twelve Mechanical Modes",
+      "authors": [
+        "Harjas Sandhu"
+      ],
+      "credit_role": "author",
+      "subject": "Magnetohydrodynamics, nonlinear response and ensemble control",
+      "publication_date": "2026-11-12",
+      "manuscript_date": "2026-11-12",
+      "version": "1.0",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "doi": "10.5281/zenodo.24152850",
+      "concept_doi": "10.5281/zenodo.24152849",
+      "record_url": "https://zenodo.org/records/24152850",
+      "license_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "display_type": "Preprint",
+      "abstract_source": "manuscript",
+      "citation_source": "manuscript_metadata",
+      "pdf_filename": "Nonlinear_Magnetic_Response_Programming.pdf",
+      "source_filename": "Nonlinear_Magnetic_Response_Programming_LaTeX.zip",
+      "keywords": [
+        "magnetohydrodynamics",
+        "nonlinear response",
+        "ensemble control",
+        "finite-dimensional control",
+        "unknown diffusivity",
+        "mathematical physics"
+      ],
+      "summary": "A single force in twelve mechanical modes programs a nonlinear velocity and magnetic response to an unknown conserved magnetic mean. The construction works across unknown preparations and time-dependent diffusivities, with explicit error and resource bounds for the full three-dimensional resistive MHD equations.",
+      "description": "A single force in twelve mechanical modes programs a nonlinear velocity and magnetic response to an unknown conserved magnetic mean. The construction works across unknown preparations and time-dependent diffusivities, with explicit error and resource bounds for the full three-dimensional resistive MHD equations.",
+      "abstract": "We study prescribed finite-time responses to the unobserved conserved magnetic mean in the three-dimensional viscous, resistive magnetohydrodynamic equations. The control acts only in the momentum equation, through twelve fixed fundamental Fourier shear fields. A deterministic compiler programs an even polynomial velocity response and an odd polynomial magnetic fluctuation of that mean. Its single open-loop force is uniform over a bounded unknown preparation, independent positive spatially constant diffusivity histories with supplied Lipschitz bounds, sufficiently small absolute disturbances, and every energy-admissible weak realization. The degree, coefficient lists and Fourier supports are variable input; physical and binary costs have universal polynomial bounds in the numerical parameters and complete description length. The construction first evaluates odd magnetic registers, loads one collinear packet batch, writes a small even velocity, and amplifies it while preserving the magnetic output. A dyadic return word controls amplification on the whole error space; an inverse-carrier estimate controls the complete unwanted packet output. The result is an endpoint theorem for globally supported periodic forcing. It supplies no hardware, affordability or autonomous computation claim.",
+      "reader_overview": {
+        "result": [
+          "A conducting fluid carries an unknown conserved magnetic mean: a spatially averaged flux that remains constant during the experiment. This paper asks whether a force chosen in advance can make both final fields depend on that unknown quantity in a prescribed nonlinear way, without measuring it.",
+          "The theorem programs an even polynomial velocity response and an odd polynomial magnetic fluctuation, using twelve fixed Fourier shear modes in the momentum equation alone. The polynomial degree and complete rational Fourier coefficient lists are part of the input and satisfy the stated weighted coefficient promise. One force works across the prescribed unknown H¹ preparation class, independent positive spatially constant Lipschitz viscosity and resistivity histories, sufficiently small absolute disturbances, and every admitted energy weak realization."
+        ],
+        "mechanism": [
+          "Oscillatory magnetic packets act as registers whose amplitudes hold unknown odd functions of the conserved mean. Mechanical operations route, multiply, restore and decode those amplitudes without measuring them. The construction performs the magnetic arithmetic first, while velocity can still be reset, and assembles one complete collinear packet batch for the final readout.",
+          "A single conversion writes a small even velocity response. A mechanical amplifier then enlarges it while returning ideal magnetic transport to the identity. Its stability estimate covers the whole error space, including modes absent from the target. High-frequency clearing, an inverse-carrier bound and explicit error propagation control the unwanted packet output in the actual PDE."
+        ],
+        "scope": [
+          "The spatial domain is the periodic unit torus, with globally supported forcing and a prescribed finite final time. The unknown transport coefficients remain positive, spatially constant and Lipschitz in time, with supplied bounds. The preparation, coefficient promise and absolute disturbance tolerance are essential. The theorem does not provide arbitrary path tracking, zero-diffusivity control or fixed relative actuator-error robustness.",
+          "The deterministic compiler has universal polynomial bounds in numerical degree, preparation bounds, inverse accuracy, inverse diffusivity, inverse time and temporal regularity, together with complete binary description length. This is not a polynomial-time claim in binary input length alone. Affordable hardware and autonomous computation are not established, and the separate magnetic seed-channel theorem remains conditional on its additional hypotheses."
+        ]
+      },
+      "resource_links": [
+        {
+          "label": "Standalone LaTeX manuscript",
+          "url": "Nonlinear_Magnetic_Response_Programming.tex"
+        }
+      ],
+      "pdf_sha256": "dadeccb7b764525b6349c7fe49a8c9870c253e26c947974b14935577c2967e2f",
+      "pdf_bytes": 859156,
+      "page_count": 69,
+      "bib_sha256": "6156786cad0326832de18830c216111cf38dc0f8fdb790903007933841021df6",
+      "ris_sha256": "fcaaa4914f10070aa049aa1267a0069226059df735548f61a6ab7f13d32cf72a",
+      "assets": [
+        {
+          "filename": "Nonlinear_Magnetic_Response_Programming.tex",
+          "bytes": 284521,
+          "sha256": "03bb993cd5f1f5290ef6e97813f166ce72353992c768fcc1b2d0a5b88e016c62"
+        },
+        {
+          "filename": "Nonlinear_Magnetic_Response_Programming_LaTeX.zip",
+          "bytes": 132062,
+          "sha256": "4ad899c06e669fe872605adae288e9255e64556f710f2d27861c5ccff3e8483d"
+        }
+      ],
+      "companion": {
+        "slug": "twelve-mode-ensemble-control",
+        "description": "The common-control paper supplies the quantitative reset and finite-mode control foundation. Its endpoint prepares a chosen velocity and erases magnetic fluctuations; the present paper programs a nonlinear response to the unknown conserved magnetic mean."
+      },
+      "acknowledgement_note": "As stated in the manuscript, additional AI assistance for this paper also included proof development."
+    },
+    {
       "slug": "twelve-mode-ensemble-control",
       "collection": "publications",
       "title": "Twelve-Mode Ensemble Control of Navier–Stokes and Resistive MHD",
@@ -1026,5 +1104,5 @@
     }
   ],
   "ai_acknowledgement": "The mathematical ideas, constructions, proofs, and manuscript were developed by GPT-6 Astra, with additional AI assistance for review. Human input was minimal and consisted primarily of setting the research objectives and providing occasional feedback.",
-  "updated": "2026-11-11"
+  "updated": "2026-11-12"
 }

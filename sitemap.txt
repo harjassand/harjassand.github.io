@@ -1,4 +1,5 @@
 https://harjassand.github.io/
+https://harjassand.github.io/publications/nonlinear-magnetic-response/
 https://harjassand.github.io/publications/twelve-mode-ensemble-control/
 https://harjassand.github.io/publications/magnetic-seed-amplification/
 https://harjassand.github.io/publications/global-noisy-quantum-readouts/
