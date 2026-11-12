@@ -262,7 +262,7 @@ def render_home() -> str:
     topic_options = ''.join(f'<option value="{e(topic)}">{e(topic)}</option>' for topic in topics)
     intro_paragraphs = ''.join(f'<p>{e(text)}</p>' for text in DATA['research_intro']['paragraphs'])
     return head('Harjas Sandhu — Research',
-                'Mathematical research in computation, information and physical systems, with connections between papers and the questions they address.', '/') + schema_tag(schema) + '''
+                'Mathematical and scientific research, with connections between papers and the questions they address.', '/') + schema_tag(schema) + '''
 </head>
 <body>
 ''' + header() + f'''
@@ -393,7 +393,7 @@ def main() -> None:
     ackdir.mkdir(exist_ok=True)
     write_page(ackdir / 'index.html', head('Acknowledgements and AI use — Harjas Sandhu',
                'Acknowledgement of AI assistance in the mathematical development and writing of the papers collected on this website.', '/acknowledgements/') + '</head>\n<body>\n' + header() +
-               '<main class="paper-main" id="main"><p class="breadcrumb"><a href="/#papers">← All papers</a></p><h1>Acknowledgements and AI use</h1><p class="acknowledgement-lede">' + e(DATA['ai_acknowledgement']) + '</p><p>Individual paper pages retain their published authorship, contact roles and credits to earlier work. The joint paper with Andreas Thom also records his subsequent work on the proof and exposition.</p></main>' + footer())
+               '<main class="paper-main" id="main"><p class="breadcrumb"><a href="/#papers">← All papers</a></p><h1>Acknowledgements and AI use</h1><p class="acknowledgement-lede">' + e(DATA['ai_acknowledgement']) + '</p><p>Individual paper pages retain their published authorship, contact roles and credits to earlier work.</p></main>' + footer())
     # Preserve the former duplicate address and all downloadable proof files.
     legacy = '/research/catalytic-tensor-conversion/'
     canonical = '/research/exact-catalytic-tensor-restriction/'
