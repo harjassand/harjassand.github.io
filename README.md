@@ -1,14 +1,16 @@
 # Harjas Sandhu — research website
 
 A static, accessible GitHub Pages site at https://harjassand.github.io/.
-The homepage has one expandable **Papers** collection, ordered by date, and an
-About section. No JavaScript or framework is required.
+The homepage has one **Papers** collection, ordered by date, and an About section.
+A compact search field and topic dropdown filter the catalogue locally. The small
+`assets/papers.js` enhancement uses no dependencies, trackers or network requests;
+without JavaScript, every paper and its native disclosure remain accessible.
 
 ## Edit and build
 
 `data/publications.json` is the catalogue. Add a paper there and place its PDF,
 BibTeX, RIS and optional source archive in its existing publication directory.
-Each record explicitly identifies its published authors or separate contact /
+Each record uses `browse_topics` for the topic menu and explicitly identifies its published authors or separate contact /
 coordination role. Do not infer scientific authorship from repository metadata.
 
 ```sh
@@ -19,7 +21,10 @@ python3 -m http.server 8765
 
 The builder produces all HTML, canonical URLs, scholarly metadata, JSON-LD and
 sitemaps. Native HTML disclosure controls provide the expandable collection and
-remain keyboard accessible without JavaScript. CSS is revisioned by content hash.
+remain keyboard accessible without JavaScript. Search matches title, summary,
+technical abstract, keywords and credited names, using all query words together.
+The topic filter combines with search; a live count and clear control expose the
+current result state. CSS is revisioned by content hash.
 The checker validates local links and anchors, metadata, unique catalogue entries,
 consistent acknowledgements and manuscript / citation hashes. It also checks the
 preserved amplifier release assets and source archive integrity. These are site

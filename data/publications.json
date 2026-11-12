@@ -81,7 +81,10 @@
         "slug": "twelve-mode-ensemble-control",
         "description": "The common-control paper supplies the quantitative reset and finite-mode control foundation. Its endpoint prepares a chosen velocity and erases magnetic fluctuations; the present paper programs a nonlinear response to the unknown conserved magnetic mean."
       },
-      "acknowledgement_note": "As stated in the manuscript, additional AI assistance for this paper also included proof development."
+      "acknowledgement_note": "As stated in the manuscript, additional AI assistance for this paper also included proof development.",
+      "browse_topics": [
+        "Fluids and control"
+      ]
     },
     {
       "slug": "twelve-mode-ensemble-control",
@@ -161,7 +164,10 @@
         "slug": "magnetic-seed-amplification",
         "description": "The companion studies a different operation: amplifying a supplied oriented magnetic seed into a known nontrivial field while recovering small total velocity. Its main six-mode construction is independent of the common-control reset; its erasure corollaries use this paper."
       },
-      "acknowledgement_note": "As stated in the manuscript, additional AI assistance for this paper also included proof development."
+      "acknowledgement_note": "As stated in the manuscript, additional AI assistance for this paper also included proof development.",
+      "browse_topics": [
+        "Fluids and control"
+      ]
     },
     {
       "slug": "magnetic-seed-amplification",
@@ -240,7 +246,10 @@
       "companion": {
         "slug": "twelve-mode-ensemble-control",
         "description": "The companion proves a common endpoint theorem for an unknown H¹ preparation ball and unknown time-dependent transport coefficients. It erases fluctuations around the conserved magnetic mean and writes a chosen velocity; this differs from preparing a nontrivial magnetic field from a seed."
-      }
+      },
+      "browse_topics": [
+        "Fluids and control"
+      ]
     },
     {
       "slug": "global-noisy-quantum-readouts",
@@ -315,6 +324,9 @@
           "bytes": 54788,
           "sha256": "c78cccd31a3d3af9449cb2c2940d9e0d09273d5fb5637728145caf0a42d8f614"
         }
+      ],
+      "browse_topics": [
+        "Quantum information"
       ]
     },
     {
@@ -392,6 +404,9 @@
           "bytes": 94581,
           "sha256": "93d9a2ec766463b52d5f46344f3c7f0283103e2e5b6ab7ff2d79551b957c4939"
         }
+      ],
+      "browse_topics": [
+        "Quantum information"
       ]
     },
     {
@@ -465,6 +480,10 @@
           "bytes": 38862,
           "sha256": "7fd44a955c8abce4daf8cb30fcef8fd789e8d748d3014689682abef158a47c2e"
         }
+      ],
+      "browse_topics": [
+        "Quantum information",
+        "Statistical physics"
       ]
     },
     {
@@ -547,6 +566,9 @@
           "bytes": 54326,
           "sha256": "f81a7198236b2c823f8394710984ec68e21de0361847bf6ab8aae75c6f5dc551"
         }
+      ],
+      "browse_topics": [
+        "Quantum information"
       ]
     },
     {
@@ -623,6 +645,9 @@
           "bytes": 34298,
           "sha256": "4b1e608a0cb0d5eac7d785ddc074758d38e950453e46f70274d4c89eea2f169c"
         }
+      ],
+      "browse_topics": [
+        "Quantum information"
       ]
     },
     {
@@ -684,7 +709,10 @@
           "Finite-volume rates apply to the boundary conventions specified in the paper. Infinite-volume clustering does not supply arbitrary-boundary strong spatial mixing. Pressure smoothness and perturbation stability retain their stated hypotheses.",
           "Each unique computable finite-range specification has a computable valid convergence modulus. The obstruction concerns total bounds across the undecidable family."
         ]
-      }
+      },
+      "browse_topics": [
+        "Statistical physics"
+      ]
     },
     {
       "slug": "exact-catalytic-tensor-restriction",
@@ -745,7 +773,11 @@
           "The model is exact stochastic tensor restriction over the complex numbers. The catalyst is bipartite, its dimension is unbounded, and it is returned exactly and uncorrelated with the target on the successful branch. Success probability has no uniform positive lower bound.",
           "The representation compiler and its consequences are presented as a proposed construction. Approximate return, deterministic local operations and a fixed positive success-rate guarantee require separate results."
         ]
-      }
+      },
+      "browse_topics": [
+        "Algebra",
+        "Quantum information"
+      ]
     },
     {
       "slug": "amplifier-entropy",
@@ -890,7 +922,10 @@
           "The general argument concerns two independent finite-energy input groups with any fixed finite number of modes. Correlations and entanglement within either group are allowed. Correlations between the two groups can violate the independent-input formula.",
           "The manuscript also studies Gaussian spectral refinements and Gaussian equality. General non-Gaussian equality and a quantitative stability theorem remain open. The proposed general amplifier argument and its Gaussian special cases should be read at their respective scopes."
         ]
-      }
+      },
+      "browse_topics": [
+        "Quantum information"
+      ]
     },
     {
       "slug": "non-sofic-hyperbolic-group",
@@ -952,7 +987,10 @@
           "The approximation notion is soficity: approximate multiplication and separation in finite symmetric groups, measured by normalized Hamming distance. Ruling out exact finite quotients alone would not establish this obstruction.",
           "The theorem produces a specific finite presentation and a finite connected triangle complex. The geometric conclusion is torsion-free word hyperbolicity; the construction does not aim to minimize the presentation size."
         ]
-      }
+      },
+      "browse_topics": [
+        "Algebra"
+      ]
     },
     {
       "slug": "complete-information-orders",
@@ -1026,7 +1064,10 @@
           "Each individual channel, measurement and test is finite dimensional. Completeness quantifies over every finite reference dimension, with no common bound. The equivalence is a statistical information order; it does not by itself assert that one channel can be obtained by physically processing the other.",
           "The fixed-accuracy obstruction concerns the bounded entropy defect defined in the paper. Its conclusion depends on the complete comparison and the specified exact input representation."
         ]
-      }
+      },
+      "browse_topics": [
+        "Quantum information"
+      ]
     },
     {
       "slug": "capacity-and-distillation",
@@ -1100,7 +1141,10 @@
           "The capacities are the ordinary unassisted quantum and private classical capacities of a finite-dimensional memoryless channel. The witnessing reference dimension, blocklength and positive rate may depend on the input channel pair.",
           "The undecidability distinguishes exactly zero from strictly positive capacity. It supplies no uniform positive rate gap and does not by itself obstruct additive approximation of capacity. The distillation consequences use the constructions and hypotheses stated in the paper."
         ]
-      }
+      },
+      "browse_topics": [
+        "Quantum information"
+      ]
     }
   ],
   "ai_acknowledgement": "The mathematical ideas, constructions, proofs, and manuscript were developed by GPT-6 Astra, with additional AI assistance for review. Human input was minimal and consisted primarily of setting the research objectives and providing occasional feedback.",

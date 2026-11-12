@@ -17,6 +17,7 @@ BASE = DATA["base_url"].rstrip("/")
 PAPERS = DATA["papers"]
 PERSON_ID = BASE + "/#harjas-sandhu"
 ICON_REVISION = hashlib.sha256((ROOT / "assets/favicon.svg").read_bytes()).hexdigest()[:12]
+BROWSE_REVISION = hashlib.sha256((ROOT / "assets/papers.js").read_bytes()).hexdigest()[:12]
 STYLE_REVISION = hashlib.sha256((ROOT / "assets/style.css").read_bytes()).hexdigest()[:12]
 
 def e(value: str) -> str:
@@ -203,9 +204,11 @@ def render_entry(paper: dict, expanded: bool = False) -> str:
     if paper.get('doi'):
         link_items.append(('DOI', 'https://doi.org/' + paper['doi']))
     links = '\n'.join(f'<a href="{e(url)}" aria-label="{e(label + ': ' + paper['title'])}">{e(label)}</a>' for label, url in link_items)
-    return f'''<li>
+    search = ' '.join([paper['title'], paper['summary'], paper['abstract'], paper['subject'], *paper['keywords'], *paper['authors'], paper.get('contact_name', ''), paper.get('contributor_name', '')])
+    topics = '|'.join(paper['browse_topics'])
+    return f'''<li data-paper data-search="{e(search)}" data-topics="{e(topics)}">
           <details class="paper-entry"{' open' if expanded else ''}>
-            <summary><span class="entry-title">{e(paper['title'])}</span><span class="entry-meta">{e(paper['subject'])} · {pretty_date(paper['publication_date'])}</span></summary>
+            <summary><span class="entry-title">{e(paper['title'])}</span><span class="entry-meta"><time datetime="{paper['publication_date']}">{pretty_date(paper['publication_date'])}</time> · {e(paper['display_type'])}</span></summary>
             <div class="entry-body">
               <p class="pub-summary">{e(paper['summary'])}</p>
               <p class="pub-meta">{credit_line(paper)} · {e(paper['display_type'])}</p>
@@ -226,7 +229,9 @@ def render_home() -> str:
                                          'url': BASE + paper_path(p), 'name': p['title']}
                                         for i, p in enumerate(PAPERS)]},
     }
-    entries = '\n'.join(render_entry(p, i == 0) for i, p in enumerate(PAPERS))
+    entries = '\n'.join(render_entry(p) for p in PAPERS)
+    topics = sorted({topic for p in PAPERS for topic in p['browse_topics']})
+    topic_options = ''.join(f'<option value="{e(topic)}">{e(topic)}</option>' for topic in topics)
     return head('Harjas Sandhu — Mathematics & Scientific Discovery',
                 'Papers by and coordinated by Harjas Sandhu, spanning mathematical physics, quantum information and group theory.', '/') + schema_tag(schema) + '''
 </head>
@@ -234,7 +239,6 @@ def render_home() -> str:
 ''' + header() + f'''
   <main id="main">
     <section class="intro" aria-labelledby="harjas-sandhu">
-      <p class="eyebrow">Mathematics &amp; scientific discovery</p>
       <h1 id="harjas-sandhu">Harjas Sandhu</h1>
       <p class="position">Mathematics student · The University of Queensland</p>
       <div class="bio">
@@ -245,12 +249,15 @@ def render_home() -> str:
 
     <section class="section-row papers-section" id="papers" aria-labelledby="papers-heading">
       <span class="legacy-anchor" id="selected-research"></span><span class="legacy-anchor" id="publications"></span>
-      <div><h2 id="papers-heading">Papers</h2><p class="section-note">Mathematics, physics and quantum information</p></div>
+      <div class="collection-heading"><h2 id="papers-heading">Papers</h2><p id="paper-results" role="status" aria-live="polite" aria-atomic="true">{len(PAPERS)} papers · Newest first</p></div>
       <div class="section-copy">
-        <details class="paper-folder" open>
-          <summary><span class="folder-icon" aria-hidden="true"></span><span>All papers</span><span class="paper-count">{len(PAPERS)}</span></summary>
-          <ol class="publication-list">{entries}</ol>
-        </details>
+        <form class="paper-tools" id="paper-tools" role="search" aria-label="Search papers" hidden>
+          <div class="search-field"><label for="paper-search">Search papers</label><input id="paper-search" name="q" type="search" placeholder="Title, keyword or author" autocomplete="off" aria-controls="paper-list"></div>
+          <div class="topic-field"><label for="paper-topic">Topic</label><select id="paper-topic" name="topic" aria-controls="paper-list"><option value="">All topics</option>{topic_options}</select></div>
+        </form>
+        <div class="filter-actions"><button id="paper-clear" type="button" hidden>Clear filters</button></div>
+        <ol class="publication-list" id="paper-list">{entries}</ol>
+        <div class="no-papers" id="no-papers" hidden><h3>No papers found</h3><p>Try another keyword or choose a different topic.</p></div>
       </div>
     </section>
 
@@ -264,7 +271,7 @@ def render_home() -> str:
       </div>
     </section>
   </main>
-''' + footer()
+''' + f'<script src="/assets/papers.js?v={BROWSE_REVISION}" defer></script>\n' + footer()
 
 
 def render_overview(paper: dict) -> str:

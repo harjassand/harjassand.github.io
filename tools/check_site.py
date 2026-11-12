@@ -57,6 +57,8 @@ class Page(HTMLParser):
             self.links.append(attr["href"])
         if tag == "link" and attr.get("rel") in ("stylesheet", "icon"):
             self.links.append(attr["href"])
+        if tag == "script" and "src" in attr:
+            self.links.append(attr['src'])
         if tag == "img" and "src" in attr:
             self.links.append(attr['src'])
         if tag == "link" and attr.get("rel") == "stylesheet":
@@ -128,7 +130,8 @@ def main():
     check('papers' in home.ids and 'about' in home.ids, 'Unified collection or about section missing')
     html = (ROOT / 'index.html').read_text()
     check(html.count('class="paper-entry"') == len(papers), 'Collection has duplicate or missing papers')
-    check('<details class="paper-folder" open>' in html, 'Native accessible collection missing')
+    check('id="paper-list"' in html and 'id="paper-tools"' in html, 'Searchable catalogue missing')
+    check('Mathematics, physics and quantum information' not in html, 'Removed collection tagline returned')
     for phrase in ('Selected research', 'Publications &amp; manuscripts', 'About the AI-generated manuscripts'):
         check(phrase not in html, 'Legacy categorisation remains: ' + phrase)
     check(len(set(p['title'] for p in papers)) == len(papers), 'Duplicate paper titles')

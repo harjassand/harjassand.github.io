@@ -16,7 +16,7 @@ body { margin: 0; border-top: 4px solid var(--deep); color: var(--ink); backgrou
 ::selection { background: #cfe1cf; color: var(--deep); }
 a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: .22em; }
 a:hover { color: var(--deep); text-decoration-thickness: 2px; }
-a:focus-visible, summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 5px; border-radius: 2px; }
+a:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-offset: 5px; border-radius: 2px; }
 p, h1, h2, h3, dl, ol { margin: 0; }
 p + p { margin-top: 1rem; }
 time { white-space: nowrap; }
@@ -44,18 +44,9 @@ h3 { font-size: 1.3rem; line-height: 1.4; letter-spacing: -.015em; }
 .section-copy { min-width: 0; }
 .section-note { margin-top: .65rem; font-size: .8125rem; color: var(--muted); line-height: 1.65; }
 .legacy-anchor { position: absolute; }
-.paper-folder { margin: 0; border: 1px solid var(--line); border-radius: .8rem; background: var(--surface); overflow: clip; }
-summary { cursor: pointer; }
-summary::-webkit-details-marker { display: none; }
-.paper-folder > summary { display: flex; align-items: center; gap: .7rem; padding: 1.05rem 1.4rem; color: var(--deep); font-size: .875rem; font-weight: 500; background: var(--wash); list-style: none; }
-.paper-folder > summary::after { content: '+'; margin-left: auto; font-weight: 400; font-size: 1.1rem; }
-.paper-folder[open] > summary::after { content: '−'; }
-.folder-icon { position: relative; display: inline-block; width: 1rem; height: .75rem; border: 1px solid var(--blue); border-radius: 2px; margin-top: .15rem; }
-.folder-icon::before { content: ''; position: absolute; width: .4rem; height: .2rem; left: -1px; top: -.25rem; border: 1px solid var(--blue); border-bottom: 0; border-radius: 2px 2px 0 0; }
-.paper-count { font-size: .6875rem; line-height: 1.6; font-variant-numeric: tabular-nums; background: #d9e5d6; border-radius: 1rem; padding: .05rem .5rem; }
 .publication-list { list-style: none; padding: 0; }
 .paper-entry { margin: 0; border-top: 1px solid var(--line); }
-.paper-entry[open] { background: #f6faf4; box-shadow: inset 3px 0 var(--blue); }
+.paper-entry[open] { background: var(--surface); }
 .paper-entry > summary { position: relative; display: block; width: 100%; padding: 1.3rem 3.25rem 1.3rem 1.4rem; list-style: none; }
 .paper-entry > summary:hover .entry-title { color: var(--blue); }
 .paper-entry > summary::after { content: '+'; position: absolute; right: 1.4rem; top: 1.3rem; font-size: 1.1rem; color: var(--muted); }
@@ -137,7 +128,7 @@ pre { background: var(--wash); border: 1px solid var(--line); border-radius: .35
   .site-header nav { gap: .1rem; font-size: .8125rem; }
   .site-header nav a { padding-inline: .45rem; }
   .intro .bio { font-size: 1rem; }
-  .paper-folder > summary { padding-inline: 1.05rem; }
+
   .paper-entry > summary { padding: 1.15rem 2.65rem 1.15rem 1.05rem; }
   .paper-entry > summary::after { right: 1.05rem; top: 1.15rem; }
   .entry-title { font-size: 1.2rem; }
@@ -163,6 +154,45 @@ pre { background: var(--wash); border: 1px solid var(--line); border-radius: .35
   .section-row { padding-block: 1.5rem; }
   .paper-main { max-width: none; }
   .paper-header h1 { font-size: 26pt; }
-  .paper-entry > :not(summary), .paper-folder > :not(summary), .technical-details > :not(summary) { display: block !important; }
+  .paper-entry > :not(summary), .technical-details > :not(summary) { display: block !important; }
   .paper-entry[open] { box-shadow: none; }
+}
+
+/* One quiet catalogue, with optional local search and topic filtering. */
+.papers-section { display: block; padding-top: 2.5rem; }
+.collection-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
+.collection-heading h2 { font-size: 2rem; }
+#paper-results { font-size: .75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.paper-tools { display: grid; grid-template-columns: minmax(0, 1fr) 14rem; gap: 1rem; padding-bottom: 1.3rem; }
+.paper-tools label { display: block; margin-bottom: .4rem; color: var(--muted); font-size: .75rem; }
+.paper-tools input, .paper-tools select { width: 100%; min-width: 0; min-height: 3rem; border: 1px solid #acbdb3; border-radius: .4rem; background: var(--surface); color: var(--ink); padding: .65rem .85rem; font: .9375rem/1.5 var(--sans); }
+.paper-tools input::placeholder { color: #65756e; }
+.paper-tools input:hover, .paper-tools select:hover { border-color: var(--blue); }
+.filter-actions:has(button:not([hidden])) { padding-bottom: 1rem; }
+#paper-clear { cursor: pointer; border: 0; padding: .2rem 0; background: transparent; color: var(--blue); font: .8125rem/1.6 var(--sans); text-decoration: underline; text-underline-offset: .22em; }
+.publication-list { border-bottom: 1px solid var(--line); }
+.paper-entry > summary { padding-block: 1.45rem; padding-left: 0; }
+.paper-entry > summary::after { top: 1.45rem; }
+.paper-entry[open] > summary { padding-left: 1.4rem; }
+.entry-title { font-size: 1.45rem; line-height: 1.4; max-width: 54rem; }
+.entry-meta { margin-top: .4rem; }
+.entry-body { max-width: 55rem; }
+.no-papers { padding: 2.4rem 1.4rem; text-align: center; border-bottom: 1px solid var(--line); }
+.no-papers p { margin-top: .5rem; font-size: .875rem; color: var(--muted); }
+@media (max-width: 760px) {
+  .paper-tools { grid-template-columns: minmax(0, 1fr) 12rem; }
+}
+@media (max-width: 540px) {
+  .paper-tools { grid-template-columns: 1fr; gap: .85rem; }
+  .collection-heading { margin-bottom: 1.1rem; }
+  .collection-heading h2 { font-size: 1.75rem; }
+  .entry-title { font-size: 1.25rem; }
+  .paper-entry > summary { padding: 1.25rem 2rem 1.25rem 0; }
+  .paper-entry > summary::after { top: 1.25rem; right: .25rem; }
+  .paper-entry[open] > summary { padding-left: 1rem; padding-right: 2rem; }
+  .entry-body { padding-inline: 1rem; }
+}
+@media print {
+  .paper-tools, .filter-actions, #paper-results, .no-papers { display: none !important; }
+  .publication-list [hidden] { display: list-item !important; }
 }
