@@ -2,7 +2,9 @@
 
 A static, accessible GitHub Pages site at https://harjassand.github.io/.
 The homepage has one **Papers** collection, ordered by date, and an About section.
-A compact search field and topic dropdown filter the catalogue locally. The small
+A compact search field and topic dropdown filter the catalogue locally; a sort
+menu selects newest first (the default), oldest first or title A–Z. Clearing
+filters preserves the selected sort order. The static build also orders by date. The small
 `assets/papers.js` enhancement uses no dependencies, trackers or network requests;
 without JavaScript, every paper and its native disclosure remain accessible.
 
@@ -60,6 +62,17 @@ scope boundaries are retained in its explanation.
 
 Deploy by publishing the generated tree to the repository's configured GitHub
 Pages branch. No analytics, third-party fonts or client-side trackers are used.
+
+## Research connections and homepage
+
+`research_intro` contains the research-first introduction. `research_connections`
+defines the expandable reading groups and the connected-paper lists on individual
+pages. Each group names its papers by existing slug, with a short link label and
+an explanation of the relationship. Use explicit dependencies only when documented;
+keep thematic connections, different invariants and proposed constructions clear.
+Every paper remains one entry in the searchable catalogue. The contact invitation
+uses the published professional address in `contact_email`. No research-process
+section has been added; the existing acknowledgements are retained.
 
 ## Reading format and site mark
 

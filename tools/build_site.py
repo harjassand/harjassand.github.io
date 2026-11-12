@@ -14,7 +14,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT / "data/publications.json").read_text())
 BASE = DATA["base_url"].rstrip("/")
-PAPERS = DATA["papers"]
+PAPERS = sorted(DATA["papers"], key=lambda p: p["publication_date"], reverse=True)
 PERSON_ID = BASE + "/#harjas-sandhu"
 ICON_REVISION = hashlib.sha256((ROOT / "assets/favicon.svg").read_bytes()).hexdigest()[:12]
 BROWSE_REVISION = hashlib.sha256((ROOT / "assets/papers.js").read_bytes()).hexdigest()[:12]
@@ -140,7 +140,7 @@ def header() -> str:
     <a class="wordmark" href="/"><img src="/assets/favicon.svg?v={ICON_REVISION}" width="34" height="34" alt=""><span>Harjas Sandhu</span></a>
     <nav aria-label="Main navigation">
       <a href="/#papers">Papers</a>
-      <a href="/#about">About</a>
+      <a href="/#about">Contact</a>
     </nav>
   </header>'''
 
@@ -206,7 +206,7 @@ def render_entry(paper: dict, expanded: bool = False) -> str:
     links = '\n'.join(f'<a href="{e(url)}" aria-label="{e(label + ': ' + paper['title'])}">{e(label)}</a>' for label, url in link_items)
     search = ' '.join([paper['title'], paper['summary'], paper['abstract'], paper['subject'], *paper['keywords'], *paper['authors'], paper.get('contact_name', ''), paper.get('contributor_name', '')])
     topics = '|'.join(paper['browse_topics'])
-    return f'''<li data-paper data-search="{e(search)}" data-topics="{e(topics)}">
+    return f'''<li data-paper data-date="{paper['publication_date']}" data-title="{e(paper['title'])}" data-search="{e(search)}" data-topics="{e(topics)}">
           <details class="paper-entry"{' open' if expanded else ''}>
             <summary><span class="entry-title">{e(paper['title'])}</span><span class="entry-meta"><time datetime="{paper['publication_date']}">{pretty_date(paper['publication_date'])}</time> · {e(paper['display_type'])}</span></summary>
             <div class="entry-body">
@@ -216,6 +216,34 @@ def render_entry(paper: dict, expanded: bool = False) -> str:
             </div>
           </details>
         </li>'''
+
+
+def render_connections() -> str:
+    groups = []
+    lookup = {p['slug']: p for p in PAPERS}
+    for group in DATA['research_connections']:
+        links = ''.join(f'<li><a href="{paper_path(lookup[item["slug"]])}">{e(item["label"])}</a><p>{e(item["note"])}</p></li>' for item in group['papers'])
+        groups.append(f'<details class="connection-group" id="connection-{e(group["id"])}"><summary>{e(group["title"])}</summary><div class="connection-body"><p>{e(group["description"])}</p><ol class="connection-papers">{links}</ol></div></details>')
+    return '<section class="connections" id="connections" aria-labelledby="connections-heading"><div class="connections-heading"><h2 id="connections-heading">How the papers connect</h2><p>Explore a question, then follow the related papers.</p></div><div class="connection-grid">' + ''.join(groups) + '</div></section>'
+
+
+def render_related(paper: dict) -> str:
+    lookup = {p['slug']: p for p in PAPERS}
+    groups = [g for g in DATA['research_connections'] if any(i['slug'] == paper['slug'] for i in g['papers'])]
+    if not groups:
+        return ''
+    body = []
+    seen = {paper['slug']}
+    for group in groups:
+        intro = paper.get('companion', {}).get('description', group['description'])
+        links = []
+        for item in group['papers']:
+            if item['slug'] not in seen:
+                seen.add(item['slug'])
+                other = lookup[item['slug']]
+                links.append(f'<li><a href="{paper_path(other)}">{e(other["title"])}</a><p>{e(item["note"])}</p></li>')
+        body.append(f'<p>{e(intro)}</p><ul class="related-papers">' + ''.join(links) + f'</ul><p class="connection-backlink"><a href="/#connection-{e(group["id"])}">Explore this research connection</a></p>')
+    return '<section class="paper-section companion" id="connected-papers"><h2>Connected papers</h2>' + ''.join(body) + '</section>'
 
 
 def render_home() -> str:
@@ -232,20 +260,21 @@ def render_home() -> str:
     entries = '\n'.join(render_entry(p) for p in PAPERS)
     topics = sorted({topic for p in PAPERS for topic in p['browse_topics']})
     topic_options = ''.join(f'<option value="{e(topic)}">{e(topic)}</option>' for topic in topics)
-    return head('Harjas Sandhu — Mathematics & Scientific Discovery',
-                'Papers by and coordinated by Harjas Sandhu, spanning mathematical physics, quantum information and group theory.', '/') + schema_tag(schema) + '''
+    intro_paragraphs = ''.join(f'<p>{e(text)}</p>' for text in DATA['research_intro']['paragraphs'])
+    return head('Harjas Sandhu — Research',
+                'Mathematical research in computation, information and physical systems, with connections between papers and the questions they address.', '/') + schema_tag(schema) + '''
 </head>
 <body>
 ''' + header() + f'''
   <main id="main">
     <section class="intro" aria-labelledby="harjas-sandhu">
-      <h1 id="harjas-sandhu">Harjas Sandhu</h1>
-      <p class="position">Mathematics student · The University of Queensland</p>
-      <div class="bio">
-        <p>I study mathematics and Mathematical AI, with an interest in how computation can open new questions in mathematics and the physical sciences.</p>
-      </div>
-      <div class="intro-links"><a href="#papers">Browse the papers <span aria-hidden="true">↓</span></a><a href="{e(DATA['scholar_profile_url'])}">Google Scholar</a></div>
+      <h1 id="harjas-sandhu">{e(DATA['research_intro']['heading'])}</h1>
+      <div class="bio">{intro_paragraphs}</div>
+      <p class="position">Harjas Sandhu · Mathematics student · The University of Queensland</p>
+      <div class="intro-links"><a href="#papers">Browse the papers <span aria-hidden="true">↓</span></a><a href="#connections">Explore connections</a><a href="{e(DATA['scholar_profile_url'])}">Google Scholar</a></div>
     </section>
+
+    {render_connections()}
 
     <section class="section-row papers-section" id="papers" aria-labelledby="papers-heading">
       <span class="legacy-anchor" id="selected-research"></span><span class="legacy-anchor" id="publications"></span>
@@ -254,6 +283,7 @@ def render_home() -> str:
         <form class="paper-tools" id="paper-tools" role="search" aria-label="Search papers" hidden>
           <div class="search-field"><label for="paper-search">Search papers</label><input id="paper-search" name="q" type="search" placeholder="Title, keyword or author" autocomplete="off" aria-controls="paper-list"></div>
           <div class="topic-field"><label for="paper-topic">Topic</label><select id="paper-topic" name="topic" aria-controls="paper-list"><option value="">All topics</option>{topic_options}</select></div>
+          <div class="sort-field"><label for="paper-sort">Sort by</label><select id="paper-sort" name="sort" aria-controls="paper-list"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select></div>
         </form>
         <div class="filter-actions"><button id="paper-clear" type="button" hidden>Clear filters</button></div>
         <ol class="publication-list" id="paper-list">{entries}</ol>
@@ -263,10 +293,10 @@ def render_home() -> str:
 
     <section class="section-row" id="about" aria-labelledby="about-heading">
       <span class="legacy-anchor" id="research"></span>
-      <h2 id="about-heading">About</h2>
+      <h2 id="about-heading">Get in touch</h2>
       <div class="section-copy">
-        <p>My interests include machine learning, mathematical physics and the use of AI in scientific discovery. I develop and coordinate AI research workflows that explore ideas, test arguments and build on earlier results.</p>
-        <p>The papers collected here cover quantum information, the limits of computation and structural questions in mathematics. The group-theory preprint is joint work with Andreas Thom; individual paper pages retain their published authorship and contact roles.</p>
+        <p>I welcome objections, connections between results, and ideas for possible applications. Questions and suggestions can help shape further investigations.</p>
+        <p><a href="mailto:{e(DATA['contact_email'])}">{e(DATA['contact_email'])}</a></p>
         <p class="about-link"><a href="/acknowledgements/">Acknowledgements and AI use</a></p>
       </div>
     </section>
@@ -307,10 +337,7 @@ def render_paper(paper: dict) -> str:
     doi_details = f'<dt>DOI</dt><dd><a href="https://doi.org/{e(paper["doi"])}">{e(paper["doi"])}</a></dd>' if paper.get('doi') else ''
     cite_names = ' and '.join(paper['authors'])
     cite = (e(cite_names) + '. ' if cite_names else '') + f'({paper["publication_date"][:4]}). <cite>{e(paper["title"])}</cite>. Version {e(paper["version"])}.'
-    related = ''
-    if paper.get('companion'):
-        other = next(p for p in PAPERS if p['slug'] == paper['companion']['slug'])
-        related = f'<section class="paper-section companion"><h2>Related paper</h2><p>{e(paper["companion"]["description"])}</p><p><a href="{paper_path(other)}">{e(other["title"])}</a></p></section>'
+    related = render_related(paper)
     return head(paper['title'] + ' — Harjas Sandhu', paper['summary'], path, paper) + schema_tag(article_schema(paper)) + f'''
 </head>
 <body>
@@ -326,7 +353,7 @@ def render_paper(paper: dict) -> str:
         <p class="paper-dates"><time datetime="{paper['publication_date']}">{pretty_date(paper['publication_date'])}</time> · Version {e(paper['version'])}</p>
         <div class="paper-actions"><a class="pdf-link" href="{pdf_path(paper)}">Read PDF</a><a href="#resources">All downloads</a><a href="#citation">Cite</a></div>
       </header>
-      <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a></nav>
+      <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a><a href="#connected-papers">Connected papers</a></nav>
       {render_overview(paper)}
       <div class="technical-material">
         <details class="technical-details" id="abstract" open>

@@ -13,7 +13,7 @@
   <link rel="icon" href="/assets/favicon-32.png?v=7ddbc311fc12" type="image/png" sizes="32x32">
   <link rel="icon" href="/assets/favicon.svg?v=7ddbc311fc12" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=7ddbc311fc12" sizes="180x180">
-  <link rel="stylesheet" href="/assets/style.css?v=5af0ddf8c573">
+  <link rel="stylesheet" href="/assets/style.css?v=dfe59f1e666d">
   <meta property="og:title" content="Global Readouts of Noisy Quantum Dynamics — Harjas Sandhu">
   <meta property="og:description" content="Independent local noise permits classical prediction of global product readouts in a driven two-dimensional quantum system. The algorithm has polynomial bit complexity at every fixed positive noise ratio, including full-rank biased resets when the Hamiltonian preserves their product reference.">
   <meta property="og:type" content="article">
@@ -98,7 +98,7 @@
     <a class="wordmark" href="/"><img src="/assets/favicon.svg?v=7ddbc311fc12" width="34" height="34" alt=""><span>Harjas Sandhu</span></a>
     <nav aria-label="Main navigation">
       <a href="/#papers">Papers</a>
-      <a href="/#about">About</a>
+      <a href="/#about">Contact</a>
     </nav>
   </header>
   <main class="paper-main" id="main">
@@ -112,7 +112,7 @@
         <p class="paper-dates"><time datetime="2026-11-08">8 November 2026</time> · Version 1.0</p>
         <div class="paper-actions"><a class="pdf-link" href="/publications/global-noisy-quantum-readouts/Global_Readouts_of_Noisy_Quantum_Dynamics.pdf">Read PDF</a><a href="#resources">All downloads</a><a href="#citation">Cite</a></div>
       </header>
-      <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a></nav>
+      <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a><a href="#connected-papers">Connected papers</a></nav>
       <section class="paper-section reader-section" id="result" aria-labelledby="result-heading"><h2 id="result-heading">The result</h2><div class="reading-copy"><p>A product readout combines one local observable from each chosen spin. It can ask about a few spins or about a quantity involving the entire system, such as the parity of all measured bits. Predicting its mean need not require reconstructing the exponentially large quantum state.</p><p>This paper gives a randomized classical algorithm for those means in a driven two-dimensional system with independent replacement noise at every site. For a specified product preparation, it achieves any requested additive accuracy in polynomial bit work at each fixed positive noise-to-interaction ratio. Full-rank biased resets are included when the Hamiltonian preserves their product reference; unbiased resets impose no conservation condition.</p></div></section>
 <section class="paper-section reader-section" id="method" aria-labelledby="method-heading"><h2 id="method-heading">How the argument works</h2><div class="reading-copy"><p>Noise first removes the need to evaluate very late times. For the remaining interval, a moving weight suppresses complicated observable components. Sparse propagation retains a manageable coefficient list, and hypercontractivity describes how the actual early evolution smooths its error enough to control the chosen input.</p><p>The early interval must still be computed. The proof expresses its mean as the overlap of two states built on narrow strips. Factorial locality and accumulated interaction strength across a cut keep their tensor dimensions polynomial. A biased reset is represented by swapping in a sampled local state and retaining the discarded register; a concentration bound pays for these extra numerical coordinates. No observation of physical bath records is assumed.</p></div></section>
 <section class="paper-section reader-section" id="scope" aria-labelledby="scope-heading"><h2 id="scope-heading">Scope</h2><div class="reading-copy"><p>The main theorem requires an explicit finite rational control schedule, bounded interaction range and incidence, and a specified product source. The noise ratio and a positive lower bound on the reset-state eigenvalues are fixed class parameters: the polynomial degree may become very large as noise weakens or the reset state approaches purity. The invariant product reference is generally not the Gibbs state of the interacting Hamiltonian.</p><p>A full-output sampler is proved with an additional supplied bounded-cut architecture; generic intermediate-time two-dimensional sampling remains open. The acquired-model application assumes calibrated local preparation and measurement, a known dictionary and noise rate, and pays preparation, precision and model-error budgets. Additive prediction does not provide relative accuracy for rare events, and no implemented general predictor, hardware demonstration or practical advantage is claimed.</p></div></section>
@@ -137,7 +137,7 @@
         <h2 id="citation-heading">Citation</h2><p class="citation-text">Harjas Sandhu. (2026). <cite>Global Readouts of Noisy Quantum Dynamics</cite>. Version 1.0.</p>
         <div class="link-line"><a href="/publications/global-noisy-quantum-readouts/citation.bib" download>BibTeX</a><a href="/publications/global-noisy-quantum-readouts/citation.ris" download>RIS</a></div>
       </section>
-
+      <section class="paper-section companion" id="connected-papers"><h2>Connected papers</h2><p>Three complementary questions: what can be predicted, what can be retained, and how noise constrains output entropy. Each paper uses its own physical model and assumptions.</p><ul class="related-papers"><li><a href="/publications/rare-thermal-boundaries/">Quantum Memory from Rare Thermal Boundaries</a><p>Storage bounds use thermally rare error boundaries and explicit preparation and access assumptions.</p></li><li><a href="/research/amplifier-entropy/">Thermal balance and the amplifier entropy photon-number inequality</a><p>A proposed variational argument addresses output entropy for quantum amplifiers; Gaussian results retain their separate scope.</p></li></ul><p class="connection-backlink"><a href="/#connection-quantum-noise">Explore this research connection</a></p></section>
       <section class="paper-section acknowledgement" id="acknowledgements" aria-labelledby="acknowledgements-heading">
         <h2 id="acknowledgements-heading">Acknowledgements and AI use</h2>
         <p>The mathematical ideas, constructions, proofs, and manuscript were developed by GPT-6 Astra, with additional AI assistance for review. Human input was minimal and consisted primarily of setting the research objectives and providing occasional feedback.</p>

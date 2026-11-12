@@ -13,7 +13,7 @@
   <link rel="icon" href="/assets/favicon-32.png?v=7ddbc311fc12" type="image/png" sizes="32x32">
   <link rel="icon" href="/assets/favicon.svg?v=7ddbc311fc12" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=7ddbc311fc12" sizes="180x180">
-  <link rel="stylesheet" href="/assets/style.css?v=5af0ddf8c573">
+  <link rel="stylesheet" href="/assets/style.css?v=dfe59f1e666d">
   <meta property="og:title" content="Finite Certificates and Undecidable Gibbs Uniqueness — Harjas Sandhu">
   <meta property="og:description" content="At one fixed positive temperature, a family of classical spin models encodes whether a computation ever halts. Uniqueness is undecidable within this family, yet each model on its unique-equilibrium branch has exponentially decaying correlations.">
   <meta property="og:type" content="article">
@@ -97,7 +97,7 @@
     <a class="wordmark" href="/"><img src="/assets/favicon.svg?v=7ddbc311fc12" width="34" height="34" alt=""><span>Harjas Sandhu</span></a>
     <nav aria-label="Main navigation">
       <a href="/#papers">Papers</a>
-      <a href="/#about">About</a>
+      <a href="/#about">Contact</a>
     </nav>
   </header>
   <main class="paper-main" id="main">
@@ -111,7 +111,7 @@
         <p class="paper-dates"><time datetime="2026-11-06">6 November 2026</time> · Version 1.0</p>
         <div class="paper-actions"><a class="pdf-link" href="/publications/gibbs-uniqueness/Finite_Certificates_and_Undecidable_Gibbs_Uniqueness.pdf">Read PDF</a><a href="#resources">All downloads</a><a href="#citation">Cite</a></div>
       </header>
-      <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a></nav>
+      <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a><a href="#connected-papers">Connected papers</a></nav>
       <section class="paper-section reader-section" id="result" aria-labelledby="result-heading"><h2 id="result-heading">The result</h2><div class="reading-copy"><p>The paper constructs finite-range classical models on the square lattice whose equilibrium phases encode whether a computation halts. If it halts, there is exactly one Gibbs state, and correlations of all bounded local physical observables decay exponentially. If it never halts, the full set of Gibbs states is an affine copy of the low-temperature, zero-field two-dimensional Ising simplex.</p><p>This separates two questions that can look similar: how correlations behave inside an equilibrium state, and whether an algorithm can decide that the state is the only equilibrium. The undecidability concerns uniqueness among all Gibbs states, including states that are not translation invariant.</p></div></section>
 <section class="paper-section reader-section" id="method" aria-labelledby="method-heading"><h2 id="method-heading">How the argument works</h2><div class="reading-copy"><p>A halting computation has a finite accepting history. Finite-group character identities make invalid histories cancel exactly in an expansion of the partition function, even though every physical Boltzmann weight is strictly positive. A valid history produces a positive phase-selection bias, however small.</p><p>An Ising comparison and independent disagreement coverings then control the remaining fluctuations. Replica swaps transfer the resulting decay estimate to every local physical observable, including the auxiliary variables used to encode the computation.</p></div></section>
 <section class="paper-section reader-section" id="scope" aria-labelledby="scope-heading"><h2 id="scope-heading">Scope</h2><div class="reading-copy"><p>The main construction fixes inverse temperature β = 1, uses fixed interaction supports and local energy values 0, 1 and 20, and allows the finite on-site alphabet to vary effectively with the computation. A separate soft-certificate construction uses one interaction table at every finite β ≥ 2/5.</p><p>Finite-volume rates apply to the boundary conventions specified in the paper. Infinite-volume clustering does not supply arbitrary-boundary strong spatial mixing. Pressure smoothness and perturbation stability retain their stated hypotheses.</p><p>Each unique computable finite-range specification has a computable valid convergence modulus. The obstruction concerns total bounds across the undecidable family.</p></div></section>
@@ -136,7 +136,7 @@
         <h2 id="citation-heading">Citation</h2><p class="citation-text">Harjas Sandhu. (2026). <cite>Finite Certificates and Undecidable Gibbs Uniqueness</cite>. Version 1.0.</p>
         <div class="link-line"><a href="/publications/gibbs-uniqueness/citation.bib" download>BibTeX</a><a href="/publications/gibbs-uniqueness/citation.ris" download>RIS</a></div>
       </section>
-
+      <section class="paper-section companion" id="connected-papers"><h2>Connected papers</h2><p>These papers investigate three different boundaries: deciding an equilibrium phase, approximating a group by finite permutations, and exact catalytic conversion. They share a question about finite descriptions, rather than a single construction.</p><ul class="related-papers"><li><a href="/publications/non-sofic-hyperbolic-group/">An example of a non-sofic hyperbolic group</a><p>Constructs a hyperbolic group that cannot be approximated by finite permutations in the sense of soficity.</p></li><li><a href="/research/exact-catalytic-tensor-restriction/">Fixed-format undecidability of exact catalytic tensor restriction</a><p>A proposed representation compiler links exact tensor restriction with an undecidable conversion problem. Its construction status is retained.</p></li></ul><p class="connection-backlink"><a href="/#connection-effective-description">Explore this research connection</a></p></section>
       <section class="paper-section acknowledgement" id="acknowledgements" aria-labelledby="acknowledgements-heading">
         <h2 id="acknowledgements-heading">Acknowledgements and AI use</h2>
         <p>The mathematical ideas, constructions, proofs, and manuscript were developed by GPT-6 Astra, with additional AI assistance for review. Human input was minimal and consisted primarily of setting the research objectives and providing occasional feedback.</p>

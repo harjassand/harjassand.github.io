@@ -13,7 +13,7 @@
   <link rel="icon" href="/assets/favicon-32.png?v=7ddbc311fc12" type="image/png" sizes="32x32">
   <link rel="icon" href="/assets/favicon.svg?v=7ddbc311fc12" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=7ddbc311fc12" sizes="180x180">
-  <link rel="stylesheet" href="/assets/style.css?v=5af0ddf8c573">
+  <link rel="stylesheet" href="/assets/style.css?v=dfe59f1e666d">
   <meta property="og:title" content="Quadratic Repetition for Commuting Projection Games and Noisy Quantum Communication — Harjas Sandhu">
   <meta property="og:description" content="Repeating a projection game suppresses joint commuting strategies at a quadratic rate in the single-game gap. The paper proves this bound through exact local reconstruction and shows how amplified soundness can survive a precisely charged budget of interactive noisy quantum communication.">
   <meta property="og:type" content="article">
@@ -96,7 +96,7 @@
     <a class="wordmark" href="/"><img src="/assets/favicon.svg?v=7ddbc311fc12" width="34" height="34" alt=""><span>Harjas Sandhu</span></a>
     <nav aria-label="Main navigation">
       <a href="/#papers">Papers</a>
-      <a href="/#about">About</a>
+      <a href="/#about">Contact</a>
     </nav>
   </header>
   <main class="paper-main" id="main">
@@ -110,7 +110,7 @@
         <p class="paper-dates"><time datetime="2026-11-07">7 November 2026</time> · Version 1.0</p>
         <div class="paper-actions"><a class="pdf-link" href="/publications/quadratic-commuting-repetition/Quadratic_Repetition_for_Commuting_Projection_Games.pdf">Read PDF</a><a href="#resources">All downloads</a><a href="#citation">Cite</a></div>
       </header>
-      <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a></nav>
+      <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a><a href="#connected-papers">Connected papers</a></nav>
       <section class="paper-section reader-section" id="result" aria-labelledby="result-heading"><h2 id="result-heading">The result</h2><div class="reading-copy"><p>A nonlocal game asks two separated players to answer correlated questions without communicating. Repeating the game makes the test harder, but the players may coordinate all their answers through one joint quantum strategy. The paper proves that winning every repetition becomes exponentially unlikely for a broad class of projection and block predicates, even for arbitrary commuting-operator strategies.</p><p>If the single-game value is 1 − ε, the all-wins probability after n independent rounds is at most exp(−2⁻⁷⁵ε²n). The quadratic power of the gap is optimal within the full block class by known line-game examples. A separate theorem covers finite-dimensional tensor strategies with their own gap.</p></div></section>
 <section class="paper-section reader-section" id="method" aria-labelledby="method-heading"><h2 id="method-heading">How the argument works</h2><div class="reading-copy"><p>Conditioning on checked wins produces an answer table that need not itself be physically achievable in one round. The proof resolves the winning relation into positive rectangles, records a common label with square-root weights, and compares one exact target to two different one-sided positive states. A private label copy makes an information term cancel exactly.</p><p>Conditional relative entropy measures how much information each untested coordinate needs. Local polar corrections and an operational correlated sampler turn small deficits into legal strategies on every input pair. This closes the reconstruction premise left conditional in the earlier entropy-budget paper. Only scalar probability inequalities pass from finite-tracial models to arbitrary commuting correlations.</p></div></section>
 <section class="paper-section reader-section" id="scope" aria-labelledby="scope-heading"><h2 id="scope-heading">Scope</h2><div class="reading-copy"><p>The quadratic theorem requires each supported winning answer graph to be a union of vertex-disjoint complete bipartite blocks; partial and noninjective projections are included. Question pairs may have any within-round joint distribution, but rounds are independent. General predicates retain a presentation charge, so arbitrary-predicate quadratic repetition remains open.</p><p>The noisy-channel extension concerns ordinary finite-dimensional protocols with a question-independent initial resource, or an explicit source-correlation cost. Channel slots are prescribed and memoryless, and every cross-player signal is charged. No uniform finite-dimensional realization of arbitrary commuting strategies, efficient Hamiltonian or cryptographic compiler, historical priority, or implemented physical advantage is claimed.</p></div></section>
@@ -136,7 +136,7 @@
         <h2 id="citation-heading">Citation</h2><p class="citation-text">Harjas Sandhu. (2026). <cite>Quadratic Repetition for Commuting Projection Games and Noisy Quantum Communication</cite>. Version 1.0.</p>
         <div class="link-line"><a href="/publications/quadratic-commuting-repetition/citation.bib" download>BibTeX</a><a href="/publications/quadratic-commuting-repetition/citation.ris" download>RIS</a></div>
       </section>
-
+      <section class="paper-section companion" id="connected-papers"><h2>Connected papers</h2><p>Entropy accounting controls correlated test outcomes. Applying it to a game also requires a reconstruction argument; the projection-game paper supplies a result for its specified predicate class.</p><ul class="related-papers"><li><a href="/publications/entropy-budgets/">Entropy Budgets and Weighted Concentration in Parallel Games</a><p>Develops weighted concentration and identifies reconstruction barriers; its commuting-game applications retain a reconstruction hypothesis.</p></li></ul><p class="connection-backlink"><a href="/#connection-parallel-games">Explore this research connection</a></p></section>
       <section class="paper-section acknowledgement" id="acknowledgements" aria-labelledby="acknowledgements-heading">
         <h2 id="acknowledgements-heading">Acknowledgements and AI use</h2>
         <p>The mathematical ideas, constructions, proofs, and manuscript were developed by GPT-6 Astra, with additional AI assistance for review. Human input was minimal and consisted primarily of setting the research objectives and providing occasional feedback.</p>

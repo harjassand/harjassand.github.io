@@ -13,7 +13,7 @@
   <link rel="icon" href="/assets/favicon-32.png?v=7ddbc311fc12" type="image/png" sizes="32x32">
   <link rel="icon" href="/assets/favicon.svg?v=7ddbc311fc12" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=7ddbc311fc12" sizes="180x180">
-  <link rel="stylesheet" href="/assets/style.css?v=5af0ddf8c573">
+  <link rel="stylesheet" href="/assets/style.css?v=dfe59f1e666d">
   <meta property="og:title" content="Entropy Budgets and Weighted Concentration in Parallel Games — Harjas Sandhu">
   <meta property="og:description" content="An explicit conditional entropy budget forces weighted concentration even when test outcomes are arbitrarily correlated. The paper also identifies barriers to positive-factor reconstruction; applications to commuting-operator games retain a separately stated reconstruction hypothesis.">
   <meta property="og:type" content="article">
@@ -98,7 +98,7 @@
     <a class="wordmark" href="/"><img src="/assets/favicon.svg?v=7ddbc311fc12" width="34" height="34" alt=""><span>Harjas Sandhu</span></a>
     <nav aria-label="Main navigation">
       <a href="/#papers">Papers</a>
-      <a href="/#about">About</a>
+      <a href="/#about">Contact</a>
     </nav>
   </header>
   <main class="paper-main" id="main">
@@ -112,7 +112,7 @@
         <p class="paper-dates"><time datetime="2026-11-06">6 November 2026</time> · Version 1.0</p>
         <div class="paper-actions"><a class="pdf-link" href="/publications/entropy-budgets/Entropy_Budgets_and_Weighted_Concentration_in_Parallel_Games.pdf">Read PDF</a><a href="#resources">All downloads</a><a href="#citation">Cite</a></div>
       </header>
-      <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a></nav>
+      <nav class="paper-jumps" aria-label="On this page"><a href="#result">The result</a><a href="#method">The argument</a><a href="#scope">Scope</a><a href="#connected-papers">Connected papers</a></nav>
       <section class="paper-section reader-section" id="result" aria-labelledby="result-heading"><h2 id="result-heading">The result</h2><div class="reading-copy"><p>When many tests are performed together, dependence between their outcomes can defeat the usual concentration arguments. This paper gives a sufficient conditional entropy budget that controls how much the untested coordinates can improve after selected successes have been revealed.</p><p>Under that budget, the chance of an unusually small weighted loss decreases exponentially in the sum of the squared benchmark losses. The theorem allows different losses at different coordinates and holds at every finite length. A sharper estimate covers the event that every test succeeds.</p></div></section>
 <section class="paper-section reader-section" id="method" aria-labelledby="method-heading"><h2 id="method-heading">How the argument works</h2><div class="reading-copy"><p>The proof introduces independent sparse auxiliary tests and conditions on their success. Only these auxiliary choices are independent: the actual outcomes may be arbitrarily correlated. An exact identity tracks the entropy cost of this conditioning, and a differential bound converts that cost into concentration.</p><p>A separate part of the paper examines attempts to reconstruct strategies using positive factorizations of the acceptance rule. It identifies the exact disjoint-block class with the required mass control, proves exponential obstructions outside that class, and shows why independent question-free nuisance registers can still cancel from entropy increments even when endpoint masses grow.</p></div></section>
 <section class="paper-section reader-section" id="scope" aria-labelledby="scope-heading"><h2 id="scope-heading">Scope</h2><div class="reading-copy"><p>The concentration theorem assumes the displayed conditional entropy budget. Its commuting-operator game applications assume Hypothesis FR(K), a finite-tracial coordinate reconstruction property that is not proved here. At its purely existential level, FR(K) is equivalent to the corresponding finite-tracial scalar budget. Projection predicates are included under this hypothesis.</p><p>The robust obstruction to uniformly low-mass accurate filters concerns all near-perfect tested instances at bounded universal charge with growing answer alphabets. It limits this reconstruction method and does not disprove general quadratic parallel repetition. Exact nuisance cancellation requires a literal product state, product measurements and a product conditioning event.</p><p>General correlated-nuisance subtraction, unconditional quadratic repetition for arbitrary predicates and optimal threshold rates remain open. Established quadratic bounds for unique games are credited separately.</p></div></section>
@@ -137,7 +137,7 @@
         <h2 id="citation-heading">Citation</h2><p class="citation-text">Harjas Sandhu. (2026). <cite>Entropy Budgets and Weighted Concentration in Parallel Games</cite>. Version 1.0.</p>
         <div class="link-line"><a href="/publications/entropy-budgets/citation.bib" download>BibTeX</a><a href="/publications/entropy-budgets/citation.ris" download>RIS</a></div>
       </section>
-
+      <section class="paper-section companion" id="connected-papers"><h2>Connected papers</h2><p>Entropy accounting controls correlated test outcomes. Applying it to a game also requires a reconstruction argument; the projection-game paper supplies a result for its specified predicate class.</p><ul class="related-papers"><li><a href="/publications/quadratic-commuting-repetition/">Quadratic Repetition for Commuting Projection Games and Noisy Quantum Communication</a><p>Proves quadratic repetition for commuting projection games and charges a specified budget of noisy quantum communication.</p></li></ul><p class="connection-backlink"><a href="/#connection-parallel-games">Explore this research connection</a></p></section>
       <section class="paper-section acknowledgement" id="acknowledgements" aria-labelledby="acknowledgements-heading">
         <h2 id="acknowledgements-heading">Acknowledgements and AI use</h2>
         <p>The mathematical ideas, constructions, proofs, and manuscript were developed by GPT-6 Astra, with additional AI assistance for review. Human input was minimal and consisted primarily of setting the research objectives and providing occasional feedback.</p><p>GPT-6.1 Sol was used for independent constructions, mathematical review and literature checks.</p>

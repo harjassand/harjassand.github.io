@@ -134,6 +134,19 @@ def main():
     check('Mathematics, physics and quantum information' not in html, 'Removed collection tagline returned')
     for phrase in ('Selected research', 'Publications &amp; manuscripts', 'About the AI-generated manuscripts'):
         check(phrase not in html, 'Legacy categorisation remains: ' + phrase)
+    groups = DATA['research_connections']
+    lookup = {p['slug']: p for p in papers}
+    check(len({g['id'] for g in groups}) == len(groups), 'Duplicate connection identifiers')
+    connected = set()
+    for group in groups:
+        check('connection-' + group['id'] in home.ids, 'Missing connection group')
+        slugs = [item['slug'] for item in group['papers']]
+        check(len(slugs) >= 2 and len(slugs) == len(set(slugs)), 'Invalid connection members')
+        check(all(slug in lookup for slug in slugs), 'Unknown connected paper')
+        connected.update(slugs)
+    check(connected == set(lookup), 'A paper is missing its research connection')
+    check('paper-sort' in home.ids, 'Sort menu missing')
+    check('Oldest first' in html and 'Title A–Z' in html, 'Sort choices missing')
     check(len(set(p['title'] for p in papers)) == len(papers), 'Duplicate paper titles')
     ack = DATA['ai_acknowledgement']
     for paper in papers:
@@ -183,6 +196,13 @@ def main():
             with zipfile.ZipFile(directory / paper['source_filename']) as archive:
                 check(archive.testzip() is None, 'Source archive CRC failed')
                 check(all(not Path(n).is_absolute() and '..' not in Path(n).parts for n in archive.namelist()), 'Unsafe ZIP member')
+        check('connected-papers' in page.ids, 'Missing connected-paper section')
+        for group in groups:
+            if any(item['slug'] == paper['slug'] for item in group['papers']):
+                for item in group['papers']:
+                    if item['slug'] != paper['slug']:
+                        other = lookup[item['slug']]
+                        check('/' + other['collection'] + '/' + other['slug'] + '/' in page.links, 'Missing related-paper link')
         if paper.get('companion'):
             other = next(p for p in papers if p['slug'] == paper['companion']['slug'])
             check('/' + other['collection'] + '/' + other['slug'] + '/' in page.links, 'Missing companion link')
