@@ -235,7 +235,9 @@ def render_related(paper: dict) -> str:
     body = []
     seen = {paper['slug']}
     for group in groups:
-        intro = paper.get('companion', {}).get('description', group['description'])
+        companion = paper.get('companion', {})
+        has_companion = any(item['slug'] == companion.get('slug') for item in group['papers'])
+        intro = companion.get('description', group['description']) if has_companion else group['description']
         links = []
         for item in group['papers']:
             if item['slug'] not in seen:

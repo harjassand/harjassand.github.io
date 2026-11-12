@@ -6,6 +6,85 @@
   "owner_name": "Harjas Sandhu",
   "papers": [
     {
+      "slug": "chemical-trajectory-compilation",
+      "collection": "publications",
+      "title": "Compiling Stochastic Chemical Trajectories with Elementary Reactions",
+      "authors": [
+        "Harjas Sandhu"
+      ],
+      "credit_role": "author",
+      "subject": "Stochastic reaction networks and chemical computation",
+      "manuscript_date": "2026-11-13",
+      "display_type": "Preprint",
+      "abstract_source": "manuscript",
+      "pdf_filename": "Elementary_Stochastic_Trajectory_Compilation.pdf",
+      "source_filename": "Elementary_Stochastic_Trajectory_Compilation_LaTeX.zip",
+      "keywords": [
+        "stochastic reaction networks",
+        "elementary reactions",
+        "marked paths",
+        "total variation",
+        "chemical compilation",
+        "predictable perturbations",
+        "detailed balance",
+        "mass-action kinetics"
+      ],
+      "summary": "Finite stochastic mass-action systems with a supplied global drift bound can be compiled into elementary chemistry while approximating their full timed, labelled trajectories. The construction preserves reachability, starts with no auxiliary molecules, and controls errors and costs under coordinated, history-dependent rate perturbations.",
+      "description": "Finite stochastic mass-action systems with a supplied global drift bound can be compiled into elementary chemistry while approximating their full timed, labelled trajectories. The construction preserves reachability, starts with no auxiliary molecules, and controls errors and costs under coordinated, history-dependent rate perturbations.",
+      "reader_overview": {
+        "result": [
+          "A stochastic reaction network specifies both what can react and the random timing of its reactions. The main theorem replaces a finite labelled network of variable reaction order by a network with at most two molecules on either side of every reaction, while approximating the law of its entire observed trajectory over a requested finite horizon.",
+          "The input must supply a positive integer population weight and a global upper bound on its drift. The compiler preserves directed reachability for every fine state, uses a decoder with no zero columns, and initializes every auxiliary species at exactly zero. Original null and parallel reaction labels remain observable."
+        ],
+        "mechanism": [
+          "Private intermediate chains assemble the reactants of each original reaction into a pending species that carries their true decoded population. A completion changes the decoded state by the original reaction, and hidden releases return intermediate payloads to their original species. Small collision-return reactions control work on the actual untruncated run.",
+          "A finite-fibre factorial law and an explicit release estimate control the timing error. A marked-path coupling retains exact rescaled event-time coordinates and all original labels. Its auxiliary proposal clocks and equilibrium variables are used only in the proof; the emitted network uses constant rational rates and one known slowdown."
+        ],
+        "scope": [
+          "The theorem concerns ideal unit-volume mass-action models, finite-horizon total variation of complete marked-path laws, and sufficiently small predictable multiplicative rate errors on every fine channel. It does not decide the drift promise, provide exact equality of path laws, or control off-graph molecular reactions.",
+          "Binary compiler costs are polynomial in the complete expanded input description. Numerical duration, reciprocal rates, tolerance, population and every-event costs are polynomial in a separately stated charge that includes activity at a tail cutoff; this charge may grow rapidly with population and reaction order. No practical affordability or implemented molecular device is established.",
+          "A separate theorem constructs a nominally detailed-balanced compiler for reversible targets with prescribed rational activities and a positive conserved integer weight. This is the conservative interface for the spatial companion; neither a general open spatial compiler nor a general open detailed-balanced all-time fault-cost theorem is asserted."
+        ]
+      },
+      "abstract": "We construct elementary mass-action networks that approximate the complete labelled trajectories of finite stochastic reaction lists of variable dimension and order. The input supplies a positive integer population weight and a global upper bound on its drift. The compiled structure and decoder depend only on the reaction list; all decoder columns are nonzero, and initialization uses exactly zero auxiliary molecules. Directed reachability is preserved for every fine state. One constant slowdown and rational coefficients give finite-horizon marked-path total-variation accuracy under arbitrary predictable coordinated multiplicative rate errors. Exact rescaled event times, original null labels and parallel labels are retained. A bounded pending-reaction credit and pathwise counting identities pay population and every fine firing throughout the actual untruncated run. Compiler bit costs and charged numerical physical costs have universal polynomial bounds, with reaction order included in the input. A separate paired construction supplies exact nominal detailed balance, conservation and the same timed-path guarantee for conservative reversible inputs with prescribed rational activities. The results concern ideal mass-action models; they do not construct molecular synthesis pathways or establish practical efficiency.",
+      "publication_date": "2026-11-13",
+      "version": "1.0",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "doi": "10.5281/zenodo.24170339",
+      "concept_doi": "10.5281/zenodo.24170338",
+      "record_url": "https://zenodo.org/records/24170339",
+      "license_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "citation_source": "manuscript_and_verified_Zenodo_metadata",
+      "browse_topics": [
+        "Chemical dynamics"
+      ],
+      "pdf_bytes": 526226,
+      "pdf_sha256": "4964c519563dd21c4230fcb153deb224246c2e071e0b43b42aa44ad313e0eb20",
+      "page_count": 23,
+      "bib_sha256": "e09c93c1be55ad79fd8bb71f01f30520e45f5493cbe9d7738f78f3432d852365",
+      "ris_sha256": "1b7517fec893cb85a81786561f7f19fab0d634363965b999cb2211de411ff3b2",
+      "resource_links": [
+        {
+          "label": "Standalone LaTeX manuscript",
+          "url": "Elementary_Stochastic_Trajectory_Compilation.tex"
+        }
+      ],
+      "assets": [
+        {
+          "filename": "Elementary_Stochastic_Trajectory_Compilation.tex",
+          "bytes": 87742,
+          "sha256": "d9201305ecf4eacd429ae8ec0c4bcc0b5d9a2b32ab8b447abf5c647adf6f61be"
+        },
+        {
+          "filename": "Elementary_Stochastic_Trajectory_Compilation_LaTeX.zip",
+          "bytes": 46767,
+          "sha256": "708c2a310471090013bb5e6a19b3e6779f88df51d2ba639a63984907730d9c82"
+        }
+      ]
+    },
+    {
       "slug": "nonlinear-magnetic-response",
       "collection": "publications",
       "title": "Programming Nonlinear Magnetic Response with Twelve Mechanical Modes",
@@ -1158,6 +1237,23 @@
   },
   "contact_email": "harjas.sandhu@student.uq.edu.au",
   "research_connections": [
+    {
+      "id": "physical-compilation",
+      "title": "Compiling physical dynamics",
+      "description": "Two distinct compiler theorems turn mathematical specifications into ideal chemical or fluid operations, with explicit error and resource accounts. This is a connection between questions and methods; the constructions use different physical models.",
+      "papers": [
+        {
+          "slug": "chemical-trajectory-compilation",
+          "label": "Elementary chemical trajectories",
+          "note": "Compiles stochastic mass-action trajectories into elementary reactions under a supplied global drift promise."
+        },
+        {
+          "slug": "twelve-mode-ensemble-control",
+          "label": "Finite-mode fluid preparation",
+          "note": "Compiles prescribed fluid endpoints into one mechanical forcing program for the stated uncertainty class."
+        }
+      ]
+    },
     {
       "id": "fluid-control",
       "title": "Controlling conducting fluids",
