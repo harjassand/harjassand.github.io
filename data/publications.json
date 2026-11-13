@@ -6,6 +6,90 @@
   "owner_name": "Harjas Sandhu",
   "papers": [
     {
+      "slug": "spatial-chemical-compilation",
+      "collection": "publications",
+      "title": "Spatial Compilation of Stochastic Chemical Trajectories",
+      "authors": [
+        "Harjas Sandhu"
+      ],
+      "credit_role": "author",
+      "subject": "Stochastic reaction networks and spatial probability",
+      "manuscript_date": "2026-11-13",
+      "display_type": "Preprint",
+      "abstract_source": "manuscript",
+      "pdf_filename": "Spatial_Stochastic_Reaction_Compilation.pdf",
+      "source_filename": "Spatial_Stochastic_Reaction_Compilation_LaTeX.zip",
+      "keywords": [
+        "stochastic reaction networks",
+        "chemical compilation",
+        "spatial detailed balance",
+        "hard-ball dynamics",
+        "Poincaré inequality",
+        "reflected diffusion",
+        "marked paths",
+        "unknown transport",
+        "predictable perturbations"
+      ],
+      "summary": "A conservative reversible reaction network can be realized by local elementary reactions among finite-radius particles while approximating its complete timed and labelled trajectory. The construction tolerates specified unknown transport and history-dependent faults, with explicit bounds on dilution, duration, precision and every attempted reaction.",
+      "description": "A conservative reversible reaction network can be realized by local elementary reactions among finite-radius particles while approximating its complete timed and labelled trajectory. The construction tolerates specified unknown transport and history-dependent faults, with explicit bounds on dilution, duration, precision and every attempted reaction.",
+      "reader_overview": {
+        "result": [
+          "A well-mixed reaction table describes counts and reaction events without resolving where its particles are. This paper constructs a local finite-radius ideal particle model for conservative reversible targets, with one known clock change and a total-variation bound for the entire timed and labelled reaction record.",
+          "The original particles may start at any feasible deterministic placement, including wall and pair contacts, and auxiliary particles start absent. The theorem allows unknown spatially inhomogeneous, time-dependent transport and specified predictable faults that can read the full hidden history."
+        ],
+        "mechanism": [
+          "A paired elementary kinetic construction gives intermediate species honest integer payloads and exact nominal activity balance. Anchored forward and reverse placements use matching feasibility indicators; an impossible placement becomes a hidden null attempt rather than a spurious original reaction.",
+          "A dilute hard-ball Poincare inequality controls relaxation from arbitrary placements. Its proof separates configurations and compares paths that move one three-dimensional particle coordinate at a time. Conditional proposal coupling then preserves the actual hidden history while comparing complete timed records."
+        ],
+        "scope": [
+          "Targets must supply a positive conserved integer weight, a reverse-label involution and rational detailed-balanced activities. This is an ideal finite-radius model in a three-dimensional convex polytope, not a general open-network spatial compiler or a theorem at fixed positive packing density.",
+          "Dilution, time and precision costs can be severe. The proved polynomial bound uses a numerical charge including high-order activity, rates, geometry and duration, in addition to binary input length; it does not establish practical affordability.",
+          "Real-material implementation, molecular leakage control and thermodynamic energy costs remain unresolved. Nominal spatial balance is exact, but the trajectory guarantee approximates laws and does not identify the decoded equilibrium with an unconditional target Poisson law."
+        ]
+      },
+      "abstract": "A well-mixed reaction specification does not by itself determine a local particle implementation. We construct such an implementation for finite labelled mass-action networks with a positive integer conservation law, a supplied reverse involution and prescribed rational detailed-balanced activities. The compiler produces elementary reactions, strictly positive particle radii, constant rational coefficients, a payload decoder and one known slowdown. From every feasible initial placement, including simultaneous contacts, the decoded timed and labelled path approximates the target path in total variation. Transport may be unknown, spatially inhomogeneous and time dependent; the estimate permits full-history predictable chemical, drift and correlated covariance faults within a computed tolerance. A dilute hard-ball Poincaré inequality, proved by buffering, rank separation and one-particle coordinate paths, supplies the required population-uniform polynomial mixing estimates. We account for duration, inverse radii and coefficients, precision, every attempted reaction and the actual wall and pair pushes. The bounds are polynomial in a stated numerical charge together with the binary input length. They allow severe dilution and slowdown and concern an ideal particle model, without asserting a molecular realization or a practical advantage.",
+      "publication_date": "2026-11-13",
+      "version": "1.0",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "doi": "10.5281/zenodo.24183342",
+      "concept_doi": "10.5281/zenodo.24183341",
+      "record_url": "https://zenodo.org/records/24183342",
+      "license_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "citation_source": "manuscript_and_verified_Zenodo_metadata",
+      "browse_topics": [
+        "Chemical dynamics"
+      ],
+      "companion": {
+        "slug": "chemical-trajectory-compilation",
+        "description": "The kinetic companion supplies the separately proved conservative, detailed-balanced construction in Theorem 9.1. This spatial paper adds finite-radius placement, unknown reflected transport and full trajectory comparison; it does not extend the companion’s general open theorem to space."
+      },
+      "pdf_bytes": 573053,
+      "pdf_sha256": "46c3cd2ba0539142275086658d9cae35fe4b4019dfefb8c1b525987acdea9b23",
+      "page_count": 30,
+      "resource_links": [
+        {
+          "label": "Standalone LaTeX manuscript",
+          "url": "Spatial_Stochastic_Reaction_Compilation.tex"
+        }
+      ],
+      "assets": [
+        {
+          "filename": "Spatial_Stochastic_Reaction_Compilation.tex",
+          "bytes": 103808,
+          "sha256": "be56ac335a85a0e1b0976f5132b3a0f589e0aedf3796269fd0aa2de0fed3fee1"
+        },
+        {
+          "filename": "Spatial_Stochastic_Reaction_Compilation_LaTeX.zip",
+          "bytes": 52140,
+          "sha256": "c81ea4fb05c7de48b6c7cdc476ffcb526685ba3bf5dd95427a6fcd8a4fad4281"
+        }
+      ],
+      "bib_sha256": "994e3e6c826cfb222b841d5affafbeac16b47f7ac35e828ae6ab3c35fb480fff",
+      "ris_sha256": "0640ecab97168bac1a752401aa0fc9860da24fe2fa3d36527cc7f1f0ea0bb798"
+    },
+    {
       "slug": "chemical-trajectory-compilation",
       "collection": "publications",
       "title": "Compiling Stochastic Chemical Trajectories with Elementary Reactions",
@@ -82,7 +166,11 @@
           "bytes": 46767,
           "sha256": "708c2a310471090013bb5e6a19b3e6779f88df51d2ba639a63984907730d9c82"
         }
-      ]
+      ],
+      "companion": {
+        "slug": "spatial-chemical-compilation",
+        "description": "The spatial companion realizes the separate conservative, detailed-balanced kinetic theorem using local finite-radius particles and unknown transport. Its geometric and transport argument does not supply a spatial realization for the broader open-network input class of this paper."
+      }
     },
     {
       "slug": "nonlinear-magnetic-response",
@@ -1227,7 +1315,7 @@
     }
   ],
   "ai_acknowledgement": "The mathematical ideas, constructions, proofs, and manuscript were developed by GPT-6 Astra, with additional AI assistance for review. Human input was minimal and consisted primarily of setting the research objectives and providing occasional feedback.",
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "research_intro": {
     "heading": "Mathematical foundations for new capabilities",
     "paragraphs": [
@@ -1240,12 +1328,17 @@
     {
       "id": "physical-compilation",
       "title": "Compiling physical dynamics",
-      "description": "Two distinct compiler theorems turn mathematical specifications into ideal chemical or fluid operations, with explicit error and resource accounts. This is a connection between questions and methods; the constructions use different physical models.",
+      "description": "The chemical companions connect an elementary reaction specification with a local particle realization. The fluid paper addresses a related compilation question in a different physical model.",
       "papers": [
         {
           "slug": "chemical-trajectory-compilation",
           "label": "Elementary chemical trajectories",
           "note": "Compiles stochastic mass-action trajectories into elementary reactions under a supplied global drift promise."
+        },
+        {
+          "slug": "spatial-chemical-compilation",
+          "label": "Spatial chemical trajectories",
+          "note": "Uses the separate conservative balanced kinetic theorem, adding finite particle radii, reflected transport and complete timed-path comparison."
         },
         {
           "slug": "twelve-mode-ensemble-control",
