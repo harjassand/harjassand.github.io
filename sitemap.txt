@@ -1,4 +1,5 @@
 https://harjassand.github.io/
+https://harjassand.github.io/publications/sharp-elliptic-degenerate-response/
 https://harjassand.github.io/publications/entropy-contraction/
 https://harjassand.github.io/publications/spatial-chemical-compilation/
 https://harjassand.github.io/publications/chemical-trajectory-compilation/

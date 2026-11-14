@@ -6,6 +6,89 @@
   "owner_name": "Harjas Sandhu",
   "papers": [
     {
+      "slug": "sharp-elliptic-degenerate-response",
+      "collection": "publications",
+      "title": "Sharp Scalar Elliptic Regularity and Certified Degenerate Response",
+      "authors": [
+        "Harjas Sandhu"
+      ],
+      "credit_role": "author",
+      "subject": "Scalar elliptic equations and homogenization",
+      "manuscript_date": "2026-11-15",
+      "publication_date": "2026-11-15",
+      "version": "1.0",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "doi": "10.5281/zenodo.24224812",
+      "concept_doi": "10.5281/zenodo.24224811",
+      "record_url": "https://zenodo.org/records/24224812",
+      "license_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "display_type": "Preprint",
+      "abstract_source": "manuscript",
+      "citation_source": "manuscript_and_verified_Zenodo_metadata",
+      "pdf_filename": "Sharp_Scalar_Elliptic_Regularity_and_Certified_Degenerate_Response.pdf",
+      "source_filename": "Sharp_Scalar_Elliptic_Regularity_and_Certified_Degenerate_Response_LaTeX.zip",
+      "keywords": [
+        "scalar elliptic equations",
+        "sharp regularity",
+        "Hodge reflection",
+        "weak Lorentz endpoint",
+        "exponentially integrable distortion",
+        "degenerate elliptic equations",
+        "periodic homogenization",
+        "effective conductivity",
+        "primal-dual error certificates",
+        "certified computation",
+        "quantitative homogenization"
+      ],
+      "summary": "Sharp estimates describe how scalar elliptic gradients can concentrate, including a local weak endpoint and logarithmic bounds for degenerate media. The paper uses these estimates to certify periodic material response and prove a finite-scale homogenization bound for smooth macroscopic data.",
+      "description": "Sharp estimates describe how scalar elliptic gradients can concentrate, including a local weak endpoint and logarithmic bounds for degenerate media. The paper uses these estimates to certify periodic material response and prove a finite-scale homogenization bound for smooth macroscopic data.",
+      "abstract": "We give a scalar-potential extension of the constrained-gradient calibration of Agazzi et al. to real div–curl pairs in every dimension. It yields the exact Lᵖ norm max{p−1, (p−1)⁻¹} of the real-vector Hodge reflection and the sharp open gradient-estimate interval for measurable symmetric scalar elliptic equations, together with the attained sharp local weak endpoint for homogeneous energy solutions and their normalized fluxes. The same calibration, integrated against damped logarithmic weights, proves sharp local regularity under exponentially integrable distortion: if R² ≤ K E·B and exp(τK) is locally integrable, then (E·B) log^β(e+E·B) and (|E|²+|B|²) log^(β−1)(e+|E|+|B|) are locally integrable for every 0 < β < τ. Explicit examples exclude the logarithmic strong endpoint and every general power gain in the degenerate class. We then establish periodic finite-energy solvability, density in the actual anisotropic primal and dual energy spaces, certified rational approximation, and variational homogenization when the coefficient and its inverse have a supplied exponential moment. On a bounded C² domain, smooth macroscopic solutions admit an O(√δ) L² and weighted corrector estimate. A logarithmic modulus also controls effective-response changes under small-region, relatively comparable coefficient edits. The computational theorem uses expanded coefficient data with certified integral error and pays for their acquisition; it is a termination theorem, not a uniform polynomial-time bound. The critical positive div–curl product and the hypercircle principle are identified as prior machinery.",
+      "browse_topics": [
+        "Elliptic equations"
+      ],
+      "reader_overview": {
+        "result": [
+          "An elliptic equation describes a steady balance between a potential and its flux, such as electric potential and current in a conductor. Even when the potential has finite energy, a rough medium can concentrate its gradient strongly. This paper connects sharp bounds on those concentrations with rigorous error certificates for the medium’s effective response.",
+          "For bounded symmetric coefficients, the paper identifies the maximal uniform interval of strong gradient estimates and proves the sharp local weak upper endpoint for homogeneous energy solutions. A weak estimate controls how much volume can carry a very large gradient, even when the corresponding power integral diverges. For degenerate media, the separate result gives sharp logarithmic energy bounds under exponentially integrable distortion; explicit examples show why stronger general conclusions fail.",
+          "For periodic symmetric media with the stated coefficient and inverse moments, the paper proves finite-energy solvability and exact error certificates for the cell response. It also proves qualitative homogenization, a square-root-scale solution and weighted corrector error bound for smooth macroscopic data, and a logarithmic response-stability bound for small-region edits that remain relatively comparable."
+        ],
+        "mechanism": [
+          "The main calibration adapts Agazzi et al.’s scalar constrained-gradient projection: a scalar potential is projected onto potentials whose gradients stay inside a prescribed ball. Pairing the resulting gradient with a divergence-free field supplies a threshold inequality. Power integration gives the reflection bound; retaining the threshold and controlling cutoff errors gives the weak endpoint. Damped logarithmic weights give the degenerate estimates without assuming the integrability being proved.",
+          "For periodic response, a positive mean-zero energy pair must vanish. This eliminates the residual of a smooth approximation and proves density in the actual anisotropic energy spaces. The classical primal–dual principle then converts compatible approximate gradients and fluxes into an exact error certificate. The finite-scale proof uses weighted cell and flux potentials, a boundary cutoff and a containing-cube argument that justifies tests in both variational domains."
+        ],
+        "scope": [
+          "The equations have a scalar unknown in dimension d ≥ 2; the sharp reflection acts on real vector fields with Euclidean norm. For λI ≤ A ≤ ΛI and s = √(Λ/λ), the strong interval is 2s/(s+1) < p < 2s/(s−1). The finite weak endpoint, when s > 1, is local and homogeneous, with flux normalized as A∇u/√(λΛ). It is not a global forced or arbitrary-boundary endpoint. The uniformly convex homogeneous extension retains D_zW(x,0) = 0.",
+          "The degenerate logarithmic estimate requires a locally integrable nonnegative energy product and the stated exponential distortion bound. Periodic response further requires a symmetric positive-definite coefficient and a fixed-unit exponential moment for both coefficient and inverse. The quantitative homogenization result assumes a bounded C² domain and an actual C² zero-trace homogenized solution, with error controlled by its bounded derivatives through order two; its gradient error is weighted by the microscopic coefficient. General-data or optimal rates, stochastic extensions and an unweighted L² gradient bound are not proved.",
+          "Small-region response stability requires bounded relative comparability and the actual exponential moments for both media; arbitrary-contrast replacements are not covered. Computation requires supplied expanded coefficient tables with certified integral errors, and charges acquisition, spatial expansion and arithmetic. Finite termination does not imply a uniform polynomial cost or practical solver advantage. Finite point measurements alone do not provide that input representation."
+        ]
+      },
+      "resource_links": [
+        {
+          "label": "Standalone LaTeX manuscript",
+          "url": "Sharp_Scalar_Elliptic_Regularity_and_Certified_Degenerate_Response.tex"
+        }
+      ],
+      "pdf_bytes": 619357,
+      "pdf_sha256": "4061ebc2b2f09e0f7dee7d5860411d13d47e34bef0ebf7768325204dbf5bd160",
+      "page_count": 43,
+      "assets": [
+        {
+          "filename": "Sharp_Scalar_Elliptic_Regularity_and_Certified_Degenerate_Response.tex",
+          "bytes": 149094,
+          "sha256": "fa8fb51c03f06c0472cb54911729320978f4386ae401ef6f9d5dd0eb9569beed"
+        },
+        {
+          "filename": "Sharp_Scalar_Elliptic_Regularity_and_Certified_Degenerate_Response_LaTeX.zip",
+          "bytes": 133100,
+          "sha256": "790cfd44918c2a87b5ae833b61b89a078acee0bfe63462295fb03cc133388a0a"
+        }
+      ],
+      "bib_sha256": "2586dcc321e8c7ee882bfddc490679c770514c84fa6c9bb94957c6d90a07226d",
+      "ris_sha256": "6ff346a479662e70a061c6362c2f66cf3c063d4fd59e35b36a558e521afd7dca"
+    },
+    {
       "slug": "entropy-contraction",
       "collection": "publications",
       "title": "Exact Reference-Assisted Entropy Contraction from the Choi Matrix",
@@ -1400,7 +1483,7 @@
     }
   ],
   "ai_acknowledgement": "The mathematical ideas, constructions, proofs, and manuscript were developed by GPT-6 Astra, with additional AI assistance for review. Human input was minimal and consisted primarily of setting the research objectives and providing occasional feedback.",
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
   "research_intro": {
     "heading": "Mathematical foundations for new capabilities",
     "paragraphs": [
@@ -1523,12 +1606,17 @@
     {
       "id": "effective-description",
       "title": "Limits of computation and finite description",
-      "description": "These papers investigate three different boundaries: deciding an equilibrium phase, approximating a group by finite permutations, and exact catalytic conversion. They share a question about finite descriptions, rather than a single construction.",
+      "description": "These papers examine different uses and limits of finite mathematical descriptions: equilibrium uniqueness, certified elliptic response, finite group models and exact catalytic conversion. Their questions are connected thematically; they do not share one construction.",
       "papers": [
         {
           "slug": "gibbs-uniqueness",
           "label": "Equilibrium uniqueness",
           "note": "A fixed-temperature spin family encodes halting, while its unique-equilibrium branch has exponentially decaying correlations."
+        },
+        {
+          "slug": "sharp-elliptic-degenerate-response",
+          "label": "Certified elliptic response",
+          "note": "Constructs response certificates from supplied integral approximations and separates finite termination from uniform computational cost."
         },
         {
           "slug": "non-sofic-hyperbolic-group",
