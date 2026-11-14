@@ -6,6 +6,91 @@
   "owner_name": "Harjas Sandhu",
   "papers": [
     {
+      "slug": "entropy-contraction",
+      "collection": "publications",
+      "title": "Exact Reference-Assisted Entropy Contraction from the Choi Matrix",
+      "authors": [
+        "Harjas Sandhu"
+      ],
+      "credit_role": "author",
+      "subject": "Quantum information and entropy contraction",
+      "manuscript_date": "2026-11-14",
+      "publication_date": "2026-11-14",
+      "version": "1.0",
+      "publisher": "Zenodo",
+      "publisher_url": "https://zenodo.org/",
+      "doi": "10.5281/zenodo.24218265",
+      "record_url": "https://zenodo.org/records/24218265",
+      "license_name": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "display_type": "Preprint",
+      "abstract_source": "manuscript",
+      "citation_source": "manuscript_and_verified_Zenodo_metadata",
+      "pdf_filename": "Exact_Reference_Assisted_Entropy_Contraction.pdf",
+      "source_filename": "Exact_Reference_Assisted_Entropy_Contraction_LaTeX.zip",
+      "keywords": [
+        "quantum information",
+        "quantum channels",
+        "entropy contraction",
+        "strong data processing inequalities",
+        "conditional mutual information",
+        "Choi matrix",
+        "semidefinite programming",
+        "Petz divergences",
+        "Renyi divergence",
+        "quantum Chernoff divergence",
+        "quantum Doeblin coefficients",
+        "tensorization"
+      ],
+      "summary": "An exact finite optimization determines how much distinguishability a quantum channel can preserve in correlations with an untouched memory. The paper connects several entropy measures, separates ordinary mutual-information contraction, and shows why exact channel data and experimental estimation have different limits.",
+      "description": "An exact finite optimization determines how much distinguishability a quantum channel can preserve in correlations with an untouched memory. The paper connects several entropy measures, separates ordinary mutual-information contraction, and shows why exact channel data and experimental estimation have different limits.",
+      "abstract": "How much distinguishability can a quantum channel preserve when its input is correlated with an untouched quantum reference? We give an exact finite semidefinite program for the complete, equal-reference Umegaki contraction coefficient of every finite-dimensional channel. Its value also equals the reference-subtracted relative-entropy coefficient and the conditional mutual-information coefficient. The program uses the unnormalized Choi matrix; its inverse formulation requires an explicit range condition. The proof identifies a centered complete Gram optimization, constructs a state-independent signed observable lift through an erasure channel, and proves sharpness with a rare coherent reference sector. References of bounded dimension suffice, even when both input marginals are prescribed and faithful. The same program computes the corresponding coefficients for regular modular Petz divergences, each fixed Petz Rényi order between zero and one, and quantum Chernoff divergence. Consequences include a harmonic dual, exact tensor products, a sharp comparison with positive CP-replacer minorization, and explicit classical and unitary-noise formulas. We separately compute ordinary quantum mutual-information contraction for qubit depolarization, which is strictly smaller. A discontinuity at pure reset rules out uniformly bounded-use black-box estimation, distinguishing exact Choi-data evaluation from robust acquisition of an unknown channel.",
+      "browse_topics": [
+        "Quantum information"
+      ],
+      "reader_overview": {
+        "result": [
+          "A noisy quantum channel can erase differences between input states while leaving some information in correlations with a memory outside the channel. This paper asks for the largest fraction of distinguishability that can survive, allowing any finite quantum memory. It compares states with the same memory marginal, or subtracts the distinguishability already present in that memory.",
+          "For every finite-dimensional channel, one finite semidefinite program in its Choi matrix gives the exact answer. The complete, reference-subtracted and explicitly conditional-mutual-information coefficients coincide. The same optimization also governs the stated modular Petz divergences, each fixed Petz Rényi order between zero and one, and quantum Chernoff divergence.",
+          "Ordinary mutual information allows a quantum reference but has no separate conditioning memory. Its contraction is a different quantity. For a qubit depolarizing channel with shrinkage one half, the ordinary relative-entropy, ordinary mutual-information and complete entropy coefficients are respectively 1/4, 1/3 and 3/8. The paper determines the qubit formulas on the full completely positive parameter interval."
+        ],
+        "mechanism": [
+          "The proof first measures how far all output observables are from one common center, retaining their cross terms in a matrix Gram inequality. A Stinespring representation converts this into the Choi optimization. A polar-decomposition argument shows that its center can be chosen positive.",
+          "That center gives a signed observable map through an erasure channel. Two separately controlled orders of multiplication produce the universal entropy inequality. For the matching lower bound, a rare coherent memory sector carries a perturbation whose two local marginals vanish exactly. The proof takes the small-perturbation limit first, and only then makes that sector rare.",
+          "The matrix formula also yields an exact tensor-product law, a common-output-row criterion for strict contraction and an inverse-probability formula for orthogonal-unitary noise. The ordinary qubit mutual-information calculation uses a separate pinching argument obtained from a classical channel and a flagged unitary orbit."
+        ],
+        "scope": [
+          "The input is a finite channel description. The Choi matrix is unnormalized, and the inverse formulation includes an essential support condition even when a pseudoinverse is used. The optimization is finite in Hilbert-space dimension; its matrix size can still be exponential in physical qubit count. No uniformly conditioned or strongly polynomial numerical algorithm is asserted.",
+          "The regular modular Petz theorem requires a nonaffine operator-convex generator with finite endpoint value and recession slope. Umegaki entropy has a separate proof. Rényi results concern each fixed order strictly between zero and one, and generalized conditional information means an explicit difference of divergences. They do not cover optimized or sandwiched Rényi conditional information, all orders above one, or a limit uniform in the rare-sector weight.",
+          "For higher-dimensional depolarization the ordinary mutual-information coefficient has proved bounds and a strict separation from the complete coefficient, rather than an exact formula. At pure reset the complete coefficient is discontinuous, so no uniformly bounded number of adaptive black-box channel uses estimates it on every channel. Rare sharpness witnesses may carry vanishing absolute information. A signed observable lift is not a physical simulator or a general recovery operation."
+        ]
+      },
+      "resource_links": [
+        {
+          "label": "Standalone LaTeX manuscript",
+          "url": "Exact_Reference_Assisted_Entropy_Contraction.tex"
+        }
+      ],
+      "pdf_bytes": 565866,
+      "pdf_sha256": "991d1db5bdd566354ce6a8ac64206b4f4c868a3364b83c583c63fa0a256a0e06",
+      "page_count": 39,
+      "assets": [
+        {
+          "filename": "Exact_Reference_Assisted_Entropy_Contraction.tex",
+          "bytes": 125078,
+          "sha256": "d47548c877e69fbc9978d465cbbd168e68f1c6897b4819a89ed4f49a8b903355"
+        },
+        {
+          "filename": "Exact_Reference_Assisted_Entropy_Contraction_LaTeX.zip",
+          "bytes": 108364,
+          "sha256": "78ac5a5c215a21c3e8cb22c596d83c2df4cbedd40853f1f13c35b9f30f98edb7"
+        }
+      ],
+      "concept_doi": "10.5281/zenodo.24218264",
+      "bib_sha256": "ebadae58babd1cd56fb99669601aa81a3381451d46b32a5ee2ae911dcc6ea351",
+      "ris_sha256": "facc9a8b7f8290bba6934ef78f7d85fcfbc56cff78091e9e2889cb821588ae12"
+    },
+    {
       "slug": "spatial-chemical-compilation",
       "collection": "publications",
       "title": "Spatial Compilation of Stochastic Chemical Trajectories",
@@ -1315,7 +1400,7 @@
     }
   ],
   "ai_acknowledgement": "The mathematical ideas, constructions, proofs, and manuscript were developed by GPT-6 Astra, with additional AI assistance for review. Human input was minimal and consisted primarily of setting the research objectives and providing occasional feedback.",
-  "updated": "2026-11-13",
+  "updated": "2026-11-14",
   "research_intro": {
     "heading": "Mathematical foundations for new capabilities",
     "paragraphs": [
@@ -1394,7 +1479,7 @@
     {
       "id": "channel-comparison",
       "title": "Comparing quantum information",
-      "description": "Complete channel comparison leads to capacity and distillation consequences. Maximal-information profiles examine a different invariant and show why agreement of tests need not imply physical simulation.",
+      "description": "These papers distinguish statistical channel orders, exact entropy-loss coefficients and physical simulation. Capacity consequences use the channel-order construction; maximal-information profiles concern a different invariant.",
       "papers": [
         {
           "slug": "complete-information-orders",
@@ -1410,6 +1495,11 @@
           "slug": "maximal-information-profiles",
           "label": "Maximal-information profiles",
           "note": "Studies RLD profiles and canonical realizations. Equality of these profiles is distinct from the complete order used in the companion pair."
+        },
+        {
+          "slug": "entropy-contraction",
+          "label": "Exact entropy contraction",
+          "note": "Computes complete and conditional information-loss coefficients from one finite channel's Choi matrix, and separates them from ordinary mutual-information contraction."
         }
       ]
     },
